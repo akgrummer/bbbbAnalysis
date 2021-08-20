@@ -205,6 +205,11 @@ if args.resubCmd or args.issueCmd:
         jobscript = args.folder + '/job_' + str(val[0]) + '.sh'
         command   = "scripts/t3submit %s" % jobscript
         resubCmds.append(command)
+    for val in notCopied:
+        jobscript = args.folder + '/job_' + str(val[0]) + '.sh'
+        command   = "scripts/t3submit %s" % jobscript
+        resubCmds.append(command)
+
     if args.resubMissing:
         for val in missing:
             # jobscript = job_proto.format(val[0]).replace(args.folder + '/', '')

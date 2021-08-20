@@ -80,6 +80,7 @@ def readShapeFromAltHistos(root_inputfile, nominalname, systname, systformat='{n
 parser = argparse.ArgumentParser(description='Command line parser of skim options')
 parser.add_argument('--config',    dest='cfgfile',        help='Name of config file with MC information',   required = True)
 parser.add_argument('--signal',    dest='signal',         help='Name of the signal',   required = True)
+parser.add_argument('--bkgNorm',    dest='bkgNorm',       help='bkgNorm sysy',   required = True)
 parser.add_argument('--card-only', dest='doworkspace',    help='Just make the txt cards, no workspace',     action='store_false', default=True)
 parser.add_argument('--no-comb',   dest='docombination',  help='Do not make the combined cards',            action='store_false', default=True)
 parser.add_argument('--no-bbb',    dest='dobbb',          help='Do not add the bin-by-bin uncs',            action='store_false', default=True)
@@ -94,6 +95,7 @@ print "[INFO] Reading configuration file . . ."
 with open(configfilename) as templateConfiguration:
 	signalConfiguration = templateConfiguration.read()
 signalConfiguration = signalConfiguration.replace("${signalTemplate}",args.signal)
+signalConfiguration = signalConfiguration.replace("${bkgNorm}"       ,args.bkgNorm)
 cfgparser = ConfigParser()
 cfgparser.optionxform = lambda option: option # preserve lower-upper case
 cfgparser.readfp(StringIO(signalConfiguration))

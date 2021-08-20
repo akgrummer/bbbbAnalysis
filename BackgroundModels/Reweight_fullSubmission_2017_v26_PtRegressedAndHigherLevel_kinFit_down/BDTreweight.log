@@ -1,0 +1,32 @@
+Number of events in dataset before cuts =  2276092
+Number of events in dataset after cuts =  243739
+bTagDataSize     =  27195
+AntibTagDataSize =  216544
+[INFO] Processing predicted model
+transfer factor before reweight =  0.125586485887
+0.12558648588739466
+1.0
+[INFO] Fitting BDT-reweighter ...
+[INFO] Event yields report in control region derivation:
+KFold prediction with voting function
+   -The sum of original weights                 =  216544 +/- 465.342884334
+   -The sum of model weights                    =  27195.000000000004 +/- 61.074475278
+   -The sum of target weights                   =  27195 +/- 164.909065851
+   -The transfer factor                         =  0.125586485887 +/- 0.000807956188715
+   -The normalization value                     =  0.9652740867945168
+[INFO] Runninng KS-test on each variable to define the bdt-reweighter paramaters:
+   -KS distance ratio in H1_b1_kinFit_ptRegressed (after/before) = (0.005/0.022)  = 0.250
+   -KS distance ratio in H1_b2_kinFit_ptRegressed (after/before) = (0.004/0.031)  = 0.125
+   -KS distance ratio in H2_b1_ptRegressed (after/before) = (0.005/0.017)  = 0.293
+   -KS distance ratio in H2_b2_ptRegressed (after/before) = (0.003/0.033)  = 0.105
+   -KS distance ratio in H1_kinFit_pt (after/before) = (0.005/0.035)  = 0.134
+   -KS distance ratio in H2_pt (after/before) = (0.006/0.028)  = 0.207
+   -KS distance ratio in H1_kinFit_eta (after/before) = (0.005/0.011)  = 0.396
+   -KS distance ratio in H2_eta (after/before) = (0.006/0.025)  = 0.232
+   -KS distance ratio in HH_kinFit_m (after/before) = (0.004/0.044)  = 0.099
+   -KS distance ratio in H1_kinFit_bb_DeltaR (after/before) = (0.005/0.035)  = 0.147
+   -KS distance ratio in H2_bb_DeltaR (after/before) = (0.006/0.098)  = 0.062
+   -KS distance ratio in H2_m (after/before) = (0.005/0.088)  = 0.054
+                     **The average KS distance ratio = 0.175
+  **Mean ROC (AUC) in original =  0.5821196576549784
+  **Mean ROC (AUC) in model =  0.504319687409678

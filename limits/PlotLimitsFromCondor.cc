@@ -102,7 +102,7 @@ int main(int argc, char** argv)
     std::string username = getenv ("USER");
     
     const std::vector<std::string> yearList          {"2016", "2017", "2018", "RunII"};
-    const std::vector<std::string> listOfSystematics {"freeze_CMS_bkgnorm", "freeze_CMS_bkgShape", "freeze_lumi_13TeV", "freeze_CMS_trg_eff", "freeze_CMS_l1prefiring", "freeze_CMS_eff_b_b", "freeze_CMS_eff_b_c", "freeze_CMS_eff_b_udsg", "freeze_CMS_PU", "freeze_CMS_scale_j_Total", "freeze_CMS_res_j", "freeze_CMS_res_j_breg", "freeze_autoMCStats"};
+    const std::vector<std::string> listOfSystematics {"freeze_CMS_bkgnorm", "freeze_CMS_bkgShape", "freeze_lumi_13TeV", "freeze_CMS_trg_eff", "freeze_CMS_l1prefiring", "freeze_CMS_eff_b_b", "freeze_CMS_eff_b_c", "freeze_CMS_eff_b_udsg", "freeze_CMS_PU", "freeze_CMS_scale_j_Total", "freeze_CMS_res_j", "freeze_CMS_res_j_breg", "freeze_autoMCStats", "freeze_CMS_LHE_pdf", "freeze_CMS_PS_weights"};
     std::vector<std::string> minLimitOptions      {"statOnly", "syst"};
     std::vector<std::string> allLimitOptions = minLimitOptions;
 

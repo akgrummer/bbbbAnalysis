@@ -1501,7 +1501,10 @@ bool OfflineProducerHelper::select_bbbb_jets(NanoAODTree& nat, EventInfo& ei, Ou
         ot.triggerMcEfficiencyDown   = std::get<2>(std::get<2>(triggerScaleFactorDataAndMonteCarloEfficiency));
     }
 
-    CalculateL1prefiringScaleFactor(nat,ot,ei);
+    if(parameterList_->find("BTagScaleFactorMethod") != parameterList_->end()) //is it a MC event
+    { 
+        CalculateL1prefiringScaleFactor(nat,ot,ei);
+    }
 
     // order H1, H2 by pT: pT(H1) > pT (H2)
     CompositeCandidate H1 = CompositeCandidate(ordered_jets.at(0), ordered_jets.at(1));
@@ -4021,7 +4024,7 @@ bool OfflineProducerHelper::select_gen_YH (NanoAODTree& nat, EventInfo& ei)
     for (uint igp = 0; igp < *(nat.nGenPart); ++igp)
     {
         GenPart gp (igp, &nat);
-        if (abs(get_property(gp, GenPart_pdgId)) != 25 && abs(get_property(gp, GenPart_pdgId)) != 35) continue;
+        if (abs(get_property(gp, GenPart_pdgId)) != 25 && abs(get_property(gp, GenPart_pdgId)) != 35 && abs(get_property(gp, GenPart_pdgId)) != 45) continue;
         // bool isFirst = checkBit(get_property(gp, GenPart_statusFlags), 12); // 12: isFirstCopy
         // if (!isFirst) continue;
         if(abs(get_property(gp, GenPart_pdgId)) == 25)
@@ -4058,14 +4061,25 @@ bool OfflineProducerHelper::select_gen_YH (NanoAODTree& nat, EventInfo& ei)
                 }
             }
         }
+        else if(abs(get_property(gp, GenPart_pdgId)) == 45)
+        {
+            if (gp.isFirstCopy())
+            {
+                if (!assign_to_uninit(gp, {&ei.gen_X} )) {
+                    cout << "** [WARNING] : select_gen_HH : more than one X found" << endl;
+                    all_ok = false;
+                }
+            }
+        }
         
     }
 
-    if (!ei.gen_H1 || !ei.gen_H2){
-       cout << "** [WARNING] : select_gen_HH : didn't find two Higgs : "
+    if (!ei.gen_H1 || !ei.gen_H2 || !ei.gen_X){
+       cout << "** [WARNING] : select_gen_HH : didn't find two Higgs and one X: "
             << std::boolalpha
             << "H1 :" << ei.gen_H1.is_initialized()
             << "H2 :" << ei.gen_H2.is_initialized()
+            << "X  :" << ei.gen_X .is_initialized()
             << std::noboolalpha
             << endl;
         all_ok = false;

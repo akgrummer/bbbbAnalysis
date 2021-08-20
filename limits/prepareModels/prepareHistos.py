@@ -76,10 +76,12 @@ def get_h_nominal_name(process, categ, obs):
 	s = "{process}/{categ}/{process}_{categ}_{obs}".format(process=process, categ=categ, obs=obs) + addForUnrolling
 	return s
 
-def RunPreparation(dataset,directory,processes,categandobs,folder, process_rename, syst_list, syst_to_comb, signalName):
+def RunPreparation(dataset,directory,processes,categandobs,folder, process_rename, syst_list, syst_to_comb, signalName, group):
 	#Get root file
 	# file = ROOT.TFile.Open("../../MyHistos/%s/outPlotter.root"%directory)
-	file = ROOT.TFile.Open("%s/outPlotter.root" % directory)
+	rootFileName = "outPlotter.root"
+	if group != "none": rootFileName = "outPlotter_massGroup" + str(group) + ".root"
+	file = ROOT.TFile.Open("%s/%s" % (directory, rootFileName) )
 	
 	os.system('rm -rf %s'%folder)
 	os.system('mkdir -p %s'%folder)
@@ -210,6 +212,8 @@ parser.add_argument('--config', dest='cfgfile',  help='Name of config file with 
 parser.add_argument('--signal', dest='signal',   help='Name of the signal',                        required = True)
 parser.add_argument('--folder',    dest='folder',          help='override config folder' , default="None")
 parser.add_argument('--directory',    dest='directory',          help='override config directory' , default="None")
+parser.add_argument('--group'  , dest = 'group'  , help = 'mass group'     , required = False, default = "none")
+
 args = parser.parse_args()
 configfilename = args.cfgfile
 
@@ -269,9 +273,10 @@ RunPreparation(
 	directory       = directory,
 	processes       = processes,
 	categandobs     = categandobs,
-	folder             = folder,
+	folder          = folder,
 	process_rename  = process_rename,
 	syst_list       = syst_list,
 	syst_to_comb    = syst_to_comb,
-	signalName      = args.signal
+	signalName      = args.signal,
+	group           = args.group
 )

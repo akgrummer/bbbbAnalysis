@@ -145,6 +145,7 @@ class OutputTree {
         float gen_deltaEtaJJ;
         DECLARE_m_pt_eta_phi_p4(gen_H1)
         DECLARE_m_pt_eta_phi_p4(gen_H2)
+        DECLARE_m_pt_eta_phi_p4(gen_X)
         DECLARE_m_pt_eta_phi_p4(gen_H1_last)
         DECLARE_m_pt_eta_phi_p4(gen_H2_last)
         DECLARE_m_pt_eta_phi_p4(gen_H1_b1)

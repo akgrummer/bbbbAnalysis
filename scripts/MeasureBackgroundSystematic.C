@@ -500,7 +500,7 @@ std::tuple<Hist*, Hist*> dividePlots(const Hist* referencePlot, const Hist* inpu
 }
 
 
-void MeasureBackgroundSystematicNormalization(std::string inputFileName, std::string FourBtagHistogramName, std::string ThreeBtagHistogramName, int year)
+void MeasureBackgroundSystematicNormalizationOld(std::string inputFileName, std::string FourBtagHistogramName, std::string ThreeBtagHistogramName, int year)
 {
     auto histogramList =  getHistogramList<TH1F>(inputFileName, FourBtagHistogramName, ThreeBtagHistogramName);
     auto FourBtagHistogram  = histogramList[0];
@@ -566,17 +566,125 @@ void MeasureBackgroundSystematicNormalization(std::string inputFileName, std::st
     return;
 }
 
-void doMeasureNorm(std::string tagName, int year)
+void doMeasureNormOld(std::string tagName, int year)
 {
     gROOT->SetBatch(true);
     std::string inputFileName = "DataPlots_" + tagName + "/outPlotter.root";
     
     gROOT->ForceStyle();
-    MeasureBackgroundSystematicNormalization(inputFileName,
+    MeasureBackgroundSystematicNormalizationOld(inputFileName,
         "data_BTagCSV/selectionbJets_ValidationRegionBlinded/data_BTagCSV_selectionbJets_ValidationRegionBlinded_H1_m",
         "data_BTagCSV_dataDriven_kinFit/selectionbJets_ValidationRegionBlinded/data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded_H1_m", year);
     gROOT->SetBatch(false);
 }
+
+
+void MeasureBackgroundSystematicNormalization(std::string inputFileName, std::string FourBtagHistogramName2D, std::string ThreeBtagHistogramName2D, int year, int group, float mXmin, float mXmax)
+{
+    auto histogramList =  getHistogramList<TH2F>(inputFileName, FourBtagHistogramName2D, ThreeBtagHistogramName2D);
+    auto FourBtagHistogram2D  = histogramList[0];
+    auto ThreeBtagHistogram2D = histogramList[1];
+
+    int xBinMin = FourBtagHistogram2D->GetXaxis()->FindBin(mXmin);
+    if(FourBtagHistogram2D->GetXaxis()->GetBinCenter(xBinMin) > mXmin) --xBinMin;
+
+    int xBinMax = FourBtagHistogram2D->GetXaxis()->FindBin(mXmax);
+    if(FourBtagHistogram2D->GetXaxis()->GetBinCenter(xBinMax) > mXmax) --xBinMax;
+
+    std::string FourBtagHistogramName  = "FourBtagHistogram_massGroup"  + std::to_string(group);
+    std::string ThreeBtagHistogramName = "ThreeBtagHistogram_massGroup" + std::to_string(group);
+    TH1D* FourBtagHistogram  = FourBtagHistogram2D ->ProjectionY(FourBtagHistogramName .c_str(), xBinMin, xBinMax);
+    TH1D* ThreeBtagHistogram = ThreeBtagHistogram2D->ProjectionY(ThreeBtagHistogramName.c_str(), xBinMin, xBinMax);
+
+    FourBtagHistogram->Rebin(2);
+    ThreeBtagHistogram->Rebin(2);
+
+    std::string canvasName = "NormalizationSyst_massGroup" + std::to_string(group);
+    TCanvas *theCanvasNormalization = new TCanvas(canvasName.c_str(),canvasName.c_str(), 1000,800);
+    auto theRatioPlots = dividePlots(FourBtagHistogram, ThreeBtagHistogram);
+    TH1D *ratio = std::get<0>(theRatioPlots);
+    TH1D *ratioError = std::get<1>(theRatioPlots);
+    ratio->SetTitle("Background Normalization Error");
+    ratio->SetLineColor(kRed);
+    ratio->SetLineWidth(2);
+    ratio->SetMarkerColor(kRed);
+    ratio->SetMinimum(0.8);  // Define Y ..
+    ratio->SetMaximum(1.4); // .. range
+    ratio->SetStats(0);      // No statistics on lower plot
+    // ratio->Divide(referenceHistogram);
+    ratio->SetMarkerStyle(21);
+    ratio->SetMarkerSize(0.3);
+
+    ratio->SetAxisRange(90.,160.);
+    ratio->Draw("ep");       // Draw the ratio plot
+    ratioError->Draw("same E2");
+    // Y axis ratio plot settings
+    ratio->GetYaxis()->SetTitle("ratio");
+    ratio->GetXaxis()->SetTitle("m_{Hreco} [GeV]");
+
+    auto theLegend = new TLegend(0.2,0.75,0.8,0.88);
+    theLegend->SetNColumns(2);
+    theLegend->SetTextSize(0.05);
+    theLegend->AddEntry(ratio     ,"bkg model"  , "pl");
+    theLegend->AddEntry(ratioError,"4b-tag unc.", "f" );
+    theLegend->Draw("same");
+    theCanvasNormalization->SaveAs((std::string(theCanvasNormalization->GetName()) + "_" + std::to_string(year) + ".png").data());
+
+
+    TH1D * ratioDeviationHistogram = new TH1D("Ratio deviation", "Ratio deviation", 15, -0.2, 0.2);
+
+    float maxDeviation = -1.;
+    float minBinContent = 1e20;
+    for(int bin=1; bin<ratio->GetNbinsX(); ++bin )
+    {
+        if(ratio->GetBinContent(bin)==0.) continue;
+        float currentDeviation = ratio->GetBinContent(bin) - 1.;
+        if(abs(currentDeviation)>maxDeviation) maxDeviation = abs(currentDeviation);
+        float currentBinContent = FourBtagHistogram->GetBinContent(bin);
+        if(currentBinContent<minBinContent) minBinContent = currentBinContent;
+        ratioDeviationHistogram->Fill(currentDeviation);
+    }
+    std::cout<< "Maximum normalization deviation = " << maxDeviation*100 <<"%"<<std::endl;
+    std::cout<< "Miniumum bin content = " << minBinContent<<std::endl;
+    
+    std::string canvasNameRatio = "NormalizationratioDeviationSyst_massGroup" + std::to_string(group);
+    TCanvas *theCanvasratioDeviation = new TCanvas(canvasNameRatio.c_str(), canvasNameRatio.c_str(), 1000,800);
+    // ratioDeviationHistogram->Fit("gaus");
+    ratioDeviationHistogram->GetXaxis()->SetTitle("1-ratio");
+    // gStyle->SetOptFit();
+    ratioDeviationHistogram->Draw();
+    theCanvasratioDeviation->SaveAs((std::string(theCanvasratioDeviation->GetName()) + "_" + std::to_string(year) + ".png").data());
+
+    delete theCanvasNormalization;
+    delete ratioDeviationHistogram;
+    delete theCanvasratioDeviation;
+    return;
+}
+
+void doMeasureNorm(std::string tagName, int year)
+{
+
+    std::map<int, std::pair<float, float>> theMassGroupList;
+    theMassGroupList[0] = std::make_pair(212.,  800.);
+    theMassGroupList[1] = std::make_pair(300., 1000.);
+    theMassGroupList[2] = std::make_pair(450., 1200.);
+    theMassGroupList[3] = std::make_pair(600., 1600.);
+    theMassGroupList[4] = std::make_pair(950., 2320.);
+
+    gROOT->SetBatch(true);
+    std::string inputFileName = "DataPlots_" + tagName + "/outPlotter.root";
+    
+    gROOT->ForceStyle();
+    for(const auto& massGroup : theMassGroupList)
+    {
+        MeasureBackgroundSystematicNormalization(inputFileName,
+            "data_BTagCSV/selectionbJets_ValidationRegionBlinded/data_BTagCSV_selectionbJets_ValidationRegionBlinded_HH_kinFit_m_H1_m",
+            "data_BTagCSV_dataDriven_kinFit/selectionbJets_ValidationRegionBlinded/data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded_HH_kinFit_m_H1_m", 
+            year, massGroup.first, massGroup.second.first, massGroup.second.second);
+    }
+    gROOT->SetBatch(false);
+}
+
 
 void MeasureBackgroundSystematicCRhole(TVirtualPad *theCanvas, std::string inputFileName, std::string FourBtagHistogramName, std::string ThreeBtagHistogramName, std::string ThreeBtagHistogramHoleName,float CRcutMin, float CRcutMax, int rebinNumber, int year)
 {

@@ -13,10 +13,18 @@ t3SubmitScript = '/uscms/home/fravera/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbA
 def writeln(f, line):
     f.write(line + '\n')
 
+bkgNormPerMassGroupDictionaty = {
+  "2016" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.010", "4" :  "1.031", "none" : "1.010"},
+  "2017" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.010", "4" :  "1.010", "none" : "1.010"},
+  "2018" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.015", "4" :  "1.024", "none" : "1.013"},
+}
+
+mXandGroup = {300 : 0, 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4, 1800 : 4, 2000 : 4}
 
 parser = argparse.ArgumentParser(description='Command line parser of skim options')
 parser.add_argument('--year'   , dest = 'year'   , help = 'year'           , required = True)
 parser.add_argument('--tag'    , dest = 'tag'    , help = 'production tag' , required = True)
+parser.add_argument('--group'  , dest = 'group'  , help = 'mass group'     , required = False, default = "none")
 parser.add_argument('--impacts', dest = 'impacts', help = 'Measure impacts', action='store_true', default=False)
 
 args = parser.parse_args()
@@ -33,26 +41,36 @@ if not args.tag:
 username = getpass.getuser()
 print "... Welcome", username
 
-outputDir = "root://cmseos.fnal.gov//store/user/{0}/bbbb_limits/"
-outputDir = outputDir.format(username)
-listOfSystematics = ["CMS_bkgnorm", "CMS_bkgShape", "lumi_13TeV", "CMS_trg_eff", "CMS_l1prefiring", "CMS_eff_b_b", "CMS_eff_b_c", "CMS_eff_b_udsg", "CMS_PU", "CMS_scale_j_Total", "CMS_res_j", "CMS_res_j_breg"]
+outputDirNoEos = "/store/user/{0}/bbbb_limits/"
+eosLink = "root://cmseos.fnal.gov/"
+outputDir = eosLink + outputDirNoEos.format(username)
+listOfSystematics = ["CMS_bkgnorm_YEAR", "CMS_bkgShape_YEAR", "lumi_13TeV_YEAR", "CMS_trg_eff_YEAR", "CMS_l1prefiring_YEAR", "CMS_eff_b_b_YEAR", "CMS_eff_b_c_YEAR", "CMS_eff_b_udsg_YEAR", "CMS_PU", "CMS_scale_j_Total_YEAR", "CMS_res_j_YEAR", "CMS_res_j_breg_YEAR",  "CMS_LHE_pdf", "CMS_PS_weights"] 
 
 LimitOptionsForImpacts = {}
 for systematic in listOfSystematics:
-    LimitOptionsForImpacts["freeze_%s" % systematic] = "--freezeParameters %s" % systematic
+    LimitOptionsForImpacts["freeze_%s" % (systematic.replace("_YEAR", ""))] = "--freezeParameters %s" % systematic
 LimitOptionsForImpacts["freeze_autoMCStats"] = "--freezeNuisanceGroups autoMCStats"
 
-jobsDir                = 'jobsLimits_' + args.tag
-outScriptNameBareProto = 'job_{0}.sh'
-outScriptNameProto     = (jobsDir + '/' + outScriptNameBareProto)
-outFileNameProto       = 'Limit_{0}_{1}_{2}.root'
-outFileDatacardProto   = 'datacard_{0}_{1}.txt'
-outputFileName         = 'higgsCombineTest.AsymptoticLimits.mH120.root'
-plotFileFolderProto    = outputDir + '/' + args.tag + '/HistogramFiles_{0}/'
-LimitOptions           = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "" }
-folderYearName         = "DatacardFolder_{0}"
-folderRunIIName        = "DatacardFolder_RunII"
-outPlotFileNameProto   = "outPlotter_{0}_{1}.root"
+tag = args.tag
+
+groupString = ""
+if args.group != 'none' and args.group != 'auto' : groupString = ('_massGroup' + args.group)
+tag = tag + groupString
+
+jobsDir                  = 'jobsLimits_' + tag
+outScriptNameBareProto   = 'job_{0}.sh'
+outScriptNameProto       = (jobsDir + '/' + outScriptNameBareProto)
+outFileNameProto         = 'Limit_{0}_{1}_{2}.root'
+outFileDatacardProto     = 'datacard_{0}_{1}.txt'
+outputFileName           = 'higgsCombineTest.AsymptoticLimits.mH120.root'
+baseFolder               = outputDir + '/' + tag
+baseFolderNoEos          = outputDirNoEos.format(username) + '/' + tag
+plotFileFolderProtoNoEos = baseFolderNoEos + '/HistogramFiles_{0}/'
+plotFileFolderProto      = baseFolder + '/HistogramFiles_{0}/'
+LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "" }
+folderYearName           = "DatacardFolder_{0}"
+folderRunIIName          = "DatacardFolder_RunII"
+outPlotFileNameProto     = "outPlotter_{0}_{1}.root"
 
 allLimitOptions = copy.deepcopy(LimitOptions)
 if args.impacts: allLimitOptions.update(LimitOptionsForImpacts)
@@ -94,7 +112,7 @@ if os.system(cmd) != 0:
 
 ##############################
 #### Ship the tarball and submit the jobs
-tarEOSdestLFN         = outputDir + '/' + args.tag + '/combine_tar/' + tarName
+tarEOSdestLFN         = outputDir + '/' + tag + '/combine_tar/' + tarName
 # tarEOSdestLFN.replace('root://cmseos.fnal.gov/', '/eos/uscms')
 
 print "** INFO: copying executables tarball to:", tarEOSdestLFN
@@ -103,6 +121,10 @@ if os.system(command) != 0:
     print "... Not able to execute command \"", command, "\", exit"
     sys.exit()
 
+command = 'eos ' + eosLink + ' mkdir %s' % (baseFolderNoEos)
+if os.system(command) != 0:
+    print "... Not able to execute command \"", command, "\", exit"
+    sys.exit()
 
 for year in yearList:
     configfilename  = "prepareModels/config/LimitsConfig_%s.cfg" % year
@@ -111,14 +133,30 @@ for year in yearList:
     cfgparser = ConfigParser()
     cfgparser.readfp(StringIO(signalConfiguration))
     directory   = ast.literal_eval(cfgparser.get("configuration","directory"))
-    directory = directory + "/*"
     # tarEOSdestLFN.replace('root://cmseos.fnal.gov/', '/eos/uscms')
-    command = 'eos cp -r %s %s' % (directory, plotFileFolderProto.format(year))
+
+    command = 'eos ' + eosLink + ' mkdir %s' % (plotFileFolderProtoNoEos.format(year))
     if os.system(command) != 0:
         print "... Not able to execute command \"", command, "\", exit"
         sys.exit()
+
+    if args.group != "auto":
+        inputHistogramFile  = directory + "/outPlotter" + groupString + ".root"
+        outputHistogramFile = plotFileFolderProto.format(year) + "/outPlotter.root"
+        command = 'eos cp %s %s' % (inputHistogramFile, outputHistogramFile)
+        if os.system(command) != 0:
+            print "... Not able to execute command \"", command, "\", exit"
+            sys.exit()
+
+    else:
+        inputHistogramFile  = directory + "/outPlotter_massGroup*.root"
+        command = 'eos cp %s %s' % (inputHistogramFile, plotFileFolderProto.format(year))
+        if os.system(command) != 0:
+            print "... Not able to execute command \"", command, "\", exit"
+            sys.exit()
     
 for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
+    if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     outScriptName  = outScriptNameProto.format(signal)
     outScript      = open(outScriptName, 'w')
@@ -150,10 +188,31 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
         writeln(outScript, 'echo "... preparing histos"')
         folderName = folderYearName.format(year)
         writeln(outScript, 'mkdir %s' % folderName)
+        groupNumber =  args.group
+        groupFlag = ""
+        if args.group == "auto":
+            massXstring =  signal[ signal.find("_MX_") + len("_MX_"): signal.find("_MY_" ) ]
+            groupNumber = mXandGroup[int(massXstring)]
+            groupFlag = " --group " + str(groupNumber)
+        
         # print 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s'%(year,signal,plotFileFolderProto.format(year),folderName)
-        writeln(outScript, 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s'%(year,signal,plotFileFolderProto.format(year),folderName))
+        writeln(outScript, 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s %s'%(year,signal,plotFileFolderProto.format(year),folderName, groupFlag))
         writeln(outScript, 'echo "... preparing datacard"')
-        writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg  --no-comb --signal  %s --folder %s'%(year,signal,folderName))
+        writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s'%(year,signal,folderName,bkgNormPerMassGroupDictionaty[year][str(groupNumber)]))
+
+    #copying Pdf, scale and PS systematics from samples in which they are present
+    folderName2016 = folderYearName.format(2016)
+    folderName2017 = folderYearName.format(2017)
+    folderName2018 = folderYearName.format(2018)
+
+    writeln(outScript, "python prepareModels/addPDFSystematic.py --inputDatacard  %s/datacard%s_selectionbJets_SignalRegion.txt --sampleName %s" %(folderName2016, 2016, signal) )
+    writeln(outScript, "python prepareModels/addPDFSystematic.py --inputDatacard  %s/datacard%s_selectionbJets_SignalRegion.txt --sampleName %s" %(folderName2017, 2017, signal) )
+    writeln(outScript, "python prepareModels/addPDFSystematic.py --inputDatacard  %s/datacard%s_selectionbJets_SignalRegion.txt --sampleName %s" %(folderName2018, 2018, signal) )
+
+
+    for year in yearList:
+        folderName = folderYearName.format(year)
+        writeln(outScript, 'text2workspace.py %s/datacard%s_selectionbJets_SignalRegion.txt' % (folderName, year))
         writeln(outScript, 'while [[ "$(ps aux | grep text2workspace.py | wc -l)" -gt "1" ]]; do echo "text2workspace.py still running..."; sleep 5; done')
         writeln(outScript, 'sleep 15')
         datacardName = folderName + "/datacard" + str(year) + "_selectionbJets_SignalRegion.txt"
@@ -168,6 +227,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
         writeln(outScript, 'mkdir %s' % folderRunIIName)
         writeln(outScript, 'combineCards.py c2016=DatacardFolder_2016/datacard2016_selectionbJets_SignalRegion.txt c2017=DatacardFolder_2017/datacard2017_selectionbJets_SignalRegion.txt c2018=DatacardFolder_2018/datacard2018_selectionbJets_SignalRegion.txt > %s/datacardRunII_selectionbJets_SignalRegion.txt' % folderRunIIName)
         outputDatacardFile  = plotFileFolderProto.format("RunII") + outFileDatacardProto.format("RunII",signal)
+        datacardName = folderRunIIName + "/datacardRunII_selectionbJets_SignalRegion.txt"
         writeln(outScript, 'xrdcp -s -f %s %s' % (datacardName, outputDatacardFile)) ## no force overwrite output in destination
         writeln(outScript, 'text2workspace.py %s/datacardRunII_selectionbJets_SignalRegion.txt' % folderRunIIName)
         writeln(outScript, 'sleep 15')
@@ -175,8 +235,10 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
     for year in yearList:
         workspaceName = folderYearName.format(year) + "/datacard" + str(year) + "_selectionbJets_SignalRegion.root"
         for option, combineCommand in allLimitOptions.items(): 
+            # if "YEAR" in combineCommand:
+            theRealCombineCommand = combineCommand.replace("YEAR", str(year))
             writeln(outScript, 'echo "... running %s %s datacard"' % (year,option))
-            writeln(outScript, 'combine %s -M AsymptoticLimits --run blind --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,combineCommand))
+            writeln(outScript, 'combine %s -M AsymptoticLimits --run blind --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,theRealCombineCommand))
             writeln(outScript, 'echo "... execution finished with status $?"')
             outputLimitFile  = plotFileFolderProto.format(year) + outFileNameProto.format(year,signal,option)
             writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputLimitFile))
@@ -207,6 +269,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 ## set directory to job directory, so that logs will be saved there
 os.chdir(jobsDir)
 for signalRaw in open("../prepareModels/listOfSamples.txt", 'rb').readlines():
+    if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     command = "%s job_%s.sh" % (t3SubmitScript,signal)
     if os.system(command) != 0:

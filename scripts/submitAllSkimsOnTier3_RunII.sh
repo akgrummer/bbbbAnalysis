@@ -1,3 +1,3 @@
-source scripts/submitAllSkimsOnTier3_2016.sh signalHHOnlySubmission_2016_v2
-source scripts/submitAllSkimsOnTier3_2017.sh signalHHOnlySubmission_2017_v2
-source scripts/submitAllSkimsOnTier3_2018.sh signalHHOnlySubmission_2018_v2
+source scripts/submitAllSkimsOnTier3_2016.sh fullSubmission_2016_v26
+source scripts/submitAllSkimsOnTier3_2017.sh fullSubmission_2017_v26
+source scripts/submitAllSkimsOnTier3_2018.sh fullSubmission_2018_v26

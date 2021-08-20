@@ -123,13 +123,12 @@ MergeCanvas<>("ScaleFactor_L1triggerQuad45AndPrevious_FourHighetJetPtSum", "Scal
 
 
 python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config=mlskim_NMSSM_XYH_bbbb/config/outputskim_2016.cfg 
-python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config=mlskim_NMSSM_XYH_bbbb/config/outputskim_2016.cfg 
 apply weights to data
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BackgroundModels/Reweight_fullSubmission_2016_v16_PtRegressedAndHigherLevel_kinFit/
 apply weights to signals
-python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BackgroundModels/Reweight_fullSubmission_2016_v16_PtRegressedAndHigherLevel_kinFit/ --signals /store/user/fravera/bbbb_ntuples/fullSubmission_2016_v16
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BackgroundModels/Reweight_fullSubmission_2017_v25_PtRegressedAndHigherLevel_kinFit/ --signals /store/user/fravera/bbbb_ntuples/fullSubmission_2017_v25
 
-./scripts/Unroll2Dplots DataPlots_fullSubmission_2017_v16/outPlotter.root data_BTagCSV_dataDriven_kinFit selectionbJets_SignalRegion HH_kinFit_m_H2_m 0 2400 0
+./scripts/Unroll2Dplots DataPlots_fullSubmission_2018_v28/outPlotter.root data_BTagCSV_dataDriven_kinFit selectionbJets_SignalRegion HH_kinFit_m_H2_m 0 2400 0 selectionbJets_ValidationRegionBlinded
 
 hadd -f SingleMuon_Data_forTrigger_2016.root `xrdfsls -u /store/user/fravera/bbbb_ntuples/TriggerScaleFactor_Run2016_v14/SKIM_SingleMuon_Data/output`
 hadd -f TTbar_MC_forTrigger_2016.root `xrdfsls -u /store/user/fravera/bbbb_ntuples/TriggerScaleFactor_Run2016_v14/SKIM_TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/output`
@@ -189,4 +188,61 @@ hadd -f NMSSM_forTrigger_2018.root `xrdfsls -u /store/user/fravera/bbbb_ntuples/
 
 python scripts/createListForHistogrammer.py --tag fullSubmission_2016_v14 --year 2016
 
+# Merge all fill histograms
+python scripts/mergeHistograms.py --tag fullSubmission_2016_v27
+
+#Produce all limits + impacts
 python prepareModels/SubmitFullRunIILimits.py --tag fullSubmission_v16 --year RunII --impacts
+
+Plot kinematic effett
+.L privateTools/PlotKinematiFitEffect.C+
+PlotKinematiFitEffectAll()
+
+Plot cutflow:
+./privateTools/PlotCutFlow <year>
+
+Plot cutflow relative / year comparison
+.L privateTools/GetCutFlowPlot.C+
+GetCutAllFlowPlots()
+
+Plot 2D timeclock shape / bkg distribution + zoom / signal distribution:
+.L privateTools/BinNormalize.C+
+plotAll2D("tagName")
+
+Produce SR, CR and VR tables:
+.L privateTools/ProduceAnalysisRegionTable.C+
+ProduceAnalysisRegionTable(<version number int>)
+
+Produce Limit tables
+.L privateTools/ProduceLimitTable.C+
+ProduceAllLimitTable(int plotVersion, int limitVersion)
+
+Produce all plot for BKG validation
+.L scripts/privateScript/StackPlots.C+
+doAllStack()
+
+Produce all limit results
+edit limits/produceAllResults.sh with the updated tag
+go to limits folder
+source produceAllResults.sh
+
+Run fit diagnostic:
+combine -M FitDiagnostics --rMax 15  --rMin -15 -t -1 --expectSignal 0 --redefineSignalPOIs r  datacardRunII_selectionbJets_SignalRegion.root --robustFit 1  --X-rtd MINIMIZER_MaxCalls=999999999 --cminDefaultMinimizerStrategy 0
+Plot fit diagnostic
+python /uscms/home/fravera/nobackup/DiHiggs_v2/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/test/diffNuisances.py -a fitDiagnostics.root -g plots.root
+
+Run impacts:
+Prepare workspace for Impacts:
+text2workspace.py datacard_2016_sig_NMSSM_bbbb_MX_700_MY_300.txt -m 125
+Do initial fit for impacts:
+combineTool.py -M Impacts -d datacard_2016_sig_NMSSM_bbbb_MX_700_MY_300.root --doInitialFit --robustFit 1 --setParameterRanges r=-20,20 --redefineSignalPOIs r -m 125 --expectSignal 0 -t -1 --job-mode condor --task-name Impacts_MX_700_MY_300_InitialFit --sub-opts='+JobFlavour="tomorrow"'
+Run all impacts:
+combineTool.py -M Impacts -d datacard_2016_sig_NMSSM_bbbb_MX_700_MY_300.root --doFits --robustFit 1 --setParameterRanges r=-20,20 --redefineSignalPOIs r -m 125 --expectSignal 0 -t -1 --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH --job-mode condor --task-name Impacts_MX_700_MY_300 --sub-opts='+JobFlavour="tomorrow"'
+Write all impacts into a json:
+combineTool.py -M Impacts -d datacard_2016_sig_NMSSM_bbbb_MX_700_MY_300.root -o impacts_sig_inj0.json --setParameterRanges r=-20,20 --redefineSignalPOIs r -m 125
+Plot impact from the json:
+plotImpacts.py -i impacts.json -o impacts
+
+Ratio background up and down shapes
+.L privateTools/RatioPlot.C+
+CompareAllShapes(<version number>)

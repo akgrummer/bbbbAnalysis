@@ -162,6 +162,9 @@ void ProduceLimitTable(std::string year, std::string plotInputFileName, std::str
 
     }
 
+    std::cout<<std::endl<<std::endl<<std::endl<<"\\clearpage"<<std::endl<<std::endl<<std::endl;
+
+
     plotInputFile.Close();
     limitInputFile.Close();
 

@@ -342,7 +342,8 @@ void PlotGenMatchVsMy()
             theGraph.SetLineWidth(2);
             theGraph.SetMarkerStyle(20);
             theGraph.SetMarkerSize(0.8);
-            theGraph.SetTitle(("Higgs candidate gen-matching - m_{X} = " + std::to_string(int(mX)) + " GeV - Run " + std::to_string(year)).c_str());
+            theGraph.SetTitle(("Higgs candidate gen-matching - m_{X} = " + std::to_string(int(mX)) + " GeV - Run " + std::to_string(year) + "; m_{Y} [GeV]; gen matching efficiency").c_str());
+            theGraph.GetYaxis()->SetTitleOffset(1.2);
             TCanvas theCanvas(("GenMatching_Higgs_mX_" + std::to_string(int(mX)) + "_Run_" + std::to_string(year)).c_str(), "theCanvas");
             theGraph.Draw("apl");
             theCanvas.SaveAs((std::string(theCanvas.GetName()) + ".png").c_str());

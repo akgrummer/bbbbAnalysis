@@ -1,5 +1,6 @@
 #include "Riostream.h"
 #include "TH2F.h"
+#include "TH2I.h"
 #include "TH1F.h"
 #include "TFile.h"
 #include "TArrayD.h"
@@ -235,8 +236,9 @@ void Rebin2DPlot(TH2F *&the2Dplot, float minNumberOfEntries, bool rebinX=true, u
 
 //-------------------------------------------------------------------------------------------------------------------------------------//
 
-TH1F* UnrollPlot(TH2F* the2Dplot, bool isBkg)
+TH1F* UnrollPlot(TH2F* the2Dplot, bool isBkg, TH2I* binCorrispondanceNumber)
 {
+
     uint nXbin = the2Dplot->GetNbinsX();
     uint nYbin = the2Dplot->GetNbinsY();
     // uint numberOfBins = nXbin*nYbin;
@@ -282,6 +284,10 @@ TH1F* UnrollPlot(TH2F* the2Dplot, bool isBkg)
             //     value*=0.9;
             //     error*=0.9;
             // }
+            if(binCorrispondanceNumber != nullptr)
+            {
+                binCorrispondanceNumber->SetBinContent(xBin, yBin, newBinNumber);
+            }
             the1Dplot->SetBinContent(newBinNumber, value);
             the1Dplot->SetBinError(newBinNumber++, error);
         }
@@ -332,6 +338,8 @@ int main(int argc, char *argv[])
     TIter next(theInputFile.GetListOfKeys());
     TKey *key;
 // std::cout<<__PRETTY_FUNCTION__<<__LINE__<<std::endl;
+    float integralBackgroundPlot = -1.;
+    bool firstPlot = true;
 
     while ((key = (TKey*)next())) 
     {
@@ -345,6 +353,8 @@ int main(int argc, char *argv[])
 // std::cout<<__PRETTY_FUNCTION__<<__LINE__<<std::endl;
         for(const auto& selectionName : selectionsToUnrollList)
         {
+            if(theCurrentDataDataset != dataDataset && selectionName != selection) continue;
+
             theInputFile.cd();
 // std::cout<<__PRETTY_FUNCTION__<<__LINE__<<std::endl;
             theInputFile.cd((theCurrentDataDataset + "/" + selectionName).data());
@@ -374,13 +384,49 @@ int main(int argc, char *argv[])
                 std::string theRebinnedPlotName = theCurrentHistogramFullName + "_Rebinned";
                 TH2F *theRebinnedPlot = new TH2F(theRebinnedPlotName.data(),theRebinnedPlotName.data(),nXbin,xBinArray,nYbin,yBinArray);
 
+                TH2I *binCorrispondanceNumber = nullptr;
+                if(firstPlot)
+                {
+                    binCorrispondanceNumber = new TH2I("BinCorrispondancePlot","BinCorrispondancePlot",nXbin,xBinArray,nYbin,yBinArray);
+                    firstPlot = false;
+                }
+
+
                 FillRebinnedPlot(theCurrent2Dplot,theRebinnedPlot);
 
                 theRebinnedPlot->Write(theRebinnedPlot->GetName(), TObject::kOverwrite);
 
-                TH1F* the1Dplot = UnrollPlot(theRebinnedPlot, isBkg);
+                TH1F* the1Dplot = UnrollPlot(theRebinnedPlot, isBkg, binCorrispondanceNumber);
+                if(selection == selectionName)
+                {
+                    if(isBkg)
+                    {
+                        integralBackgroundPlot = the1Dplot->Integral();
+                        std::cout<< "Getting integral reference from " << the1Dplot->GetName() << std::endl;
+                        std::cout<< "Integral reference = " << integralBackgroundPlot << std::endl;
+                    }
+                    else if( (theCurrentDataDataset == (dataDataset + "_up")) ||  (theCurrentDataDataset == (dataDataset + "_down")))
+                    {
+                        if(integralBackgroundPlot<0.)
+                        {
+                            std::cout<< "integralBackgroundPlot not set!!! Aborting..."<<std::endl;
+                            abort();
+                        }
+                        float originalIntegral = the1Dplot->Integral();
+                        the1Dplot->Scale(integralBackgroundPlot/originalIntegral);
+                        std::cout<< "Scaled plot " << theCurrentDataDataset <<std::endl;
+                        std::cout<< "Original integral = " << originalIntegral <<std::endl;
+                        std::cout<< "Integral from Background Plot = " << integralBackgroundPlot <<std::endl;
+                        std::cout<< "New Integral = " << the1Dplot->Integral() <<std::endl;
+                    }
+                }
                 the1Dplot->Write(the1Dplot->GetName(), TObject::kOverwrite);
-
+                if(binCorrispondanceNumber != nullptr) 
+                {
+                    theInputFile.cd();
+                    binCorrispondanceNumber->Write(binCorrispondanceNumber->GetName(), TObject::kOverwrite);
+                    theInputFile.cd(theCurrentDirectory.data());
+                }
             }
 
         }

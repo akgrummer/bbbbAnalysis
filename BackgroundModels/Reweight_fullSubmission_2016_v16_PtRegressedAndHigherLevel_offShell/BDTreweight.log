@@ -1,0 +1,32 @@
+Number of events in dataset before cuts =  5606097
+Number of events in dataset after cuts =  285504
+bTagDataSize     =  23797
+AntibTagDataSize =  261707
+[INFO] Processing predicted model
+transfer factor before reweight =  0.0909299330931
+0.09092993309311566
+1.0
+[INFO] Fitting BDT-reweighter ...
+[INFO] Event yields report in control region derivation:
+KFold prediction with voting function
+   -The sum of original weights                 =  261707 +/- 511.573064185
+   -The sum of model weights                    =  23797.000000000004 +/- 47.7431821354
+   -The sum of target weights                   =  23797 +/- 154.262762843
+   -The transfer factor                         =  0.0909299330931 +/- 0.000615664617612
+   -The normalization value                     =  0.9663038618301519
+[INFO] Runninng KS-test on each variable to define the bdt-reweighter paramaters:
+   -KS distance ratio in offShell_H1_b1_ptRegressed (after/before) = (0.008/0.011)  = 0.728
+   -KS distance ratio in offShell_H1_b2_ptRegressed (after/before) = (0.009/0.016)  = 0.558
+   -KS distance ratio in offShell_H2_b1_ptRegressed (after/before) = (0.008/0.015)  = 0.507
+   -KS distance ratio in offShell_H2_b2_ptRegressed (after/before) = (0.007/0.016)  = 0.465
+   -KS distance ratio in offShell_H1_pt (after/before) = (0.008/0.030)  = 0.279
+   -KS distance ratio in offShell_H2_pt (after/before) = (0.007/0.022)  = 0.298
+   -KS distance ratio in offShell_H1_eta (after/before) = (0.007/0.019)  = 0.352
+   -KS distance ratio in offShell_H2_eta (after/before) = (0.007/0.018)  = 0.364
+   -KS distance ratio in offShell_HH_m (after/before) = (0.007/0.036)  = 0.200
+   -KS distance ratio in offShell_H1_bb_DeltaR (after/before) = (0.006/0.020)  = 0.300
+   -KS distance ratio in offShell_H2_bb_DeltaR (after/before) = (0.005/0.030)  = 0.153
+   -KS distance ratio in offShell_H2_m (after/before) = (0.006/0.013)  = 0.449
+                     **The average KS distance ratio = 0.388
+  **Mean ROC (AUC) in original =  0.568031445357633
+  **Mean ROC (AUC) in model =  0.51005547640335

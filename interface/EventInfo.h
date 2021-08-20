@@ -27,6 +27,7 @@ struct EventInfo{
 
     boost::optional<GenPart> gen_H1;
     boost::optional<GenPart> gen_H2;
+    boost::optional<GenPart> gen_X ;
     boost::optional<GenPart> gen_H1_last;
     boost::optional<GenPart> gen_H2_last;
 

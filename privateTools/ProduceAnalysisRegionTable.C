@@ -43,6 +43,7 @@ void ProduceAnalysisRegionTable(int version)
     std::vector<int> yearList {2016, 2017, 2018};
 
     std::map<int, std::map<int, std::map<int, std::vector<float>>>> mapEventsInRegions;
+    std::map<int, std::map<std::string, int> > mapEventsInBkg;
 
     for(auto mX : listOfXmasses)
     {
@@ -57,6 +58,7 @@ void ProduceAnalysisRegionTable(int version)
 
     for(auto year : yearList)
     {
+        mapEventsInBkg[year] = std::map<std::string, int>();
         std::string fileName = "DataPlots_fullSubmission_" + std::to_string(year) + "_v" + std::to_string(version) + "/outPlotter.root";
         std::cout << "Opening file " << fileName << std::endl;
 
@@ -87,7 +89,7 @@ void ProduceAnalysisRegionTable(int version)
 // std::cout<<__LINE__<<std::endl;
             
 
-            if(theCurrentDataset=="data_BTagCSV") std::cout << theCurrentDataset << "\t";
+            if(theCurrentDataset=="data_BTagCSV" || theCurrentDataset=="data_BTagCSV_3btag" || theCurrentDataset=="data_BTagCSV_dataDriven_kinFit") std::cout << theCurrentDataset << "\t";
 
             auto masses = getMxMyFromSample(theCurrentDataset);
             
@@ -103,11 +105,19 @@ void ProduceAnalysisRegionTable(int version)
             for(auto& binName : binNameList)
             {
 // std::cout<<__LINE__<<std::endl;
-                if(theCurrentDataset=="data_BTagCSV")
+                if(theCurrentDataset=="data_BTagCSV" || theCurrentDataset=="data_BTagCSV_3btag" || theCurrentDataset=="data_BTagCSV_dataDriven_kinFit")
                 {
 // std::cout<<__LINE__<<std::endl;
-                    if(binName=="selectionbJets_SignalRegion") std::cout << "\tblinded";
-                    else std::cout << std::fixed << std::setprecision(3) << "\t" << (float)entriesPlot->GetBinContent(entriesPlot->GetXaxis()->FindBin(binName.data()))/crossSection;
+                    if(theCurrentDataset=="data_BTagCSV" && binName=="selectionbJets_SignalRegion")
+                    {
+                        mapEventsInBkg[year][theCurrentDataset+"_"+binName] = -1;
+                        std::cout << "\tblinded";
+                    }
+                    else
+                    {
+                        std::cout << std::fixed << std::setprecision(3) << "\t" << (float)entriesPlot->GetBinContent(entriesPlot->GetXaxis()->FindBin(binName.data()))/crossSection;
+                        mapEventsInBkg[year][theCurrentDataset+"_"+binName] = round((float)entriesPlot->GetBinContent(entriesPlot->GetXaxis()->FindBin(binName.data())));
+                    }
 // std::cout<<__LINE__<<std::endl;
                 }
                 else if(masses.first>0)
@@ -119,7 +129,7 @@ void ProduceAnalysisRegionTable(int version)
                 }
                 
             }
-            if(theCurrentDataset=="data_BTagCSV") std::cout<<endl;
+            if(theCurrentDataset=="data_BTagCSV" || theCurrentDataset=="data_BTagCSV_3btag" || theCurrentDataset=="data_BTagCSV_dataDriven_kinFit") std::cout<<endl;
         }
         theInputFile.Close();
     }
@@ -155,5 +165,25 @@ void ProduceAnalysisRegionTable(int version)
         std::cout <<"\\caption{\\label{event_selection:tab:EventCountMx" << mXTable.first << "} Number of events in the analysis regions for signals with \\mX = " << mXTable.first << "~GeV. Events are normalized on the signal cross-section times BR and are expressed in 1$/$fb.}" << std::endl;
         std::cout <<"\\end{table}" << std::endl << std::endl;
     }
+
+    std::cout<<std::endl<<std::endl<<std::endl;
+    std::cout<<"\\begin{table}[!htb]"<<std::endl;
+    std::cout<<"\\centering"<<std::endl;
+    std::cout<<"\\begin{tabular}{l| r| r| r|}"<<std::endl;
+    std::cout<<"Dataset                          & 2016    & 2017    & 2018    \\\\"<<std::endl;
+    std::cout<<"\\hline"<<std::endl;
+    std::cout<<"$\\mathrm{N[{CR(3b)}]}$       &\t " <<   mapEventsInBkg[2016]["data_BTagCSV_3btag_selectionbJets_ControlRegionBlinded"]    << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_3btag_selectionbJets_ControlRegionBlinded"]    << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_3btag_selectionbJets_ControlRegionBlinded"]    << " \t\\\\" << std::endl;
+    std::cout<<"$\\mathrm{N[{VR(3b)}]}$       &\t " <<   mapEventsInBkg[2016]["data_BTagCSV_3btag_selectionbJets_ValidationRegionBlinded"] << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_3btag_selectionbJets_ValidationRegionBlinded"] << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_3btag_selectionbJets_ValidationRegionBlinded"] << " \t\\\\" << std::endl;
+    std::cout<<"$\\mathrm{N[{SR(3b)}]}$       &\t " <<   mapEventsInBkg[2016]["data_BTagCSV_3btag_selectionbJets_SignalRegion"]            << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_3btag_selectionbJets_SignalRegion"]            << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_3btag_selectionbJets_SignalRegion"]            << " \t\\\\" << std::endl;
+    std::cout<<"$\\mathrm{N[{CR(4b)}]}$       &\t " <<   mapEventsInBkg[2016]["data_BTagCSV_selectionbJets_ControlRegionBlinded"]          << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_selectionbJets_ControlRegionBlinded"]          << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_selectionbJets_ControlRegionBlinded"]          << " \t\\\\" << std::endl;
+    std::cout<<"$\\mathrm{N[{VR(4b)}]}$       &\t " <<   mapEventsInBkg[2016]["data_BTagCSV_selectionbJets_ValidationRegionBlinded"]       << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_selectionbJets_ValidationRegionBlinded"]       << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_selectionbJets_ValidationRegionBlinded"]       << " \t\\\\" << std::endl;
+    std::cout<<"$\\mathrm{N[{SR(4b)}]}$       & blinded & blinded & blinded \\\\" << std::endl;
+    std::cout<<"\\hline"<<std::endl;
+    std::cout<<"$\\mathrm{N[CR(4b)]^{EST}}$  & " <<  mapEventsInBkg[2016]["data_BTagCSV_dataDriven_kinFit_selectionbJets_ControlRegionBlinded"]    << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_dataDriven_kinFit_selectionbJets_ControlRegionBlinded"]    << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_dataDriven_kinFit_selectionbJets_ControlRegionBlinded"]    << " \t\\\\" << std::endl;
+    std::cout<<"$\\mathrm{N[VR(4b)]^{EST}}$  & " <<  mapEventsInBkg[2016]["data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded"] << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded"] << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded"] << " \t\\\\" << std::endl;
+    std::cout<<"$\\mathrm{N[SR(4b)]^{EST}}$  & " <<  mapEventsInBkg[2016]["data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion"]            << " \t&\t " << mapEventsInBkg[2017]["data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion"]            << " \t&\t " <<  mapEventsInBkg[2018]["data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion"]            << " \t\\\\" << std::endl; 
+    std::cout<<"\\end{tabular}"<<std::endl;
+    std::cout<<"\\caption{\\label{bkg:tab:factor} Summary of the number of events in the samples and analysis regions used in this analysis.}"<<std::endl;
+    std::cout<<"\\end{table}"<<std::endl;
 
 }

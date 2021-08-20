@@ -10,6 +10,9 @@
 #include <TStyle.h>
 #include <TLegend.h>
 
+float gRatioLowLimit  = 0.5;
+float gRatioHighLimit = 1.5;
+
 void normalizeByBinSize(TH1D* inputPlot)
 {
     for(int nBin = 1; nBin<=inputPlot->GetNbinsX(); ++nBin)
@@ -108,7 +111,12 @@ void RatioPlot(TVirtualPad *theCanvas, TH1D *referenceHistogram, std::vector<TH1
             inputHistogram->Scale(normalizeValue);
         }
     }
-    auto theRatioPlots = dividePlots(referenceHistogram, inputHistogramVector.at(0));
+    std::vector<std::tuple<TH1D*, TH1D*>> theRatioPlotList;
+    for(auto inputHistogram : inputHistogramVector)
+    {
+        theRatioPlotList.emplace_back(dividePlots(referenceHistogram, inputHistogram));
+    }
+    // auto theRatioPlots = dividePlots(referenceHistogram, inputHistogramVector.at(0));
     if(normByBin)
     {
         normalizeByBinSize(referenceHistogram);
@@ -184,14 +192,16 @@ void RatioPlot(TVirtualPad *theCanvas, TH1D *referenceHistogram, std::vector<TH1
         // Define the ratio plot
     for(uint hIt = 0; hIt <inputHistogramVector.size(); ++hIt)
     {
+        std::cout<<"Ratio plot number = " << hIt << std::endl;
 
-        TH1D *ratio = std::get<0>(theRatioPlots);
-        TH1D *ratioError = std::get<1>(theRatioPlots);
+        // TH1D *ratio = std::get<0>(theRatioPlots);
+        // TH1D *ratioError = std::get<1>(theRatioPlots);
+        TH1D *ratio      = std::get<0>(theRatioPlotList.at(hIt));
         // TH1D *ratio = (TH1D*)inputHistogramVector.at(hIt)->Clone("ratio");
         ratio->SetLineColor(plotColorVector.at(hIt));
         ratio->SetMarkerColor(plotColorVector.at(hIt));
-        ratio->SetMinimum(0.5);  // Define Y ..
-        ratio->SetMaximum(1.5); // .. range
+        ratio->SetMinimum(gRatioLowLimit );  // Define Y ..
+        ratio->SetMaximum(gRatioHighLimit); // .. range
         ratio->SetStats(0);      // No statistics on lower plot
         // ratio->Divide(referenceHistogram);
         ratio->SetMarkerStyle(21);
@@ -202,6 +212,7 @@ void RatioPlot(TVirtualPad *theCanvas, TH1D *referenceHistogram, std::vector<TH1
 
         if(hIt==0)
         {
+            TH1D *ratioError = std::get<1>(theRatioPlotList.at(hIt));
             ratio->SetAxisRange(xMin,xMax);
             ratio->Draw("ep");       // Draw the ratio plot
             ratioError->Draw("same E2");
@@ -222,7 +233,11 @@ void RatioPlot(TVirtualPad *theCanvas, TH1D *referenceHistogram, std::vector<TH1
             ratio->GetXaxis()->SetLabelFont(62); // Absolute font size in pixel (precision 3)
             ratio->GetXaxis()->SetLabelSize(0.13);
         }
-        else ratio->Draw("ep same");       // Draw the ratio plot
+        else
+        {
+            std::cout << "plotting second ratio" << hIt << std::endl;
+            ratio->Draw("ep same");       // Draw the ratio plot
+        }
     }
 
     theCanvas->cd();
@@ -473,7 +488,7 @@ void RatioAllVariables(std::string canvasName, std::string referenceFileName, st
     // scaleValue = -1;
     RatioPlotFromFile(theCanvas->cd(3),referenceFileName ,referenceHistPrototype + "_H2_m"                        , {targetFileName} , {targetHistPrototype + "_H2_m"                       }, {kRed} , normalize, scaleValue, minH2_m, maxH2_m, rebinH2_m, "m_{Yreco} [GeV]","events/GeV","4b-tag",{legEntry},true);
     scaleValue = -1;
-    RatioPlotFromFile(theCanvas->cd(6),referenceFileName ,referenceHistPrototype + "_HH" + append + "_m"                        , {targetFileName} , {targetHistPrototype + "_HH" + append + "_m"                       }, {kRed} , normalize, scaleValue,   250,  2000, 4, "m" + append + "_{Xreco} [GeV]","events/GeV","4b-tag",{legEntry},true);
+    RatioPlotFromFile(theCanvas->cd(6),referenceFileName ,referenceHistPrototype + "_HH" + append + "_m"                        , {targetFileName} , {targetHistPrototype + "_HH" + append + "_m"                       }, {kRed} , normalize, scaleValue,   250,  2000, 4, "m_{X} [GeV]","events/GeV","4b-tag",{legEntry},true);
     // RatioPlotFromFile(theCanvas->cd(9),referenceFileName ,referenceHistPrototype + "_HH_m_H2_m_Rebinned_Unrolled" , {targetFileName} , {targetHistPrototype + "_HH_m_H2_m_Rebinned_Unrolled"}, {kRed} , normalize, scaleValue, minUnroll_m, maxUnroll_m, rebinUnroll_m, "m_{X}*m_{Y}");
     // scaleValue = -1;
     // RatioPlotFromFile(theCanvas->cd(3),referenceFileName ,referenceDatasetName +  "/" + "selectionbJets_ControlRegionBlinded" + "/" + referenceDatasetName +  "_" + "selectionbJets_ControlRegionBlinded" + "_H1_m"                        , {targetFileName} , {targetDatasetName +  "/" + "selectionbJets_ControlRegionAndSignalRegion" + "/" + targetDatasetName +  "_" + "selectionbJets_ControlRegionAndSignalRegion" + "_H1_m"                       }, {kRed} , normalize, 0.153512,    95,   155, 1, "m_{Hreco}","events","4b-tag",{legEntry});
@@ -484,14 +499,83 @@ void RatioAllVariables(std::string canvasName, std::string referenceFileName, st
     std::string secondCanvasName = canvasName + "_2";
     TCanvas *theSecondCanvas = new TCanvas(secondCanvasName.data(), secondCanvasName.data(), 1400, 800);
     theSecondCanvas->DivideSquare(2,0.005,0.005);
-    RatioPlotFromFile(theSecondCanvas->cd(1),referenceFileName ,referenceHistPrototype + "_H1_m"                       , {targetFileName} , {targetHistPrototype + "_H1_m"                      }, {kRed} , normalize, scaleValue,     90,   160, 1, "m_{Yreco} [GeV]","events","4b-tag",{legEntry});
+    RatioPlotFromFile(theSecondCanvas->cd(1),referenceFileName ,referenceHistPrototype + "_H1_m"                       , {targetFileName} , {targetHistPrototype + "_H1_m"                      }, {kRed} , normalize, scaleValue,     90,   160, 1, "m_{Hreco} [GeV]","events","4b-tag",{legEntry});
     scaleValue = -1;
     RatioPlotFromFile(theCanvas->cd(2),referenceFileName ,referenceHistPrototype + "_H2_m"                        , {targetFileName} , {targetHistPrototype + "_H2_m"                       }, {kRed} , normalize, scaleValue, 30, 300, 1, "m_{Yreco} [GeV]","events/GeV","4b-tag",{legEntry},true);
     scaleValue = -1;
     theSecondCanvas->SaveAs((std::string(theSecondCanvas->GetName()) + ".png").data());
     delete theSecondCanvas;  
+    
 }
 
+void RatioUnrolledPlot(std::string canvasName, std::string referenceFileName, std::string referenceDatasetName , std::string referenceCutName, std::string targetFileName, std::string targetDatasetName , std::string targetCutName, bool normalize, std::string region = "HMR", bool useKinFitVariables = false)
+{
+    int oldRatioLowLimit  = gRatioLowLimit ;
+    int oldRatioHighLimit = gRatioHighLimit;
+    gRatioLowLimit  = 0.;
+    gRatioHighLimit = 2.;
+    std::string legEntry;
+    if(canvasName.find("BeforeBDT") == std::string::npos) legEntry = "BKG model";
+    else legEntry = "3b-tag scaled";
+    
+    std::string append = useKinFitVariables ? "_kinFit" : "";
+    std::string referenceHistPrototype = referenceDatasetName +  "/" + referenceCutName + "/" + referenceDatasetName +  "_" + referenceCutName;
+    std::string targetHistPrototype    = targetDatasetName    +  "/" + targetCutName    + "/" + targetDatasetName    +  "_" + targetCutName   ;
+    
+    int totalNumberOfBins = 1600;
+    int totalNumberPerPlot = 200;
+    int numberOfIterations = totalNumberOfBins/totalNumberPerPlot;
+    for(int subPlotNumber = 0; subPlotNumber<numberOfIterations; ++subPlotNumber)
+    {
+        int binStart = subPlotNumber * totalNumberPerPlot;
+        int binEnd   = binStart + totalNumberPerPlot;
+        std::string unrolledCanvasName = canvasName + "_ValidationRegionUnrolled_" + std::to_string(binStart) + "_"  + std::to_string(binEnd);
+        TCanvas *theUnrolledCanvas = new TCanvas(unrolledCanvasName.data(), unrolledCanvasName.data(), 1400, 800);
+        float scaleValue = -1;
+        RatioPlotFromFile(theUnrolledCanvas->cd(1),referenceFileName ,referenceHistPrototype + "_HH" + append + "_m_H2_m_Rebinned_Unrolled"                       , {targetFileName} , {targetHistPrototype + "_HH" + append + "_m_H2_m_Rebinned_Unrolled"                      }, {kRed} , false, scaleValue,     binStart,   binEnd, 1, "Unrolled_mX_mY","events","4b-tag",{legEntry});
+        theUnrolledCanvas->SaveAs((std::string(theUnrolledCanvas->GetName()) + ".png").data());
+        delete theUnrolledCanvas;  
+    }
+
+    gRatioLowLimit  = oldRatioLowLimit ;
+    gRatioHighLimit = oldRatioHighLimit;
+
+}
+
+
+void CompareShapes(std::string canvasName, std::string referenceFileName, std::string referenceDatasetName , std::string referenceCutName, std::string targetFileName, std::string targetDatasetName , std::string targetCutName, bool normalize, std::string region = "HMR", bool useKinFitVariables = false)
+{
+    int oldRatioLowLimit  = gRatioLowLimit ;
+    int oldRatioHighLimit = gRatioHighLimit;
+    gRatioLowLimit  = 0.;
+    gRatioHighLimit = 2.;
+    
+    std::string append = useKinFitVariables ? "_kinFit" : "";
+    std::string referenceHistPrototype = referenceDatasetName +  "/" + referenceCutName + "/" + referenceDatasetName +  "_" + referenceCutName;
+    std::string variationUp   = targetDatasetName + "_up"  ;
+    std::string variationDown = targetDatasetName + "_down";
+    std::string targetHistPrototypeUp    = variationUp    +  "/" + targetCutName    + "/" + variationUp    +  "_" + targetCutName   ;
+    std::string targetHistPrototypeDown  = variationDown  +  "/" + targetCutName    + "/" + variationDown  +  "_" + targetCutName   ;
+    
+    int totalNumberOfBins = 1600;
+    int totalNumberPerPlot = 200;
+    int numberOfIterations = totalNumberOfBins/totalNumberPerPlot;
+    for(int subPlotNumber = 0; subPlotNumber<numberOfIterations; ++subPlotNumber)
+    {
+        int binStart = subPlotNumber * totalNumberPerPlot;
+        int binEnd   = binStart + totalNumberPerPlot;
+        std::string unrolledCanvasName = canvasName + "_ValidationRegionUnrolled_ShapeComparison_" + std::to_string(binStart) + "_"  + std::to_string(binEnd);
+        TCanvas *theUnrolledCanvas = new TCanvas(unrolledCanvasName.data(), unrolledCanvasName.data(), 1400, 800);
+        float scaleValue = -1;
+        RatioPlotFromFile(theUnrolledCanvas->cd(1),referenceFileName ,referenceHistPrototype + "_HH" + append + "_m_H2_m_Rebinned_Unrolled"                       , {targetFileName,targetFileName} , {targetHistPrototypeUp + "_HH" + append + "_m_H2_m_Rebinned_Unrolled", targetHistPrototypeDown + "_HH" + append + "_m_H2_m_Rebinned_Unrolled"}, {kRed, kBlue} , true, scaleValue,     binStart,   binEnd, 1, "Unrolled_mX_mY","events","nominal",{"up","down"});
+        theUnrolledCanvas->SaveAs((std::string(theUnrolledCanvas->GetName()) + ".png").data());
+        delete theUnrolledCanvas;  
+    }
+
+    gRatioLowLimit  = oldRatioLowLimit ;
+    gRatioHighLimit = oldRatioHighLimit;
+
+}
 
 
 
@@ -514,24 +598,30 @@ void RatioBackgroundSculpting(std::string canvasName = "BackgroundSculpting", st
 
 }
 
-
-void RatioBackgroundSculptingOffShell(std::string canvasName = "BackgroundSculpting_offShell", std::string fileName = "2016DataPlots_NMSSM_XYH_bbbb_dataDrivenStudies_offShell/outPlotter.root", std::string referenceDatasetName = "data_BTagCSV_offShell" , std::string targetDatasetName = "data_BTagCSV_3btag_offShell")
+void RatioBackgroundSculptingOffShell(int year)
 {
+    gROOT->SetBatch(true);
+    std::string canvasName = "BackgroundSculpting_offShell_mHreco" + std::to_string(year);
+    std::string fileName = std::to_string(year) + "DataPlots_NMSSM_XYH_bbbb_dataDrivenStudies_offShell/outPlotter.root";
+    std::string referenceDatasetName = "data_BTagCSV_offShell";
+    std::string targetDatasetName = "data_BTagCSV_3btag_offShell";
 
     TFile theFile(fileName.data());
     auto *entriesIn4b = getHistogramFromFile<TH1F>(theFile, referenceDatasetName + "/" + referenceDatasetName);
     auto *entriesIn3b = getHistogramFromFile<TH1F>(theFile, targetDatasetName + "/" + targetDatasetName);
-    float nEntriesIn3b = entriesIn3b->GetBinContent(entriesIn3b->GetXaxis()->FindBin("selectionbJets_offShell_SideBand"));
-    float nEntriesIn4b = entriesIn4b->GetBinContent(entriesIn4b->GetXaxis()->FindBin("selectionbJets_offShell_SideBand"));
+    float nEntriesIn3b = entriesIn3b->GetBinContent(entriesIn3b->GetXaxis()->FindBin("selectionbJets_offShell_ControlRegion"));
+    float nEntriesIn4b = entriesIn4b->GetBinContent(entriesIn4b->GetXaxis()->FindBin("selectionbJets_offShell_ControlRegion"));
     float normalizationValue = nEntriesIn4b / nEntriesIn3b;
     theFile.Close();
     std::cout << nEntriesIn4b << " - " << nEntriesIn3b << " - " << normalizationValue << std::endl;
 
-    TCanvas *theCanvas = new TCanvas(canvasName.data(), canvasName.data(), 1400, 800);
-    theCanvas->DivideSquare(2,0.005,0.005);
-    RatioPlotFromFile(theCanvas->cd(1),fileName ,referenceDatasetName +  "/" + "selectionbJets_offShell_FullRegion" + "/" + referenceDatasetName +  "_" + "selectionbJets_offShell_FullRegion" + "_offShell_H1_m"                        , {fileName} , {targetDatasetName +  "/" + "selectionbJets_offShell_FullRegion" + "/" + targetDatasetName +  "_" + "selectionbJets_offShell_FullRegion" + "_offShell_H1_m"                       }, {kRed} , true, normalizationValue,    145,   265, 16, "m_{Hreco}","events","4b-tag", {std::string("3b-tag scaled")});
-    RatioPlotFromFile(theCanvas->cd(2),fileName ,referenceDatasetName +  "/" + "selectionbJets_offShell_FullRegion" + "/" + referenceDatasetName +  "_" + "selectionbJets_offShell_FullRegion" + "_offShell_H1_m"                        , {fileName} , {"data_BTagCSV_dataDriven_offShell/selectionbJets_offShell_FullRegion/data_BTagCSV_dataDriven_offShell_selectionbJets_offShell_FullRegion_offShell_H1_m"                       }, {kRed} , false, normalizationValue,    145,   265, 16, "m_{Hreco}","events","4b-tag", {std::string("BKG model")});
-
+    TCanvas *theCanvas = new TCanvas(canvasName.data(), canvasName.data(), 700, 800);
+    theCanvas->DivideSquare(1,0.005,0.005);
+    // RatioPlotFromFile(theCanvas->cd(1),fileName ,referenceDatasetName +  "/" + "selectionbJets_offShell_FullRegion" + "/" + referenceDatasetName +  "_" + "selectionbJets_offShell_FullRegion" + "_offShell_H1_m"                        , {fileName} , {targetDatasetName +  "/" + "selectionbJets_offShell_FullRegion" + "/" + targetDatasetName +  "_" + "selectionbJets_offShell_FullRegion" + "_offShell_H1_m"                       }, {kRed} , true, normalizationValue,    145,   265, 16, "m_{Hreco}","events","4b-tag", {std::string("3b-tag scaled")});
+    RatioPlotFromFile(theCanvas->cd(1),fileName ,referenceDatasetName +  "/" + "selectionbJets_offShell_FullRegion" + "/" + referenceDatasetName +  "_" + "selectionbJets_offShell_FullRegion" + "_offShell_H1_m"                        , {fileName} , {"data_BTagCSV_dataDriven_offShell/selectionbJets_offShell_FullRegion/data_BTagCSV_dataDriven_offShell_selectionbJets_offShell_FullRegion_offShell_H1_m"                       }, {kRed} , false, normalizationValue,    145,   265, 16, "m_{Hreco}","events","4b-tag", {std::string("BKG model")});
+    // RatioPlotFromFile(theCanvas->cd(3),fileName ,referenceDatasetName +  "/" + "selectionbJets_offShell_SignalRegion" + "/" + referenceDatasetName +  "_" + "selectionbJets_offShell_SignalRegion" + "_offShell_H2_m"                        , {fileName} , {"data_BTagCSV_dataDriven_offShell/selectionbJets_offShell_SignalRegion/data_BTagCSV_dataDriven_offShell_selectionbJets_offShell_SignalRegion_offShell_H2_m"                       }, {kRed} , false, normalizationValue,    145,   400, 1, "m_{Yreco}","events","4b-tag", {std::string("BKG model")});
+    theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").data());
+    gROOT->SetBatch(false);
 }
 
 
@@ -580,6 +670,10 @@ void RatioAll(bool useKinFitVariables=true, std::string dataDrivenDatasetName="d
 
     RatioAllVariables("ControlRegion_BeforeBDT_2018", "2018DataPlots_NMSSM_XYH_bbbb_dataDrivenStudies/outPlotter.root", "data_BTagCSV" , "selectionbJets_ControlRegionBlinded", 
     "2018DataPlots_NMSSM_XYH_bbbb_dataDrivenStudies/outPlotter.root", "data_BTagCSV_3btag" , "selectionbJets_ControlRegionBlinded",true, "Full", useKinFitVariables);
+
+
+
+
 
 
     // RatioAllVariables("SideBand_AfterBDT", "2016DataPlots_NMSSM_XYH_bbbb_all_Full/outPlotter.root", "data_BTagCSV" , "selectionbJets_SideBandBlinded", 
@@ -646,6 +740,39 @@ void RatioAll(bool useKinFitVariables=true, std::string dataDrivenDatasetName="d
 
 }
 
+void RatioAllUnrolledPlot(int version, bool useKinFitVariables=true, std::string dataDrivenDatasetName="data_BTagCSV_dataDriven_kinFit")
+{
+    gROOT->SetBatch(true);
+
+    RatioUnrolledPlot("ValidationRegion_AfterBDT_2016", "DataPlots_fullSubmission_2016_v" + std::to_string(version) + "/outPlotter.root", "data_BTagCSV" , "selectionbJets_ValidationRegionBlinded", 
+    "DataPlots_fullSubmission_2016_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_ValidationRegionBlinded",false, "Full", useKinFitVariables);
+
+    RatioUnrolledPlot("ValidationRegion_AfterBDT_2017", "DataPlots_fullSubmission_2017_v" + std::to_string(version) + "/outPlotter.root", "data_BTagCSV" , "selectionbJets_ValidationRegionBlinded", 
+    "DataPlots_fullSubmission_2017_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_ValidationRegionBlinded",false, "Full", useKinFitVariables);
+
+    RatioUnrolledPlot("ValidationRegion_AfterBDT_2018", "DataPlots_fullSubmission_2018_v" + std::to_string(version) + "/outPlotter.root", "data_BTagCSV" , "selectionbJets_ValidationRegionBlinded", 
+    "DataPlots_fullSubmission_2018_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_ValidationRegionBlinded",false, "Full", useKinFitVariables);
+    gROOT->SetBatch(false);
+
+}
+
+
+void CompareAllShapes(int version, bool useKinFitVariables=true, std::string dataDrivenDatasetName="data_BTagCSV_dataDriven_kinFit")
+{
+    gROOT->SetBatch(true);
+
+    CompareShapes("SignalRegion_ShapeComparison_2016", "DataPlots_fullSubmission_2016_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_SignalRegion", 
+    "DataPlots_fullSubmission_2016_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_SignalRegion",false, "Full", useKinFitVariables);
+
+    CompareShapes("SignalRegion_ShapeComparison_2017", "DataPlots_fullSubmission_2017_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_SignalRegion", 
+    "DataPlots_fullSubmission_2017_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_SignalRegion",false, "Full", useKinFitVariables);
+
+    CompareShapes("SignalRegion_ShapeComparison_2018", "DataPlots_fullSubmission_2018_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_SignalRegion", 
+    "DataPlots_fullSubmission_2018_v" + std::to_string(version) + "/outPlotter.root", dataDrivenDatasetName , "selectionbJets_SignalRegion",false, "Full", useKinFitVariables);
+    gROOT->SetBatch(false);
+
+}
+
 
 // void RatioAllBackground()
 // {
@@ -687,3 +814,38 @@ void RatioAll(bool useKinFitVariables=true, std::string dataDrivenDatasetName="d
 
 //     extimatedHistogram->Draw("colz");
 // }
+
+
+void ShowSRmYratio()
+{
+    gROOT->SetBatch(true);
+
+    std::map<int, float> scaleValueMap;
+    scaleValueMap[2016] = 0.094924;
+    scaleValueMap[2017] = 0.130086;
+    scaleValueMap[2018] = 0.110515;
+
+    for(const auto& yearAndScale : scaleValueMap)
+    {
+        int   year       = yearAndScale.first ;
+        float scaleValue = yearAndScale.second;
+        std::string referenceFileName    = std::to_string(year) + "DataPlots_NMSSM_XYH_bbbb_dataDrivenStudies/outPlotter.root";
+        std::string referenceDatasetName = "data_BTagCSV_dataDriven_kinFit";
+        std::string referenceCutName     = "selectionbJets_SignalRegion";
+        std::string referenceHistPrototype = referenceDatasetName +  "/" + referenceCutName + "/" + referenceDatasetName +  "_" + referenceCutName;
+
+        std::string targetFileName       = referenceFileName;
+        std::string targetDatasetName    = "data_BTagCSV_3btag";
+        std::string targetCutName        = referenceCutName;
+        std::string targetHistPrototype    = targetDatasetName    +  "/" + targetCutName    + "/" + targetDatasetName    +  "_" + targetCutName   ;
+
+        std::string canvasName = "SignalRegion_3b_Bkg_" + std::to_string(year);
+        TCanvas *theCanvas = new TCanvas(canvasName.data(), canvasName.data(), 700, 800);
+        RatioPlotFromFile(theCanvas->cd(0), referenceFileName, referenceHistPrototype + "_H2_m", {targetFileName} , {targetHistPrototype + "_H2_m"}, {kRed} , true, scaleValue, 30, 300, 1, "m_{Yreco} [GeV]","events/GeV","BKG model",{"3b-tag"}, true);
+        theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").data());
+        delete theCanvas;  
+    }
+
+
+    gROOT->SetBatch(false);
+}

@@ -7,7 +7,8 @@
 #include <map>
 #include "TChain.h"
 
-std::string selection = "NbJets >= 4 && H1_m > 125-20 && H1_m < 125+20";
+std::string selection = "NbJets >= 4";
+std::string signalRegion = " && H1_m > 125-20 && H1_m < 125+20";
 
 std::vector<std::string> splitByLine(const std::string& inputFileName)
 {
@@ -73,10 +74,30 @@ void getVariableInSignalRegion(TVirtualPad *theCanvas, std::string fileName, std
 
     theCanvas->cd();
 
-    TH1F *variablePlot = new TH1F((sampleName + "_" + variable).c_str(), ("m_{X} = " + pairMxMy.first + " Gev - m_{Y} = " + pairMxMy.second + "; m_{X} [GeV]; entries [a.u.]" ).c_str()
-        , 50, xMin, xMax);
+    std::string theCurrentSelection = selection;
+    if(variable != "H1_m" && variable != "H1_kinFit_m") theCurrentSelection += signalRegion;
+
+
+    std::string xAxisLabel = "";
+
+    if(variable == "H1_m" || variable == "H1_kinFit_m")
+    {
+        xAxisLabel = "m_{H}";
+    }
+    if(variable == "H2_m"                             )
+    {
+        xAxisLabel = "m_{Y}";
+    }
+    if(variable == "HH_m" || variable == "HH_kinFit_m")
+    {
+        xAxisLabel = "m_{X}";
+    }
+
+    TH1F *variablePlot = new TH1F((sampleName + "_" + variable).c_str(), ("m_{X} = " + pairMxMy.first + " Gev - m_{Y} = " + pairMxMy.second + "; " + xAxisLabel + " [GeV]; entries [a.u.]" ).c_str()
+        , 100, xMin, xMax);
+    variablePlot->GetYaxis()->SetTitleOffset(1.2);
     std::string plotMxKinFirCmd = variable + std::string(">>") + sampleName + "_" + variable;
-    theTree->Draw(plotMxKinFirCmd.c_str(), selection.data(), "");
+    theTree->Draw(plotMxKinFirCmd.c_str(), theCurrentSelection.data(), "");
     variablePlot->SetLineColor(kBlue);
     variablePlot->SetMaximum(variablePlot->GetMaximum()*1.2);
     
