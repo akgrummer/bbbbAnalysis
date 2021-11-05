@@ -7,6 +7,7 @@
 #include "TMarker.h"
 #include "TBox.h"
 #include "TStyle.h"
+#include "TROOT.h"
 
 class MassGroups
 {
@@ -96,8 +97,9 @@ std::vector<std::string> splitByLine(const std::string& inputFileName)
 
 void PlaneDivision()
 {
+    gROOT->ForceStyle();
     TFile quantileFile("QuantilePlot.root");
-    TFile plotterFile("DataPlots_fullSubmission_2016_v30/outPlotter.root");
+    TFile plotterFile("DataPlots_fullSubmission_2016_v31/outPlotter.root");
 
     TH2F* mXmYplane = (TH2F*)plotterFile.Get("data_BTagCSV_dataDriven_kinFit/selectionbJets_SignalRegion/data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion_HH_kinFit_m_H2_m");
     mXmYplane->SetDirectory(0);
@@ -139,6 +141,9 @@ void PlaneDivision()
 
     gStyle->SetPalette(kAquamarine);
     TCanvas *theNewCanvas = new TCanvas("canvas", "canvas", 1400, 800);
+    mXmYplane->SetTitle("m_{Xreco} - m_{Yreco} plane sub-regions");
+    mXmYplane->GetXaxis()->SetTitle("m_{Xreco} [GeV]");
+    mXmYplane->GetYaxis()->SetTitle("m_{Yreco} [GeV]");
     mXmYplane->SetStats(false);
     mXmYplane->Draw("colz");
 
@@ -171,8 +176,8 @@ void PlaneDivision()
         theBox->Draw("same");
     }
 
+    theNewCanvas->SaveAs("PlaneDivision.png");
 
-    
     return;
 
 }

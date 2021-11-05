@@ -109,12 +109,13 @@ void OutputTree::init_branches(bool initAllBranches)
     tree_->Branch("FourthBtaggedJet_deepCSV" , &FourthBtaggedJet_deepCSV );
     tree_->Branch("FourthBtaggedJet_PtRegRes", &FourthBtaggedJet_PtRegRes);
 
-    tree_->Branch("minDeltaRbJets"  , &minDeltaRbJets  );
-    tree_->Branch("maxDeltaRbJets"  , &maxDeltaRbJets  );
-    tree_->Branch("minDeltaEtabJets", &minDeltaEtabJets);
-    tree_->Branch("maxDeltaEtabJets", &maxDeltaEtabJets);
-    tree_->Branch("minDeltaPhibJets", &minDeltaPhibJets);
-    tree_->Branch("maxDeltaPhibJets", &maxDeltaPhibJets);
+    tree_->Branch("minDeltaRbJets"      , &minDeltaRbJets      );
+    tree_->Branch("maxDeltaRbJets"      , &maxDeltaRbJets      );
+    tree_->Branch("minDeltaEtabJets"    , &minDeltaEtabJets    );
+    tree_->Branch("maxDeltaEtabJets"    , &maxDeltaEtabJets    );
+    tree_->Branch("minDeltaPhibJets"    , &minDeltaPhibJets    );
+    tree_->Branch("maxDeltaPhibJets"    , &maxDeltaPhibJets    );
+    tree_->Branch("distanceFromDiagonal", &distanceFromDiagonal);
 
     BRANCH_m_pt_ptRegressed_eta_phi_p4(offShell_H1_b1)
     BRANCH_m_pt_ptRegressed_eta_phi_p4(offShell_H1_b2)
@@ -407,6 +408,15 @@ void OutputTree::init_branches(bool initAllBranches)
 
     tree_->Branch("gen_jet_pt", &gen_jet_pt);
     tree_->Branch("jet_pt", &jet_pt);
+
+    tree_->Branch("Flag_goodVertices", &Flag_goodVertices);
+    tree_->Branch("Flag_globalSuperTightHalo2016Filter", &Flag_globalSuperTightHalo2016Filter);
+    tree_->Branch("Flag_HBHENoiseFilter", &Flag_HBHENoiseFilter);
+    tree_->Branch("Flag_HBHENoiseIsoFilter", &Flag_HBHENoiseIsoFilter);
+    tree_->Branch("Flag_EcalDeadCellTriggerPrimitiveFilter", &Flag_EcalDeadCellTriggerPrimitiveFilter);
+    tree_->Branch("Flag_BadPFMuonFilter", &Flag_BadPFMuonFilter);
+    tree_->Branch("Flag_ecalBadCalibFilterV2", &Flag_ecalBadCalibFilterV2);
+
     
     // BRANCH_m_pt_eta_phi_p4(gen_q1_in)
     // BRANCH_m_pt_eta_phi_p4(gen_q2_in)
@@ -516,12 +526,13 @@ void OutputTree::clear()
     FourthBtaggedJet_deepCSV  = -1.;
     FourthBtaggedJet_PtRegRes = -1.;
 
-    minDeltaRbJets   = -1.;
-    maxDeltaRbJets   = -1.;
-    minDeltaEtabJets = -1.;
-    maxDeltaEtabJets = -1.;
-    minDeltaPhibJets = -1.;
-    maxDeltaPhibJets = -1.;
+    minDeltaRbJets       =   -1.;
+    maxDeltaRbJets       =   -1.;
+    minDeltaEtabJets     =   -1.;
+    maxDeltaEtabJets     =   -1.;
+    minDeltaPhibJets     =   -1.;
+    maxDeltaPhibJets     =   -1.;
+    distanceFromDiagonal = -999.;
 
     CLEAR_m_pt_eta_phi_p4(H1_kinFit)
     CLEAR_m_pt_eta_phi_p4(H2_kinFit)
@@ -851,6 +862,14 @@ void OutputTree::clear()
     gen_H1_b2_pz=-1;
     gen_H2_b1_pz=-1;
     gen_H2_b2_pz=-1;
+
+    Flag_goodVertices = 0.;
+    Flag_globalSuperTightHalo2016Filter = 0.;
+    Flag_HBHENoiseFilter = 0.;
+    Flag_HBHENoiseIsoFilter = 0.;
+    Flag_EcalDeadCellTriggerPrimitiveFilter = 0.;
+    Flag_BadPFMuonFilter = 0.;
+    Flag_ecalBadCalibFilterV2 = 0.;
 
     userFloats_.resetAll();
     userInts_.resetAll();

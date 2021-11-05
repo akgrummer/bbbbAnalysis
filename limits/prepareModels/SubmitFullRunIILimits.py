@@ -26,6 +26,7 @@ parser.add_argument('--year'   , dest = 'year'   , help = 'year'           , req
 parser.add_argument('--tag'    , dest = 'tag'    , help = 'production tag' , required = True)
 parser.add_argument('--group'  , dest = 'group'  , help = 'mass group'     , required = False, default = "none")
 parser.add_argument('--impacts', dest = 'impacts', help = 'Measure impacts', action='store_true', default=False)
+parser.add_argument('--unblind', dest = 'unblind', help = 'Unblind data'   , action='store_true', default=False)
 
 args = parser.parse_args()
 
@@ -45,6 +46,9 @@ outputDirNoEos = "/store/user/{0}/bbbb_limits/"
 eosLink = "root://cmseos.fnal.gov/"
 outputDir = eosLink + outputDirNoEos.format(username)
 listOfSystematics = ["CMS_bkgnorm_YEAR", "CMS_bkgShape_YEAR", "lumi_13TeV_YEAR", "CMS_trg_eff_YEAR", "CMS_l1prefiring_YEAR", "CMS_eff_b_b_YEAR", "CMS_eff_b_c_YEAR", "CMS_eff_b_udsg_YEAR", "CMS_PU", "CMS_scale_j_Total_YEAR", "CMS_res_j_YEAR", "CMS_res_j_breg_YEAR",  "CMS_LHE_pdf", "CMS_PS_weights"] 
+
+blindFlag = " --run blind "
+if args.unblind: blindFlag = ""
 
 LimitOptionsForImpacts = {}
 for systematic in listOfSystematics:
@@ -238,7 +242,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
             # if "YEAR" in combineCommand:
             theRealCombineCommand = combineCommand.replace("YEAR", str(year))
             writeln(outScript, 'echo "... running %s %s datacard"' % (year,option))
-            writeln(outScript, 'combine %s -M AsymptoticLimits --run blind --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,theRealCombineCommand))
+            writeln(outScript, 'combine %s -M AsymptoticLimits --rMax 30 %s --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,blindFlag,theRealCombineCommand))
             writeln(outScript, 'echo "... execution finished with status $?"')
             outputLimitFile  = plotFileFolderProto.format(year) + outFileNameProto.format(year,signal,option)
             writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputLimitFile))
@@ -249,7 +253,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
         workspaceName = folderRunIIName + "/datacardRunII_selectionbJets_SignalRegion.root"
         for option, combineCommand in LimitOptions.items(): 
             writeln(outScript, 'echo "... running RunII %s datacard"' % option)
-            writeln(outScript, 'combine %s -M AsymptoticLimits --run blind --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,combineCommand))
+            writeln(outScript, 'combine %s -M AsymptoticLimits --rMax 30 %s --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,blindFlag,combineCommand))
             writeln(outScript, 'echo "... execution finished with status $?"')
             outputLimitFile  = plotFileFolderProto.format("RunII") + outFileNameProto.format("RunII",signal,option)
             writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputLimitFile))

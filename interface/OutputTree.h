@@ -110,12 +110,13 @@ class OutputTree {
         float FourthBtaggedJet_deepCSV ;
         float FourthBtaggedJet_PtRegRes;
 
-        float minDeltaRbJets  ;
-        float maxDeltaRbJets  ;
-        float minDeltaEtabJets;
-        float maxDeltaEtabJets;
-        float minDeltaPhibJets;
-        float maxDeltaPhibJets;
+        float minDeltaRbJets      ;
+        float maxDeltaRbJets      ;
+        float minDeltaEtabJets    ;
+        float maxDeltaEtabJets    ;
+        float minDeltaPhibJets    ;
+        float maxDeltaPhibJets    ;
+        float distanceFromDiagonal;
 
         DECLARE_m_pt_ptRegressed_eta_phi_p4(offShell_H1_b1)
         DECLARE_m_pt_ptRegressed_eta_phi_p4(offShell_H1_b2)
@@ -493,6 +494,15 @@ class OutputTree {
         float hhj1_deltaEta; 
         float hhj2_deltaEta; 
         float hhjj_deltaEta;    
+
+        int Flag_goodVertices;
+        int Flag_globalSuperTightHalo2016Filter;
+        int Flag_HBHENoiseFilter;
+        int Flag_HBHENoiseIsoFilter;
+        int Flag_EcalDeadCellTriggerPrimitiveFilter;
+        int Flag_BadPFMuonFilter;
+        int Flag_ecalBadCalibFilterV2;
+
     private:
         void init_branches(bool initAllBranches);
         std::unique_ptr<TTree> tree_;

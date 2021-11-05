@@ -113,6 +113,7 @@ struct EventInfo{
     boost::optional<Jet>   SecondBtaggedJet;
     boost::optional<Jet>   ThirdBtaggedJet ;
     boost::optional<Jet>   FourthBtaggedJet;
+    boost::optional<float> distanceFromDiagonal;
 
     //Non-resonant analysis and studies
     boost::optional<int>  gen_H1_b1_matched;
@@ -377,6 +378,13 @@ struct EventInfo{
     boost::optional<int> TT_nPVgood;
     boost::optional<int> TT_nJet;        
 
+    boost::optional<int> Flag_goodVertices;
+    boost::optional<int> Flag_globalSuperTightHalo2016Filter;
+    boost::optional<int> Flag_HBHENoiseFilter;
+    boost::optional<int> Flag_HBHENoiseIsoFilter;
+    boost::optional<int> Flag_EcalDeadCellTriggerPrimitiveFilter;
+    boost::optional<int> Flag_BadPFMuonFilter;
+    boost::optional<int> Flag_ecalBadCalibFilterV2;
 };
 
 #endif

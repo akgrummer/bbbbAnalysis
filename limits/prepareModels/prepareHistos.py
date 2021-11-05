@@ -138,9 +138,9 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
 						continue ## some cases (e.g. the data) won't have it
 
 					outname_proto = '{sample}_{syst}{Dir}'
-					if sd == 'up' or sd == '_up' or sd == 'Up' or sd == "_Up":
+					if sd == 'up' or sd == '_up' or sd == 'Up' or sd == "_Up" or sd == 'upRefined':
 						Dir = 'Up'
-					elif sd == 'down' or sd == '_down' or sd == 'Down' or sd == "_Dn":
+					elif sd == 'down' or sd == '_down' or sd == 'Down' or sd == "_Dn" or sd == 'downRefined':
 						Dir = 'Down'
 					elif sd is None:
 						Dir = ''

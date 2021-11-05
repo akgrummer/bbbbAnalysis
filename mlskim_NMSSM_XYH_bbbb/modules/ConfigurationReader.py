@@ -12,9 +12,6 @@ class ConfigurationReader:
         self.backgroundWeightName         = ast.literal_eval(cfgparser.get("configuration","backgroundWeightName"))
         print "    -The backgroundWeightName:"
         print "      *",self.backgroundWeightName[0]
-        self.modelArguments               = ast.literal_eval(cfgparser.get("configuration","modelArguments"))
-        print "    -The random seed:"
-        print "      *",self.modelArguments 
         self.minpt                        = ast.literal_eval(cfgparser.get("configuration","minbjetpt"))
         print "    -The min b-jet pt:"
         print "      *",self.minpt 

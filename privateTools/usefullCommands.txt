@@ -35,7 +35,7 @@ skim_ntuple.exe --cfg config/Resonant_NMSSM_bbbb/skim_2016Resonant_NMSSM_XYH_bbb
 
 skim_ntuple.exe --cfg config/Resonant_NMSSM_bbbb/skim_2016Resonant_NMSSM_XYH_bbbb_Fast.cfg --input inputFiles/2017_NMSSM_XYH_bbbb_Datasets/NMSSM_XYH_bbbb_MX_900_NANOAOD_v7.txt --output test_NMSSM_XYH_bbbb_MC.root --is-signal --xs=1 --puWeight weights/2017_NMSSM_XYH_bbbb_weights/NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_PUweights.root --maxEvt 100000 --yMassSelection=125
 
-skim_ntuple.exe --input=inputFiles/2018_NMSSM_XYH_bbbb_Datasets/NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full.txt   --cfg=config/Resonant_NMSSM_bbbb/skim_2018Resonant_NMSSM_XYH_bbbb.cfg  --puWeight=weights/2018_NMSSM_XYH_bbbb_weights/NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_PUweights.root  --is-signal --xs=0.1   --output test_NMSSM_XYH_bbbb_MC.root --yMassSelection=125  --maxDeltaR=0.25 --maxEvt 100000 
+skim_ntuple.exe --input=inputFiles/2016_NMSSM_XYH_bbbb_Datasets/NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full.txt   --cfg=config/Resonant_NMSSM_bbbb/skim_2016Resonant_NMSSM_XYH_bbbb.cfg  --puWeight=weights/2016_NMSSM_XYH_bbbb_weights/NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_PUweights.root  --is-signal --xs=0.1   --output test_NMSSM_XYH_bbbb_MC.root --yMassSelection=125  --maxDeltaR=0.25 --maxEvt 100000 
 
 
 
@@ -122,7 +122,7 @@ MergeCanvas<>("ScaleFactor_L1triggerDouble90Double30AndPrevious_FourHighetJetPtS
 MergeCanvas<>("ScaleFactor_L1triggerQuad45AndPrevious_FourHighetJetPtSum", "ScaleFactor_QuadCentralJet45AndPrevious_FirstJetPt", "ScaleFactor_QuadCentralJet45AndPrevious_SecondJetPt", "ScaleFactor_QuadCentralJet45AndPrevious_ThirdJetPt", "ScaleFactor_QuadCentralJet45AndPrevious_ForthJetPt", "ScaleFactor_BTagCaloCSVp087TripleQuad45AndPrevious_ThirdJetDeepCSV", "ScaleFactor_QuadPFCentralJetLooseID45AndPrevious_FirstJetPt", "ScaleFactor_QuadPFCentralJetLooseID45AndPrevious_SecondJetPt", "ScaleFactor_QuadPFCentralJetLooseID45AndPrevious_ThirdJetPt", "ScaleFactor_QuadPFCentralJetLooseID45AndPrevious_ForthJetPt")
 
 
-python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config=mlskim_NMSSM_XYH_bbbb/config/outputskim_2016.cfg 
+python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config=mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_full_kinFit.cfg 
 apply weights to data
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BackgroundModels/Reweight_fullSubmission_2016_v16_PtRegressedAndHigherLevel_kinFit/
 apply weights to signals
@@ -217,9 +217,17 @@ Produce Limit tables
 .L privateTools/ProduceLimitTable.C+
 ProduceAllLimitTable(int plotVersion, int limitVersion)
 
-Produce all plot for BKG validation
+Produce all plot for BKG composition
 .L scripts/privateScript/StackPlots.C+
 doAllStack()
+
+Produce all BKG comparison plots
+.L privateTools/RatioPlot.C+
+RatioAll()
+
+Produce All BKG shapes
+.L privateTools/RatioPlot.C+
+CompareAllShapesPerGroup(31)
 
 Produce all limit results
 edit limits/produceAllResults.sh with the updated tag
@@ -246,3 +254,11 @@ plotImpacts.py -i impacts.json -o impacts
 Ratio background up and down shapes
 .L privateTools/RatioPlot.C+
 CompareAllShapes(<version number>)
+
+Produce plots for validation of BKG model in VR
+.L scripts/modifyPlotForValidationTest.C+
+void modifyAllPlotForValidationTest(std::string tag = "v32_bkgValidation")
+
+Produce refined up and down BKG shape variations
+.L scripts/calculateBGKshape.C+
+void calculateAllBKGshape(std::string tag)

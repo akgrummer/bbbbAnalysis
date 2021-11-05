@@ -22,7 +22,7 @@ import threading
 from ROOT import TFile, TTree
 
 
-def BuildReweightingModel(data_4b, data_3b, trainingVariables, modelArguments, outputDirectory, modelFileName, analysisBackgroundArgument, analysisClassifierArgument):
+def BuildReweightingModel(data_4b, data_3b, trainingVariables, outputDirectory, modelFileName, analysisBackgroundArgument, analysisClassifierArgument):
 	print "bTagDataSize     = ", len(data_4b)
 	print "AntibTagDataSize = ", len(data_3b)
 	print "[INFO] Processing predicted model"
@@ -86,7 +86,6 @@ configFileName = args.cfgfile
 configFile = ConfigurationReader(configFileName)
 
 backgroundWeightName        = configFile.backgroundWeightName   
-modelArguments              = configFile.modelArguments    
 minpt                       = configFile.minpt       
 minRegressedPt              = configFile.minRegressedPt       
 minEta                      = configFile.minEta       
@@ -175,7 +174,7 @@ dataset.query(controlRegionSelection, inplace = True)
 print "Number of events in dataset after cuts = ",len(dataset) 
 
 # Run BDT reweight
-BuildReweightingModel(dataset.query(bTagSelection), dataset.query(antiBTagSelection), trainingVariables, modelArguments, outputDirectory, const.modelFileName, analysisBackgroundArgument, analysisClassifierArgument)
+BuildReweightingModel(dataset.query(bTagSelection), dataset.query(antiBTagSelection), trainingVariables, outputDirectory, const.modelFileName, analysisBackgroundArgument, analysisClassifierArgument)
 
 sys.stdout = orig_stdout
 print(logFile.read())

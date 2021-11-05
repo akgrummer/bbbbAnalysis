@@ -26,7 +26,7 @@ inputFile = TFile(args.input)
 
 for xMass in xMassList:
     theCanvas = TCanvas("limitMapCentral", "limitMapCentral", 1200, 800)
-    theLegend  = TLegend(0.47,0.6,0.88,0.88)
+    theLegend  = TLegend(0.17,0.65,0.5,0.88)
     theLegend.SetTextSize(0.04)
     # theLegend.SetNColumns(2);
 
@@ -47,6 +47,7 @@ for xMass in xMassList:
     theGraph2sigma.GetYaxis().SetTitle("#sigma(pp #rightarrow X) #times BR(Y(b#bar{b}) H(b#bar{b})) [fb]")
     theGraph2sigma.GetYaxis().SetRangeUser(1.,1.e5)
     theGraph2sigma.GetXaxis().SetRangeUser(50.,1900.)
+    theGraph2sigma.SetTitle("m_{X} = %i GeV"%(xMass))
     theGraph2sigma.Draw("a3")
 
     inputGraph1sigmaName = "Limits_RunII/Option_%s/1SigmaLimit_RunII_%s_massX_%i" % (append, append, xMass)
@@ -63,9 +64,21 @@ for xMass in xMassList:
     # theGraph.SetMarkerSize(0.7)
     theGraph.Draw("same pl")
 
+
+    inputGraphName = "Limits_RunII/Option_%s/ObservedLimit_RunII_%s_massX_%i" % (append, append, xMass)
+    theGraphObserved = inputFile.Get(inputGraphName)
+    theGraphObserved.SetLineColor(ROOT.kBlack)
+    theGraphObserved.SetLineStyle(7)
+    theGraphObserved.SetMarkerColor(ROOT.kBlack)
+    theGraphObserved.SetLineWidth(2)
+    theGraphObserved.SetMarkerStyle(20)
+    theGraphObserved.SetMarkerSize(0.7)
+    theGraphObserved.Draw("same pl")
+
     theLegend.AddEntry(theGraph, "Median expected", "lp")
     theLegend.AddEntry(theGraph1sigma, "68% expected"                             , "f" )
     theLegend.AddEntry(theGraph2sigma, "95% expected"                             , "f" )
+    theLegend.AddEntry(theGraphObserved, "Observed", "lp")
 
 
     theLegend.Draw("same")

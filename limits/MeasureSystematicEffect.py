@@ -20,6 +20,8 @@ LimitOptions = ["freeze_CMS_bkgnorm", "freeze_CMS_bkgShape", "freeze_lumi_13TeV"
 
 inputFile  = ROOT.TFile(args.input)
 
+outputFile  = ROOT.TFile("SystematicEffect.root", "RECREATE")
+
 for year in yearList:
     statOnlyHistogramName = "Limits_%s/Option_statOnly/LimitMapCentral_%s_statOnly" % (year, year)
     statOnlyHistogram = inputFile.Get(statOnlyHistogramName)
@@ -32,6 +34,7 @@ for year in yearList:
     systHistogram.SetStats(False)
     systHistogram.Draw("colz")
     theCanvas.SaveAs("SistematicImpact_%s_%s.png" %(year, "syst"))
+    outputFile.WriteObject(theCanvas, theCanvas.GetName())
 
     if args.impacts:
         for option in LimitOptions:
@@ -52,8 +55,10 @@ for year in yearList:
             optionHistogram.Draw("colz")
 
             theCanvas.SaveAs("SistematicImpact_%s_%s.png" %(year, option))
+            outputFile.WriteObject(theCanvas, theCanvas.GetName())
 
 
+outputFile.Close()
 
 # statOnlyInputFileName = "Limits" + year + "Limits_statOnly.root"
 # systematicInputFileName = "Limits" + year + "Limits_syst.root"

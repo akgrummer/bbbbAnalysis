@@ -486,6 +486,15 @@ class NanoAODTree_ReaderImpl {
         NanoReaderValue<Float_t>   L1PreFiringWeight_Nom                 {fReader, "L1PreFiringWeight_Nom"};
         NanoReaderValue<Float_t>   L1PreFiringWeight_Up                  {fReader, "L1PreFiringWeight_Up"};
         NanoReaderValue<Float_t>   L1PreFiringWeight_Dn                  {fReader, "L1PreFiringWeight_Dn"};
+
+        NanoReaderValue<Bool_t>  Flag_goodVertices {fReader, "Flag_goodVertices"};
+        NanoReaderValue<Bool_t>  Flag_globalSuperTightHalo2016Filter {fReader, "Flag_globalSuperTightHalo2016Filter"};
+        NanoReaderValue<Bool_t>  Flag_HBHENoiseFilter {fReader, "Flag_HBHENoiseFilter"};
+        NanoReaderValue<Bool_t>  Flag_HBHENoiseIsoFilter {fReader, "Flag_HBHENoiseIsoFilter"};
+        NanoReaderValue<Bool_t>  Flag_EcalDeadCellTriggerPrimitiveFilter {fReader, "Flag_EcalDeadCellTriggerPrimitiveFilter"};
+        NanoReaderValue<Bool_t>  Flag_BadPFMuonFilter {fReader, "Flag_BadPFMuonFilter"};
+        NanoReaderValue<Bool_t>  Flag_ecalBadCalibFilterV2 {fReader, "Flag_ecalBadCalibFilterV2"};
+
 };
 
 #endif

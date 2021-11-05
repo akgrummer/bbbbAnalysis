@@ -15,6 +15,7 @@ parser = argparse.ArgumentParser(description='Command line parser of skim option
 parser.add_argument('--config',    dest='cfgfile',        help='Name of config file with MC information',   required = True)
 parser.add_argument('--signal',    dest='signal',         help='Name of the signal'                     ,   required = True)
 parser.add_argument('--injRange',  dest='injRange' ,      help='signal injection injRange'              ,   required = True)
+parser.add_argument('--group',     dest='group',          help='group'                                  ,   required = True)
 args = parser.parse_args()
 configFileName = args.cfgfile
 signal         = args.signal
@@ -38,7 +39,7 @@ os.system("mkdir -p " + folder)
 # create plot file
 print "[INFO] Creating plot file . . ."
 
-createFileTastCommand = "python prepareModels/prepareHistos.py  --config " + configFileName + " --signal " + signal
+createFileTastCommand = "python prepareModels/prepareHistos.py  --config " + configFileName + " --signal " + signal + " --group " + args.group
 createPlotTask = sp.Popen(createFileTastCommand.split(), stdout=sp.PIPE)
 streamdata = createPlotTask.communicate()[0]
 codeReturned = createPlotTask.returncode
@@ -50,7 +51,7 @@ if codeReturned != 0:
 # create datacard and workspace
 print "[INFO] Creating datacard and workspace . . ."
 
-makeDatacardTaskCommand = "python prepareModels/makeDatacardsAndWorkspaces.py --config " + configFileName + " --no-comb --no-bbb --addScaleSignal --signal " + signal
+makeDatacardTaskCommand = "python prepareModels/makeDatacardsAndWorkspaces.py --config " + configFileName + " --no-comb --no-bbb --addScaleSignal --signal " + signal + " --bkgNorm 0"
 makeDatacardTask = sp.Popen(makeDatacardTaskCommand.split(), stdout=sp.PIPE)
 streamdata = makeDatacardTask.communicate()[0]
 codeReturned = makeDatacardTask.returncode

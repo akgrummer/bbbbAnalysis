@@ -23,7 +23,7 @@ def Draw1DHistosComparison(original, target, variables, original_weights, norm, 
 	i = 0
 	for id, column in enumerate(variables, 1):
 		xlim = numpy.percentile(numpy.hstack([target[column]]), [0.01, 99.99])
-		plt.subplot(4, 3, id)
+		plt.subplot(4, 4, id)
 		plt.hist(original[column],label='Bkg. Model', weights=original_weights, range=xlim, **hist_settings)
 		plt.hist(target[column],  label='4 btag (Target)', range=xlim, **hist_settings)
 		plt.legend(loc='best')

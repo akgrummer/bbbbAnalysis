@@ -3,9 +3,78 @@
 #include "TH2D.h"
 #include "TCanvas.h"
 #include "TROOT.h"
-
+#include "TGraphAsymmErrors.h"
+#include <stdlib.h>
+#include <map>
+#include <tuple>
+#include <vector>
+#include <fstream>
+#include <algorithm>
 
 // g++  -std=c++17 -I `root-config --incdir`  -o Plot2DLimitMap Plot2DLimitMap.cc `root-config --libs` -O3
+
+std::vector<float> getBinning(const std::vector<float>& listOfPoints)
+{
+    uint numberOfPoints = listOfPoints.size();
+    std::vector<float> binning(numberOfPoints+1);
+    for (int point=0; point<numberOfPoints-1; ++point) binning[point+1] = (listOfPoints[point]+listOfPoints[point+1])/2.;
+    binning[0]              = 2.*listOfPoints[0] - binning[1];
+    binning[numberOfPoints] = 2.*listOfPoints[numberOfPoints-1] - binning[numberOfPoints-1];
+    return binning;
+}
+
+std::vector<float> doubleBinning(const std::vector<float>& originalBinning)
+{
+    uint originalNumberOfPoints = originalBinning.size();
+    uint numberOfPoints = originalNumberOfPoints*2-1;
+    std::vector<float> binning(numberOfPoints);
+    binning[0] = originalBinning[0];
+    binning[numberOfPoints-1] = originalBinning[originalNumberOfPoints-1];
+    for(uint point=1; point<originalNumberOfPoints-1; ++point) binning[point*2] = originalBinning[point];
+    for(uint point=0; point<originalNumberOfPoints-1; ++point) binning[point*2+1] = (originalBinning[point]+originalBinning[point+1])/2.;
+    for(auto bin : binning) std::cout << bin << " - ";
+    std::cout<<std::endl;
+    return binning;
+}
+
+std::vector<std::string> splitByLine(const std::string& inputFileName)
+{
+    std::vector<std::string> fileNameList;
+    std::ifstream fList (inputFileName);
+    if (!fList.good())
+    {
+        std::cerr << "*** Sample::openFileAndTree : ERROR : could not open file " << inputFileName << std::endl;
+        abort();
+    }
+    std::string line;
+    while (std::getline(fList, line))
+    {
+        line = line.substr(0, line.find("#", 0)); // remove comments introduced by #
+        while (line.find(" ") != std::string::npos) line = line.erase(line.find(" "), 1); // remove white spaces
+        while (line.find("\n") != std::string::npos) line = line.erase(line.find("\n"), 1); // remove new line characters
+        while (line.find("\r") != std::string::npos) line = line.erase(line.find("\r"), 1); // remove carriage return characters
+        if (!line.empty()) fileNameList.emplace_back(line);
+    }
+    return fileNameList;
+}
+
+std::pair<float, float> getMassesFromSignalName(const std::string& signalName)
+{
+
+    std::string mXbeginString = "sig_NMSSM_bbbb_MX_"      ;
+    std::string mXendString   = "_MY_" ;
+    std::string mYbeginString = "_MY_"      ;
+    std::string mYendString   = "\0"   ;
+
+    int mXbegin = signalName.find(mXbeginString) + mXbeginString.size();
+    int mXend   = signalName.find(mXendString);
+    int mYbegin = signalName.find(mYbeginString) + mYbeginString.size();
+    int mYend   = signalName.find(mYendString);
+    int xMass = atoi(signalName.substr(mXbegin, mXend-mXbegin).c_str());
+    int yMass = atoi(signalName.substr(mYbegin, mYend-mYbegin).c_str());
+
+    return std::make_pair(xMass, yMass);
+}
 
 void Plot2DLimitMap(std::string inputFileName, std::string year, std::string option = "syst")
 {
@@ -52,8 +121,79 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
 
     theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").c_str());
     
+
+    if(year == "RunII" && option == "syst")
+    {
+        std::vector<std::string> signalList = splitByLine("prepareModels/listOfSamples.txt");
+
+        std::vector<float> xMassList;
+        std::vector<float> yMassList;
+
+        for(const auto& signal : signalList)
+        {
+            const auto xAndYmass = getMassesFromSignalName(signal);
+            if(std::find (xMassList.begin(), xMassList.end(), xAndYmass.first ) == xMassList.end()) xMassList.emplace_back(xAndYmass.first );
+            if(std::find (yMassList.begin(), yMassList.end(), xAndYmass.second) == yMassList.end()) yMassList.emplace_back(xAndYmass.second);
+        }
+
+        std::sort(xMassList.begin(), xMassList.end());
+        std::sort(yMassList.begin(), yMassList.end());
+
+        auto xOriginalBinning = getBinning(xMassList);
+        auto yOriginalBinning = getBinning(yMassList);
+
+        auto xBinning = doubleBinning(xOriginalBinning);
+        auto yBinning = doubleBinning(yOriginalBinning);
+
+        std::string theoryCanvasName = "CentralLimitMap_RunII_TheoryComparison";
+        TCanvas* theTheoryCanvas = new TCanvas(theoryCanvasName.c_str(), theoryCanvasName.c_str(), 1200, 800);
+
+        limitMap->GetYaxis()->SetTitleOffset(1.15);
+        limitMap->SetTitle("");
+        limitMap->Draw("colz");
+        
+        std::string inputTheoryFileName = "/uscms/home/fravera/nobackup/DiHiggs_v1/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root";
+        std::string inputTheoryPlotName = "g_bbbb";
+
+        TFile inputTheoryFile(inputTheoryFileName.c_str());
+        TGraphAsymmErrors* theTheoryGraph = (TGraphAsymmErrors*)inputTheoryFile.Get(inputTheoryPlotName.c_str());
+
+        // TH2D *theoryContour = new TH2D("theoryContour", "theoryContour", xBinning.size()-1, xBinning.data(), yBinning.size()-1, yBinning.data());
+        TH2D *theoryContour = new TH2D("theoryContour", "theoryContour", xOriginalBinning.size()-1, xOriginalBinning.data(), yOriginalBinning.size()-1, yOriginalBinning.data());
+
+        double contours[4];
+        contours[0] = 1000.;
+
+        for(int xBin = 1; xBin<=theoryContour->GetNbinsX(); ++xBin)
+        {
+            float xBinCenter = theoryContour->GetXaxis()->GetBinCenter(xBin);
+            if(xBinCenter<400. || xBinCenter>1000.) continue;
+            float theoreticalXsec = theTheoryGraph->Eval(xBinCenter) * 1000.;
+            for(int yBin = 1; yBin<=theoryContour->GetNbinsY(); ++yBin)
+            {
+                float yBinCenter = theoryContour->GetYaxis()->GetBinCenter(yBin);
+                float limit = limitMap->GetBinContent(limitMap->GetXaxis()->FindBin(xBinCenter), limitMap->GetYaxis()->FindBin(yBinCenter));
+                if(limit>0 && limit <= theoreticalXsec)
+                {
+                    theoryContour->SetBinContent(xBin, yBin, 1000.);
+                }
+            }
+        }
+        theoryContour->SetContour(1, contours);
+        theoryContour->SetFillStyle(3357);
+        theoryContour->SetLineColor(kRed);
+        theoryContour->SetFillColor(kRed);
+
+        theoryContour->Draw("box same");
+        theTheoryCanvas->SetLogz();
+        // theTheoryCanvas->SetLogy();
+        theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + ".png").c_str());
+
+
+    }
+
     gROOT->SetBatch(false);
-    
+
     delete inputFile;
     return;
 }
@@ -68,8 +208,11 @@ int main(int argc, char** argv)
     }
 
 
-    std::vector<std::string> optionList {"statOnly", "syst"};
-    std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
+    // std::vector<std::string> optionList {"statOnly", "syst"};
+    // std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
+
+    std::vector<std::string> optionList {"syst"};
+    std::vector<std::string> yearList {"RunII"};
 
     for(const auto & year : yearList)
     {

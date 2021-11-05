@@ -7,7 +7,7 @@
 #include <map>
 #include "TChain.h"
 
-std::string selection = "NbJets >= 4";
+std::string selection = "NbJets == 3";
 std::string signalRegion = " && H1_m > 125-20 && H1_m < 125+20";
 
 std::vector<std::string> splitByLine(const std::string& inputFileName)
@@ -63,7 +63,7 @@ std::pair<std::string, std::string> getMxMyFromSample(std::string sampleName)
     return std::make_pair(mx, my);
 }
 
-void getVariableInSignalRegion(TVirtualPad *theCanvas, std::string fileName, std::string variable, int year, float xMin, float xMax)
+float getVariableInSignalRegion(TVirtualPad *theCanvas, std::string fileName, std::string variable, int year, float xMin, float xMax, std::string cut = "")
 {
     gROOT->SetBatch(true);
     std::vector<std::string> fileList     = splitByLine(fileName    );
@@ -76,6 +76,7 @@ void getVariableInSignalRegion(TVirtualPad *theCanvas, std::string fileName, std
 
     std::string theCurrentSelection = selection;
     if(variable != "H1_m" && variable != "H1_kinFit_m") theCurrentSelection += signalRegion;
+    if(cut != "") theCurrentSelection += (std::string(" && ") + cut);
 
 
     std::string xAxisLabel = "";
@@ -93,13 +94,16 @@ void getVariableInSignalRegion(TVirtualPad *theCanvas, std::string fileName, std
         xAxisLabel = "m_{X}";
     }
 
-    TH1F *variablePlot = new TH1F((sampleName + "_" + variable).c_str(), ("m_{X} = " + pairMxMy.first + " Gev - m_{Y} = " + pairMxMy.second + "; " + xAxisLabel + " [GeV]; entries [a.u.]" ).c_str()
+    std::string plotName = sampleName + "_" + variable + "_" + cut;
+    TH1F *variablePlot = new TH1F(plotName.c_str(), ("m_{X} = " + pairMxMy.first + " Gev - m_{Y} = " + pairMxMy.second + "; " + xAxisLabel + " [GeV]; entries [a.u.]" ).c_str()
         , 100, xMin, xMax);
     variablePlot->GetYaxis()->SetTitleOffset(1.2);
-    std::string plotMxKinFirCmd = variable + std::string(">>") + sampleName + "_" + variable;
+    std::string plotMxKinFirCmd = variable + std::string(">>") + plotName;
     theTree->Draw(plotMxKinFirCmd.c_str(), theCurrentSelection.data(), "");
     variablePlot->SetLineColor(kBlue);
     variablePlot->SetMaximum(variablePlot->GetMaximum()*1.2);
+
+    return variablePlot->Integral();
     
 }
 
@@ -117,7 +121,54 @@ void plotVariableInSignalRegion(std::string variable, int year, int mX, int mY, 
     getVariableInSignalRegion(theCanvasKinFitImpact,getFileName({mX,mY}), variable, year, xMin, xMax);
     theCanvasKinFitImpact->SaveAs((std::string(theCanvasKinFitImpact->GetName()) + ".png").c_str());
     gROOT->SetBatch(false);
-
-
 }
 
+void countEntriesInSignalRegion(int year, int mX, int mY)
+{
+    float xMin = 0;
+    float xMax = 100000;
+    std::string variable = "H1_b1_pt";
+    gROOT->SetBatch(true);
+    auto getFileName = [year](std::pair<int,int> massPoint) -> std::string
+    {
+        if(massPoint.first == 0 && massPoint.second == 0)
+        {
+            if(year != 2018) return "plotterListFiles/" + std::to_string(year) + "Resonant_NMSSM_XYH_bbbb/FileList_BTagCSV_Data.txt";
+            else return "plotterListFiles/" + std::to_string(year) + "Resonant_NMSSM_XYH_bbbb/FileList_JetHT_Data.txt";
+        }
+        return "plotterListFiles/" + std::to_string(year) + "Resonant_NMSSM_XYH_bbbb/Signal/FileList_NMSSM_XYH_bbbb_MX_" 
+            + std::to_string(massPoint.first) + "_NANOAOD_v7_Full_MY_" + std::to_string(massPoint.second) + ".txt";
+    };
+
+    std::string canvasName = "Variable_" + variable + "_MX_" + std::to_string(mX) + "_MY_" + std::to_string(mY) + "_" + std::to_string(year);
+    TCanvas *theCanvasKinFitImpact = new TCanvas(canvasName.c_str(), canvasName.c_str(), 1400, 1000);
+    std::string metFilterCut = "Flag_goodVertices && Flag_globalSuperTightHalo2016Filter && Flag_HBHENoiseFilter && Flag_HBHENoiseIsoFilter && Flag_EcalDeadCellTriggerPrimitiveFilter && Flag_BadPFMuonFilter";
+    if(year != 2016) metFilterCut += " && Flag_ecalBadCalibFilterV2";
+    float nEventsWithMetFilter = getVariableInSignalRegion(theCanvasKinFitImpact,getFileName({mX,mY}), variable, year, xMin, xMax, metFilterCut);
+    float nEvents              = getVariableInSignalRegion(theCanvasKinFitImpact,getFileName({mX,mY}), variable, year, xMin, xMax);
+    gROOT->SetBatch(false);
+
+    std::cout << nEventsWithMetFilter/nEvents*100. << std::endl;
+
+    return;
+    
+}
+
+ 
+void countAllEntriesInSignalRegion()
+{
+    std::vector<int> yearList {2016, 2017, 2018};
+    std::vector<std::pair<int,int>> pointList {{0,0}};//, {300,125}, {400,80}, {600,125}, {700,300}, {900,500}, {1000,125}, {1200,800}, {1400,500}, {1600,300}, {1600,1000}, {1800,600}, {1800,1400}};
+
+    for(const auto year : yearList)
+    {
+        std::cout << "Run" << year << std::endl;
+        for(const auto& point : pointList)
+        {
+            if(point.first == 0 && point.second == 0) std::cout << "Data = ";
+            else std::cout << "sig_NMSSM_bbbb_MX_" << point.first << "_MY_" << point.second << " = ";
+            countEntriesInSignalRegion(year, point.first, point.second);
+        }
+    }
+    return;
+}

@@ -112,12 +112,13 @@ void SkimUtils::fill_output_tree(OutputTree& ot, NanoAODTree& nat, EventInfo& ei
     if (ei.FourthBtaggedJet) ot.FourthBtaggedJet_deepCSV = ei.FourthBtaggedJet.get().bTagScore();
     if (ei.FourthBtaggedJet) ot.FourthBtaggedJet_PtRegRes = get_property(ei.FourthBtaggedJet.get(), Jet_bRegRes);
 
-    if (ei.minDeltaRbJets  ) ot.minDeltaRbJets   = *ei.minDeltaRbJets  ;
-    if (ei.maxDeltaRbJets  ) ot.maxDeltaRbJets   = *ei.maxDeltaRbJets  ;
-    if (ei.minDeltaEtabJets) ot.minDeltaEtabJets = *ei.minDeltaEtabJets;
-    if (ei.maxDeltaEtabJets) ot.maxDeltaEtabJets = *ei.maxDeltaEtabJets;
-    if (ei.minDeltaPhibJets) ot.minDeltaPhibJets = *ei.minDeltaPhibJets;
-    if (ei.maxDeltaPhibJets) ot.maxDeltaPhibJets = *ei.maxDeltaPhibJets;
+    if (ei.minDeltaRbJets  )     ot.minDeltaRbJets       = *ei.minDeltaRbJets      ;
+    if (ei.maxDeltaRbJets  )     ot.maxDeltaRbJets       = *ei.maxDeltaRbJets      ;
+    if (ei.minDeltaEtabJets)     ot.minDeltaEtabJets     = *ei.minDeltaEtabJets    ;
+    if (ei.maxDeltaEtabJets)     ot.maxDeltaEtabJets     = *ei.maxDeltaEtabJets    ;
+    if (ei.minDeltaPhibJets)     ot.minDeltaPhibJets     = *ei.minDeltaPhibJets    ;
+    if (ei.maxDeltaPhibJets)     ot.maxDeltaPhibJets     = *ei.maxDeltaPhibJets    ;
+    if (ei.distanceFromDiagonal) ot.distanceFromDiagonal = *ei.distanceFromDiagonal;
 
 
     COPY_OPTIONAL_m_pt_eta_phi_p4(H1)
@@ -504,6 +505,16 @@ void SkimUtils::fill_output_tree(OutputTree& ot, NanoAODTree& nat, EventInfo& ei
     if(ei.gen_q1_out_mindRgenjet) ot.gen_q1_out_mindRgenjet = *ei.gen_q1_out_mindRgenjet; 
     if(ei.gen_q2_out_mindRgenjet) ot.gen_q2_out_mindRgenjet = *ei.gen_q2_out_mindRgenjet;
     // fill the tree
+
+
+    if(ei.Flag_goodVertices) ot.Flag_goodVertices = * ei.Flag_goodVertices;
+    if(ei.Flag_globalSuperTightHalo2016Filter) ot.Flag_globalSuperTightHalo2016Filter = * ei.Flag_globalSuperTightHalo2016Filter;
+    if(ei.Flag_HBHENoiseFilter) ot.Flag_HBHENoiseFilter = * ei.Flag_HBHENoiseFilter;
+    if(ei.Flag_HBHENoiseIsoFilter) ot.Flag_HBHENoiseIsoFilter = * ei.Flag_HBHENoiseIsoFilter;
+    if(ei.Flag_EcalDeadCellTriggerPrimitiveFilter) ot.Flag_EcalDeadCellTriggerPrimitiveFilter = * ei.Flag_EcalDeadCellTriggerPrimitiveFilter;
+    if(ei.Flag_BadPFMuonFilter) ot.Flag_BadPFMuonFilter = * ei.Flag_BadPFMuonFilter;
+    if(ei.Flag_ecalBadCalibFilterV2) ot.Flag_ecalBadCalibFilterV2 = * ei.Flag_ecalBadCalibFilterV2;
+
     ot.fill();
 
 }

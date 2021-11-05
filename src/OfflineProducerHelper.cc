@@ -1195,6 +1195,16 @@ void OfflineProducerHelper::doAll2VectorCombinations (std::vector<TLorentzVector
 bool OfflineProducerHelper::select_bbbb_jets(NanoAODTree& nat, EventInfo& ei, OutputTree &ot, std::vector<std::string> listOfPassedTriggers)
 {
 
+
+    if(!*(nat.Flag_goodVertices)) return false;
+    if(!*(nat.Flag_globalSuperTightHalo2016Filter)) return false;
+    if(!*(nat.Flag_HBHENoiseFilter)) return false;
+    if(!*(nat.Flag_HBHENoiseIsoFilter)) return false;
+    if(!*(nat.Flag_EcalDeadCellTriggerPrimitiveFilter)) return false;
+    if(!*(nat.Flag_BadPFMuonFilter)) return false;
+    if(any_cast<int>(parameterList_->at("DatasetYear")) != 2016) if(!*(nat.Flag_ecalBadCalibFilterV2)) return false;
+
+
     if (*(nat.nJet) < 4)
     {
         // std::cout << __PRETTY_FUNCTION__ << __LINE__ << "Njets less then 4" << std::endl;
@@ -1671,6 +1681,17 @@ bool OfflineProducerHelper::select_bbbb_jets(NanoAODTree& nat, EventInfo& ei, Ou
     ei.SecondBtaggedJet = ordered_jets.at(1);
     ei.ThirdBtaggedJet  = ordered_jets.at(2);
     ei.FourthBtaggedJet = ordered_jets.at(3);
+
+    // Store MET filters
+    // ei.Flag_goodVertices = *(nat.Flag_goodVertices);
+    // ei.Flag_globalSuperTightHalo2016Filter = *(nat.Flag_globalSuperTightHalo2016Filter);
+    // ei.Flag_HBHENoiseFilter = *(nat.Flag_HBHENoiseFilter);
+    // ei.Flag_HBHENoiseIsoFilter = *(nat.Flag_HBHENoiseIsoFilter);
+    // ei.Flag_EcalDeadCellTriggerPrimitiveFilter = *(nat.Flag_EcalDeadCellTriggerPrimitiveFilter);
+    // ei.Flag_BadPFMuonFilter = *(nat.Flag_BadPFMuonFilter);
+    // if(any_cast<int>(parameterList_->at("DatasetYear")) != 2016) ei.Flag_ecalBadCalibFilterV2 = *(nat.Flag_ecalBadCalibFilterV2);
+
+    ei.distanceFromDiagonal = (ei.HH_kinFit->P4().M() - ei.H2->P4().M() - targetHiggsMass) / sqrt(2);
 
 
     // }
