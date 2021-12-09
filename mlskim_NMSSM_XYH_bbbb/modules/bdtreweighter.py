@@ -5,6 +5,7 @@ import root_numpy
 import pandas
 import glob
 from scipy import interp
+from scipy import stats
 from hep_ml import reweight
 from root_numpy import root2array
 from matplotlib import pyplot as plt
@@ -130,3 +131,13 @@ def ks_test(original, target, variables, original_weights):
 		ksresults.append(ks)
 		i+=1
 	return ksresults 
+
+def ks_testpy(original, target, variables, original_weights):
+	ksresults=[]
+	i = 0
+	for id, column in enumerate(variables, 1):
+
+		statval, pval =  stats.ks_2samp(numpy.multiply(original[column],original_weights), target[column])
+		ksresults.append(statval)
+		i+=1
+	return ksresults

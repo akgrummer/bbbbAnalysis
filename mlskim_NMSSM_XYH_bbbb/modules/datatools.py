@@ -74,25 +74,25 @@ def calculateWeight(original, original_weights, model, tfactor,normalization = -
 	if normalization < 0: normalization = ws_unnormalized.mean()
 	totalnorm  = tfactor/normalization
 	weights    = numpy.multiply(ws_unnormalized,totalnorm)
-	print "   -The sum of original weights                 = ",int(len(original)),"+/-",math.sqrt(len(original) )
-	print "   -The sum of model weights                    = ",weights.sum(),"+/-",math.sqrt(numpy.square(weights).sum() )
+	print ("   -The sum of original weights                 = ",int(len(original)),"+/-",math.sqrt(len(original) ))
+	print ("   -The sum of model weights                    = ",weights.sum(),"+/-",math.sqrt(numpy.square(weights).sum() ))
 	return weights, normalization
 	
 
 def fitreweightermodel(original,target,original_weights,target_weights,tfactor, model_args):
-	print "[INFO] Fitting BDT-reweighter ..."
+	print ("[INFO] Fitting BDT-reweighter ...")
 	model                = bdtreweighter.reweightermodel(original,target,original_weights,target_weights,model_args) 
-	print "[INFO] Event yields report in control region derivation:"
+	print ("[INFO] Event yields report in control region derivation:")
 	weights, normalization= calculateWeight(original, original_weights, model, tfactor)
-	print "   -The sum of target weights                   = ",int(len(target)),"+/-",math.sqrt(len(target))
-	print "   -The transfer factor                         = ",tfactor,"+/-",tfactor*math.sqrt(  (math.sqrt(len(target))/len(target))**2 + (math.sqrt(len(original))/len(original))**2   )
-	print "   -The normalization value                     = ",normalization
+	print ("   -The sum of target weights                   = ",int(len(target)),"+/-",math.sqrt(len(target)))
+	print ("   -The transfer factor                         = ",tfactor,"+/-",tfactor*math.sqrt(  (math.sqrt(len(target))/len(target))**2 + (math.sqrt(len(original))/len(original))**2   ))
+	print ("   -The normalization value                     = ",normalization)
 	return weights, model, normalization
 
 def getmodelweights(original,original_weights,model,tfactor,normalization):
-	print "[INFO] Running prediction from BDT-reweighter ..."
-	print "[INFO] Event yields report in prediction:"
-	print "   -The transfer factor from control regions        = ",tfactor
+	print ("[INFO] Running prediction from BDT-reweighter ...")
+	print ("[INFO] Event yields report in prediction:")
+	print ("   -The transfer factor from control regions        = ",tfactor)
 	weights, normalization = calculateWeight(original, original_weights, model, tfactor,normalization)
 	return weights
 
@@ -106,7 +106,7 @@ def roothist2root(year,region,hist_name, rootfile_name, inputSkim = False):
 	else:
 		folderName = 'outputskims'
 	file = ROOT.TFile.Open('%s/%s/SKIM_%s.root'%(folderName,year,region))
-	print '%s/%s/SKIM_%s.root'%(folderName,year,region)
+	print ('%s/%s/SKIM_%s.root'%(folderName,year,region))
 	hfile =  ROOT.TFile('%s'%rootfile_name, 'RECREATE')
 	h=file.Get(hist_name)
 	h.Write()
@@ -115,9 +115,9 @@ def roothist2root(year,region,hist_name, rootfile_name, inputSkim = False):
 
 def pandas2historoot(dataframe,hist_name, rootfile_name):
 	ntotal = len(dataframe)
-	print "N total is ",ntotal
+	print ("N total is ",ntotal)
 	ntotalweight = dataframe['MLWeight'].sum()
-	print "N total weighted is ",ntotalweight
+	print ("N total weighted is ",ntotalweight)
 	hfile =  ROOT.TFile('%s'%rootfile_name, 'RECREATE')
 	eff_histo=ROOT.TH1D(hist_name,hist_name,6,0,6)
 	eff_histo.Fill("Ntot_uw",ntotal)

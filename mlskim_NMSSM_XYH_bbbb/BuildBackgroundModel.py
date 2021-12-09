@@ -40,13 +40,16 @@ def BuildReweightingModel(data_4b, data_3b, trainingVariables, outputDirectory, 
 	#######################################
 	##Prepare data to create the model
 	#######################################
-	plotter.Draw1DHistosComparison(originalcr, targetcr, trainingVariables, originalcr_weights,False,outputDirectory,"_original")
-	
+	plotter.Draw1DHistosComparison(originalcr, targetcr, trainingVariables, originalcr_weights,False,outputDirectory,"orig")
+	plotter.rootplot_2samp_ratio(originalcr, targetcr, trainingVariables, originalcr_weights, outputDirectory,"orig")	
+	plotter.rootplot_2Dhist(originalcr, targetcr, originalcr_weights, 'HH_kinFit_m', 'H2_m', outputDirectory, "orig")
 	#######################################
 	##Folding Gradient Boosted Reweighter (2-fold BDT reweighter)
 	#######################################
 	foldingcr_weights,reweightermodel, normalization = data.fitreweightermodel(originalcr,targetcr,originalcr_weights,targetcr_weights,transferFactorOriginal,analysisBackgroundArgument)  
-	plotter.Draw1DHistosComparison(originalcr, targetcr, trainingVariables, foldingcr_weights,False,outputDirectory,"_model")
+	plotter.Draw1DHistosComparison(originalcr, targetcr, trainingVariables, foldingcr_weights,False,outputDirectory,"weights")
+	plotter.rootplot_2samp_ratio(originalcr, targetcr, trainingVariables, foldingcr_weights, outputDirectory,"weights")	
+	plotter.rootplot_2Dhist(originalcr, targetcr, foldingcr_weights, 'HH_kinFit_m', 'H2_m', outputDirectory, "weights")
 	
 	########################################
 	## KS Test (as the developers of the method do), currently used for optimization/check of the parameters
@@ -54,7 +57,9 @@ def BuildReweightingModel(data_4b, data_3b, trainingVariables, outputDirectory, 
 	ksresult_original = bdtreweighter.ks_test(originalcr, targetcr, trainingVariables, originalcr_weights)
 	ksresult_model    = bdtreweighter.ks_test(originalcr, targetcr, trainingVariables, foldingcr_weights)	
 	bdtreweighter.ks_comparison(trainingVariables,ksresult_original,ksresult_model)
-	
+	ksresult_originalpy = bdtreweighter.ks_testpy(originalcr, targetcr, trainingVariables, originalcr_weights)
+	ksresult_modelpy    = bdtreweighter.ks_testpy(originalcr, targetcr, trainingVariables, foldingcr_weights)	
+	bdtreweighter.ks_comparison(trainingVariables,ksresult_originalpy,ksresult_modelpy)
 	########################################
 	## GB ROC AUC Test Study (Very slow test, needs to train a classifier in cross-validation)
 	########################################
