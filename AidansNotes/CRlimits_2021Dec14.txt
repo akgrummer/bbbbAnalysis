@@ -1,0 +1,93 @@
+500 200
+syst
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 0.3589
+Expected  2.5%: r < 0.2147
+Expected 16.0%: r < 0.2884
+Expected 50.0%: r < 0.4072
+Expected 84.0%: r < 0.5842
+Expected 97.5%: r < 0.8116
+Fabio: ex
+stats only
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 0.3476
+Expected  2.5%: r < 0.1958
+Expected 16.0%: r < 0.2612
+Expected 50.0%: r < 0.3633
+Expected 84.0%: r < 0.5066
+Expected 97.5%: r < 0.6772
+
+700 300
+syst
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 1.9036
+Expected  2.5%: r < 1.2233
+Expected 16.0%: r < 1.6365
+Expected 50.0%: r < 2.3027
+Expected 84.0%: r < 3.2665
+Expected 97.5%: r < 4.5069
+Fabio: -1sig
+statOnly
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 1.8303
+Expected  2.5%: r < 1.1055
+Expected 16.0%: r < 1.4748
+Expected 50.0%: r < 2.0508
+Expected 84.0%: r < 2.8601
+Expected 97.5%: r < 3.8228
+
+900 400
+syst
+Observed Limit: r < 0.7608
+Expected  2.5%: r < 0.7377
+Expected 16.0%: r < 0.9920
+Expected 50.0%: r < 1.3887
+Expected 84.0%: r < 1.9754
+Expected 97.5%: r < 2.7128
+Fabio: +1.5 sig
+statOnly
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 0.7005
+Expected  2.5%: r < 0.6791
+Expected 16.0%: r < 0.9059
+Expected 50.0%: r < 1.2598
+Expected 84.0%: r < 1.7619
+Expected 97.5%: r < 2.3519
+
+1400 600
+syst
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 0.7974
+Expected  2.5%: r < 0.2843
+Expected 16.0%: r < 0.3818
+Expected 50.0%: r < 0.5391
+Expected 84.0%: r < 0.7733
+Expected 97.5%: r < 1.0743
+Fabio: -1 sig
+statOnly
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 0.7640
+Expected  2.5%: r < 0.2681
+Expected 16.0%: r < 0.3591
+Expected 50.0%: r < 0.5010
+Expected 84.0%: r < 0.7027
+Expected 97.5%: r < 0.9431
+
+1800 800
+syst
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 6.4679
+Expected  2.5%: r < 2.5692
+Expected 16.0%: r < 3.4603
+Expected 50.0%: r < 4.9453
+Expected 84.0%: r < 7.1728
+Expected 97.5%: r < 10.0915
+Fabio: +1 sig
+statOnly
+ -- AsymptoticLimits ( CLs ) --
+Observed Limit: r < 6.2876
+Expected  2.5%: r < 2.4342
+Expected 16.0%: r < 3.2564
+Expected 50.0%: r < 4.5820
+Expected 84.0%: r < 6.4998
+Expected 97.5%: r < 8.8227

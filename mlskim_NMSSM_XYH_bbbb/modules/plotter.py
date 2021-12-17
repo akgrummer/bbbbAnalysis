@@ -282,8 +282,10 @@ def rootplot_2Dhist(original, target, weights, var1, var2, outputDirectory,tag):
         c1.SaveAs("%s/mXvsmY_%s%s.pdf"%(outputDirectory,datatag,tag))
         del c1
     
-    h1 = TH2F( 'model_'+tag, 'model_'+tag, varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
-    h2 = TH2F( 'target', 'target', varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
+    # h1 = TH2F( 'model_'+tag, 'model_'+tag, varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
+    # h2 = TH2F( 'target', 'target', varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
+    h1 = TH2F( 'model_'+tag, 'model_'+tag, varInfo[var1]['nvbins'], varInfo[var1]['vbins'], varInfo[var2]['nvbins'], varInfo[var2]['vbins'])
+    h2 = TH2F( 'target', 'target', varInfo[var1]['nvbins'], varInfo[var1]['vbins'], varInfo[var2]['nvbins'], varInfo[var2]['vbins'])
     for ii, val in enumerate(original[var1]):
         h1.Fill(val,original[var2][ii],weights[ii])
     for ii, val in enumerate(target[var1]):

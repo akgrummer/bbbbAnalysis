@@ -8,7 +8,7 @@ from StringIO import StringIO
 import subprocess
 import copy
 
-t3SubmitScript = '/uscms/home/fravera/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit'
+t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit'
 
 def writeln(f, line):
     f.write(line + '\n')
@@ -177,7 +177,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
     writeln(outScript, 'git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit')
     writeln(outScript, 'cd HiggsAnalysis/CombinedLimit')
     writeln(outScript, 'git fetch origin')
-    writeln(outScript, 'git checkout v8.1.0')
+    writeln(outScript, 'git checkout v8.2.0')
     writeln(outScript, 'scramv1 b clean; scramv1 b')
     writeln(outScript, 'echo "... retrieving bbbb executables tarball"')
     writeln(outScript, 'xrdcp -f -s %s .' % tarEOSdestLFN) ## force overwrite CMSSW tar
