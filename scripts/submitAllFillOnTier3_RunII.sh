@@ -1,4 +1,34 @@
-python scripts/submitFillOnTier3.py --tag fullSubmission_2016_v34 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg 
-python scripts/submitFillOnTier3.py --tag fullSubmission_2017_v34 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg 
-python scripts/submitFillOnTier3.py --tag fullSubmission_2018_v34 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
- 
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_v34_aidan_rebinnned_2021Dec23 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_v34_aidan_rebinnned_2021Dec23  --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_v34_aidan_rebinnned_2021Dec23  --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Mar4_fullBDT_ttbarClosure --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Mar4_fullBDT_ttbarClosure --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Mar4_fullBDT_ttbarClosure --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Jul7_fullBDT_bJetScoreLoose --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Jul7_fullBDT_bJetScoreLoose --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Jul7_fullBDT_bJetScoreLoose --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Jul14_fullBDT_bJetScore1p5 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Jul14_fullBDT_bJetScore1p5 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Jul14_fullBDT_bJetScore1p5 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Aug1_fullBDT_bJetLoose_CutLowMx --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Aug1_fullBDT_bJetLoose_CutLowMx  --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Aug1_fullBDT_bJetLoose_CutLowMx  --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Aug4_MassGroup0_bJetLoose --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Aug4_MassGroup0_bJetLoose  --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Aug4_MassGroup0_bJetLoose  --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Aug30_fullBDT_bJetLoose_CutLowMx280 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Aug30_fullBDT_bJetLoose_CutLowMx280  --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Aug30_fullBDT_bJetLoose_CutLowMx280  --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Sep14_Mx300_bJetLoose_3 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Sep14_Mx300_bJetLoose_3  --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Sep14_Mx300_bJetLoose_3  --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Sep14_Mx300_bJetLoose_mx280cut --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Sep14_Mx300_bJetLoose_mx280cut   --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Sep14_Mx300_bJetLoose_mx280cut   --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Sep14_Mx300_bJetLoose_depth4_leafs50_3 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Sep14_Mx300_bJetLoose_depth4_leafs50_3   --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Sep14_Mx300_bJetLoose_depth4_leafs50_3   --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_2022Sep14_Mx300_bJetLoose_depth2_leafs50 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_2022Sep14_Mx300_bJetLoose_depth2_leafs50   --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_2022Sep14_Mx300_bJetLoose_depth2_leafs50   --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+

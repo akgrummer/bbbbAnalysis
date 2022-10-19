@@ -13,7 +13,7 @@ t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbb
 def writeln(f, line):
     f.write(line + '\n')
 
-bkgNormPerMassGroupDictionaty = {
+bkgNormPerMassGroupDictionary = {
   "2016" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.010", "4" :  "1.031", "none" : "1.010"},
   "2017" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.010", "4" :  "1.010", "none" : "1.010"},
   "2018" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.015", "4" :  "1.024", "none" : "1.013"},
@@ -61,7 +61,7 @@ groupString = ""
 if args.group != 'none' and args.group != 'auto' : groupString = ('_massGroup' + args.group)
 tag = tag + groupString
 
-jobsDir                  = 'jobsLimits_' + tag
+jobsDir                  = 'CondorJobs/jobsLimits_' + tag
 outScriptNameBareProto   = 'job_{0}.sh'
 outScriptNameProto       = (jobsDir + '/' + outScriptNameBareProto)
 outFileNameProto         = 'Limit_{0}_{1}_{2}.root'
@@ -71,7 +71,7 @@ baseFolder               = outputDir + '/' + tag
 baseFolderNoEos          = outputDirNoEos.format(username) + '/' + tag
 plotFileFolderProtoNoEos = baseFolderNoEos + '/HistogramFiles_{0}/'
 plotFileFolderProto      = baseFolder + '/HistogramFiles_{0}/'
-LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "" }
+LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "", "freezeBKGnorm": "--freezeParameters var{.*CMS_bkgnorm.*}" }
 folderYearName           = "DatacardFolder_{0}"
 folderRunIIName          = "DatacardFolder_RunII"
 outPlotFileNameProto     = "outPlotter_{0}_{1}.root"
@@ -202,7 +202,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
         # print 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s'%(year,signal,plotFileFolderProto.format(year),folderName)
         writeln(outScript, 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s %s'%(year,signal,plotFileFolderProto.format(year),folderName, groupFlag))
         writeln(outScript, 'echo "... preparing datacard"')
-        writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s'%(year,signal,folderName,bkgNormPerMassGroupDictionaty[year][str(groupNumber)]))
+        writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s'%(year,signal,folderName,bkgNormPerMassGroupDictionary[year][str(groupNumber)]))
 
     #copying Pdf, scale and PS systematics from samples in which they are present
     folderName2016 = folderYearName.format(2016)
@@ -272,7 +272,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 
 ## set directory to job directory, so that logs will be saved there
 os.chdir(jobsDir)
-for signalRaw in open("../prepareModels/listOfSamples.txt", 'rb').readlines():
+for signalRaw in open("../../prepareModels/listOfSamples.txt", 'rb').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     command = "%s job_%s.sh" % (t3SubmitScript,signal)

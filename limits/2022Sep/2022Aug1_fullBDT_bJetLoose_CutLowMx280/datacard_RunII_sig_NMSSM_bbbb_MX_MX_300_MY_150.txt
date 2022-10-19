@@ -1,0 +1,45 @@
+Combination of c2016=DatacardFolder_2016/datacard2016_selectionbJets_SignalRegion.txt  c2017=DatacardFolder_2017/datacard2017_selectionbJets_SignalRegion.txt  c2018=DatacardFolder_2018/datacard2018_selectionbJets_SignalRegion.txt
+imax 3 number of bins
+jmax 1 number of processes minus 1
+kmax 25 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes *      c2016  DatacardFolder_2016/outPlotter_2016_sig_NMSSM_bbbb_MX_300_MY_150.root $PROCESS $PROCESS_$SYSTEMATIC
+shapes *      c2017  DatacardFolder_2017/outPlotter_2017_sig_NMSSM_bbbb_MX_300_MY_150.root $PROCESS $PROCESS_$SYSTEMATIC
+shapes *      c2018  DatacardFolder_2018/outPlotter_2018_sig_NMSSM_bbbb_MX_300_MY_150.root $PROCESS $PROCESS_$SYSTEMATIC
+----------------------------------------------------------------------------------------------------------------------------------
+bin          c2016        c2017        c2018      
+observation  -1           -1           -1         
+----------------------------------------------------------------------------------------------------------------------------------
+bin                                       c2016                           c2016                           c2017                           c2017                           c2018                           c2018                         
+process                                   sig_NMSSM_bbbb_MX_300_MY_150    data_BTagCSV_dataDriven_kinFit  sig_NMSSM_bbbb_MX_300_MY_150    data_BTagCSV_dataDriven_kinFit  sig_NMSSM_bbbb_MX_300_MY_150    data_BTagCSV_dataDriven_kinFit
+process                                   0                               1                               0                               1                               0                               1                             
+rate                                      -1                              -1                              -1                              -1                              -1                              -1                            
+----------------------------------------------------------------------------------------------------------------------------------
+CMS_LHE_pdf             lnN               1.024                           -                               1.024                           -                               1.024                           -                             
+CMS_PS_weights          lnN               1.07                            -                               1.07                            -                               1.07                            -                             
+CMS_PU                  lnN               -                               -                               1.013/0.986                     -                               -                               -                             
+CMS_bkgnorm_2016        lnN               -                               1.01                            -                               -                               -                               -                             
+CMS_bkgnorm_2017        lnN               -                               -                               -                               1.01                            -                               -                             
+CMS_bkgnorm_2018        lnN               -                               -                               -                               -                               -                               1.01                          
+CMS_eff_b_b_2016        lnN               0.947/1.055                     -                               -                               -                               -                               -                             
+CMS_eff_b_b_2017        lnN               -                               -                               0.897/1.111                     -                               -                               -                             
+CMS_eff_b_b_2018        lnN               -                               -                               -                               -                               0.951/1.051                     -                             
+CMS_eff_b_c_2017        lnN               -                               -                               0.982/1.018                     -                               -                               -                             
+CMS_eff_b_udsg_2016     lnN               0.989/1.011                     -                               -                               -                               -                               -                             
+CMS_eff_b_udsg_2017     lnN               -                               -                               0.989/1.011                     -                               -                               -                             
+CMS_eff_b_udsg_2018     lnN               -                               -                               -                               -                               0.985/1.015                     -                             
+CMS_res_j_breg_2016     lnN               0.992/1.017                     -                               -                               -                               -                               -                             
+CMS_res_j_breg_2017     lnN               -                               -                               0.981/1.024                     -                               -                               -                             
+CMS_res_j_breg_2018     lnN               -                               -                               -                               -                               0.981/1.022                     -                             
+CMS_scale_j_Total_2016   lnN              0.956/1.027                     -                               -                               -                               -                               -                             
+CMS_scale_j_Total_2017   lnN              -                               -                               0.962/1.029                     -                               -                               -                             
+CMS_scale_j_Total_2018   lnN              -                               -                               -                               -                               0.953/1.053                     -                             
+CMS_trg_eff_2016        lnN               0.822/1.234                     -                               -                               -                               -                               -                             
+CMS_trg_eff_2017        lnN               -                               -                               0.769/1.379                     -                               -                               -                             
+CMS_trg_eff_2018        lnN               -                               -                               -                               -                               0.834/1.237                     -                             
+lumi_13TeV_2016         lnN               1.012                           -                               -                               -                               -                               -                             
+lumi_13TeV_2017         lnN               -                               -                               1.023                           -                               -                               -                             
+lumi_13TeV_2018         lnN               -                               -                               -                               -                               1.025                           -                             
+c2018 autoMCStats 10 0 1
+c2017 autoMCStats 10 0 1
+c2016 autoMCStats 10 0 1

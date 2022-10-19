@@ -1202,7 +1202,7 @@ bool OfflineProducerHelper::select_bbbb_jets(NanoAODTree& nat, EventInfo& ei, Ou
     if(!*(nat.Flag_HBHENoiseIsoFilter)) return false;
     if(!*(nat.Flag_EcalDeadCellTriggerPrimitiveFilter)) return false;
     if(!*(nat.Flag_BadPFMuonFilter)) return false;
-    if(any_cast<int>(parameterList_->at("DatasetYear")) != 2016) if(!*(nat.Flag_ecalBadCalibFilterV2)) return false;
+    // if(any_cast<int>(parameterList_->at("DatasetYear")) != 2016) if(!*(nat.Flag_ecalBadCalibFilterV2)) return false;
 
 
     if (*(nat.nJet) < 4)

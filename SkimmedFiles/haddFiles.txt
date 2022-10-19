@@ -1,0 +1,4 @@
+hadd -f SingleMuon_Data_forTrigger_2016.root `xrdfsls -u /store/user/fravera/bbbb_ntuples/TriggerScaleFactor_Run2016_v14/SKIM_SingleMuon_Data/output`
+/store/user/agrummer/bbbb_ntuples/fullSubmission_2016_v27/SKIM_BTagCSV_Data/output
+/store/user/agrummer/bbbb_ntuples/fullSubmission_2017_v27/SKIM_BTagCSV_Data/output
+/store/user/agrummer/bbbb_ntuples/fullSubmission_2018_v27/SKIM_JetHT_Data/output

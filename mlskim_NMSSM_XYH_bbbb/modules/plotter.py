@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 from numpy.lib.recfunctions import stack_arrays
 from hep_ml.metrics_utils import ks_2samp_weighted
 from scipy import stats
-from VariableDicts import varInfo
+#  from VariableDicts import varInfo
 gROOT.SetBatch(kTRUE)
 
 def Draw1DHistosComparison(original, target, variables, original_weights, norm, outputDirectory, tag):
@@ -134,174 +134,186 @@ def Draw2DHisto(data,var1,var2,x1,x2,y1,y2,tag):
     _ = plt.colorbar() 
     plt.savefig("myplots/mh1mh2plane_%s.png"%tag) 
 
-def rootplot_2samp_ratio(original, target, variables, weights, outputDirectory, tag):
-    ofileName = "%s/histograms.root"%(outputDirectory)
-    ofile = TFile.Open ( ofileName, "UPDATE")
-    for var in variables:
-        #### define the histograms
-        h1 = TH1F( var+"_model_"+tag, var+"_model_"+tag, varInfo[var]['bins'], varInfo[var]['xlow'], varInfo[var]['xhigh'])
-        h2 = TH1F( var+"_target", var+"_target", varInfo[var]['bins'], varInfo[var]['xlow'], varInfo[var]['xhigh'])
-        for i, val in enumerate(original[var]):
-            h1.Fill(val, weights[i])
-        for val2 in target[var]:
-            h2.Fill(val2, 1.)
-        # h1.Sumw2()
-        h2.Sumw2()
-        h1.Scale(1./h1.Integral())
-        h2.Scale(1./h2.Integral())
-        #### define the canvas
-        c1 = TCanvas('c1', 'c1',800,600)
-        gStyle.SetOptStat(0) # remove the stats box
-        gStyle.SetOptTitle(0) # remove the title
-        
-        #### define the upper and lower pads
-        p1 = TPad("p1", "p1", 0., 0.3, 1., 1.0, 0, 0, 0)
-        p1.SetMargin(0.12,0.05,0.05,0.05) #left,right,bottom,top
-        p1.SetTicks(1,1)
-        p1.Draw()
+#  def rootplot_2samp_ratio(original, target, variables, weights, outputDirectory, tag):
+    #  ofileName = "%s/histograms.root"%(outputDirectory)
+    #  ofile = TFile.Open ( ofileName, "UPDATE")
+    #  for var in variables:
+        #  #### define the histograms
+        #  h1 = TH1F( var+"_model_"+tag, var+"_model_"+tag, varInfo[var]['bins'], varInfo[var]['xlow'], varInfo[var]['xhigh'])
+        #  h2 = TH1F( var+"_target", var+"_target", varInfo[var]['bins'], varInfo[var]['xlow'], varInfo[var]['xhigh'])
+        #  for i, val in enumerate(original[var]):
+            #  h1.Fill(val, weights[i])
+        #  for val2 in target[var]:
+            #  h2.Fill(val2, 1.)
+        #  # h1.Sumw2()
+        #  h2.Sumw2()
+        #  h1.Scale(1./h1.Integral())
+        #  h2.Scale(1./h2.Integral())
+        #  #### define the canvas
+        #  c1 = TCanvas('c1', 'c1',800,600)
+        #  gStyle.SetOptStat(0) # remove the stats box
+        #  gStyle.SetOptTitle(0) # remove the title
 
-        p2 = TPad("p2", "p2", 0., 0.05, 1., 0.3, 0, 0, 0)
-        p2.SetMargin(0.12,0.05,0.38,0.05) #left,right,bottom,top
-        p2.SetTicks(1,1)
-        p2.Draw()
+        #  #### define the upper and lower pads
+        #  p1 = TPad("p1", "p1", 0., 0.3, 1., 1.0, 0, 0, 0)
+        #  p1.SetMargin(0.12,0.05,0.05,0.09) #left,right,bottom,top
+        #  p1.SetTicks(1,1)
+        #  p1.Draw()
 
-        #### draw histograms in upper pad
-        p1.cd()
-        h1.SetLineColor(kRed+2)
-        h1.SetLineWidth(2)
-        h2.SetLineColor(kBlue+2)
-        h2.SetLineWidth(2)
-        h1.Draw("hist")
-        h2.Draw("hist same")
-        #xaxis
-        h1.GetXaxis().SetRangeUser(varInfo[var]['xlowRange'],varInfo[var]['xhighRange'])
-        h1.GetXaxis().SetLabelSize(0.)
-        #yaxis
-        h1.GetYaxis().SetTitle(varInfo[var]['YaxisTitle'])
-        h1.GetYaxis().SetLabelSize(0.05)
-        h1.GetYaxis().SetTitleSize(0.05)
-        h1.GetYaxis().SetTitleOffset(1.1)
-        h1.GetYaxis().SetTickLength(0.02)
-        if h2.GetMaximum()>h1.GetMaximum():
-            h1.GetYaxis().SetRangeUser(0,h2.GetMaximum()*1.1)
-        
-        ### KStest and AD test
-        ksval = "KS Test = %.4f"%h1.KolmogorovTest(h2)
-        # print("KS test, UO %e"%h1.KolmogorovTest(h2, "UO"))
-        ksvalMaxDist= "KS Test, Max Dist. = %.4f"%h1.KolmogorovTest(h2, "M")
-        # print("KS test, normalized %e"%h1.KolmogorovTest(h2, "N"))
-        ksvalX = "KS Test, pseudoX = %.4f"%h1.KolmogorovTest(h2, "X")
-        # print("AD test %e"%h1.AndersonDarlingTest(h2))
-        # print("AD test, normalized %e"%h1.AndersonDarlingTest(h2, "T"))
-        CMSlabel = TLatex()
-        CMSlabel.SetTextSize( 0.08 )
-        CMSlabel.DrawTextNDC(0.7, 0.85, "CMS Internal")
+        #  p2 = TPad("p2", "p2", 0., 0.05, 1., 0.3, 0, 0, 0)
+        #  p2.SetMargin(0.12,0.05,0.38,0.05) #left,right,bottom,top
+        #  p2.SetTicks(1,1)
+        #  p2.Draw()
 
-        KSlabel = TLatex()
-        KSlabel.SetTextFont( 42 )
-        KSlabel.SetTextSize( 0.03 )
-        KSlabel.DrawTextNDC(0.72, 0.7, ksval)
-        KSlabel.DrawTextNDC(0.72, 0.66, ksvalMaxDist)
-        KSlabel.DrawTextNDC(0.72, 0.62, ksvalX)
-        #### define legend
-        leg = TLegend(0.7,0.74,0.95,0.84)
-        leg.AddEntry(h1, "3b data (bkg. model)", "l")
-        leg.AddEntry(h2, "4b data (target)", "l")
-        leg.SetBorderSize(0) # remove the border
-        leg.SetLineColor(0)
-        leg.SetFillColor(0)
-        leg.SetTextSize(0.035)
-        leg.SetFillStyle(0) # make the legend background transparent
-        leg.Draw()
-        
-        #### draw the ratio hist in lower pad
-        p2.cd()
-        h3 = h1.Clone("h3")
-        h3.Divide(h2)
-        h3.SetMarkerStyle(20) # marker style (20 = filled circle) that can be resized
-        h3.SetMarkerSize(0.7)
-        h3.SetMarkerColor(1)
-        h3.SetLineColor(1)
-        h3.Draw("p") # draw as data points
-        LineAtOne = TLine(varInfo[var]['xlowRange'],1.,varInfo[var]['xhighRange'],1.) #x1,y1,x2,y2
-        LineAtOne.SetLineWidth(2)
-        LineAtOne.SetLineStyle(9)
-        LineAtOne.Draw()
-        h3.GetYaxis().SetRangeUser(0.,2.)
-        h3.GetXaxis().SetLabelSize(0.15)
-        h3.GetXaxis().SetLabelOffset(0.05)
-        h3.GetYaxis().SetLabelSize(0.12)
-        h3.GetYaxis().SetNdivisions(503)
-        h3.GetXaxis().SetTickLength(0.1)
-        h3.GetXaxis().SetTitleSize(.16)
-        h3.GetXaxis().SetTitleOffset(1.1)
-        h3.GetXaxis().SetTitle(varInfo[var]['XaxisTitle'])
-        h3.GetYaxis().SetTickLength(0.03)
-        h3.GetYaxis().SetTitleSize(.12)
-        h3.GetYaxis().SetTitleOffset(0.3)
-        h3.GetYaxis().SetTitle("model / target")
+        #  #### draw histograms in upper pad
+        #  p1.cd()
+        #  h1.SetLineColor(kRed+2)
+        #  h1.SetLineWidth(2)
+        #  h2.SetLineColor(kBlue+2)
+        #  h2.SetLineWidth(2)
+        #  h1.Draw("hist")
+        #  h2.Draw("hist same")
+        #  #xaxis
+        #  h1.GetXaxis().SetRangeUser(varInfo[var]['xlowRange'],varInfo[var]['xhighRange'])
+        #  h1.GetXaxis().SetLabelSize(0.)
+        #  #yaxis
+        #  h1.GetYaxis().SetTitle(varInfo[var]['YaxisTitle'])
+        #  h1.GetYaxis().SetLabelSize(0.05)
+        #  h1.GetYaxis().SetTitleSize(0.05)
+        #  h1.GetYaxis().SetTitleOffset(1.1)
+        #  h1.GetYaxis().SetTickLength(0.02)
+        #  if h2.GetMaximum()>h1.GetMaximum():
+            #  h1.GetYaxis().SetRangeUser(0,h2.GetMaximum()*1.1)
 
-        #### save the histograms and pdf
-        h1.Write()
-        if (tag is not "weights"): h2.Write()
-        # c1.SaveAs("%s/distibutions_%s_%s.png"%(outputDirectory,var,tag))
-        c1.SaveAs("%s/distibutions_%s_%s.pdf"%(outputDirectory,var,tag))
-        del c1, h1, h2
-    ofile.Close()
+        #  ### KStest and AD test
+        #  ksval = "KS Test = %.4f"%h1.KolmogorovTest(h2)
+        #  # print("KS test, UO %e"%h1.KolmogorovTest(h2, "UO"))
+        #  ksvalMaxDist= "KS Test, Max Dist. = %.4f"%h1.KolmogorovTest(h2, "M")
+        #  # print("KS test, normalized %e"%h1.KolmogorovTest(h2, "N"))
+        #  ksvalX = "KS Test, pseudoX = %.4f"%h1.KolmogorovTest(h2, "X")
+        #  # print("AD test %e"%h1.AndersonDarlingTest(h2))
+        #  # print("AD test, normalized %e"%h1.AndersonDarlingTest(h2, "T"))
+        #  #  CMSlabel = TLatex()
+        #  #  CMSlabel.SetTextSize( 0.08 )
+        #  #  CMSlabel.DrawTextNDC(0.7, 0.85, "CMS Internal")
+        #  CMSlabel = TLatex()
+        #  CMSlabel.SetTextSize( 0.05 )
+        #  CMSlabel.DrawLatexNDC(0.2, 0.92, "CMS #scale[0.8]{#font[52]{Work In Progress}}")
 
-def rootplot_2Dhist(original, target, weights, var1, var2, outputDirectory,tag):
-    ofileName = "%s/histograms.root"%(outputDirectory)
-    ofile = TFile.Open ( ofileName, "UPDATE")
-    def CreatePlot(h1, datatag,ksval,ksvalMaxDist,ksvalX): 
-        c1 = TCanvas('c1', 'c1',800,600)
-        gStyle.SetOptStat(0) # remove the stats box
-        gStyle.SetOptTitle(0) # remove the title
-        gPad.SetTicks(1,1)
-        gPad.SetMargin(0.16,0.16,0.16,0.05) #left,right,bottom,top
+        #  KSlabel = TLatex()
+        #  KSlabel.SetTextFont( 42 )
+        #  KSlabel.SetTextSize( 0.03 )
+        #  KSlabel.DrawTextNDC(0.72, 0.7, ksval)
+        #  KSlabel.DrawTextNDC(0.72, 0.66, ksvalMaxDist)
+        #  KSlabel.DrawTextNDC(0.72, 0.62, ksvalX)
+        #  # this tag idea doesn't work (the vr should be plotted after the weights are saved in the tree
+        #  #  if (tag == "CR"):
+            #  #  KSlabel.SetTextFont( 62 )
+            #  #  KSlabel.SetTextSize( 0.05 )
+            #  #  KSlabel.DrawTextNDC(0.72, 0.85, "Control Region")
+        #  #  if (tag == "VR"):
+            #  #  KSlabel.SetTextFont( 62 )
+            #  #  KSlabel.SetTextSize( 0.05 )
+            #  #  KSlabel.DrawTextNDC(0.72, 0.85, "Validation Region")
+        #  #### define legend
+        #  leg = TLegend(0.7,0.74,0.95,0.84)
+        #  leg.AddEntry(h1, "3b data (bkg. model)", "l")
+        #  leg.AddEntry(h2, "4b data (target)", "l")
+        #  leg.SetBorderSize(0) # remove the border
+        #  leg.SetLineColor(0)
+        #  leg.SetFillColor(0)
+        #  leg.SetTextSize(0.035)
+        #  leg.SetFillStyle(0) # make the legend background transparent
+        #  leg.Draw()
 
-        h1.Draw("COLZ")
-        CMSlabel = TLatex()
-        CMSlabel.SetTextSize( 0.06 )
-        CMSlabel.DrawTextNDC(0.2, 0.85, "CMS Internal")
-        KSlabel = TLatex()
-        KSlabel.SetTextFont( 42 )
-        KSlabel.SetTextSize( 0.03 )
-        KSlabel.DrawTextNDC(0.2, 0.8, ksval)
-        KSlabel.DrawTextNDC(0.2, 0.76, ksvalMaxDist)
-        KSlabel.DrawTextNDC(0.2, 0.72, ksvalX)
-        h1.GetXaxis().SetTitle(varInfo[var1]['XaxisTitle'])
-        h1.GetYaxis().SetTitle(varInfo[var2]['XaxisTitle'])
-        # h1.GetZaxis().SetTitle(varInfo[var2]['ZaxisTitle'])
-        if(datatag is "ratio"): 
-            h1.GetZaxis().SetRangeUser(0.,2.1)
-            h1.GetZaxis().SetTitle("Ratio [model/target]")
-        elif(datatag is "model"):
-            h1.GetZaxis().SetTitle("3b data (model) Events")
-        elif(datatag is "target"):
-            h1.GetZaxis().SetTitle("4b data (target) Events")
-        c1.SaveAs("%s/mXvsmY_%s%s.pdf"%(outputDirectory,datatag,tag))
-        del c1
-    
-    # h1 = TH2F( 'model_'+tag, 'model_'+tag, varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
-    # h2 = TH2F( 'target', 'target', varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
-    h1 = TH2F( 'model_'+tag, 'model_'+tag, varInfo[var1]['nvbins'], varInfo[var1]['vbins'], varInfo[var2]['nvbins'], varInfo[var2]['vbins'])
-    h2 = TH2F( 'target', 'target', varInfo[var1]['nvbins'], varInfo[var1]['vbins'], varInfo[var2]['nvbins'], varInfo[var2]['vbins'])
-    for ii, val in enumerate(original[var1]):
-        h1.Fill(val,original[var2][ii],weights[ii])
-    for ii, val in enumerate(target[var1]):
-        h2.Fill(val,target[var2][ii],1.)
-    h3=h1.Clone("ratio")
-    h3.Divide(h2)
-    ksval = "KS Test = %.4f"%h1.KolmogorovTest(h2)
-    ksvalMaxDist= "KS Test, Max Dist. = %.4f"%h1.KolmogorovTest(h2, "M")
-    ksvalX = "KS Test, pseudoX = %.4f"%h1.KolmogorovTest(h2, "X")
+        #  #### draw the ratio hist in lower pad
+        #  p2.cd()
+        #  h3 = h1.Clone("h3")
+        #  h3.Divide(h2)
+        #  h3.SetMarkerStyle(20) # marker style (20 = filled circle) that can be resized
+        #  h3.SetMarkerSize(0.7)
+        #  h3.SetMarkerColor(1)
+        #  h3.SetLineColor(1)
+        #  h3.Draw("p") # draw as data points
+        #  LineAtOne = TLine(varInfo[var]['xlowRange'],1.,varInfo[var]['xhighRange'],1.) #x1,y1,x2,y2
+        #  LineAtOne.SetLineWidth(2)
+        #  LineAtOne.SetLineStyle(9)
+        #  LineAtOne.Draw()
+        #  h3.GetYaxis().SetRangeUser(0.,2.)
+        #  h3.GetXaxis().SetLabelSize(0.15)
+        #  h3.GetXaxis().SetLabelOffset(0.05)
+        #  h3.GetYaxis().SetLabelSize(0.12)
+        #  h3.GetYaxis().SetNdivisions(503)
+        #  h3.GetXaxis().SetTickLength(0.1)
+        #  h3.GetXaxis().SetTitleSize(.16)
+        #  h3.GetXaxis().SetTitleOffset(1.1)
+        #  h3.GetXaxis().SetTitle(varInfo[var]['XaxisTitle'])
+        #  h3.GetYaxis().SetTickLength(0.03)
+        #  h3.GetYaxis().SetTitleSize(.12)
+        #  h3.GetYaxis().SetTitleOffset(0.3)
+        #  h3.GetYaxis().SetTitle("model / target")
 
-    CreatePlot(h1,"model",ksval,ksvalMaxDist,ksvalX)
-    CreatePlot(h2,"target",ksval,ksvalMaxDist,ksvalX)
-    CreatePlot(h3,"ratio",ksval,ksvalMaxDist,ksvalX)
-    h1.Write()
-    h2.Write()
-    h3.Write()
-    del h1,h2,h3
-    ofile.Close()
-        
+        #  #### save the histograms and pdf
+        #  h1.Write()
+        #  if (tag is not "weights"): h2.Write()
+        #  # c1.SaveAs("%s/distibutions_%s_%s.png"%(outputDirectory,var,tag))
+        #  c1.SaveAs("%s/%s_%s.pdf"%(outputDirectory,var,tag))
+        #  del c1, h1, h2
+    #  ofile.Close()
+
+#  def rootplot_2Dhist(original, target, weights, var1, var2, outputDirectory,tag):
+    #  ofileName = "%s/histograms.root"%(outputDirectory)
+    #  ofile = TFile.Open ( ofileName, "UPDATE")
+    #  def CreatePlot(h1, datatag,ksval,ksvalMaxDist,ksvalX):
+        #  c1 = TCanvas('c1', 'c1',800,600)
+        #  gStyle.SetOptStat(0) # remove the stats box
+        #  gStyle.SetOptTitle(0) # remove the title
+        #  gPad.SetTicks(1,1)
+        #  gPad.SetMargin(0.16,0.16,0.16,0.05) #left,right,bottom,top
+
+        #  h1.Draw("COLZ")
+        #  CMSlabel = TLatex()
+        #  CMSlabel.SetTextSize( 0.06 )
+        #  CMSlabel.DrawTextNDC(0.2, 0.85, "CMS Internal")
+        #  KSlabel = TLatex()
+        #  KSlabel.SetTextFont( 42 )
+        #  KSlabel.SetTextSize( 0.03 )
+        #  KSlabel.DrawTextNDC(0.2, 0.8, ksval)
+        #  KSlabel.DrawTextNDC(0.2, 0.76, ksvalMaxDist)
+        #  KSlabel.DrawTextNDC(0.2, 0.72, ksvalX)
+        #  h1.GetXaxis().SetTitle(varInfo[var1]['XaxisTitle'])
+        #  h1.GetYaxis().SetTitle(varInfo[var2]['XaxisTitle'])
+        #  # h1.GetZaxis().SetTitle(varInfo[var2]['ZaxisTitle'])
+        #  if(datatag is "ratio"):
+            #  h1.GetZaxis().SetRangeUser(0.,2.1)
+            #  h1.GetZaxis().SetTitle("Ratio [model/target]")
+        #  elif(datatag is "model"):
+            #  h1.GetZaxis().SetTitle("3b data (model) Events")
+        #  elif(datatag is "target"):
+            #  h1.GetZaxis().SetTitle("4b data (target) Events")
+        #  c1.SaveAs("%s/mXvsmY_%s%s.pdf"%(outputDirectory,datatag,tag))
+        #  del c1
+
+    #  # h1 = TH2F( 'model_'+tag, 'model_'+tag, varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
+    #  # h2 = TH2F( 'target', 'target', varInfo[var1]['bins'], varInfo[var1]['xlow'], varInfo[var1]['xhigh'], varInfo[var2]['bins'], varInfo[var2]['xlow'], varInfo[var2]['xhigh'])
+    #  h1 = TH2F( 'model_'+tag, 'model_'+tag, varInfo[var1]['nvbins'], varInfo[var1]['vbins'], varInfo[var2]['nvbins'], varInfo[var2]['vbins'])
+    #  h2 = TH2F( 'target', 'target', varInfo[var1]['nvbins'], varInfo[var1]['vbins'], varInfo[var2]['nvbins'], varInfo[var2]['vbins'])
+    #  for ii, val in enumerate(original[var1]):
+        #  h1.Fill(val,original[var2][ii],weights[ii])
+    #  for ii, val in enumerate(target[var1]):
+        #  h2.Fill(val,target[var2][ii],1.)
+    #  h3=h1.Clone("ratio")
+    #  h3.Divide(h2)
+    #  ksval = "KS Test = %.4f"%h1.KolmogorovTest(h2)
+    #  ksvalMaxDist= "KS Test, Max Dist. = %.4f"%h1.KolmogorovTest(h2, "M")
+    #  ksvalX = "KS Test, pseudoX = %.4f"%h1.KolmogorovTest(h2, "X")
+
+    #  CreatePlot(h1,"model",ksval,ksvalMaxDist,ksvalX)
+    #  CreatePlot(h2,"target",ksval,ksvalMaxDist,ksvalX)
+    #  CreatePlot(h3,"ratio",ksval,ksvalMaxDist,ksvalX)
+    #  h1.Write()
+    #  h2.Write()
+    #  h3.Write()
+    #  del h1,h2,h3
+    #  ofile.Close()
+

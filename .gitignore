@@ -16,3 +16,14 @@ core.*
 2018DataPlots_*
 limits/jobsLimits*
 BackgroundModels/
+DataPlots_*
+jobs*
+VarPlots/
+SkimmedFiles/*.root
+BDTfill/
+BDTgridSubmit/
+BDToutput/
+*.root
+*.DS_Store
+limits/localCombineRuns/
+*.swp

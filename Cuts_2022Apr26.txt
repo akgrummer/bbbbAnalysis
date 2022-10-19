@@ -1,0 +1,68 @@
+BDT cuts - buildBDT script:
+
+dataset.H1_b1_pt > minpt
+dataset.H1_b2_pt > minpt
+dataset.H2_b1_pt > minpt
+dataset.H2_b2_pt > minpt
+dataset.H1_b1_ptRegressed > minRegressedPt
+dataset.H1_b2_ptRegressed > minRegressedPt
+dataset.H2_b1_ptRegressed > minRegressedPt
+dataset.H2_b2_ptRegressed > minRegressedPt
+dataset.H1_b1_eta > minEta
+dataset.H1_b2_eta > minEta
+dataset.H2_b1_eta > minEta
+dataset.H2_b2_eta > minEta
+dataset.H1_b1_eta < maxEta
+dataset.H1_b2_eta < maxEta
+dataset.H2_b1_eta < maxEta
+dataset.H2_b2_eta < maxEta
+dataset.query(preSelection, inplace = True)
+dataset.query(controlRegionSelection, inplace = True)
+dataset.query(addSelection, inplace = True)
+
+2016:
+minbjetpt=30
+minbjetregressedpt=30
+minbjeteta=-2.4
+maxbjeteta=2.4
+preSelection           = "IsolatedElectron_pt<15 & IsolatedMuon_pt<10 & ((HLT_DoubleJet90_Double30_TripleBTagCSV_p087_Fired==1 & HLT_DoubleJet90_Double30_TripleBTagCSV_p087_ObjectMatched>0) | (HLT_QuadJet45_TripleBTagCSV_p087_Fired==1 & HLT_QuadJet45_TripleBTagCSV_p087_ObjectMatched > 0))"
+controlRegionSelection = "( H2_m > 145 | H2_m < 105 ) & ( ( (H1_m > 65) & (H1_m < 95) ) | ( (H1_m > 155) & (H1_m < 185 ) ) )"
+2016 fillHists:
+selectionbJetsPt                  = H1_b1_pt > 30 && H1_b2_pt > 30 && H2_b1_pt > 30 && H2_b2_pt > 30
+selectionbJetsPtRegressed         = H1_b1_ptRegressed > 30 && H1_b2_ptRegressed > 30 && H2_b1_ptRegressed > 30 && H2_b2_ptRegressed > 30
+selectionbJetsEta                 = H1_b1_eta > -2.4 && H1_b1_eta < 2.4 && H1_b2_eta > -2.4 && H1_b2_eta < 2.4 && H2_b1_eta > -2.4 && H2_b1_eta < 2.4 && H2_b2_eta > -2.4 && H2_b2_eta < 2.4
+vetoIsoLeptons                    = IsolatedElectron_pt<15 && IsolatedMuon_pt<10
+triggerSelection                  = ( (HLT_DoubleJet90_Double30_TripleBTagCSV_p087_Fired==1 && HLT_DoubleJet90_Double30_TripleBTagCSV_p087_ObjectMatched>0) || (HLT_QuadJet45_TripleBTagCSV_p087_Fired==1 && HLT_QuadJet45_TripleBTagCSV_p087_ObjectMatched > 0) )
+
+
+2017:
+minbjetpt=40
+minbjetregressedpt=40
+minbjeteta=-2.5
+maxbjeteta=2.5
+preSelection           = "IsolatedElectron_pt<15 & IsolatedMuon_pt<10 & ((HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_Fired==1 & HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_ObjectMatched>0) | (HLT_HT300PT30_QuadJet_75_60_45_40_TripeCSV_p07_Fired==1 & HLT_HT300PT30_QuadJet_75_60_45_40_TripeCSV_p07_ObjectMatched > 0))"
+controlRegionSelection = "( H2_m > 145 | H2_m < 105 ) & ( ( (H1_m > 65) & (H1_m < 95) ) | ( (H1_m > 155) & (H1_m < 185 ) ) )"
+
+2017 fillHists:
+selectionbJetsPt                  = H1_b1_pt > 40 && H1_b2_pt > 40 && H2_b1_pt > 40 && H2_b2_pt > 40
+selectionbJetsPtRegressed         = H1_b1_ptRegressed > 40 && H1_b2_ptRegressed > 40 && H2_b1_ptRegressed > 40 && H2_b2_ptRegressed > 40
+selectionbJetsEta                 = H1_b1_eta > -2.5 && H1_b1_eta < 2.5 && H1_b2_eta > -2.5 && H1_b2_eta < 2.5 && H2_b1_eta > -2.5 && H2_b1_eta < 2.5 && H2_b2_eta > -2.5 && H2_b2_eta < 2.5
+vetoIsoLeptons                    = IsolatedElectron_pt<15 && IsolatedMuon_pt<10
+triggerSelection                  = ( (HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_Fired==1 && HLT_PFHT300PT30_QuadPFJet_75_60_45_40_TriplePFBTagCSV_3p0_ObjectMatched>0) || (HLT_HT300PT30_QuadJet_75_60_45_40_TripeCSV_p07_Fired==1 && HLT_HT300PT30_QuadJet_75_60_45_40_TripeCSV_p07_ObjectMatched > 0) )
+
+
+2018:
+minbjetpt=40
+minbjetregressedpt=40
+minbjeteta=-2.5
+maxbjeteta=2.5
+preSelection           = "IsolatedElectron_pt<15 & IsolatedMuon_pt<10 & ((HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_Fired==1 & HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_ObjectMatched>0))"
+controlRegionSelection = "( H2_m > 145 | H2_m < 105 ) & ( ( (H1_m > 65) & (H1_m < 95) ) | ( (H1_m > 155) & (H1_m < 185 ) ) )"
+
+2018 fillHists selections:
+selectionbJetsPt                  = H1_b1_pt > 40 && H1_b2_pt > 40 && H2_b1_pt > 40 && H2_b2_pt > 40
+selectionbJetsPtRegressed         = H1_b1_ptRegressed > 40 && H1_b2_ptRegressed > 40 && H2_b1_ptRegressed > 40 && H2_b2_ptRegressed > 30
+selectionbJetsEta                 = H1_b1_eta > -2.5 && H1_b1_eta < 2.5 && H1_b2_eta > -2.5 && H1_b2_eta < 2.5 && H2_b1_eta > -2.5 && H2_b1_eta < 2.5 && H2_b2_eta > -2.5 && H2_b2_eta < 2.5
+vetoIsoLeptons                    = IsolatedElectron_pt<15 && IsolatedMuon_pt<10
+triggerSelection                  = (HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_Fired==1 && HLT_PFHT330PT30_QuadPFJet_75_60_45_40_TriplePFBTagDeepCSV_4p5_ObjectMatched>0)
+

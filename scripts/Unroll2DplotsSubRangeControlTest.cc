@@ -52,10 +52,16 @@ bool isNeededBin(TH2F *the2Dplot, uint xBin, uint yBin)
     //     return true;
     // }
     if( mX - mY < higgsMass)  return false;
-    if( mX > 1200 && mY < 80) return false;
-    if( mY > 85 && mY < 165) return false;
+    if( mX > 1200 && mY < 80) return false;// this is the small rectangle on the lower right
+    if( mY > 65 && mY < 185) return false;// this is the mass region of interest
     if( mX > mXmax) return false;
     if( mX < mXmin) return false;
+    //for a single mass Window
+    // if( ( mY<200 || mY>500 ) || ( mX<400 || mX>704 ) ) return false;
+    // look at a mass slice:
+    if( ( mX>400 ) ) return false;
+    if( ( mX<212 || mX>800 ) ) return false;
+    // if( ( mX<280 || mX>800 ) ) return false;
 
 
     return true;
@@ -283,13 +289,14 @@ TH1F* UnrollPlot(TH2F* the2Dplot, bool isBkg)
                 value = 1e-5;
                 error = 1e-5;
             }
-            // if(!isBkg)
+            // if(isBkg)
             // {
-            //     value*=0.9;
-            //     error*=0.9;
+                // // value*=0.9;
+                // error*=10.;
             // }
             the1Dplot->SetBinContent(newBinNumber, value);
-            the1Dplot->SetBinError(newBinNumber++, error);
+            the1Dplot->SetBinError(newBinNumber, error);
+            newBinNumber++;
         }
     }
     return the1Dplot;
@@ -302,10 +309,10 @@ int main(int argc, char *argv[])
 
     std::map<int, std::pair<float, float>> theMassGroupList;
     theMassGroupList[0] = std::make_pair(212.,  800.);
-    theMassGroupList[1] = std::make_pair(300., 1000.);
-    theMassGroupList[2] = std::make_pair(450., 1200.);
-    theMassGroupList[3] = std::make_pair(600., 1600.);
-    theMassGroupList[4] = std::make_pair(950., 2320.);
+    // theMassGroupList[1] = std::make_pair(300., 1000.);
+    // theMassGroupList[2] = std::make_pair(450., 1200.);
+    // theMassGroupList[3] = std::make_pair(600., 1600.);
+    // theMassGroupList[4] = std::make_pair(950., 2320.);
 
     gSystem->ResetSignal(kSigSegmentationViolation, kTRUE);
 
@@ -337,8 +344,11 @@ int main(int argc, char *argv[])
         std::string outputFileName = inputFileName.substr(0,inputFileName.find(".root")) + "_massGroup" + std::to_string(massGroup.first) + ".root";
         TFile theOutputFile(outputFileName.c_str(), "RECREATE");
         std::string dataHistogramName = dataDataset + "/" + selection + "/" + dataDataset + "_" + selection + "_"  + variable;
+        std::cout<<"here"<<std::endl;
         TH2F *the2Dplot = (TH2F*)theInputFile.Get(dataHistogramName.data());
+        std::cout<<"here"<<std::endl;
         the2Dplot->SetDirectory(0);
+        std::cout<<"here"<<std::endl;
     
         // Rebin2DPlot(the2Dplot, minNumberOfEntries);
 
@@ -399,20 +409,20 @@ int main(int argc, char *argv[])
                             std::cout<< "Getting integral reference from " << the1Dplot->GetName() << std::endl;
                             std::cout<< "Integral reference = " << integralBackgroundPlot << std::endl;
                         }
-                        else if( (theCurrentDataDataset == (dataDataset + "_up")) ||  (theCurrentDataDataset == (dataDataset + "_down")))
-                        {
-                            if(integralBackgroundPlot<0.)
-                            {
-                                std::cout<< "integralBackgroundPlot not set!!! Aborting..."<<std::endl;
-                                abort();
-                            }
-                            float originalIntegral = the1Dplot->Integral();
-                            the1Dplot->Scale(integralBackgroundPlot/originalIntegral);
-                            std::cout<< "Scaled plot " << theCurrentDataDataset <<std::endl;
-                            std::cout<< "Original integral = " << originalIntegral <<std::endl;
-                            std::cout<< "Integral from Background Plot = " << integralBackgroundPlot <<std::endl;
-                            std::cout<< "New Integral = " << the1Dplot->Integral() <<std::endl;
-                        }
+                        // else if( (theCurrentDataDataset == (dataDataset + "_up")) ||  (theCurrentDataDataset == (dataDataset + "_down")))
+                        // {
+                            // if(integralBackgroundPlot<0.)
+                            // {
+                                // std::cout<< "integralBackgroundPlot not set!!! Aborting..."<<std::endl;
+                                // abort();
+                            // }
+                            // float originalIntegral = the1Dplot->Integral();
+                            // the1Dplot->Scale(integralBackgroundPlot/originalIntegral);
+                            // std::cout<< "Scaled plot " << theCurrentDataDataset <<std::endl;
+                            // std::cout<< "Original integral = " << originalIntegral <<std::endl;
+                            // std::cout<< "Integral from Background Plot = " << integralBackgroundPlot <<std::endl;
+                            // std::cout<< "New Integral = " << the1Dplot->Integral() <<std::endl;
+                        // }
                     }
                     the1Dplot->Write(the1Dplot->GetName(), TObject::kOverwrite);
                     delete theRebinnedPlot;

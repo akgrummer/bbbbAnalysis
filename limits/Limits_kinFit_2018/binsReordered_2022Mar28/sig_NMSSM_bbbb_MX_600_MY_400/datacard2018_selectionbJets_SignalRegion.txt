@@ -1,0 +1,25 @@
+imax *  number of channels
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+----------------------------------------------------------------------------------------------------------------------------------
+shapes * selectionbJets_SignalRegion outPlotter_2018_sig_NMSSM_bbbb_MX_600_MY_400.root $PROCESS $PROCESS_$SYSTEMATIC
+----------------------------------------------------------------------------------------------------------------------------------
+bin                                 selectionbJets_SignalRegion
+observation                         -1    
+----------------------------------------------------------------------------------------------------------------------------------
+# list the expected events for signal and all backgrounds in that bin
+# the second process line must have a positive number for backgrounds, and 0 or neg for signal
+bin                                        selectionbJets_SignalRegion selectionbJets_SignalRegion
+process                                    sig_NMSSM_bbbb_MX_600_MY_400 data_BTagCSV_dataDriven_kinFit
+process                                                            0                         1
+rate                                                              -1                        -1
+----------------------------------------------------------------------------------------------------------------------------------
+CMS_bkgnorm_2018                    lnN                            -                     1.010
+lumi_13TeV_2018                     lnN                        1.025                         -
+CMS_trg_eff_2018                    lnN                  0.866/1.175                         -
+CMS_eff_b_b_2018                    lnN                  0.947/1.055                         -
+CMS_scale_j_Total_2018              lnN                  0.960/1.025                         -
+CMS_res_j_breg_2018                 lnN                  1.023/0.973                         -
+CMS_PS_weights                      lnN                        1.070                         -
+
+* autoMCStats 10

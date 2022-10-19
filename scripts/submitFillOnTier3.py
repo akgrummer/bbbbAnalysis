@@ -135,7 +135,7 @@ print "... Welcome", username
 
 outputFolder = outputFolderBase.format(username) + "/" + args.tag
 
-jobsDir                = 'jobsFill_' + args.tag
+jobsDir                = 'CondorJobs/jobsFill_' + args.tag
 outCfgNameBareProto    = 'config_{0}.txt'
 outScriptNameBareProto = 'job_{0}.sh'
 outListNameProto       = (jobsDir + '/' + outCfgNameBareProto)

@@ -22,6 +22,7 @@ from sklearn.externals.joblib import dump, load
 #My modules
 import modules.plotter as plotter
 import modules.bdtreweighter as bdtreweighter
+import time
 
 def PrepareFeaturesFromSkim(skim,features,tag):
 	#Get features
@@ -42,6 +43,22 @@ def root2pandas(files_path, tree_name, **kwargs):
 
 	# -- process ntuples into rec arrays
 	ss = stack_arrays([root2array(fpath, tree_name, **kwargs).view(numpy.recarray) for fpath in files_path])
+
+	try:
+		return pandas.DataFrame(ss)
+	except Exception:
+		return pandas.DataFrame(ss.data)
+
+def root2pandas_slow(files_path, tree_name, **kwargs):
+	# -- create list of .root files to process
+
+	# -- process ntuples into rec arrays
+    #  arrayList=[]
+    #  for fpath in files_path:
+        #  time.sleep(5)
+        #  arrayList.append(root2array(fpath, tree_name, **kwargs).view(numpy.recarray))
+	#  ss = stack_arrays([arrayList])
+	ss = stack_arrays([root2array(fpath, tree_name, **kwargs).view(numpy.recarray) for fpath in files_path if time.sleep(1) is None])
 
 	try:
 		return pandas.DataFrame(ss)

@@ -294,7 +294,9 @@ if args.doworkspace:
         for card in datacards:
             # p = subprocess.Popen((str('text2workspace.py %s > tmp.txt &'%card)).split())
             # p.wait()
-            os.system(str('text2workspace.py %s &'%card))
+            os.system(str('text2workspace.py %s >> text2workspace_output.txt&'%card))
+            #  time.sleep(5)
+            #  os.system(str('text2workspace.py %s'%card))
             # subprocess.check_call(str('text2workspace.py %s > tmp.txt &'%card), shell=True)
 # import subprocess as subp
 # time.sleep(10)
@@ -315,3 +317,5 @@ if args.doworkspace:
 #             if 'text2workspace.py' in line and "fravera" in line : stillRunning = True
 
 os.chdir(mainDirectory)
+print("done")
+#  time.sleep(5)

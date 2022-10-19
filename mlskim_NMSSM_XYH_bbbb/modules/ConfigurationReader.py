@@ -30,9 +30,49 @@ class ConfigurationReader:
         self.controlRegionSelection       = ast.literal_eval(cfgparser.get("configuration","controlRegionSelection"))
         print "    -The controlRegionSelection:"
         print "      *",self.controlRegionSelection
+
+        self.controlRegionSelectionRightSide       = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionRightSide"))
+        print "    -The controlRegionSelectionRightSide:"
+        print "      *",self.controlRegionSelectionRightSide
+
+        self.controlRegionSelectionLeftSide       = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionLeftSide"))
+        print "    -The controlRegionSelectionLeftSide:"
+        print "      *",self.controlRegionSelectionLeftSide
+
+        self.controlRegionSelectionOutHalf       = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionOutHalf"))
+        print "    -The controlRegionSelectionOutHalf:"
+        print "      *",self.controlRegionSelectionOutHalf
+
+        self.controlRegionSelectionInHalf       = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionInHalf"))
+        print "    -The controlRegionSelectionInHalf:"
+        print "      *",self.controlRegionSelectionInHalf
+
+        self.controlRegionSelectionInQtr       = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionInQtr"))
+        print "    -The controlRegionSelectionInQtr:"
+        print "      *",self.controlRegionSelectionInQtr
+
+        self.controlRegionSelectionOutQtr       = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionOutQtr"))
+        print "    -The controlRegionSelectionOutQtr:"
+        print "      *",self.controlRegionSelectionOutQtr
+
+        self.controlRegionSelectionExcRightOut = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionExcRightOut"))
+        print "    -The controlRegionSelectionExcRightOut:"
+        print "      *",self.controlRegionSelectionExcRightOut
+
+        self.controlRegionSelectionExcLeftOut = ast.literal_eval(cfgparser.get("configuration","controlRegionSelectionExcLeftOut"))
+        print "    -The controlRegionSelectionExcLeftOut:"
+        print "      *",self.controlRegionSelectionExcLeftOut
+
+        self.bTagScoreSelection = ast.literal_eval(cfgparser.get("configuration","bTagScoreSelection"))
+        print "    -The bTagScoreSelection:"
+        print "      *",self.bTagScoreSelection
+
         self.skimFolder                   = ast.literal_eval(cfgparser.get("configuration","skimFolder"))
         print "    -The skimFolder:"
         print "      *",self.skimFolder
+        self.skimFolderMW                   = ast.literal_eval(cfgparser.get("configuration","skimFolderMW"))
+        print "    -The Mass Window skimFolder:"
+        print "      *",self.skimFolderMW
         self.variables                    = ast.literal_eval(cfgparser.get("configuration","variables"))
         print "    -The list of variables:"
         for x in range(len(self.variables)):
@@ -58,4 +98,13 @@ class ConfigurationReader:
         self.analysisClassifierArgument       = ast.literal_eval(cfgparser.get("configuration","analysisClassifierArgument"))
         print "    -The analysis classifier arguments:"
         print "      *",self.analysisClassifierArgument
+
+        self.addSelection                     = ast.literal_eval(cfgparser.get("configuration","addSelection"))
+        print "    - Additional cuts, Mass window selections: "
+        print "      *",self.addSelection
+
+        self.year                     = ast.literal_eval(cfgparser.get("configuration","year"))
+        print " year for the configuration file"
+        print "      *Year: ",self.year
+
 
