@@ -1,0 +1,4921 @@
+ <<< Combine >>> 
+>>> random number generator seed is 123456
+>>> method used is MultiDimFit
+Set Default Value of Parameter myscale To : 0
+SimNLL created with 1 channels, 0 generic constraints, 2 fast gaussian constraints, 0 fast poisson constraints, 0 fast group constraints, 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.193   -0.972/+0.994 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.029   -0.883/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.605   -0.880/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.187   -0.917/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.927   -0.925/+0.944 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.711   -0.880/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.768   -0.879/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.892   -0.925/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.909   -0.962/+0.979 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.932   -0.859/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.733   -0.886/+0.903 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.599   -0.839/+0.859 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.662   -0.899/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.026   -0.893/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.170   -0.849/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.470   -0.871/+0.892 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.258   -0.885/+0.905 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.321   -0.842/+0.868 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.563   -0.948/+0.969 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.637   -0.912/+0.931 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.611   -0.806/+0.824 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.769   -0.924/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.102   -0.870/+0.896 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.785   -0.889/+0.913 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.003   -0.920/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.184   -0.999/+1.017 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.413   -0.920/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.321   -0.806/+0.823 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.562   -0.811/+0.829 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.908   -0.824/+0.841 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.022   -0.915/+0.935 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.554   -0.835/+0.855 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.642   -0.975/+0.993 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.424   -0.794/+0.806 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.768   -0.938/+0.957 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.981   -0.850/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.706   -0.897/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.451   -0.820/+0.838 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.675   -0.924/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.328   -0.798/+0.812 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.249   -0.970/+0.989 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.112   -0.865/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.878   -0.893/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.101   -0.774/+0.792 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.432   -0.936/+0.954 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.539   -0.837/+0.855 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.205   -0.906/+0.925 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.709   -1.054/+1.075 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.357   -0.984/+1.002 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.008   -0.881/+0.910 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.471   -0.841/+0.861 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.382   -0.929/+0.947 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.335   -0.906/+0.929 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.391   -0.962/+0.981 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.019   -0.944/+0.965 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.986   -0.899/+0.918 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.067   -0.823/+0.842 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.680   -0.969/+0.987 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.235   -0.809/+0.827 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.752   -0.927/+0.946 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.981   -0.940/+0.960 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.564   -0.931/+0.950 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.877   -0.826/+0.845 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.307   -0.788/+0.793 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.715   -0.919/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.275   -0.986/+1.008 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.154   -0.830/+0.848 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.530   -0.798/+0.810 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.448   -0.842/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.450   -0.807/+0.821 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.006   -0.917/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.424   -0.887/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.260   -0.897/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.823   -0.933/+0.950 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.327   -0.836/+0.853 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.626   -0.924/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.365   -0.977/+0.995 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +6.057   -1.005/+1.029 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.624   -0.907/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.817   -0.960/+0.981 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.331   -0.970/+0.989 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.135   -0.778/+0.798 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.026   -0.871/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.396   -0.916/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.627   -0.883/+0.903 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.995   -0.835/+0.855 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.138   -0.824/+0.841 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.827   -0.854/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.668   -0.887/+0.909 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.714   -0.813/+0.831 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.383   -0.873/+0.892 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.189   -0.991/+1.013 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.905   -0.922/+0.941 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.057   -0.871/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.817   -0.941/+0.959 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.017   -0.964/+0.976 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.829   -0.993/+1.011 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.572   -0.899/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.841   -0.816/+0.830 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.863   -1.014/+1.034 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.433   -1.014/+1.032 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.607   -0.956/+0.974 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.836   -0.739/+0.749 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.567   -0.837/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.272   -0.879/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.308   -0.865/+0.892 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.452   -0.853/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.406   -0.785/+0.804 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.337   -0.810/+0.827 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.441   -0.947/+0.967 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.921   -0.833/+0.852 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.993   -0.883/+0.903 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.716   -0.889/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.505   -0.858/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.482   -0.839/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.395   -0.943/+0.955 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.208   -0.865/+0.890 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.722   -0.921/+0.940 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.686   -0.879/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.528   -0.838/+0.854 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.081   -0.915/+0.936 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.082   -0.898/+0.918 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.520   -0.839/+0.857 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.652   -0.826/+0.842 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.332   -1.001/+1.019 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.290   -0.882/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +0.383   -0.930/+0.946 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.284   -0.850/+0.873 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.025   -0.850/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.698   -0.893/+0.914 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.416   -0.913/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.255   -0.757/+0.776 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.695   -0.946/+0.948 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.571   -0.974/+0.993 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.101   -0.911/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.443   -1.019/+1.039 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.282   -0.923/+0.936 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.039   -0.862/+0.881 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.520   -0.815/+0.833 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.108   -0.896/+0.921 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.518   -0.766/+0.782 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.280   -0.811/+0.829 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.743   -0.843/+0.859 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.361   -0.855/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.116   -0.855/+0.875 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.332   -0.847/+0.861 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.010   -0.961/+0.979 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.875   -0.858/+0.877 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.832   -0.838/+0.857 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.941   -0.991/+1.010 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.851   -0.881/+0.903 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.651   -0.845/+0.865 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.610   -0.953/+0.974 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.921   -0.860/+0.879 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.262   -0.802/+0.821 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.758   -0.931/+0.950 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.619   -0.798/+0.816 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.479   -0.921/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.816   -0.841/+0.860 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.484   -0.895/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.120   -0.818/+0.835 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.199   -0.855/+0.875 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.765   -0.830/+0.847 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.854   -0.928/+0.947 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.138   -0.939/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.995   -0.980/+0.999 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.347   -1.071/+1.088 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.331   -0.961/+0.979 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.469   -0.967/+0.985 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.336   -0.837/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.550   -0.807/+0.823 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.410   -0.848/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.251   -0.877/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.460   -0.805/+0.820 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.929   -0.831/+0.850 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.142   -1.012/+1.031 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.337   -0.869/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.521   -0.863/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.486   -0.873/+0.894 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.038   -0.803/+0.820 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.457   -0.879/+0.898 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.809   -0.810/+0.829 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.824   -0.914/+0.933 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.623   -0.853/+0.867 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.053   -1.019/+1.039 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.588   -0.936/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.267   -0.954/+0.973 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.667   -0.794/+0.813 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.101   -0.899/+0.922 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.079   -0.806/+0.824 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.305   -0.784/+0.803 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.760   -0.917/+0.951 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.274   -1.011/+1.025 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.636   -0.945/+0.965 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.187   -0.848/+0.865 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.588   -0.997/+1.016 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.231   -0.819/+0.838 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.254   -0.857/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.895   -0.828/+0.846 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.801   -0.807/+0.825 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.666   -0.906/+0.924 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.088   -0.874/+0.891 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.683   -0.951/+0.969 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.096   -0.854/+0.871 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.091   -0.956/+0.975 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.674   -0.940/+0.960 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.696   -0.908/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.672   -0.926/+0.945 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.901   -0.920/+0.939 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.479   -0.924/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.660   -0.834/+0.852 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.993   -0.797/+0.816 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.296   -0.908/+0.929 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.790   -0.904/+0.922 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.994   -0.950/+0.951 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.077   -0.902/+0.924 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.067   -0.948/+0.949 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.833   -0.866/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.015   -0.884/+0.906 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.276   -0.872/+0.871 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.521   -0.840/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.756   -0.948/+0.968 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.325   -0.910/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.033   -0.866/+0.897 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.423   -0.861/+0.875 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.415   -0.889/+0.907 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.661   -0.863/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.349   -0.944/+0.962 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.735   -0.898/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.525   -0.876/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.209   -0.970/+0.988 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.413   -0.812/+0.831 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.605   -0.843/+0.863 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.394   -0.992/+1.012 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.262   -0.850/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.729   -0.893/+0.910 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.427   -0.879/+0.904 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.131   -0.941/+0.959 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.182   -0.836/+0.854 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.776   -0.946/+0.966 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.902   -0.836/+0.855 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.102   -0.938/+0.955 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.101   -0.837/+0.855 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.171   -0.774/+0.793 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.234   -0.920/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.347   -0.945/+0.963 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.781   -0.753/+0.770 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.087   -0.895/+0.907 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.637   -0.872/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.415   -0.773/+0.794 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.970   -0.868/+0.888 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.750   -0.964/+0.986 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.389   -0.848/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.641   -0.864/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.586   -0.778/+0.788 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.645   -0.921/+0.940 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.207   -0.735/+0.753 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.233   -0.843/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.174   -0.952/+0.972 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.122   -0.953/+0.974 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.105   -0.807/+0.824 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.532   -0.795/+0.814 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.913   -0.944/+0.962 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.361   -0.955/+0.976 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.599   -0.881/+0.906 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.726   -0.859/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.426   -0.908/+0.924 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.865   -0.901/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.647   -0.893/+0.914 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.922   -0.873/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.607   -0.848/+0.864 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.353   -0.954/+0.973 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.888   -0.851/+0.875 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.413   -0.882/+0.909 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.090   -0.861/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.579   -0.850/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.690   -0.875/+0.893 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.716   -0.797/+0.812 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.814   -0.946/+0.965 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.919   -0.795/+0.805 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.202   -0.891/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.776   -0.806/+0.824 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.910   -0.896/+0.915 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.681   -0.862/+0.881 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.474   -0.889/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.422   -0.861/+0.879 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.044   -0.855/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.117   -0.918/+0.933 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.126   -0.855/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.481   -0.935/+0.954 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.347   -0.901/+0.921 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.555   -0.869/+0.891 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.301   -0.887/+0.906 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.887   -0.938/+0.959 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.934   -0.927/+0.945 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.680   -0.845/+0.863 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.972   -0.891/+0.921 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.691   -0.916/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.657   -0.950/+0.968 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.968   -0.951/+0.966 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.903   -0.826/+0.838 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.442   -0.868/+0.896 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.006   -0.881/+0.901 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.541   -0.861/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.239   -0.840/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.104   -0.829/+0.847 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.759   -0.912/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.565   -0.911/+0.919 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.436   -0.895/+0.913 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.683   -0.922/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.607   -0.850/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.032   -0.825/+0.843 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.658   -0.850/+0.871 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.290   -0.909/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.406   -0.865/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.142   -0.898/+0.931 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.922   -0.862/+0.881 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.604   -0.884/+0.912 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.636   -0.922/+0.941 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.706   -0.877/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.500   -0.739/+0.759 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.343   -0.852/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.201   -0.949/+0.967 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.008   -0.832/+0.850 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.637   -0.959/+0.978 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.934   -0.861/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.437   -0.866/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.015   -0.928/+0.945 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.610   -0.925/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.450   -0.923/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.284   -0.826/+0.841 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.387   -0.847/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.210   -0.870/+0.892 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.988   -0.870/+0.890 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.878   -0.862/+0.881 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.360   -0.910/+0.928 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.072   -0.863/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.975   -0.882/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.729   -0.811/+0.829 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.479   -0.956/+0.974 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.816   -0.872/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.975   -0.846/+0.867 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.262   -0.921/+0.940 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.640   -0.948/+0.969 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.801   -0.955/+0.975 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.128   -1.023/+1.042 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.691   -0.855/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.527   -1.014/+1.033 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.917   -0.842/+0.858 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.238   -0.815/+0.832 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.379   -0.883/+0.901 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.091   -1.038/+1.058 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.589   -0.858/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.728   -0.840/+0.860 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.296   -0.887/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.433   -0.907/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.969   -0.799/+0.813 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.541   -0.882/+0.901 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.173   -0.917/+0.930 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.897   -0.928/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.141   -0.826/+0.844 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.281   -0.865/+0.888 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.095   -0.779/+0.787 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.586   -0.860/+0.880 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.539   -0.992/+1.014 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.239   -0.888/+0.901 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.328   -0.879/+0.898 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.080   -0.851/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.058   -0.992/+1.011 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.653   -0.920/+0.941 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.223   -0.905/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.489   -0.870/+0.887 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.220   -0.804/+0.821 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.787   -0.858/+0.874 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.993   -0.830/+0.845 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.627   -0.885/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.328   -0.915/+0.935 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.438   -0.990/+1.009 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.325   -0.933/+0.949 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.190   -0.937/+0.936 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.794   -0.960/+0.980 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.303   -0.866/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.909   -0.827/+0.842 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.002   -0.946/+0.952 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.682   -0.939/+0.946 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.112   -0.960/+0.976 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.326   -0.780/+0.789 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.352   -0.854/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.687   -0.877/+0.897 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.131   -0.922/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.902   -0.900/+0.930 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.802   -0.900/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.075   -0.956/+0.978 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.994   -0.912/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.452   -0.858/+0.876 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.645   -0.866/+0.885 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.684   -0.874/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.419   -1.013/+1.033 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.404   -0.922/+0.939 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.801   -0.848/+0.867 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.288   -0.838/+0.857 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.851   -0.882/+0.910 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.649   -0.874/+0.904 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.197   -0.815/+0.828 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.456   -0.882/+0.903 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.718   -0.932/+0.952 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.997   -0.864/+0.883 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.728   -0.890/+0.910 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.211   -1.006/+1.025 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.133   -0.797/+0.813 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.410   -0.931/+0.950 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.280   -0.939/+0.958 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.311   -0.966/+0.985 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.765   -0.869/+0.892 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.054   -0.763/+0.782 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.883   -0.826/+0.841 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.505   -0.850/+0.872 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.414   -0.940/+0.960 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.988   -0.913/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.949   -0.928/+0.947 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.488   -0.871/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.435   -0.892/+0.910 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.999   -0.825/+0.844 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.413   -0.881/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.477   -0.942/+0.948 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.261   -0.962/+0.983 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.756   -0.943/+0.962 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.188   -0.868/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.456   -0.852/+0.875 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +0.875   -0.948/+0.965 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.441   -0.924/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.140   -0.869/+0.888 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.446   -0.846/+0.865 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.332   -0.879/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.061   -0.817/+0.836 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.482   -0.730/+0.752 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.060   -0.996/+1.014 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.312   -0.884/+0.909 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.416   -0.889/+0.912 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.472   -0.777/+0.795 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.005   -0.973/+0.993 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.632   -0.860/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.001   -0.835/+0.853 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.052   -0.970/+0.989 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.023   -0.892/+0.909 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.908   -0.965/+0.984 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.916   -0.979/+0.997 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.829   -0.853/+0.873 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.648   -0.921/+0.936 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.260   -0.820/+0.837 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.654   -0.909/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.490   -0.949/+0.966 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.307   -0.841/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.799   -0.954/+0.975 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.966   -0.884/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.107   -0.758/+0.779 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.032   -0.882/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.665   -0.962/+0.981 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.040   -0.993/+1.011 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.143   -0.862/+0.883 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.526   -0.895/+0.913 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.808   -0.851/+0.864 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.552   -0.846/+0.860 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.085   -0.950/+0.968 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.561   -0.891/+0.919 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.960   -0.831/+0.847 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.488   -0.994/+1.016 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.532   -0.880/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.659   -0.932/+0.950 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.873   -0.836/+0.854 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.290   -0.959/+0.978 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.101   -0.859/+0.879 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.398   -0.796/+0.814 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.811   -0.921/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.614   -0.905/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.369   -0.937/+0.957 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.254   -0.822/+0.841 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.454   -0.988/+1.006 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.318   -0.928/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.121   -0.981/+0.999 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.181   -0.859/+0.879 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.070   -0.837/+0.850 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.971   -0.934/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.691   -0.965/+0.985 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.428   -0.881/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.645   -0.806/+0.819 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.553   -0.900/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.400   -0.886/+0.909 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.064   -0.848/+0.867 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.785   -0.939/+0.957 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.610   -0.869/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.847   -0.855/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.615   -0.825/+0.834 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.287   -0.923/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.595   -0.881/+0.907 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.032   -0.870/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.254   -0.902/+0.920 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.812   -0.947/+0.968 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.151   -0.892/+0.921 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.142   -0.902/+0.918 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.087   -0.819/+0.832 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.435   -0.805/+0.823 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.448   -0.909/+0.928 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.041   -0.834/+0.845 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.006   -0.727/+0.745 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.674   -0.952/+0.970 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.864   -0.847/+0.862 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.068   -0.915/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.847   -1.008/+1.023 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.336   -0.910/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.889   -0.849/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.548   -0.897/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.698   -0.818/+0.835 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.921   -0.946/+0.965 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.605   -0.923/+0.935 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.495   -0.880/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.473   -0.942/+0.961 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.205   -0.893/+0.894 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.862   -0.983/+1.002 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.397   -0.873/+0.893 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.135   -0.851/+0.879 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.828   -0.775/+0.793 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.148   -0.863/+0.883 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.760   -0.860/+0.872 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.408   -0.828/+0.843 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.494   -0.897/+0.914 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.195   -0.980/+0.998 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.256   -0.870/+0.888 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.330   -0.950/+0.967 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.936   -0.905/+0.918 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.480   -0.919/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.602   -1.005/+1.024 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.823   -0.889/+0.919 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.437   -0.823/+0.838 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.267   -0.891/+0.921 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.199   -0.937/+0.956 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.622   -0.908/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.721   -0.918/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.056   -0.803/+0.820 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.137   -1.029/+1.050 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.233   -0.709/+0.729 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.114   -0.990/+1.008 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.640   -0.837/+0.853 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.999   -0.944/+0.964 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.030   -0.854/+0.873 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.324   -0.921/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.334   -0.873/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.983   -0.799/+0.810 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.721   -0.905/+0.924 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.531   -0.833/+0.850 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.021   -0.931/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.854   -0.914/+0.925 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.889   -0.863/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.096   -0.828/+0.845 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.922   -0.829/+0.847 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.427   -0.881/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.412   -0.881/+0.901 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.082   -0.856/+0.877 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.360   -0.826/+0.844 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.962   -0.848/+0.868 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.497   -0.850/+0.863 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.542   -0.988/+1.007 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.304   -0.827/+0.844 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.769   -0.932/+0.952 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.445   -0.834/+0.853 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.316   -0.787/+0.806 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.931   -0.806/+0.824 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.827   -0.842/+0.861 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.366   -0.854/+0.877 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.153   -0.974/+0.996 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.901   -0.930/+0.952 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.255   -0.976/+0.993 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.613   -0.992/+1.010 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.993   -0.969/+0.990 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.621   -0.889/+0.916 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.265   -0.953/+0.974 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.563   -0.899/+0.920 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.999   -0.833/+0.852 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.166   -0.897/+0.918 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.432   -0.840/+0.858 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.375   -0.941/+0.959 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.952   -0.995/+1.015 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.438   -0.933/+0.951 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.835   -0.825/+0.841 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.221   -0.857/+0.870 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.239   -0.933/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.113   -0.950/+0.971 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.420   -0.861/+0.887 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.191   -0.848/+0.862 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.712   -0.858/+0.881 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.012   -0.893/+0.905 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.915   -0.879/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.608   -0.885/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.820   -0.932/+0.951 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.636   -0.874/+0.894 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.663   -0.876/+0.896 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.785   -0.928/+0.944 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.254   -0.952/+0.970 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.738   -0.908/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.718   -0.839/+0.858 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.332   -0.867/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.001   -0.930/+0.948 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.322   -0.902/+0.919 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.858   -0.768/+0.780 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.088   -0.762/+0.781 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.876   -0.913/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.909   -0.965/+0.987 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.765   -1.021/+1.040 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.988   -0.856/+0.876 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.627   -0.811/+0.828 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.733   -0.834/+0.853 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.993   -0.878/+0.897 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.035   -0.886/+0.913 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.240   -0.854/+0.872 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.349   -0.854/+0.875 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.260   -0.882/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.312   -0.934/+0.953 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.716   -0.867/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.817   -0.802/+0.819 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.250   -0.889/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.437   -0.851/+0.885 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.547   -0.851/+0.867 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.230   -0.816/+0.835 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.918   -0.968/+0.987 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.443   -0.948/+0.966 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.060   -0.850/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.169   -0.833/+0.850 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.170   -0.859/+0.877 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.586   -0.962/+0.981 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.354   -0.922/+0.940 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.394   -0.871/+0.887 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.530   -0.999/+1.017 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.645   -0.867/+0.893 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.828   -0.908/+0.928 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.010   -0.897/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.957   -0.851/+0.881 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.485   -0.829/+0.847 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.144   -0.875/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.400   -0.901/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.854   -0.812/+0.830 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.122   -0.931/+0.930 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.506   -0.867/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.204   -0.928/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.961   -0.936/+0.955 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.214   -0.864/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.104   -0.951/+0.972 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.518   -0.896/+0.915 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.164   -0.950/+0.969 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.107   -0.875/+0.894 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.560   -0.855/+0.871 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.785   -0.903/+0.921 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.223   -0.867/+0.890 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.655   -0.911/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.532   -0.913/+0.931 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.348   -0.858/+0.876 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.337   -0.936/+0.936 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.799   -0.917/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.697   -0.949/+0.969 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.694   -0.823/+0.835 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.249   -0.845/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.520   -0.892/+0.912 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.613   -0.880/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.125   -0.871/+0.898 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.498   -0.935/+0.954 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.164   -0.870/+0.892 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.622   -0.751/+0.768 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.612   -0.941/+0.961 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.725   -0.873/+0.892 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.684   -0.797/+0.815 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.335   -0.945/+0.963 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.268   -0.885/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.625   -0.861/+0.880 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.075   -0.921/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.616   -0.873/+0.893 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.228   -0.848/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.626   -0.926/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.705   -0.945/+0.947 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.723   -0.968/+0.986 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.458   -0.868/+0.894 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.804   -0.820/+0.837 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.459   -0.896/+0.915 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.325   -0.923/+0.944 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.999   -0.950/+0.965 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.314   -0.865/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.807   -0.960/+0.981 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.440   -0.823/+0.842 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.658   -0.861/+0.880 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.097   -0.899/+0.919 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.012   -0.853/+0.880 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +6.540   -0.963/+0.987 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.544   -0.795/+0.813 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.533   -0.810/+0.827 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.050   -0.841/+0.859 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.318   -0.914/+0.933 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.121   -0.887/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.344   -0.848/+0.875 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.240   -0.858/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.055   -0.916/+0.930 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.675   -0.852/+0.870 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.462   -0.856/+0.877 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.455   -0.795/+0.813 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.940   -1.032/+1.053 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.457   -0.956/+0.974 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.064   -0.862/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.687   -0.829/+0.848 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.194   -0.843/+0.862 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.885   -0.848/+0.870 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.708   -0.982/+1.001 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.641   -0.909/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.270   -1.012/+1.031 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.409   -1.010/+1.028 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.134   -0.823/+0.847 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.922   -0.895/+0.906 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.299   -0.924/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.281   -0.823/+0.841 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.874   -0.817/+0.834 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.125   -0.921/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.174   -0.898/+0.914 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.853   -0.903/+0.924 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.558   -0.975/+0.993 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.825   -0.882/+0.901 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.626   -0.838/+0.848 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.692   -0.918/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.350   -0.937/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.917   -0.892/+0.904 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.171   -0.860/+0.880 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.766   -0.856/+0.876 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.507   -0.859/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.918   -0.797/+0.816 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.795   -0.867/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.491   -0.879/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.460   -0.839/+0.859 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.792   -0.876/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.097   -0.917/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.011   -0.896/+0.913 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.744   -0.893/+0.919 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.069   -0.817/+0.836 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.990   -0.852/+0.872 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.670   -0.894/+0.898 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.727   -0.815/+0.832 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.222   -0.933/+0.931 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.752   -0.902/+0.920 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.306   -0.967/+0.975 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.733   -0.881/+0.893 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.495   -0.906/+0.926 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.998   -0.867/+0.890 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.658   -0.922/+0.940 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.090   -0.953/+0.956 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.306   -0.887/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.580   -1.011/+1.030 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.158   -0.846/+0.858 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.225   -0.809/+0.826 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.141   -0.935/+0.947 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.797   -0.840/+0.857 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.442   -0.884/+0.900 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.301   -0.926/+0.946 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.496   -0.936/+0.955 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.760   -0.877/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.226   -0.916/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.090   -0.942/+0.961 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.842   -0.968/+0.990 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.616   -0.981/+1.000 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.255   -0.801/+0.814 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.400   -0.814/+0.831 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.939   -0.863/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.747   -0.830/+0.846 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.701   -0.844/+0.863 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.329   -0.867/+0.887 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.594   -0.966/+0.985 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.710   -0.797/+0.814 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.014   -0.936/+0.956 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.312   -0.909/+0.928 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.140   -0.936/+0.956 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.034   -0.834/+0.852 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.613   -0.746/+0.765 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.803   -0.919/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.411   -0.869/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.289   -0.852/+0.867 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.489   -0.910/+0.928 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.451   -0.814/+0.832 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.021   -0.940/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.857   -0.895/+0.919 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.102   -0.883/+0.906 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.229   -0.932/+0.934 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.296   -0.974/+0.991 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.655   -0.918/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.958   -0.887/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.986   -0.912/+0.930 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.436   -0.925/+0.941 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.867   -0.961/+0.979 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.282   -0.923/+0.942 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.716   -0.907/+0.925 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.726   -0.895/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.036   -0.956/+0.977 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.696   -0.756/+0.774 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.948   -0.940/+0.944 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.451   -0.849/+0.869 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.771   -0.945/+0.963 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.513   -0.861/+0.880 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.718   -0.821/+0.838 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.753   -0.832/+0.845 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.935   -0.847/+0.865 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.446   -0.821/+0.832 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.082   -0.987/+1.005 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.885   -0.825/+0.843 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.162   -0.798/+0.817 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.324   -0.966/+0.984 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.823   -0.831/+0.835 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.646   -0.958/+0.976 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.110   -0.886/+0.907 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.808   -0.841/+0.859 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.419   -0.869/+0.889 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.874   -0.893/+0.913 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.166   -0.989/+1.011 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.188   -1.017/+1.034 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.697   -0.847/+0.866 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +0.791   -0.907/+0.925 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.474   -0.934/+0.953 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.188   -0.851/+0.870 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.845   -0.787/+0.806 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.742   -0.862/+0.880 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.107   -0.986/+1.004 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.351   -0.888/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.106   -0.814/+0.832 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.678   -1.002/+1.022 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.408   -0.849/+0.868 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.310   -0.927/+0.946 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.141   -0.906/+0.924 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.601   -0.936/+0.954 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.545   -0.798/+0.805 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.725   -0.900/+0.912 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.898   -0.882/+0.905 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.982   -0.816/+0.833 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.718   -0.876/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.440   -0.865/+0.885 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.805   -0.839/+0.858 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.273   -1.023/+1.040 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.463   -0.939/+0.959 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.389   -0.916/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.820   -0.894/+0.909 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.462   -0.886/+0.912 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.788   -0.903/+0.920 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.025   -0.795/+0.805 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.314   -0.838/+0.859 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.084   -0.868/+0.883 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.973   -0.967/+0.985 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.949   -0.905/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.024   -0.899/+0.928 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.961   -0.827/+0.840 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.444   -0.893/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.952   -0.916/+0.936 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.550   -0.930/+0.943 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.970   -0.806/+0.824 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.083   -0.845/+0.864 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.562   -0.959/+0.977 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.613   -0.971/+0.989 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.516   -0.896/+0.913 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.927   -0.975/+0.993 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.292   -0.869/+0.891 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.028   -0.947/+0.964 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.363   -0.918/+0.930 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.030   -0.823/+0.836 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.287   -0.988/+1.006 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.963   -0.862/+0.882 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.340   -0.898/+0.916 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.653   -0.870/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.461   -0.870/+0.890 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.166   -0.875/+0.895 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.685   -0.896/+0.916 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.495   -0.850/+0.878 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.172   -0.888/+0.905 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.903   -0.821/+0.839 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.100   -0.891/+0.911 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.627   -0.909/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.588   -0.922/+0.941 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.828   -0.840/+0.860 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.129   -0.803/+0.819 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.111   -0.919/+0.938 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.592   -0.949/+0.966 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.334   -0.985/+1.007 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.311   -0.943/+0.964 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.777   -0.889/+0.909 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.158   -0.817/+0.832 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.818   -0.954/+0.973 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.649   -0.960/+0.980 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.806   -0.942/+0.949 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.483   -0.934/+0.952 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.710   -0.955/+0.973 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.542   -0.844/+0.863 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.845   -0.777/+0.795 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.322   -1.051/+1.071 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.865   -0.944/+0.951 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.186   -0.887/+0.905 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.344   -0.935/+0.954 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.255   -0.839/+0.859 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.545   -0.881/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.015   -0.886/+0.906 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.243   -0.893/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.322   -0.781/+0.789 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.510   -0.877/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.337   -0.817/+0.829 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.939   -0.821/+0.839 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.625   -0.896/+0.923 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.563   -0.821/+0.839 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.999   -0.923/+0.941 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.718   -0.944/+0.962 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.017   -0.872/+0.891 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.307   -0.831/+0.846 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.641   -0.879/+0.899 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.251   -0.867/+0.885 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.629   -0.971/+0.990 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.774   -0.894/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.108   -0.835/+0.852 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.926   -0.970/+0.988 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.049   -0.961/+0.980 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.750   -1.048/+1.064 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.721   -0.977/+0.995 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.577   -0.896/+0.917 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +5.397   -0.857/+0.876 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.696   -0.895/+0.908 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.601   -0.991/+1.014 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.717   -0.867/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.424   -0.942/+0.960 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.744   -0.858/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.995   -0.948/+0.964 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.456   -0.860/+0.884 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.891   -0.927/+0.946 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.066   -0.785/+0.804 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.617   -0.918/+0.937 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.527   -0.953/+0.971 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.391   -0.837/+0.855 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.401   -0.928/+0.948 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.976   -0.846/+0.862 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.476   -0.866/+0.870 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.757   -0.902/+0.914 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.460   -0.840/+0.857 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.091   -0.881/+0.902 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.746   -0.949/+0.970 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.977   -0.753/+0.773 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.323   -0.935/+0.954 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.569   -0.836/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.734   -0.867/+0.886 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.557   -0.882/+0.914 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.287   -0.994/+1.012 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.881   -0.856/+0.870 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.087   -0.918/+0.932 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +1.687   -0.853/+0.876 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.717   -0.838/+0.852 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.072   -0.842/+0.865 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.198   -0.937/+0.955 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.756   -0.818/+0.833 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.949   -0.961/+0.982 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.284   -0.940/+0.960 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +2.528   -0.900/+0.916 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +4.112   -0.845/+0.856 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+
+ --- MultiDimFit ---
+best fit parameter values and profile-likelihood uncertainties: 
+   r :    +3.435   -0.908/+0.927 (68%)
+Done in 0.00 min (cpu), 0.00 min (real)
+mean   expected limit: r < 0 +/- 0 @ 95%CL (1000 toyMC)
+median expected limit: r < 0 @ 95%CL (1000 toyMC)
+   68% expected band : 6.917e-310 < r < 6.917e-310
+   95% expected band : 6.917e-310 < r < 6.917e-310

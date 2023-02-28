@@ -27,3 +27,8 @@ BDToutput/
 *.DS_Store
 limits/localCombineRuns/
 *.swp
+Plots/
+oldData/
+CondorJobs/
+inputFiles/
+plotterListFiles/

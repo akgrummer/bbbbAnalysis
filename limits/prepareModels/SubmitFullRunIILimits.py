@@ -14,12 +14,13 @@ def writeln(f, line):
     f.write(line + '\n')
 
 bkgNormPerMassGroupDictionary = {
-  "2016" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.010", "4" :  "1.031", "none" : "1.010"},
-  "2017" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.010", "4" :  "1.010", "none" : "1.010"},
-  "2018" : { "0" : "1.010", "1" :  "1.010", "2" :  "1.010", "3" :  "1.015", "4" :  "1.024", "none" : "1.013"},
+  "2016" : { "0" : "1.020", "1" :  "1.020", "2" :  "1.018", "3" :  "1.015", "4" :  "1.029", "none" : "1.010"},
+  "2017" : { "0" : "1.016", "1" :  "1.017", "2" :  "1.020", "3" :  "1.015", "4" :  "1.018", "none" : "1.010"},
+  "2018" : { "0" : "1.042", "1" :  "1.036", "2" :  "1.032", "3" :  "1.022", "4" :  "1.010", "none" : "1.010"},
 }
 
-mXandGroup = {300 : 0, 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4, 1800 : 4, 2000 : 4}
+#  mXandGroup = {300 : 0, 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4, 1800 : 4, 2000 : 4}
+mXandGroup = { 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4}
 
 parser = argparse.ArgumentParser(description='Command line parser of skim options')
 parser.add_argument('--year'   , dest = 'year'   , help = 'year'           , required = True)
@@ -71,7 +72,8 @@ baseFolder               = outputDir + '/' + tag
 baseFolderNoEos          = outputDirNoEos.format(username) + '/' + tag
 plotFileFolderProtoNoEos = baseFolderNoEos + '/HistogramFiles_{0}/'
 plotFileFolderProto      = baseFolder + '/HistogramFiles_{0}/'
-LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "", "freezeBKGnorm": "--freezeParameters var{.*CMS_bkgnorm.*}" }
+#  LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "", "freezeBKGnorm": "--freezeParameters var{.*CMS_bkgnorm.*}" }
+LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "" }
 folderYearName           = "DatacardFolder_{0}"
 folderRunIIName          = "DatacardFolder_RunII"
 outPlotFileNameProto     = "outPlotter_{0}_{1}.root"
@@ -203,6 +205,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
         writeln(outScript, 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s %s'%(year,signal,plotFileFolderProto.format(year),folderName, groupFlag))
         writeln(outScript, 'echo "... preparing datacard"')
         writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s'%(year,signal,folderName,bkgNormPerMassGroupDictionary[year][str(groupNumber)]))
+        # writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s --addScaleSignal'%(year,signal,folderName,bkgNormPerMassGroupDictionary[year][str(groupNumber)]))
 
     #copying Pdf, scale and PS systematics from samples in which they are present
     folderName2016 = folderYearName.format(2016)

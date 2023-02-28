@@ -98,8 +98,8 @@ std::vector<std::string> splitByLine(const std::string& inputFileName)
 void PlaneDivision()
 {
     gROOT->ForceStyle();
-    TFile quantileFile("QuantilePlot.root");
-    TFile plotterFile("DataPlots_fullSubmission_2016_v31/outPlotter.root");
+    // TFile quantileFile("QuantilePlot.root");
+    TFile plotterFile("VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_2022Nov14_bJetScoreLoose_shapes2/outPlotter.root");
 
     TH2F* mXmYplane = (TH2F*)plotterFile.Get("data_BTagCSV_dataDriven_kinFit/selectionbJets_SignalRegion/data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion_HH_kinFit_m_H2_m");
     mXmYplane->SetDirectory(0);
@@ -112,11 +112,11 @@ void PlaneDivision()
 
     std::vector<std::tuple<EColor, float, float, MassGroups>> theMassGroupList;
     
-    theMassGroupList.emplace_back(std::make_tuple(kBlue   ,  200.,  650., MassGroups(  212,  800))); // group 0 ->  300 -  600
+    theMassGroupList.emplace_back(std::make_tuple(kBlue   ,  350.,  650., MassGroups(  212,  800))); // group 0 ->  300 -  600
     theMassGroupList.emplace_back(std::make_tuple(kRed    ,  650.,  850., MassGroups(  300, 1000))); // group 1 ->  700 -  800
     theMassGroupList.emplace_back(std::make_tuple(kBlack  ,  850., 1050., MassGroups(  450, 1200))); // group 2 ->  900 - 1000
     theMassGroupList.emplace_back(std::make_tuple(kViolet , 1050., 1450., MassGroups(  600, 1600))); // group 3 -> 1100 - 1400
-    theMassGroupList.emplace_back(std::make_tuple(kGreen  , 1450., 2050., MassGroups(  950, 2320))); // group 4 -> 1600 - 2000
+    theMassGroupList.emplace_back(std::make_tuple(kGreen  , 1450., 1650., MassGroups(  950, 2320))); // group 4 -> 1600 - 2000
     // theMassGroupList.emplace_back(std::make_pair(kRed    , MassGroups( 250,  350,  105, 2400))); // group 1
     // theMassGroupList.emplace_back(std::make_pair(kGreen  , MassGroups( 350,  650,    0, 2400))); // group 2
     // theMassGroupList.emplace_back(std::make_pair(kBlue   , MassGroups( 650,  850,    0,  105))); // group 3

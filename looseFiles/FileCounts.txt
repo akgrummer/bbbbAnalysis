@@ -1,0 +1,42 @@
+>>> for d in $(find . -mindepth 1 -maxdepth 1 -type d); do echo -n $d" "; find $d -maxdepth 2 -type
+ f |wc -l; done
+
+
+168573 ./CondorJobs 
+44731 ./oldData 
+570 ./BDToutput 
+460 ./plotterListFiles 
+366 ./inputFiles 
+327 ./Plots 
+233 ./limits 
+218 ./weights 
+143 ./BackgroundModels 
+126 ./config 
+122 ./scripts 
+86 ./mlskim_NMSSM_XYH_bbbb 
+42 ./privateTools 
+41 ./interface 
+38 ./looseFiles 
+31 ./studies 
+28 ./src 
+28 ./obj 
+24 ./VarPlots 
+22 ./mlskim_NMSSM_XYH_bbbb_separatedDataset 
+21 ./mlskim 
+21 ./.git 
+18 ./BDTgridSubmit 
+16 ./plotter 
+15 ./interpolation 
+13 ./data 
+13 ./SkimmedFiles 
+12 ./FromEOS 
+9 ./vim-sessions 
+9 ./bin 
+6 ./JERfiles 
+5 ./Notes 
+4 ./tars 
+3 ./JECfiles 
+2 ./lib 
+1 ./trainingbdt 
+0 ./HIG-20-012 
+

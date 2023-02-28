@@ -124,7 +124,7 @@ antiBTagSelection           = configFile.antiBTagSelection
 bTagScoreSelection          = configFile.bTagScoreSelection
 analysisBackgroundArgument  = configFile.analysisBackgroundArgument
 analysisClassifierArgument  = configFile.analysisClassifierArgument
-addSelection                = configFile.addSelection
+#  addSelection                = configFile.addSelection
 
 if seed != 0:
     backgroundWeightName= backgroundWeightName+"_seed%s"%(seed)
@@ -238,7 +238,7 @@ else:
     sys.exit()
     
 # for mass window cut study:
-dataset.query(addSelection, inplace = True)
+#  dataset.query(addSelection, inplace = True)
 if (args.bJetScore): dataset.query(bTagScoreSelection, inplace = True)
 print "Number of events in dataset after cuts = ",len(dataset)
 

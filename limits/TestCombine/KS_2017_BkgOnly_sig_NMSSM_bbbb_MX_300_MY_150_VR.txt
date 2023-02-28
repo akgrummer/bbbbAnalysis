@@ -1,0 +1,1610 @@
+ <<< Combine >>> 
+>>> random number generator seed is 123456
+Will use the Kolmogorov-Smirnov test to compute goodness of fit for a binned likelihood
+>>> method used is GoodnessOfFit
+ <<< Combine >>> 
+>>> random number generator seed is 123456
+Will use the Kolmogorov-Smirnov test to compute goodness of fit for a binned likelihood
+>>> method used is GoodnessOfFit
+Channel selectionbJets_SignalRegion will use autoMCStats with settings: event-threshold=10, include-signal=0, hist-mode=1
+============================================================
+Analysing bin errors for: prop_binselectionbJets_SignalRegion
+Poisson cut-off: 10
+Processes excluded for sums: sig_NMSSM_bbbb_MX_300_MY_150
+============================================================
+Bin        Contents        Error           Notes                         
+0          0.000010        0.000010        total sum                     
+0          0.000010        0.000010        excluding marked processes    
+0          1.000000        1.000000        Unweighted events, alpha=0.000010
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin0_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+1          0.000010        0.000010        total sum                     
+1          0.000010        0.000010        excluding marked processes    
+1          1.000000        1.000000        Unweighted events, alpha=0.000010
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin1_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+2          0.000010        0.000010        total sum                     
+2          0.000010        0.000010        excluding marked processes    
+2          1.000000        1.000000        Unweighted events, alpha=0.000010
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin2_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+3          0.861205        0.602487        total sum                     
+3          0.851815        0.602438        excluding marked processes    
+3          2.000000        1.414214        Unweighted events, alpha=0.430602
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.851815        0.602438                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.425907
+      => Product of prop_binselectionbJets_SignalRegion_bin3_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.009390        0.007681                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.009390
+      => Product of prop_binselectionbJets_SignalRegion_bin3_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+4          3.305706        1.268187        total sum                     
+4          3.298554        1.268167        excluding marked processes    
+4          7.000000        2.645751        Unweighted events, alpha=0.472244
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.298554        1.268167                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.471222
+      => Product of prop_binselectionbJets_SignalRegion_bin4_data_BTagCSV_dataDriven_kinFit[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.007153        0.007153                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.007153
+      => Product of prop_binselectionbJets_SignalRegion_bin4_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+5          1.310985        0.763574        total sum                     
+5          1.293210        0.763537        excluding marked processes    
+5          3.000000        1.732051        Unweighted events, alpha=0.436995
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.293210        0.763537                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.431070
+      => Product of prop_binselectionbJets_SignalRegion_bin5_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.017776        0.007563                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.002963
+      => Product of prop_binselectionbJets_SignalRegion_bin5_sig_NMSSM_bbbb_MX_300_MY_150[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+6          2.629788        1.318830        total sum                     
+6          2.615655        1.318803        excluding marked processes    
+6          4.000000        2.000000        Unweighted events, alpha=0.657447
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.615655        1.318803                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.653914
+      => Product of prop_binselectionbJets_SignalRegion_bin6_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.014133        0.008402                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.004711
+      => Product of prop_binselectionbJets_SignalRegion_bin6_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+7          0.393034        0.383833        total sum                     
+7          0.383720        0.383720        excluding marked processes    
+7          1.000000        1.000000        Unweighted events, alpha=0.393034
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.383720        0.383720                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.383720
+      => Product of prop_binselectionbJets_SignalRegion_bin7_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.009314        0.009314                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.009314
+      => Product of prop_binselectionbJets_SignalRegion_bin7_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+8          3.441944        1.414012        total sum                     
+8          3.441566        1.414012        excluding marked processes    
+8          6.000000        2.449490        Unweighted events, alpha=0.573657
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.441566        1.414012                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.573594
+      => Product of prop_binselectionbJets_SignalRegion_bin8_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000378        0.000378                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000378
+      => Product of prop_binselectionbJets_SignalRegion_bin8_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+9          9.322135        2.366425        total sum                     
+9          9.322135        2.366425        excluding marked processes    
+9          16.000000       4.000000        Unweighted events, alpha=0.582633
+  => Total parameter prop_binselectionbJets_SignalRegion_bin9[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+10         0.003860        0.003850        total sum                     
+10         0.000010        0.000010        excluding marked processes    
+10         1.000000        1.000000        Unweighted events, alpha=0.003860
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin10_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.003850        0.003850                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.003850
+      => Product of prop_binselectionbJets_SignalRegion_bin10_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+11         1.038352        0.738221        total sum                     
+11         1.038352        0.738221        excluding marked processes    
+11         2.000000        1.414214        Unweighted events, alpha=0.519176
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.038352        0.738221                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.519176
+      => Product of prop_binselectionbJets_SignalRegion_bin11_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+12         1.222474        0.866052        total sum                     
+12         1.213619        0.866030        excluding marked processes    
+12         2.000000        1.414214        Unweighted events, alpha=0.611237
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.213619        0.866030                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.606809
+      => Product of prop_binselectionbJets_SignalRegion_bin12_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008855        0.006296                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.004428
+      => Product of prop_binselectionbJets_SignalRegion_bin12_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+13         0.556759        0.550633        total sum                     
+13         0.550599        0.550599        excluding marked processes    
+13         1.000000        1.000000        Unweighted events, alpha=0.556759
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.550599        0.550599                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.550599
+      => Product of prop_binselectionbJets_SignalRegion_bin13_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.006161        0.006161                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.006161
+      => Product of prop_binselectionbJets_SignalRegion_bin13_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+14         1.614140        0.811880        total sum                     
+14         1.585378        0.811775        excluding marked processes    
+14         4.000000        2.000000        Unweighted events, alpha=0.403535
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.585378        0.811775                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.396344
+      => Product of prop_binselectionbJets_SignalRegion_bin14_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.028762        0.013109                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.005752
+      => Product of prop_binselectionbJets_SignalRegion_bin14_sig_NMSSM_bbbb_MX_300_MY_150[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+15         2.987378        1.233589        total sum                     
+15         2.972840        1.233559        excluding marked processes    
+15         6.000000        2.449490        Unweighted events, alpha=0.497896
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.972840        1.233559                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.495473
+      => Product of prop_binselectionbJets_SignalRegion_bin15_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.014539        0.008607                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.004846
+      => Product of prop_binselectionbJets_SignalRegion_bin15_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+16         2.524980        1.173095        total sum                     
+16         2.499205        1.173024        excluding marked processes    
+16         5.000000        2.236068        Unweighted events, alpha=0.504996
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.499205        1.173024                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.499841
+      => Product of prop_binselectionbJets_SignalRegion_bin16_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.025775        0.012893                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.006444
+      => Product of prop_binselectionbJets_SignalRegion_bin16_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+17         3.039935        1.244210        total sum                     
+17         3.031100        1.244194        excluding marked processes    
+17         6.000000        2.449490        Unweighted events, alpha=0.506656
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.031100        1.244194                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.505183
+      => Product of prop_binselectionbJets_SignalRegion_bin17_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008834        0.006250                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.004417
+      => Product of prop_binselectionbJets_SignalRegion_bin17_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+18         4.192524        1.602093        total sum                     
+18         4.180769        1.602078        excluding marked processes    
+18         7.000000        2.645751        Unweighted events, alpha=0.598932
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.180769        1.602078                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.597253
+      => Product of prop_binselectionbJets_SignalRegion_bin18_data_BTagCSV_dataDriven_kinFit[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.011755        0.006854                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.003918
+      => Product of prop_binselectionbJets_SignalRegion_bin18_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+19         11.032800       2.556942        total sum                     
+19         11.029436       2.556940        excluding marked processes    
+19         19.000000       4.358899        Unweighted events, alpha=0.580674
+  => Total parameter prop_binselectionbJets_SignalRegion_bin19[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+20         0.003053        0.003043        total sum                     
+20         0.000010        0.000010        excluding marked processes    
+20         1.000000        1.000000        Unweighted events, alpha=0.003053
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin20_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.003043        0.003043                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.003043
+      => Product of prop_binselectionbJets_SignalRegion_bin20_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+21         1.331752        0.952937        total sum                     
+21         1.331752        0.952937        excluding marked processes    
+21         2.000000        1.414214        Unweighted events, alpha=0.665876
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.331752        0.952937                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.665876
+      => Product of prop_binselectionbJets_SignalRegion_bin21_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+22         0.564971        0.559282        total sum                     
+22         0.559267        0.559267        excluding marked processes    
+22         1.000000        1.000000        Unweighted events, alpha=0.564971
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.559267        0.559267                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.559267
+      => Product of prop_binselectionbJets_SignalRegion_bin22_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.005704        0.004074                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.002852
+      => Product of prop_binselectionbJets_SignalRegion_bin22_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+23         3.438402        1.226580        total sum                     
+23         3.429255        1.226568        excluding marked processes    
+23         8.000000        2.828427        Unweighted events, alpha=0.429800
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.429255        1.226568                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.428657
+      => Product of prop_binselectionbJets_SignalRegion_bin23_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.009147        0.005441                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.003049
+      => Product of prop_binselectionbJets_SignalRegion_bin23_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+24         1.807381        0.909297        total sum                     
+24         1.794053        0.909264        excluding marked processes    
+24         4.000000        2.000000        Unweighted events, alpha=0.451845
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.794053        0.909264                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.448513
+      => Product of prop_binselectionbJets_SignalRegion_bin24_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.013328        0.007800                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.004443
+      => Product of prop_binselectionbJets_SignalRegion_bin24_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+25         4.614853        1.484244        total sum                     
+25         4.593536        1.484206        excluding marked processes    
+25         10.000000       3.162278        Unweighted events, alpha=0.461485
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.593536        1.484206                                      
+                         10.000000       3.162278        Unweighted events, alpha=0.459354
+      => Product of prop_binselectionbJets_SignalRegion_bin25_data_BTagCSV_dataDriven_kinFit[10.00,0.30,52.00] and const [0.1000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.021317        0.010580                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.005329
+      => Product of prop_binselectionbJets_SignalRegion_bin25_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+26         7.254187        2.033814        total sum                     
+26         7.247382        2.033808        excluding marked processes    
+26         13.000000       3.605551        Unweighted events, alpha=0.558014
+  => Total parameter prop_binselectionbJets_SignalRegion_bin26[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+27         6.101503        1.992922        total sum                     
+27         6.096581        1.992916        excluding marked processes    
+27         9.000000        3.000000        Unweighted events, alpha=0.677945
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 6.096581        1.992916                                      
+                         9.000000        3.000000        Unweighted events, alpha=0.677398
+      => Product of prop_binselectionbJets_SignalRegion_bin27_data_BTagCSV_dataDriven_kinFit[9.00,0.20,49.98] and const [0.1111] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.004921        0.004921                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.004921
+      => Product of prop_binselectionbJets_SignalRegion_bin27_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+28         4.792088        1.620611        total sum                     
+28         4.781986        1.620595        excluding marked processes    
+28         9.000000        3.000000        Unweighted events, alpha=0.532454
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.781986        1.620595                                      
+                         9.000000        3.000000        Unweighted events, alpha=0.531332
+      => Product of prop_binselectionbJets_SignalRegion_bin28_data_BTagCSV_dataDriven_kinFit[9.00,0.20,49.98] and const [0.1111] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.010101        0.007189                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.005051
+      => Product of prop_binselectionbJets_SignalRegion_bin28_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+29         18.905694       3.286771        total sum                     
+29         18.894119       3.286760        excluding marked processes    
+29         33.000000       5.744563        Unweighted events, alpha=0.572900
+  => Total parameter prop_binselectionbJets_SignalRegion_bin29[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+30         0.639563        0.630765        total sum                     
+30         0.630734        0.630734        excluding marked processes    
+30         1.000000        1.000000        Unweighted events, alpha=0.639563
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.630734        0.630734                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.630734
+      => Product of prop_binselectionbJets_SignalRegion_bin30_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008829        0.006249                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.004415
+      => Product of prop_binselectionbJets_SignalRegion_bin30_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+31         0.588015        0.585114        total sum                     
+31         0.585107        0.585107        excluding marked processes    
+31         1.000000        1.000000        Unweighted events, alpha=0.588015
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.585107        0.585107                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.585107
+      => Product of prop_binselectionbJets_SignalRegion_bin31_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.002908        0.002908                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.002908
+      => Product of prop_binselectionbJets_SignalRegion_bin31_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+32         0.005509        0.004112        total sum                     
+32         0.000010        0.000010        excluding marked processes    
+32         1.000000        1.000000        Unweighted events, alpha=0.005509
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin32_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.005499        0.004112                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.002750
+      => Product of prop_binselectionbJets_SignalRegion_bin32_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+33         0.658056        0.461576        total sum                     
+33         0.652487        0.461545        excluding marked processes    
+33         2.000000        1.414214        Unweighted events, alpha=0.329028
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.652487        0.461545                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.326244
+      => Product of prop_binselectionbJets_SignalRegion_bin33_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.005569        0.005306                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.005569
+      => Product of prop_binselectionbJets_SignalRegion_bin33_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+34         3.280247        1.261594        total sum                     
+34         3.256160        1.261540        excluding marked processes    
+34         7.000000        2.645751        Unweighted events, alpha=0.468607
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.256160        1.261540                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.465166
+      => Product of prop_binselectionbJets_SignalRegion_bin34_data_BTagCSV_dataDriven_kinFit[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.024086        0.011696                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.006022
+      => Product of prop_binselectionbJets_SignalRegion_bin34_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+35         3.928852        1.405076        total sum                     
+35         3.899233        1.405018        excluding marked processes    
+35         8.000000        2.828427        Unweighted events, alpha=0.491107
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.899233        1.405018                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.487404
+      => Product of prop_binselectionbJets_SignalRegion_bin35_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.029619        0.012824                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.005924
+      => Product of prop_binselectionbJets_SignalRegion_bin35_sig_NMSSM_bbbb_MX_300_MY_150[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+36         2.890702        1.102505        total sum                     
+36         2.854187        1.102416        excluding marked processes    
+36         7.000000        2.645751        Unweighted events, alpha=0.412957
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.854187        1.102416                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.407741
+      => Product of prop_binselectionbJets_SignalRegion_bin36_data_BTagCSV_dataDriven_kinFit[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.036515        0.014044                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.005216
+      => Product of prop_binselectionbJets_SignalRegion_bin36_sig_NMSSM_bbbb_MX_300_MY_150[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+37         1.972884        1.126635        total sum                     
+37         1.947706        1.126541        excluding marked processes    
+37         3.000000        1.732051        Unweighted events, alpha=0.657628
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.947706        1.126541                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.649235
+      => Product of prop_binselectionbJets_SignalRegion_bin37_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.025177        0.014557                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.008392
+      => Product of prop_binselectionbJets_SignalRegion_bin37_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+38         5.871368        1.787197        total sum                     
+38         5.867366        1.787193        excluding marked processes    
+38         11.000000       3.316625        Unweighted events, alpha=0.533761
+  => Total parameter prop_binselectionbJets_SignalRegion_bin38[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+39         16.370295       3.087312        total sum                     
+39         16.361557       3.087305        excluding marked processes    
+39         28.000000       5.291503        Unweighted events, alpha=0.584653
+  => Total parameter prop_binselectionbJets_SignalRegion_bin39[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+40         1.291252        0.907158        total sum                     
+40         1.282720        0.907118        excluding marked processes    
+40         2.000000        1.414214        Unweighted events, alpha=0.645626
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.282720        0.907118                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.641360
+      => Product of prop_binselectionbJets_SignalRegion_bin40_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008532        0.008532                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.008532
+      => Product of prop_binselectionbJets_SignalRegion_bin40_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+41         0.713318        0.706296        total sum                     
+41         0.706261        0.706261        excluding marked processes    
+41         1.000000        1.000000        Unweighted events, alpha=0.713318
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.706261        0.706261                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.706261
+      => Product of prop_binselectionbJets_SignalRegion_bin41_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.007057        0.007057                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.007057
+      => Product of prop_binselectionbJets_SignalRegion_bin41_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+42         2.202953        1.100783        total sum                     
+42         2.192826        1.100763        excluding marked processes    
+42         4.000000        2.000000        Unweighted events, alpha=0.550738
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.192826        1.100763                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.548207
+      => Product of prop_binselectionbJets_SignalRegion_bin42_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.010127        0.006700                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.005063
+      => Product of prop_binselectionbJets_SignalRegion_bin42_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+43         0.435985        0.424022        total sum                     
+43         0.423941        0.423941        excluding marked processes    
+43         1.000000        1.000000        Unweighted events, alpha=0.435985
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.423941        0.423941                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.423941
+      => Product of prop_binselectionbJets_SignalRegion_bin43_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.012043        0.008284                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.006022
+      => Product of prop_binselectionbJets_SignalRegion_bin43_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+44         2.010177        1.012742        total sum                     
+44         1.997917        1.012701        excluding marked processes    
+44         4.000000        2.000000        Unweighted events, alpha=0.502544
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.997917        1.012701                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.499479
+      => Product of prop_binselectionbJets_SignalRegion_bin44_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.012260        0.009195                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.006130
+      => Product of prop_binselectionbJets_SignalRegion_bin44_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+45         3.581744        1.265498        total sum                     
+45         3.546707        1.265399        excluding marked processes    
+45         8.000000        2.828427        Unweighted events, alpha=0.447718
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.546707        1.265399                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.443338
+      => Product of prop_binselectionbJets_SignalRegion_bin45_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.035037        0.015857                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.007007
+      => Product of prop_binselectionbJets_SignalRegion_bin45_sig_NMSSM_bbbb_MX_300_MY_150[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+46         3.258973        1.258830        total sum                     
+46         3.248401        1.258814        excluding marked processes    
+46         7.000000        2.645751        Unweighted events, alpha=0.465568
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.248401        1.258814                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.464057
+      => Product of prop_binselectionbJets_SignalRegion_bin46_data_BTagCSV_dataDriven_kinFit[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.010572        0.006176                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.003524
+      => Product of prop_binselectionbJets_SignalRegion_bin46_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+47         4.089426        1.408476        total sum                     
+47         4.062052        1.408421        excluding marked processes    
+47         8.000000        2.828427        Unweighted events, alpha=0.511178
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.062052        1.408421                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.507756
+      => Product of prop_binselectionbJets_SignalRegion_bin47_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.027375        0.012484                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.005475
+      => Product of prop_binselectionbJets_SignalRegion_bin47_sig_NMSSM_bbbb_MX_300_MY_150[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+48         2.399678        1.076348        total sum                     
+48         2.382705        1.076291        excluding marked processes    
+48         5.000000        2.236068        Unweighted events, alpha=0.479936
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.382705        1.076291                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.476541
+      => Product of prop_binselectionbJets_SignalRegion_bin48_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.016973        0.011124                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.008487
+      => Product of prop_binselectionbJets_SignalRegion_bin48_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+49         14.710051       2.929621        total sum                     
+49         14.707644       2.929620        excluding marked processes    
+49         25.000000       5.000000        Unweighted events, alpha=0.588402
+  => Total parameter prop_binselectionbJets_SignalRegion_bin49[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+50         1.012328        0.716882        total sum                     
+50         1.012328        0.716882        excluding marked processes    
+50         2.000000        1.414214        Unweighted events, alpha=0.506164
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.012328        0.716882                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.506164
+      => Product of prop_binselectionbJets_SignalRegion_bin50_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+51         0.006768        0.004786        total sum                     
+51         0.000010        0.000010        excluding marked processes    
+51         1.000000        1.000000        Unweighted events, alpha=0.006768
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin51_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.006758        0.004786                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.003379
+      => Product of prop_binselectionbJets_SignalRegion_bin51_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+52         1.719273        0.994686        total sum                     
+52         1.715880        0.994680        excluding marked processes    
+52         3.000000        1.732051        Unweighted events, alpha=0.573091
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.715880        0.994680                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.571960
+      => Product of prop_binselectionbJets_SignalRegion_bin52_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.003393        0.003393                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.003393
+      => Product of prop_binselectionbJets_SignalRegion_bin52_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+53         1.442678        0.832774        total sum                     
+53         1.427532        0.832727        excluding marked processes    
+53         3.000000        1.732051        Unweighted events, alpha=0.480893
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.427532        0.832727                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.475844
+      => Product of prop_binselectionbJets_SignalRegion_bin53_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.015146        0.008827                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.005049
+      => Product of prop_binselectionbJets_SignalRegion_bin53_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+54         2.950559        1.229825        total sum                     
+54         2.930322        1.229760        excluding marked processes    
+54         6.000000        2.449490        Unweighted events, alpha=0.491760
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.930322        1.229760                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.488387
+      => Product of prop_binselectionbJets_SignalRegion_bin54_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.020236        0.012620                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.006745
+      => Product of prop_binselectionbJets_SignalRegion_bin54_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+55         3.021215        1.168272        total sum                     
+55         2.965963        1.168123        excluding marked processes    
+55         6.000000        2.449490        Unweighted events, alpha=0.503536
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.965963        1.168123                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.494327
+      => Product of prop_binselectionbJets_SignalRegion_bin55_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.055253        0.018635                                      
+                         9.000000        3.000000        Unweighted events, alpha=0.006139
+      => Product of prop_binselectionbJets_SignalRegion_bin55_sig_NMSSM_bbbb_MX_300_MY_150[9.00,0.20,49.98] and const [0.1111] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+56         3.346200        1.390380        total sum                     
+56         3.311670        1.390290        excluding marked processes    
+56         6.000000        2.449490        Unweighted events, alpha=0.557700
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.311670        1.390290                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.551945
+      => Product of prop_binselectionbJets_SignalRegion_bin56_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.034530        0.015796                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.006906
+      => Product of prop_binselectionbJets_SignalRegion_bin56_sig_NMSSM_bbbb_MX_300_MY_150[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+57         4.071466        1.452072        total sum                     
+57         4.053594        1.452036        excluding marked processes    
+57         8.000000        2.828427        Unweighted events, alpha=0.508933
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.053594        1.452036                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.506699
+      => Product of prop_binselectionbJets_SignalRegion_bin57_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.017871        0.010264                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.005957
+      => Product of prop_binselectionbJets_SignalRegion_bin57_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+58         4.789166        1.730989        total sum                     
+58         4.764416        1.730940        excluding marked processes    
+58         8.000000        2.828427        Unweighted events, alpha=0.598646
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.764416        1.730940                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.595552
+      => Product of prop_binselectionbJets_SignalRegion_bin58_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.024750        0.013124                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.006187
+      => Product of prop_binselectionbJets_SignalRegion_bin58_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+59         10.020850       2.401950        total sum                     
+59         10.006886       2.401929        excluding marked processes    
+59         17.000000       4.123106        Unweighted events, alpha=0.589462
+  => Total parameter prop_binselectionbJets_SignalRegion_bin59[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+60         0.703869        0.703869        total sum                     
+60         0.703869        0.703869        excluding marked processes    
+60         1.000000        1.000000        Unweighted events, alpha=0.703869
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.703869        0.703869                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.703869
+      => Product of prop_binselectionbJets_SignalRegion_bin60_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+61         0.811091        0.808886        total sum                     
+61         0.808883        0.808883        excluding marked processes    
+61         1.000000        1.000000        Unweighted events, alpha=0.811091
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.808883        0.808883                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.808883
+      => Product of prop_binselectionbJets_SignalRegion_bin61_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.002208        0.002208                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.002208
+      => Product of prop_binselectionbJets_SignalRegion_bin61_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+62         0.398339        0.391552        total sum                     
+62         0.391522        0.391522        excluding marked processes    
+62         1.000000        1.000000        Unweighted events, alpha=0.398339
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.391522        0.391522                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.391522
+      => Product of prop_binselectionbJets_SignalRegion_bin62_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.006817        0.004842                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.003409
+      => Product of prop_binselectionbJets_SignalRegion_bin62_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+63         2.637955        1.084873        total sum                     
+63         2.621119        1.084830        excluding marked processes    
+63         6.000000        2.449490        Unweighted events, alpha=0.439659
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.621119        1.084830                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.436853
+      => Product of prop_binselectionbJets_SignalRegion_bin63_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.016836        0.009755                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.005612
+      => Product of prop_binselectionbJets_SignalRegion_bin63_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+64         1.643018        0.835493        total sum                     
+64         1.618338        0.835400        excluding marked processes    
+64         4.000000        2.000000        Unweighted events, alpha=0.410754
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.618338        0.835400                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.404584
+      => Product of prop_binselectionbJets_SignalRegion_bin64_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.024680        0.012498                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.006170
+      => Product of prop_binselectionbJets_SignalRegion_bin64_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+65         3.764183        1.345327        total sum                     
+65         3.742246        1.345287        excluding marked processes    
+65         8.000000        2.828427        Unweighted events, alpha=0.470523
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.742246        1.345287                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.467781
+      => Product of prop_binselectionbJets_SignalRegion_bin65_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.021937        0.010395                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.005484
+      => Product of prop_binselectionbJets_SignalRegion_bin65_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+66         3.678746        1.406162        total sum                     
+66         3.630067        1.406032        excluding marked processes    
+66         7.000000        2.645751        Unweighted events, alpha=0.525535
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.630067        1.406032                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.518581
+      => Product of prop_binselectionbJets_SignalRegion_bin66_data_BTagCSV_dataDriven_kinFit[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.048679        0.019081                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.006954
+      => Product of prop_binselectionbJets_SignalRegion_bin66_sig_NMSSM_bbbb_MX_300_MY_150[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+67         4.118451        1.491461        total sum                     
+67         4.099850        1.491421        excluding marked processes    
+67         8.000000        2.828427        Unweighted events, alpha=0.514806
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.099850        1.491421                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.512481
+      => Product of prop_binselectionbJets_SignalRegion_bin67_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.018601        0.011022                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.006200
+      => Product of prop_binselectionbJets_SignalRegion_bin67_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+68         6.858075        1.867799        total sum                     
+68         6.837339        1.867765        excluding marked processes    
+68         13.000000       3.605551        Unweighted events, alpha=0.527544
+  => Total parameter prop_binselectionbJets_SignalRegion_bin68[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+69         11.127740       2.501804        total sum                     
+69         11.115059       2.501793        excluding marked processes    
+69         20.000000       4.472136        Unweighted events, alpha=0.556387
+  => Total parameter prop_binselectionbJets_SignalRegion_bin69[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+70         0.000010        0.000010        total sum                     
+70         0.000010        0.000010        excluding marked processes    
+70         1.000000        1.000000        Unweighted events, alpha=0.000010
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin70_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+71         0.017491        0.010151        total sum                     
+71         0.000010        0.000010        excluding marked processes    
+71         1.000000        1.000000        Unweighted events, alpha=0.017491
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin71_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.017481        0.010151                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.005827
+      => Product of prop_binselectionbJets_SignalRegion_bin71_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+72         0.693462        0.693462        total sum                     
+72         0.693462        0.693462        excluding marked processes    
+72         1.000000        1.000000        Unweighted events, alpha=0.693462
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.693462        0.693462                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.693462
+      => Product of prop_binselectionbJets_SignalRegion_bin72_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+73         2.181933        1.117866        total sum                     
+73         2.164579        1.117818        excluding marked processes    
+73         4.000000        2.000000        Unweighted events, alpha=0.545483
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.164579        1.117818                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.541145
+      => Product of prop_binselectionbJets_SignalRegion_bin73_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.017354        0.010428                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.005785
+      => Product of prop_binselectionbJets_SignalRegion_bin73_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+74         1.368932        0.791908        total sum                     
+74         1.339210        0.791771        excluding marked processes    
+74         3.000000        1.732051        Unweighted events, alpha=0.456311
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.339210        0.791771                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.446403
+      => Product of prop_binselectionbJets_SignalRegion_bin74_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.029721        0.014695                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.007430
+      => Product of prop_binselectionbJets_SignalRegion_bin74_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+75         2.212535        1.006325        total sum                     
+75         2.199677        1.006299        excluding marked processes    
+75         5.000000        2.236068        Unweighted events, alpha=0.442507
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.199677        1.006299                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.439935
+      => Product of prop_binselectionbJets_SignalRegion_bin75_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.012858        0.007248                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.004286
+      => Product of prop_binselectionbJets_SignalRegion_bin75_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+76         3.067284        1.245034        total sum                     
+76         3.024848        1.244936        excluding marked processes    
+76         6.000000        2.449490        Unweighted events, alpha=0.511214
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.024848        1.244936                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.504141
+      => Product of prop_binselectionbJets_SignalRegion_bin76_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.042436        0.015616                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.006062
+      => Product of prop_binselectionbJets_SignalRegion_bin76_sig_NMSSM_bbbb_MX_300_MY_150[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+77         4.478206        1.522250        total sum                     
+77         4.467314        1.522231        excluding marked processes    
+77         9.000000        3.000000        Unweighted events, alpha=0.497578
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.467314        1.522231                                      
+                         9.000000        3.000000        Unweighted events, alpha=0.496368
+      => Product of prop_binselectionbJets_SignalRegion_bin77_data_BTagCSV_dataDriven_kinFit[9.00,0.20,49.98] and const [0.1111] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.010891        0.007725                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.005446
+      => Product of prop_binselectionbJets_SignalRegion_bin77_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+78         5.462567        1.703403        total sum                     
+78         5.455557        1.703389        excluding marked processes    
+78         10.000000       3.162278        Unweighted events, alpha=0.546257
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 5.455557        1.703389                                      
+                         10.000000       3.162278        Unweighted events, alpha=0.545556
+      => Product of prop_binselectionbJets_SignalRegion_bin78_data_BTagCSV_dataDriven_kinFit[10.00,0.30,52.00] and const [0.1000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.007010        0.007010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.007010
+      => Product of prop_binselectionbJets_SignalRegion_bin78_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+79         8.653400        2.220328        total sum                     
+79         8.647283        2.220320        excluding marked processes    
+79         15.000000       3.872983        Unweighted events, alpha=0.576893
+  => Total parameter prop_binselectionbJets_SignalRegion_bin79[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+80         0.000010        0.000010        total sum                     
+80         0.000010        0.000010        excluding marked processes    
+80         1.000000        1.000000        Unweighted events, alpha=0.000010
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin80_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+81         1.895487        1.100395        total sum                     
+81         1.891774        1.100392        excluding marked processes    
+81         3.000000        1.732051        Unweighted events, alpha=0.631829
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.891774        1.100392                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.630591
+      => Product of prop_binselectionbJets_SignalRegion_bin81_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.003713        0.002909                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.001857
+      => Product of prop_binselectionbJets_SignalRegion_bin81_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+82         1.994602        1.157221        total sum                     
+82         1.990957        1.157215        excluding marked processes    
+82         3.000000        1.732051        Unweighted events, alpha=0.664867
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.990957        1.157215                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.663652
+      => Product of prop_binselectionbJets_SignalRegion_bin82_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.003645        0.003645                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.003645
+      => Product of prop_binselectionbJets_SignalRegion_bin82_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+83         2.390936        1.065795        total sum                     
+83         2.371222        1.065739        excluding marked processes    
+83         5.000000        2.236068        Unweighted events, alpha=0.478187
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.371222        1.065739                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.474244
+      => Product of prop_binselectionbJets_SignalRegion_bin83_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.019714        0.010921                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.006571
+      => Product of prop_binselectionbJets_SignalRegion_bin83_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+84         1.143046        0.668736        total sum                     
+84         1.125262        0.668674        excluding marked processes    
+84         3.000000        1.732051        Unweighted events, alpha=0.381015
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.125262        0.668674                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.375087
+      => Product of prop_binselectionbJets_SignalRegion_bin84_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.017784        0.009120                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.004446
+      => Product of prop_binselectionbJets_SignalRegion_bin84_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+85         0.918909        0.634587        total sum                     
+85         0.890719        0.634442        excluding marked processes    
+85         2.000000        1.414214        Unweighted events, alpha=0.459455
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.890719        0.634442                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.445359
+      => Product of prop_binselectionbJets_SignalRegion_bin85_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.028190        0.013563                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.007048
+      => Product of prop_binselectionbJets_SignalRegion_bin85_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+86         2.383547        1.230339        total sum                     
+86         2.356128        1.230275        excluding marked processes    
+86         4.000000        2.000000        Unweighted events, alpha=0.595887
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.356128        1.230275                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.589032
+      => Product of prop_binselectionbJets_SignalRegion_bin86_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.027419        0.012570                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.005484
+      => Product of prop_binselectionbJets_SignalRegion_bin86_sig_NMSSM_bbbb_MX_300_MY_150[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+87         3.129127        1.285329        total sum                     
+87         3.117410        1.285312        excluding marked processes    
+87         6.000000        2.449490        Unweighted events, alpha=0.521521
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.117410        1.285312                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.519568
+      => Product of prop_binselectionbJets_SignalRegion_bin87_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.011717        0.006568                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.003906
+      => Product of prop_binselectionbJets_SignalRegion_bin87_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+88         6.813765        1.941460        total sum                     
+88         6.808619        1.941453        excluding marked processes    
+88         12.000000       3.464102        Unweighted events, alpha=0.567814
+  => Total parameter prop_binselectionbJets_SignalRegion_bin88[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+89         12.563419       2.603306        total sum                     
+89         12.533145       2.603270        excluding marked processes    
+89         23.000000       4.795832        Unweighted events, alpha=0.546236
+  => Total parameter prop_binselectionbJets_SignalRegion_bin89[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+90         0.002415        0.002405        total sum                     
+90         0.000010        0.000010        excluding marked processes    
+90         1.000000        1.000000        Unweighted events, alpha=0.002415
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin90_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.002405        0.002405                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.002405
+      => Product of prop_binselectionbJets_SignalRegion_bin90_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+91         0.643908        0.634952        total sum                     
+91         0.634903        0.634903        excluding marked processes    
+91         1.000000        1.000000        Unweighted events, alpha=0.643908
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.634903        0.634903                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.634903
+      => Product of prop_binselectionbJets_SignalRegion_bin91_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.009006        0.007880                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.009006
+      => Product of prop_binselectionbJets_SignalRegion_bin91_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+92         0.572353        0.564207        total sum                     
+92         0.564147        0.564147        excluding marked processes    
+92         1.000000        1.000000        Unweighted events, alpha=0.572353
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.564147        0.564147                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.564147
+      => Product of prop_binselectionbJets_SignalRegion_bin92_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008205        0.008205                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.008205
+      => Product of prop_binselectionbJets_SignalRegion_bin92_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+93         0.417068        0.408963        total sum                     
+93         0.408920        0.408920        excluding marked processes    
+93         1.000000        1.000000        Unweighted events, alpha=0.417068
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.408920        0.408920                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.408920
+      => Product of prop_binselectionbJets_SignalRegion_bin93_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008148        0.005873                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.004074
+      => Product of prop_binselectionbJets_SignalRegion_bin93_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+94         0.004071        0.003759        total sum                     
+94         0.000010        0.000010        excluding marked processes    
+94         1.000000        1.000000        Unweighted events, alpha=0.004071
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin94_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.004061        0.003759                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.004061
+      => Product of prop_binselectionbJets_SignalRegion_bin94_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+95         2.394594        1.088976        total sum                     
+95         2.344525        1.088844        excluding marked processes    
+95         5.000000        2.236068        Unweighted events, alpha=0.478919
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.344525        1.088844                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.468905
+      => Product of prop_binselectionbJets_SignalRegion_bin95_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.050069        0.016970                                      
+                         9.000000        3.000000        Unweighted events, alpha=0.005563
+      => Product of prop_binselectionbJets_SignalRegion_bin95_sig_NMSSM_bbbb_MX_300_MY_150[9.00,0.20,49.98] and const [0.1111] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+96         1.341478        0.754710        total sum                     
+96         1.291541        0.754495        excluding marked processes    
+96         3.000000        1.732051        Unweighted events, alpha=0.447159
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.291541        0.754495                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.430514
+      => Product of prop_binselectionbJets_SignalRegion_bin96_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.049937        0.018015                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.006242
+      => Product of prop_binselectionbJets_SignalRegion_bin96_sig_NMSSM_bbbb_MX_300_MY_150[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+97         4.440248        1.510021        total sum                     
+97         4.421910        1.509990        excluding marked processes    
+97         9.000000        3.000000        Unweighted events, alpha=0.493361
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.421910        1.509990                                      
+                         9.000000        3.000000        Unweighted events, alpha=0.491323
+      => Product of prop_binselectionbJets_SignalRegion_bin97_data_BTagCSV_dataDriven_kinFit[9.00,0.20,49.98] and const [0.1111] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.018339        0.009553                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.004585
+      => Product of prop_binselectionbJets_SignalRegion_bin97_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+98         4.537108        1.599723        total sum                     
+98         4.515490        1.599681        excluding marked processes    
+98         8.000000        2.828427        Unweighted events, alpha=0.567139
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.515490        1.599681                                      
+                         8.000000        2.828427        Unweighted events, alpha=0.564436
+      => Product of prop_binselectionbJets_SignalRegion_bin98_data_BTagCSV_dataDriven_kinFit[8.00,0.12,47.91] and const [0.1250] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.021618        0.011489                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.005405
+      => Product of prop_binselectionbJets_SignalRegion_bin98_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+99         9.702778        2.329494        total sum                     
+99         9.691795        2.329485        excluding marked processes    
+99         17.000000       4.123106        Unweighted events, alpha=0.570752
+  => Total parameter prop_binselectionbJets_SignalRegion_bin99[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+100        1.662239        1.180643        total sum                     
+100        1.654360        1.180624        excluding marked processes    
+100        2.000000        1.414214        Unweighted events, alpha=0.831120
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.654360        1.180624                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.827180
+      => Product of prop_binselectionbJets_SignalRegion_bin100_data_BTagCSV_dataDriven_kinFit[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.007880        0.006716                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.007880
+      => Product of prop_binselectionbJets_SignalRegion_bin100_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+101        1.797348        1.042870        total sum                     
+101        1.788890        1.042853        excluding marked processes    
+101        3.000000        1.732051        Unweighted events, alpha=0.599116
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.788890        1.042853                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.596297
+      => Product of prop_binselectionbJets_SignalRegion_bin101_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008458        0.006027                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.004229
+      => Product of prop_binselectionbJets_SignalRegion_bin101_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+102        2.384641        1.175638        total sum                     
+102        2.348855        1.175547        excluding marked processes    
+102        4.000000        2.000000        Unweighted events, alpha=0.596160
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.348855        1.175547                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.587214
+      => Product of prop_binselectionbJets_SignalRegion_bin102_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.035786        0.014610                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.005964
+      => Product of prop_binselectionbJets_SignalRegion_bin102_sig_NMSSM_bbbb_MX_300_MY_150[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+103        1.994747        1.151471        total sum                     
+103        1.987490        1.151448        excluding marked processes    
+103        3.000000        1.732051        Unweighted events, alpha=0.664916
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.987490        1.151448                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.662497
+      => Product of prop_binselectionbJets_SignalRegion_bin103_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.007257        0.007257                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.007257
+      => Product of prop_binselectionbJets_SignalRegion_bin103_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+104        2.791089        1.246852        total sum                     
+104        2.766784        1.246788        excluding marked processes    
+104        5.000000        2.236068        Unweighted events, alpha=0.558218
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.766784        1.246788                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.553357
+      => Product of prop_binselectionbJets_SignalRegion_bin104_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.024306        0.012675                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.006076
+      => Product of prop_binselectionbJets_SignalRegion_bin104_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+105        4.400024        1.470196        total sum                     
+105        4.376545        1.470138        excluding marked processes    
+105        9.000000        3.000000        Unweighted events, alpha=0.488892
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.376545        1.470138                                      
+                         9.000000        3.000000        Unweighted events, alpha=0.486283
+      => Product of prop_binselectionbJets_SignalRegion_bin105_data_BTagCSV_dataDriven_kinFit[9.00,0.20,49.98] and const [0.1111] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.023479        0.013076                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.007826
+      => Product of prop_binselectionbJets_SignalRegion_bin105_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+106        2.637964        1.090712        total sum                     
+106        2.621429        1.090676        excluding marked processes    
+106        6.000000        2.449490        Unweighted events, alpha=0.439661
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.621429        1.090676                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.436905
+      => Product of prop_binselectionbJets_SignalRegion_bin106_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.016535        0.008833                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.004134
+      => Product of prop_binselectionbJets_SignalRegion_bin106_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+107        2.227526        1.158131        total sum                     
+107        2.197330        1.158061        excluding marked processes    
+107        4.000000        2.000000        Unweighted events, alpha=0.556882
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.197330        1.158061                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.549333
+      => Product of prop_binselectionbJets_SignalRegion_bin107_data_BTagCSV_dataDriven_kinFit[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.030196        0.012765                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.005033
+      => Product of prop_binselectionbJets_SignalRegion_bin107_sig_NMSSM_bbbb_MX_300_MY_150[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+108        3.201398        1.335792        total sum                     
+108        3.193315        1.335767        excluding marked processes    
+108        6.000000        2.449490        Unweighted events, alpha=0.533566
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.193315        1.335767                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.532219
+      => Product of prop_binselectionbJets_SignalRegion_bin108_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008083        0.008083                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.008083
+      => Product of prop_binselectionbJets_SignalRegion_bin108_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+109        13.879169       2.941304        total sum                     
+109        13.861055       2.941283        excluding marked processes    
+109        22.000000       4.690416        Unweighted events, alpha=0.630871
+  => Total parameter prop_binselectionbJets_SignalRegion_bin109[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+110        1.884340        1.106111        total sum                     
+110        1.884340        1.106111        excluding marked processes    
+110        3.000000        1.732051        Unweighted events, alpha=0.628113
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.884340        1.106111                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.628113
+      => Product of prop_binselectionbJets_SignalRegion_bin110_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.000000        0.000000                                      
+      => Error is zero, ignore      
+  ----------------------------------------------------------
+------------------------------------------------------------
+111        0.420146        0.398887        total sum                     
+111        0.398790        0.398790        excluding marked processes    
+111        1.000000        1.000000        Unweighted events, alpha=0.420146
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.398790        0.398790                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.398790
+      => Product of prop_binselectionbJets_SignalRegion_bin111_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.021357        0.008824                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.003559
+      => Product of prop_binselectionbJets_SignalRegion_bin111_sig_NMSSM_bbbb_MX_300_MY_150[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+112        3.599847        1.474355        total sum                     
+112        3.584275        1.474326        excluding marked processes    
+112        6.000000        2.449490        Unweighted events, alpha=0.599974
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 3.584275        1.474326                                      
+                         6.000000        2.449490        Unweighted events, alpha=0.597379
+      => Product of prop_binselectionbJets_SignalRegion_bin112_data_BTagCSV_dataDriven_kinFit[6.00,0.03,43.60] and const [0.1667] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.015572        0.009305                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.005191
+      => Product of prop_binselectionbJets_SignalRegion_bin112_sig_NMSSM_bbbb_MX_300_MY_150[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+113        1.730448        0.996384        total sum                     
+113        1.721452        0.996343        excluding marked processes    
+113        3.000000        1.732051        Unweighted events, alpha=0.576816
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 1.721452        0.996343                                      
+                         3.000000        1.732051        Unweighted events, alpha=0.573817
+      => Product of prop_binselectionbJets_SignalRegion_bin113_data_BTagCSV_dataDriven_kinFit[3.00,0.00,36.46] and const [0.3333] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.008997        0.008997                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.008997
+      => Product of prop_binselectionbJets_SignalRegion_bin113_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+114        4.201784        1.597446        total sum                     
+114        4.191680        1.597431        excluding marked processes    
+114        7.000000        2.645751        Unweighted events, alpha=0.600255
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 4.191680        1.597431                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.598811
+      => Product of prop_binselectionbJets_SignalRegion_bin114_data_BTagCSV_dataDriven_kinFit[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.010103        0.007001                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.005052
+      => Product of prop_binselectionbJets_SignalRegion_bin114_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+115        2.374742        1.060506        total sum                     
+115        2.357154        1.060466        excluding marked processes    
+115        5.000000        2.236068        Unweighted events, alpha=0.474948
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.357154        1.060466                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.471431
+      => Product of prop_binselectionbJets_SignalRegion_bin115_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.017588        0.009218                                      
+                         4.000000        2.000000        Unweighted events, alpha=0.004397
+      => Product of prop_binselectionbJets_SignalRegion_bin115_sig_NMSSM_bbbb_MX_300_MY_150[4.00,0.00,38.96] and const [0.2500] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+116        2.268339        1.023923        total sum                     
+116        2.254766        1.023886        excluding marked processes    
+116        5.000000        2.236068        Unweighted events, alpha=0.453668
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 2.254766        1.023886                                      
+                         5.000000        2.236068        Unweighted events, alpha=0.450953
+      => Product of prop_binselectionbJets_SignalRegion_bin116_data_BTagCSV_dataDriven_kinFit[5.00,0.01,41.33] and const [0.2000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.013573        0.008599                                      
+                         2.000000        1.414214        Unweighted events, alpha=0.006787
+      => Product of prop_binselectionbJets_SignalRegion_bin116_sig_NMSSM_bbbb_MX_300_MY_150[2.00,0.00,33.79] and const [0.5000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+117        7.760245        2.110925        total sum                     
+117        7.748098        2.110909        excluding marked processes    
+117        13.000000       3.605551        Unweighted events, alpha=0.596942
+  => Total parameter prop_binselectionbJets_SignalRegion_bin117[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+118        6.155036        1.877862        total sum                     
+118        6.139027        1.877828        excluding marked processes    
+118        11.000000       3.316625        Unweighted events, alpha=0.559549
+  => Total parameter prop_binselectionbJets_SignalRegion_bin118[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+119        12.195728       2.685493        total sum                     
+119        12.181607       2.685474        excluding marked processes    
+119        21.000000       4.582576        Unweighted events, alpha=0.580749
+  => Total parameter prop_binselectionbJets_SignalRegion_bin119[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+120        0.002749        0.002739        total sum                     
+120        0.000010        0.000010        excluding marked processes    
+120        1.000000        1.000000        Unweighted events, alpha=0.002749
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 0.000010        0.000010                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.000010
+      => Product of prop_binselectionbJets_SignalRegion_bin120_data_BTagCSV_dataDriven_kinFit[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.002739        0.002739                                      
+                         1.000000        1.000000        Unweighted events, alpha=0.002739
+      => Product of prop_binselectionbJets_SignalRegion_bin120_sig_NMSSM_bbbb_MX_300_MY_150[1.00,0.00,30.85] and const [1.0000] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+121        9.762901        2.578548        total sum                     
+121        9.486464        2.578262        excluding marked processes    
+121        14.000000       3.741657        Unweighted events, alpha=0.697350
+  => Total parameter prop_binselectionbJets_SignalRegion_bin121[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+122        22.094477       3.662394        total sum                     
+122        21.605257       3.661992        excluding marked processes    
+122        35.000000       5.916080        Unweighted events, alpha=0.631271
+  => Total parameter prop_binselectionbJets_SignalRegion_bin122[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+123        18.983870       3.392012        total sum                     
+123        18.913771       3.391943        excluding marked processes    
+123        31.000000       5.567764        Unweighted events, alpha=0.612383
+  => Total parameter prop_binselectionbJets_SignalRegion_bin123[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+124        25.792399       3.755218        total sum                     
+124        25.780924       3.755210        excluding marked processes    
+124        47.000000       6.855655        Unweighted events, alpha=0.548774
+  => Total parameter prop_binselectionbJets_SignalRegion_bin124[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+125        43.496897       4.767108        total sum                     
+125        43.463528       4.767087        excluding marked processes    
+125        83.000000       9.110434        Unweighted events, alpha=0.524059
+  => Total parameter prop_binselectionbJets_SignalRegion_bin125[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+126        10.646868       2.781060        total sum                     
+126        10.542641       2.780957        excluding marked processes    
+126        14.000000       3.741657        Unweighted events, alpha=0.760491
+  => Total parameter prop_binselectionbJets_SignalRegion_bin126[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+127        16.976871       3.301204        total sum                     
+127        16.546431       3.300817        excluding marked processes    
+127        25.000000       5.000000        Unweighted events, alpha=0.679075
+  => Total parameter prop_binselectionbJets_SignalRegion_bin127[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+128        15.628834       2.968745        total sum                     
+128        15.458698       2.968584        excluding marked processes    
+128        27.000000       5.196152        Unweighted events, alpha=0.578846
+  => Total parameter prop_binselectionbJets_SignalRegion_bin128[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+129        27.164866       3.772723        total sum                     
+129        27.129082       3.772700        excluding marked processes    
+129        52.000000       7.211103        Unweighted events, alpha=0.522401
+  => Total parameter prop_binselectionbJets_SignalRegion_bin129[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+130        41.394012       4.519599        total sum                     
+130        41.365788       4.519578        excluding marked processes    
+130        84.000000       9.165151        Unweighted events, alpha=0.492786
+  => Total parameter prop_binselectionbJets_SignalRegion_bin130[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+131        7.887911        2.434876        total sum                     
+131        7.856452        2.434845        excluding marked processes    
+131        10.000000       3.162278        Unweighted events, alpha=0.788791
+  => Number of weighted events is below poisson threshold
+    data_BTagCSV_dataDriven_kinFit 7.856452        2.434845                                      
+                         10.000000       3.162278        Unweighted events, alpha=0.785645
+      => Product of prop_binselectionbJets_SignalRegion_bin131_data_BTagCSV_dataDriven_kinFit[10.00,0.30,52.00] and const [0.1000] to be poisson constrained
+  ----------------------------------------------------------
+    sig_NMSSM_bbbb_MX_300_MY_150 0.031460        0.012194                                      
+                         7.000000        2.645751        Unweighted events, alpha=0.004494
+      => Product of prop_binselectionbJets_SignalRegion_bin131_sig_NMSSM_bbbb_MX_300_MY_150[7.00,0.07,45.79] and const [0.1429] to be poisson constrained
+  ----------------------------------------------------------
+------------------------------------------------------------
+132        29.324752       4.580617        total sum                     
+132        29.216244       4.580555        excluding marked processes    
+132        41.000000       6.403124        Unweighted events, alpha=0.715238
+  => Total parameter prop_binselectionbJets_SignalRegion_bin132[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+133        16.042619       3.137346        total sum                     
+133        15.813647       3.137143        excluding marked processes    
+133        25.000000       5.000000        Unweighted events, alpha=0.641705
+  => Total parameter prop_binselectionbJets_SignalRegion_bin133[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+134        28.669282       3.949512        total sum                     
+134        28.589914       3.949449        excluding marked processes    
+134        52.000000       7.211103        Unweighted events, alpha=0.551332
+  => Total parameter prop_binselectionbJets_SignalRegion_bin134[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+135        51.242469       5.036539        total sum                     
+135        51.238678       5.036538        excluding marked processes    
+135        103.000000      10.148892       Unweighted events, alpha=0.497500
+  => Total parameter prop_binselectionbJets_SignalRegion_bin135[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+136        16.159795       3.462111        total sum                     
+136        16.107862       3.462075        excluding marked processes    
+136        22.000000       4.690416        Unweighted events, alpha=0.734536
+  => Total parameter prop_binselectionbJets_SignalRegion_bin136[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+137        31.129956       4.765952        total sum                     
+137        31.021473       4.765888        excluding marked processes    
+137        42.000000       6.480741        Unweighted events, alpha=0.741189
+  => Total parameter prop_binselectionbJets_SignalRegion_bin137[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+138        28.989347       4.347913        total sum                     
+138        28.924810       4.347876        excluding marked processes    
+138        44.000000       6.633250        Unweighted events, alpha=0.658849
+  => Total parameter prop_binselectionbJets_SignalRegion_bin138[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+139        54.781780       5.459082        total sum                     
+139        54.733028       5.459054        excluding marked processes    
+139        101.000000      10.049876       Unweighted events, alpha=0.542394
+  => Total parameter prop_binselectionbJets_SignalRegion_bin139[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+140        10.538080       2.769477        total sum                     
+140        10.522591       2.769462        excluding marked processes    
+140        14.000000       3.741657        Unweighted events, alpha=0.752720
+  => Total parameter prop_binselectionbJets_SignalRegion_bin140[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+141        29.354677       4.855315        total sum                     
+141        29.307878       4.855287        excluding marked processes    
+141        36.000000       6.000000        Unweighted events, alpha=0.815408
+  => Total parameter prop_binselectionbJets_SignalRegion_bin141[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+142        28.920651       4.338902        total sum                     
+142        28.841492       4.338850        excluding marked processes    
+142        44.000000       6.633250        Unweighted events, alpha=0.657288
+  => Total parameter prop_binselectionbJets_SignalRegion_bin142[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+143        62.020971       5.981971        total sum                     
+143        61.997021       5.981962        excluding marked processes    
+143        107.000000      10.344080       Unweighted events, alpha=0.579635
+  => Total parameter prop_binselectionbJets_SignalRegion_bin143[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+144        25.738976       4.441001        total sum                     
+144        25.712687       4.440985        excluding marked processes    
+144        34.000000       5.830952        Unweighted events, alpha=0.757029
+  => Total parameter prop_binselectionbJets_SignalRegion_bin144[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+145        39.161761       5.269479        total sum                     
+145        39.120022       5.269457        excluding marked processes    
+145        55.000000       7.416198        Unweighted events, alpha=0.712032
+  => Total parameter prop_binselectionbJets_SignalRegion_bin145[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+146        45.722894       5.053185        total sum                     
+146        45.675762       5.053160        excluding marked processes    
+146        82.000000       9.055385        Unweighted events, alpha=0.557596
+  => Total parameter prop_binselectionbJets_SignalRegion_bin146[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+147        11.502108       2.833970        total sum                     
+147        11.490724       2.833961        excluding marked processes    
+147        16.000000       4.000000        Unweighted events, alpha=0.718882
+  => Total parameter prop_binselectionbJets_SignalRegion_bin147[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+148        45.601350       5.845024        total sum                     
+148        45.559006       5.845005        excluding marked processes    
+148        61.000000       7.810250        Unweighted events, alpha=0.747563
+  => Total parameter prop_binselectionbJets_SignalRegion_bin148[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+149        48.666206       5.355163        total sum                     
+149        48.621822       5.355137        excluding marked processes    
+149        82.000000       9.055385        Unweighted events, alpha=0.593490
+  => Total parameter prop_binselectionbJets_SignalRegion_bin149[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+150        74.942115       7.648236        total sum                     
+150        74.909988       7.648221        excluding marked processes    
+150        96.000000       9.797959        Unweighted events, alpha=0.780647
+  => Total parameter prop_binselectionbJets_SignalRegion_bin150[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+151        123.729037      9.097411        total sum                     
+151        123.668205      9.097390        excluding marked processes    
+151        185.000000      13.601471       Unweighted events, alpha=0.668806
+  => Total parameter prop_binselectionbJets_SignalRegion_bin151[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+152        126.477186      9.185071        total sum                     
+152        126.430481      9.185059        excluding marked processes    
+152        189.000000      13.747727       Unweighted events, alpha=0.669191
+  => Total parameter prop_binselectionbJets_SignalRegion_bin152[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+153        83.636611       7.664418        total sum                     
+153        83.620453       7.664413        excluding marked processes    
+153        119.000000      10.908712       Unweighted events, alpha=0.702829
+  => Total parameter prop_binselectionbJets_SignalRegion_bin153[0.00,-7.00,7.00] to be gaussian constrained
+------------------------------------------------------------
+
+ --- GoodnessOfFit --- 
+Kolmogorov-Smirnov test statistic: 0.0238377
+Done in 0.04 min (cpu), 0.04 min (real)

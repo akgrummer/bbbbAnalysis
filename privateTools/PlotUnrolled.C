@@ -327,7 +327,9 @@ void PlotUnrolledFromHist(TH2I *binningPlot, TH1F *backgroundPlot, TH1F *dataPlo
         theLegend->Draw("");
 
         theCanvas.cd();
-        theCanvas.SaveAs((canvasName + ".png").data());
+        theCanvas.SaveAs(("UnrolledPlots/"+canvasName + ".png").data());
+        theCanvas.SaveAs(("UnrolledPlots/pdf/"+canvasName + ".pdf").data());
+        // theCanvas.SaveAs((canvasName + ".pdf").data());
 
         // delete backgroundUnrolledHistogram;
         // delete dataPlot;
@@ -365,8 +367,8 @@ void PlotUnrolled(FileAndHistName& binningInfo, FileAndHistName& backgroundInfo,
 
 std::vector<std::tuple<int, int, std::map<int, float>, EColor>> infoForSignalList
 {
-    {300 , 125 , { {2016, 7.7}, {2017, 11.}, {2018, 6.1} }, kRed    }, 
-    // {400 , 80  , { {2016, 2.0}, {2017, 2.8}, {2018, 1.9} }, kGreen  }, 
+    // {300 , 125 , { {2016, 7.7}, {2017, 11.}, {2018, 6.1} }, kRed    }, 
+    {400 , 80  , { {2016, 2.0}, {2017, 2.8}, {2018, 1.9} }, kRed  }, 
     {600 , 125 , { {2016, 3.6}, {2017, 4.4}, {2018, 2.7} }, kBlue   }, 
     {700 , 300 , { {2016, 5.5}, {2017, 6.3}, {2018, 3.9} }, kOrange }, 
     // {900 , 500 , { {2016, 3.2}, {2017, 3.8}, {2018, 2.3} }, kMagenta}, 
@@ -374,9 +376,9 @@ std::vector<std::tuple<int, int, std::map<int, float>, EColor>> infoForSignalLis
     // {1200, 800 , { {2016, 1.9}, {2017, 2.2}, {2018, 1.3} }, kOrange }, 
     {1400, 500 , { {2016, 1.1}, {2017, 1.4}, {2018, .80} }, kSpring }, 
     // {1600, 300 , { {2016, 11.}, {2017, 15.}, {2018, 9.0} }, kTeal   }, 
-    // {1600, 1000, { {2016, 8.9}, {2017, 11.}, {2018, 6.4} }, kAzure  }, 
+    {1600, 1000, { {2016, 8.9}, {2017, 11.}, {2018, 6.4} }, kViolet  }, 
     // {1800, 600 , { {2016, 12.}, {2017, 14.}, {2018, 8.8} }, kViolet }, 
-    {1800, 1400, { {2016, 9.8}, {2017, 12.}, {2018, 7.4} }, kViolet   }
+    // {1800, 1400, { {2016, 9.8}, {2017, 12.}, {2018, 7.4} }, kViolet   }
 };
 
 std::map<int, float> bkgNormalizationErrorMap = { {2016, 0.01}, {2017, 0.01}, {2018, 0.013} };
@@ -389,7 +391,9 @@ std::vector<SignalInfo> makeSignalTuple(int year)
     {
         signalInfoList.push_back
         (
-            {{"DataPlots_fullSubmission_" + std::to_string(year) + "_v30/outPlotter.root",
+
+
+            {{"VarPlots/rootHists/fullSubmission_2022Nov/"+std::to_string(year)+"DataPlots_2022Nov14_bJetScoreLoose_shapes2_UNROLLED/outPlotter.root",
             "sig_NMSSM_bbbb_MX_" + std::to_string(std::get<0>(element)) + "_MY_" + std::to_string(std::get<1>(element)) + "/selectionbJets_SignalRegion/sig_NMSSM_bbbb_MX_" + std::to_string(std::get<0>(element)) + "_MY_" + std::to_string(std::get<1>(element)) + "_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled"},
             "sig. m_{X} = " + std::to_string(std::get<0>(element)) + " GeV - m_{Y} = " + std::to_string(std::get<1>(element)) + " GeV", std::get<3>(element), std::get<2>(element)[year] }
         );
@@ -400,8 +404,9 @@ std::vector<SignalInfo> makeSignalTuple(int year)
 void PlotAllUnrolled(int year)
 {
     
-    FileAndHistName binningInfo    {"DataPlots_fullSubmission_" + std::to_string(year) + "_v30/outPlotter.root", "BinCorrispondancePlot"};
-    FileAndHistName backgroundInfo {"DataPlots_fullSubmission_" + std::to_string(year) + "_v30/outPlotter.root", "data_BTagCSV_dataDriven_kinFit/selectionbJets_SignalRegion/data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled"};
+    // FileAndHistName binningInfo    {"~fravera/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/DataPlots_fullSubmission_" + std::to_string(year) + "_v30/outPlotter.root", "BinCorrispondancePlot"};
+    FileAndHistName binningInfo    {"VarPlots/rootHists/fullSubmission_2022Nov/"+std::to_string(year)+"DataPlots_2022Nov14_bJetScoreLoose_shapes2_UNROLLED/outPlotter.root", "BinCorrispondancePlot"};
+    FileAndHistName backgroundInfo {"VarPlots/rootHists/fullSubmission_2022Nov/"+std::to_string(year)+"DataPlots_2022Nov14_bJetScoreLoose_shapes2_UNROLLED/outPlotter.root", "data_BTagCSV_dataDriven_kinFit/selectionbJets_SignalRegion/data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled"};
     // FileAndHistName dataInfo       {"DataPlots_fullSubmission_" + std::to_string(year) + "_v30/outPlotter.root", "data_BTagCSV_dataDriven_kinFit/selectionbJets_SignalRegion/data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled"};
     FileAndHistName dataInfo       {"", ""};
     std::vector<SignalInfo> signalInfoList = makeSignalTuple(year);

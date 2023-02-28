@@ -21,7 +21,10 @@ filepath="/uscms/homes/a/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_13/src/HiggsAna
 # study="jobsLimits_2022Sep14_Mx300_bJetLoose_depth2_leafs50_rmax30_unrollcut/"
 # study="jobsLimits_2022Sep14_Mx300_bJetLoose_depth2_leafs50_VR_rmax30_unrollcut/"
 # study="jobsLimits_2022Sep14_Mx300_bJetLoose_depth4_leafs50_3_rmax30_unrollcut/"
-study="jobsLimits_2022Sep14_Mx300_bJetLoose_depth4_leafs50_3_VR_rmax30_unrollcut/"
+# study="jobsLimits_2022Sep14_Mx300_bJetLoose_depth4_leafs50_3_VR_rmax30_unrollcut/"
+# study="jobsLimits_2022Sep14_Oct19_Mx300_bJetLoose_3_VR_rmax30_unrollcut_noScaleSig/"
+# study="jobsLimits_2022Sep14_Oct19_Mx300_bJetLoose_3_VR_rmax30_unrollcut_myScaleSig_2/"
+study="jobsLimits_2022Sep14_Oct19_Mx300_bJetLoose_3_VR_rmax30_unrollcut_myScaleSig_0p1/"
 
 
 # filename="limits_MX_300_MY_150_cp.txt"

@@ -73,8 +73,9 @@ void ProduceLimitTable(std::string year, std::string plotInputFileName, std::str
 {
     float numberOfSigmas = 2.;
 
-    std::vector<int> listOfXmasses = {300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600, 1800, 2000};
-    std::vector<int> listOfYmasses = {60, 70, 80, 90, 100, 125, 150, 200, 250, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800};
+    // std::vector<int> listOfXmasses = {300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600, 1800, 2000};
+    std::vector<int> listOfXmasses = {400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600};
+    std::vector<int> listOfYmasses = {60, 70, 80, 90, 100, 125, 150, 200, 250, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400};
 
     TFile plotInputFile(plotInputFileName.data());
     std::string backgroundHistogramName = "/data_BTagCSV_dataDriven_kinFit/selectionbJets_SignalRegion/data_BTagCSV_dataDriven_kinFit_selectionbJets_SignalRegion_HH_kinFit_m_H2_m";
@@ -170,14 +171,19 @@ void ProduceLimitTable(std::string year, std::string plotInputFileName, std::str
 
 }
 
-void ProduceAllLimitTable(int plotVersion, int limitVersion)
+void ProduceAllLimitTable(int plotVersion=0, int limitVersion=0)
 {
     std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
+      std::string tag="2022Nov14_bJetScoreLoose_shapes2";
+      std::string limitTag="2022Nov22_bJetScoreLoose_shapes2";
+      std::string submissionDir="fullSubmission_2022Nov";
 
     for(auto year : yearList)
     {
-        std::string plotInputFileName  = "DataPlots_fullSubmission_" + year + "_v" + std::to_string(plotVersion) + "/outPlotter.root";
-        std::string limitInputFileName = "limits/Limits_fullSubmission_v" + std::to_string(limitVersion) + ".root";
+        // std::string plotInputFileName  = "DataPlots_fullSubmission_" + year + "_v" + std::to_string(plotVersion) + "/outPlotter.root";
+        std::string plotInputFileName  = "VarPlots/rootHists/"+submissionDir+"/"+year+"DataPlots_"+tag+"/outPlotter.root";
+        // std::string limitInputFileName = "limits/Limits_fullSubmission_v" + std::to_string(limitVersion) + ".root";
+        std::string limitInputFileName = "limits/Limits_"+limitTag+".root";
         ProduceLimitTable(year, plotInputFileName, limitInputFileName);
     }
 }

@@ -19,7 +19,7 @@ args = parser.parse_args()
 append = "statOnly"
 if args.systematics : append = "syst"
 
-inputTheoryFileName = "/uscms/home/fravera/nobackup/DiHiggs_v1/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root"
+inputTheoryFileName = "/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root"
 inputTheoryPlotName = "g_bbbb"
 color     = ROOT.kBlack
 

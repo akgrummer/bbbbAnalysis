@@ -60,10 +60,11 @@ if codeReturned != 0:
     print streamdata
     sys.exit(-1)
 
-time.sleep(1)
+time.sleep(5)
 
 if injRange == "1": injectionStrengthList   = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0]
 if injRange == "2": injectionStrengthList   = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 12.0]
+# if injRange == "2": injectionStrengthList   = [1.0]
 if injRange == "3": injectionStrengthList   = [2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0]
 if injRange == "4": injectionStrengthList   = [3.0, 6.0, 9.0, 12.0, 15.0, 18.0, 21.0, 24.0, 27.0, 30.0]
 if injRange == "5": injectionStrengthList   = [4.0, 8.0, 12.0, 16.0, 20.0, 24.0, 28.0, 32.0, 36.0, 40.0]
@@ -74,21 +75,27 @@ toys     = 1000
 workSpaceName = "datacard" + datasetYear + "_" + categandobs[0][0] + ".root"
 
 mainDirectory = os.getcwd()
+print("DEBUG: ",mainDirectory)
 os.chdir(folder)
+print("DEBUG: ",folder)
 
 
 #Make limit for the point
 print "[INFO] Running limit . . ."
 
 makeLimitCommand = "combine -M AsymptoticLimits -D data_obs --run blind --setParameters r=1,myscale=0 --freezeParameters allConstrainedNuisances " + workSpaceName
+print("DEBUG: ",makeLimitCommand)
 makeLimitTask = sp.Popen(makeLimitCommand.split(), stdout=sp.PIPE)
 streamdata = makeLimitTask.communicate()[0]
 codeReturned = makeLimitTask.returncode
+print("DEBUG: ", os.getcwd())
 if codeReturned != 0:
     print "makeLimitTask failed, Aborting"
     print streamdata
     sys.exit(-1)
 
+
+print "[INFO] Running Bias command . . ."
 for injectionStrength in injectionStrengthList:
     #Run injection test
     runBiasCommand = "source " + mainDirectory + "/prepareModels/make_biastest.sh " + workSpaceName + " " + str(injectionStrength) + " " + str(toys)

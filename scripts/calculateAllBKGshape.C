@@ -99,8 +99,8 @@ void calculateBKGshape(std::string inputFileName)
 
 void calculateAllBKGshape(std::string tag, std::string tagDir = "")
 {
-    /* std::vector<int> massesGroupList {0, 1, 2, 3, 4}; */
-    std::vector<int> massesGroupList {0};
+    std::vector<int> massesGroupList {0, 1, 2, 3, 4};
+    /* std::vector<int> massesGroupList {0}; */
     std::vector<int> yearList        {2016, 2017, 2018};
 
     for(const auto year : yearList)

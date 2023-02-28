@@ -59,8 +59,8 @@ bool isNeededBin(TH2F *the2Dplot, uint xBin, uint yBin)
     //for a single mass Window
     // if( ( mY<200 || mY>500 ) || ( mX<400 || mX>704 ) ) return false;
     // look at a mass slice:
-    if( ( mX>400 ) ) return false;
-    if( ( mX<212 || mX>800 ) ) return false;
+    // if( ( mX>400 ) ) return false;
+    // if( ( mX<212 || mX>800 ) ) return false;
     // if( ( mX<280 || mX>800 ) ) return false;
 
 
@@ -309,10 +309,10 @@ int main(int argc, char *argv[])
 
     std::map<int, std::pair<float, float>> theMassGroupList;
     theMassGroupList[0] = std::make_pair(212.,  800.);
-    // theMassGroupList[1] = std::make_pair(300., 1000.);
-    // theMassGroupList[2] = std::make_pair(450., 1200.);
-    // theMassGroupList[3] = std::make_pair(600., 1600.);
-    // theMassGroupList[4] = std::make_pair(950., 2320.);
+    theMassGroupList[1] = std::make_pair(300., 1000.);
+    theMassGroupList[2] = std::make_pair(450., 1200.);
+    theMassGroupList[3] = std::make_pair(600., 1600.);
+    theMassGroupList[4] = std::make_pair(950., 2320.);
 
     gSystem->ResetSignal(kSigSegmentationViolation, kTRUE);
 

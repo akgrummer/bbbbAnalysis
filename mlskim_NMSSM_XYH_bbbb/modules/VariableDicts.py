@@ -128,6 +128,30 @@ varInfo = {
         'XaxisTitle': "#eta_{Y}"
     }, 
 
+    "b_eta" : {
+        # 'bins': 50,
+        'bins': 80,
+        'xlow': -2.6,
+        'xhigh': 2.6,
+        'xlowRange': -5.2,
+        'xhighRange': 5.2,
+        'xlowRatioRange': 0.,
+        'xhighRatioRange': 2.,
+        'XaxisTitle': "#eta"
+    }, 
+
+    "b_phi" : {
+        # 'bins': 50,
+        'bins': 100,
+        'xlow': -5.,
+        'xhigh': 5.,
+        'xlowRange': -5.2,
+        'xhighRange': 5.2,
+        'xlowRatioRange': 0.,
+        'xhighRatioRange': 2.,
+        'XaxisTitle': "#phi"
+    }, 
+
     "HH_kinFit_m" : {
         # 'bins': 100,
         'bins': 50,
@@ -140,8 +164,8 @@ varInfo = {
         #  'xhighRange': 710,
         'xlowRatioRange': 0.8,
         'xhighRatioRange': 1.2,
-        'xlowRange': -50,
-        'xhighRange': 2550,
+        'xlowRange': 200,
+        'xhighRange': 3000,
         'XaxisTitle': "m_{X} [GeV]",
         'ZaxisTitle': "Events",
         'nvbins':  36,
@@ -250,6 +274,18 @@ varInfo = {
         'xhighRatioRange': 2.,
         'XaxisTitle': "m_H [GeV]",
         'ZaxisTitle': "Events",
+    }, 
+
+    "H1_m" : {
+        'bins': 416,
+        'xlow': 100,
+        'xhigh': 150,
+        'xlowRange': 59,
+        'xhighRange': 191,
+        'xlowRatioRange': 0.,
+        'xhighRatioRange': 2.,
+        'XaxisTitle': "m_{H} [GeV]",
+        'YaxisTitle': "Fraction of Events"
     }, 
 
     "distanceFromDiagonal" : {
@@ -388,12 +424,12 @@ varInfo["H1_kinFit_eta"]['YaxisTitle'] = "Fraction of Events / {val:.2f}".format
 varInfo["H2_eta"]['YaxisTitle'] = "Fraction of Events / {val:.2f}".format(val=(varInfo["H2_eta"]['xhigh']-varInfo["H2_eta"]['xlow'])/varInfo["H2_eta"]['bins'])
 #  HH_kinFit_mhas variable bin widths
 #  varInfo["HH_kinFit_m"]['YaxisTitle'] = "Fraction of Events / {val:.2f} GeV".format(val=(varInfo["HH_kinFit_m"]['xhigh']-varInfo["HH_kinFit_m"]['xlow'])/varInfo["HH_kinFit_m"]['bins'])
-varInfo["HH_kinFit_m"]['YaxisTitle'] = "Fraction of Events"
+varInfo["HH_kinFit_m"]['YaxisTitle'] = "Events"
 varInfo["H1_kinFit_bb_DeltaR"]['YaxisTitle'] = "Fraction of Events / {val:.2f}".format(val=(varInfo["H1_kinFit_bb_DeltaR"]['xhigh']-varInfo["H1_kinFit_bb_DeltaR"]['xlow'])/varInfo["H1_kinFit_bb_DeltaR"]['bins'])
 varInfo["H2_bb_DeltaR"]['YaxisTitle'] = "Fraction of Events / {val:.2f}".format(val=(varInfo["H2_bb_DeltaR"]['xhigh']-varInfo["H2_bb_DeltaR"]['xlow'])/varInfo["H2_bb_DeltaR"]['bins'])
 # H2_m has variable bins
 #  varInfo["H2_m"]['YaxisTitle'] = "Fraction of Events / {val:.2f} GeV".format(val=(varInfo["H2_m"]['xhigh']-varInfo["H2_m"]['xlow'])/varInfo["H2_m"]['bins'])
-varInfo["H2_m"]['YaxisTitle'] = "Fraction of Events"
+varInfo["H2_m"]['YaxisTitle'] = "Events"
 varInfo["H1_kinFit_m"]['YaxisTitle'] = "Fraction of Events / {val:.4f} GeV".format(val=(varInfo["H1_kinFit_m"]['xhigh']-varInfo["H1_kinFit_m"]['xlow'])/varInfo["H1_kinFit_m"]['bins'])
 varInfo["distanceFromDiagonal"]['YaxisTitle'] = "Fraction of Events / {val:.2f}".format(val=(varInfo["distanceFromDiagonal"]['xhigh']-varInfo["distanceFromDiagonal"]['xlow'])/varInfo["distanceFromDiagonal"]['bins'])
 # H1_b1_ptRegressed

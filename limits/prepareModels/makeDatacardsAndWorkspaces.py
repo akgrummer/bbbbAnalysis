@@ -264,6 +264,7 @@ for categ in categories:
 
     if args.addScaleSignal:
         writeln    (fcard, 'myscale rateParam * signalSelfBias 1')
+        # writeln    (fcard, 'myscale rateParam * {} 0.1'.format(sigs[0]))
         writeln    (fcard, 'nuisance edit freeze myscale')
 
 #Make combined datacards

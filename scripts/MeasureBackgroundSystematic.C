@@ -569,7 +569,7 @@ void MeasureBackgroundSystematicNormalizationOld(std::string inputFileName, std:
 void doMeasureNormOld(std::string tagName, int year)
 {
     gROOT->SetBatch(true);
-    std::string inputFileName = "DataPlots_" + tagName + "/outPlotter.root";
+    std::string inputFileName = "VarPlots/rootHists/fullSubmission_2022Nov/" +std::to_string(year)+ "DataPlots_" + tagName + "/outPlotter.root";
     
     gROOT->ForceStyle();
     MeasureBackgroundSystematicNormalizationOld(inputFileName,
@@ -672,7 +672,8 @@ void doMeasureNorm(std::string tagName, int year)
     theMassGroupList[4] = std::make_pair(950., 2320.);
 
     gROOT->SetBatch(true);
-    std::string inputFileName = "DataPlots_" + tagName + "/outPlotter.root";
+    /* std::string inputFileName = "DataPlots_" + tagName + "/outPlotter.root"; */
+    std::string inputFileName = "VarPlots/rootHists/fullSubmission_2022Nov/" +std::to_string(year)+ "DataPlots_" + tagName + "/outPlotter.root";
     
     gROOT->ForceStyle();
     for(const auto& massGroup : theMassGroupList)

@@ -1,6 +1,7 @@
 #include "Riostream.h"
 #include "TFile.h"
 #include "TH2D.h"
+#include "TLine.h"
 #include "TCanvas.h"
 #include "TROOT.h"
 #include "TGraphAsymmErrors.h"
@@ -97,6 +98,9 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
 
     std::string canvasName = "CentralLimitMap_" + year + "_" + option;
     TCanvas* theCanvas = new TCanvas(canvasName.c_str(), canvasName.c_str(), 1200, 800);
+    gPad->SetTickx(1);
+    gPad->SetTicky(1);
+    gPad->SetMargin(0.12,0.16,0.12,0.09);
     limitMap->Draw("colz");
 
     std::string plotTitle = "Central Limit " + year;
@@ -109,7 +113,7 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
     limitMap->GetYaxis()->SetLabelSize(0.045);
     limitMap->GetYaxis()->SetTitleFont(62);
     limitMap->GetYaxis()->SetTitleSize(0.045);
-    limitMap->GetYaxis()->SetTitleOffset(1.25);
+    limitMap->GetYaxis()->SetTitleOffset(1.15);
     limitMap->GetZaxis()->SetLabelFont(62);
     limitMap->GetZaxis()->SetLabelSize(0.035);
     limitMap->GetZaxis()->SetTitleFont(62);
@@ -118,8 +122,10 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
     limitMap->SetMaximum(2000.);
     limitMap->SetStats(false);
     theCanvas->SetLogz();
+    theCanvas->SetLogy();
 
-    theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").c_str());
+    // theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").c_str());
+    theCanvas->SaveAs((std::string(theCanvas->GetName()) + "_log.png").c_str());
     
 
     if(year == "RunII" && option == "syst")
@@ -147,12 +153,16 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
 
         std::string theoryCanvasName = "CentralLimitMap_RunII_TheoryComparison";
         TCanvas* theTheoryCanvas = new TCanvas(theoryCanvasName.c_str(), theoryCanvasName.c_str(), 1200, 800);
+        gPad->SetTickx(1);
+        gPad->SetTicky(1);
+        gPad->SetMargin(0.12,0.16,0.12,0.09);
 
         limitMap->GetYaxis()->SetTitleOffset(1.15);
         limitMap->SetTitle("");
         limitMap->Draw("colz");
         
-        std::string inputTheoryFileName = "/uscms/home/fravera/nobackup/DiHiggs_v1/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root";
+        /* std::string inputTheoryFileName = "/uscms/home/fravera/nobackup/DiHiggs_v1/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root"; */
+        std::string inputTheoryFileName = "/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root";
         std::string inputTheoryPlotName = "g_bbbb";
 
         TFile inputTheoryFile(inputTheoryFileName.c_str());
@@ -179,15 +189,78 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
                 }
             }
         }
+
+        Double_t x1{0.}, x2{0.}, y1{0.}, y2{0.};
+        TLine *cont_line = new TLine(x1,y1,x2,y2);
+        cont_line->SetLineWidth(4);
+        cont_line->SetLineColor(kRed);
+        for(int xBin = 1; xBin<=theoryContour->GetNbinsX(); ++xBin){
+            float xBinCenter = theoryContour->GetXaxis()->GetBinCenter(xBin);
+            if(xBinCenter<400. || xBinCenter>1000.) continue;
+            float prevY{0.};
+            float currY{0.};
+            //Int_t maxYbin{0};
+            for(int yBin = 1; yBin<=theoryContour->GetNbinsY(); ++yBin){
+                    currY = theoryContour->GetBinContent(xBin, yBin);
+                    if (currY<prevY){
+                      x1 = theoryContour->GetXaxis()->GetBinLowEdge(xBin);
+                      x2 = theoryContour->GetXaxis()->GetBinUpEdge(xBin);
+                      y1 = theoryContour->GetYaxis()->GetBinLowEdge(yBin);
+                      y2 = theoryContour->GetYaxis()->GetBinLowEdge(yBin);
+                      cont_line->DrawLine(x1, y1, x2, y2);
+                      }
+
+                    if (currY>prevY){
+                      x1 = theoryContour->GetXaxis()->GetBinLowEdge(xBin);
+                      x2 = theoryContour->GetXaxis()->GetBinUpEdge(xBin);
+                      y1 = theoryContour->GetYaxis()->GetBinLowEdge(yBin);
+                      y2 = theoryContour->GetYaxis()->GetBinLowEdge(yBin);
+                      if (yBin!=1) cont_line->DrawLine(x1, y1, x2, y2);
+                      }
+                    prevY=currY;
+            }
+        }
+
+        for(int yBin = 1; yBin<=theoryContour->GetNbinsY(); ++yBin){
+            float prevX{0.};
+            float currX{0.};
+            //Int_t maxYbin{0};
+            for(int xBin = 1; xBin<=theoryContour->GetNbinsX(); ++xBin){
+                    float xBinCenter = theoryContour->GetXaxis()->GetBinCenter(xBin);
+                    if(xBinCenter<400. || xBinCenter>1000.) continue;
+                    currX = theoryContour->GetBinContent(xBin, yBin);
+                    if (currX<prevX){
+                      x1 = theoryContour->GetXaxis()->GetBinLowEdge(xBin);
+                      x2 = theoryContour->GetXaxis()->GetBinLowEdge(xBin);
+                      y1 = theoryContour->GetYaxis()->GetBinUpEdge(yBin);
+                      y2 = theoryContour->GetYaxis()->GetBinLowEdge(yBin);
+                      cont_line->DrawLine(x1, y1, x2, y2);
+                      }
+
+                    if (currX>prevX){
+                      x1 = theoryContour->GetXaxis()->GetBinLowEdge(xBin);
+                      x2 = theoryContour->GetXaxis()->GetBinLowEdge(xBin);
+                      y1 = theoryContour->GetYaxis()->GetBinLowEdge(yBin);
+                      y2 = theoryContour->GetYaxis()->GetBinUpEdge(yBin);
+                      if (xBin!=1) cont_line->DrawLine(x1, y1, x2, y2);
+                      }
+                    prevX=currX;
+            }
+        }
+
+
         theoryContour->SetContour(1, contours);
         theoryContour->SetFillStyle(3357);
-        theoryContour->SetLineColor(kRed);
-        theoryContour->SetFillColor(kRed);
+        theoryContour->SetLineColor(kRed+2);
+        theoryContour->SetLineWidth(2);
+        theoryContour->SetFillColor(kRed+2);
 
         theoryContour->Draw("box same");
         theTheoryCanvas->SetLogz();
         // theTheoryCanvas->SetLogy();
-        theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + ".png").c_str());
+        theTheoryCanvas->SetLogy();
+        // theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + ".png").c_str());
+         theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + "_log.png").c_str());
 
 
     }
