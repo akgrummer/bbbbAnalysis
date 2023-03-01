@@ -170,6 +170,7 @@ theListOfSamples = getSampleList(args.cfg)
 for sample in theListOfSamples:
     sampleName = sample[1][0]
     if sample[2] != "":  sampleName = sample[2]
+    # print("trying to xrdcp this file: ", sample)
     CreateNewConfigFile(args.cfg, outListNameProto.format(sampleName), (sample[0],sample[1]), (sample[2],sample[3]) )
     command = 'xrdcp -f -s %s %s' % (outListNameProto.format(sampleName), EOSconfigProto.format(sampleName))
     if os.system(command) != 0:

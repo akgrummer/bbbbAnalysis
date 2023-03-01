@@ -106,12 +106,6 @@ minEta                      = configFile.minEta
 maxEta                      = configFile.maxEta       
 preSelection                = configFile.preSelection       
 controlRegionSelection      = configFile.controlRegionSelection       
-controlRegionSelectionLeftSide       = configFile.controlRegionSelectionLeftSide       
-controlRegionSelectionRightSide      = configFile.controlRegionSelectionRightSide       
-controlRegionSelectionOutHalf= configFile.controlRegionSelectionOutHalf       
-controlRegionSelectionInHalf= configFile.controlRegionSelectionInHalf       
-controlRegionSelectionInQtr= configFile.controlRegionSelectionInQtr       
-controlRegionSelectionOutQtr= configFile.controlRegionSelectionOutQtr       
 if args.selectTrainingData:
     print("I am in the mass window training")
     skimFolder                  = configFile.skimFolderMW
@@ -207,35 +201,7 @@ dataset          = dataset[ (dataset.H1_b1_ptRegressed > minRegressedPt) & (data
 dataset          = dataset[ (dataset.H1_b1_eta > minEta) & (dataset.H1_b2_eta > minEta) & (dataset.H2_b1_eta > minEta) & (dataset.H2_b2_eta > minEta)]
 dataset          = dataset[ (dataset.H1_b1_eta < maxEta) & (dataset.H1_b2_eta < maxEta) & (dataset.H2_b1_eta < maxEta) & (dataset.H2_b2_eta < maxEta)]
 dataset.query(preSelection, inplace = True)
-if (CRside == "None"):
-    dataset.query(controlRegionSelection, inplace = True)
-elif (CRside == "Right"):
-    print("Train on right sideband")
-    dataset.query(controlRegionSelectionRightSide, inplace = True) 
-elif (CRside == "Left"): 
-    print("Train on left sideband")
-    dataset.query( controlRegionSelectionLeftSide,  inplace = True) 
-elif (CRside == "Out"):
-    print("Train on outer half of CR bands")
-    dataset.query(controlRegionSelectionOutHalf, inplace = True) 
-elif (CRside == "In"):
-    print("Train on inner half of CR bands")
-    dataset.query(controlRegionSelectionInHalf, inplace = True) 
-elif (CRside == "InQtr"):
-    print("Train on inner half of inner half of CR bands")
-    dataset.query(controlRegionSelectionInQtr, inplace = True) 
-elif (CRside == "OutQtr"):
-    print("Train on outer half of inner half of CR bands")
-    dataset.query(controlRegionSelectionOutQtr, inplace = True) 
-elif (CRside == "ExcRightOut"):
-    print("Train on CR excluding outer half of of the Right band")
-    dataset.query(configFile.controlRegionSelectionExcRightOut, inplace = True) 
-elif (CRside == "ExcLeftOut"):
-    print("Train on CR excluding outer half of of the Left band")
-    dataset.query(configFile.controlRegionSelectionExcLeftOut, inplace = True) 
-else: 
-    print "... Please select a valid CRside: Left or Right, In, Out, ExcRightOut,ExcLeftOut,  exiting..."
-    sys.exit()
+dataset.query(controlRegionSelection, inplace = True)
     
 # for mass window cut study:
 #  dataset.query(addSelection, inplace = True)
