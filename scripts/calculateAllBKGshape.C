@@ -69,10 +69,19 @@ void calculateBKGshape(std::string inputFileName)
     TH1F *bkgUpRefined = new TH1F(bkgUpRefinedName.c_str(), bkgUpRefinedName.c_str(), bkgNominal->GetNbinsX(), bkgNominal->GetXaxis()->GetBinLowEdge(1), bkgNominal->GetXaxis()->GetBinUpEdge(bkgNominal->GetNbinsX()));
     for(int nBinX = 1; nBinX<=bkgNominal->GetNbinsX(); ++nBinX)
     {
-        bkgUpRefined->SetBinContent(nBinX, (bkgUp->GetBinContent(nBinX)+bkgDown->GetBinContent(nBinX))/2.);
-        bkgUpRefined->SetBinError  (nBinX, sqrt(bkgUp->GetBinError(nBinX)*bkgUp->GetBinError(nBinX) + bkgDown->GetBinError(nBinX)*bkgDown->GetBinError(nBinX))/2.);
+        if(TMath::Abs(bkgUp->GetBinContent(nBinX)- bkgNominal->GetBinContent(nBinX)) > TMath::Abs(bkgDown->GetBinContent(nBinX)- bkgNominal->GetBinContent(nBinX))){ 
+        bkgUpRefined->SetBinContent(nBinX, TMath::Abs(bkgUp->GetBinContent(nBinX)- bkgNominal->GetBinContent(nBinX)) + bkgNominal->GetBinContent(nBinX));
+        bkgUpRefined->SetBinError  (nBinX, sqrt(bkgUp->GetBinError(nBinX)*bkgUp->GetBinError(nBinX) + 2*bkgNominal->GetBinError(nBinX)*bkgNominal->GetBinError(nBinX)));
+        }
+        else{
+          bkgUpRefined->SetBinContent(nBinX, TMath::Abs(bkgDown->GetBinContent(nBinX)- bkgNominal->GetBinContent(nBinX)) + bkgNominal->GetBinContent(nBinX) );
+          bkgUpRefined->SetBinError  (nBinX, sqrt(bkgDown->GetBinError(nBinX)*bkgDown->GetBinError(nBinX) + 2*bkgNominal->GetBinError(nBinX)*bkgNominal->GetBinError(nBinX)));
+        }
+
+        //bkgUpRefined->SetBinContent(nBinX, (bkgUp->GetBinContent(nBinX)+bkgDown->GetBinContent(nBinX))/2.);
+        //bkgUpRefined->SetBinError  (nBinX, sqrt(bkgUp->GetBinError(nBinX)*bkgUp->GetBinError(nBinX) + bkgDown->GetBinError(nBinX)*bkgDown->GetBinError(nBinX))/2.);
     }
-    bkgUpRefined->Scale(bkgNominalIntegral/bkgUpRefined->Integral());
+    //bkgUpRefined->Scale(bkgNominalIntegral/bkgUpRefined->Integral());
     bkgUpRefined->Write();
 
     inputFile.mkdir(getDatasetFolderName(dataset, newVariationDown).c_str());
@@ -84,10 +93,10 @@ void calculateBKGshape(std::string inputFileName)
     TH1F *bkgDownRefined = new TH1F(bkgDownRefinedName.c_str(), bkgDownRefinedName.c_str(), bkgNominal->GetNbinsX(), bkgNominal->GetXaxis()->GetBinLowEdge(1), bkgNominal->GetXaxis()->GetBinUpEdge(bkgNominal->GetNbinsX()));
     for(int nBinX = 1; nBinX<=bkgNominal->GetNbinsX(); ++nBinX)
     {
-        bkgDownRefined->SetBinContent(nBinX, bkgNominal->GetBinContent(nBinX) - (bkgUpRefined->GetBinContent(nBinX) - bkgNominal->GetBinContent(nBinX))/2.);
+        bkgDownRefined->SetBinContent(nBinX, bkgNominal->GetBinContent(nBinX) - (bkgUpRefined->GetBinContent(nBinX) - bkgNominal->GetBinContent(nBinX)));
         bkgDownRefined->SetBinError  (nBinX, bkgUpRefined->GetBinError(nBinX));
     }
-    bkgDownRefined->Scale(bkgNominalIntegral/bkgDownRefined->Integral());
+    // bkgDownRefined->Scale(bkgNominalIntegral/bkgDownRefined->Integral());
     bkgDownRefined->Write();
 
     std::cout << getFullHistName(dataset, region, variable                  ) << std::endl;
