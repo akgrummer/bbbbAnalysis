@@ -608,8 +608,9 @@ void MeasureBackgroundSystematicNormalization(std::string inputFileName, std::st
     ratio->SetLineColor(kRed);
     ratio->SetLineWidth(2);
     ratio->SetMarkerColor(kRed);
-    ratio->SetMinimum(0.8);  // Define Y ..
-    ratio->SetMaximum(1.4); // .. range
+    //ratio->SetMinimum(0.8);  // Define Y ..
+    //ratio->SetMaximum(1.4); // .. range
+    ratio->GetYaxis()->SetRangeUser(0.6, 2.0);
     ratio->SetStats(0);      // No statistics on lower plot
     // ratio->Divide(referenceHistogram);
     ratio->SetMarkerStyle(21);
@@ -631,7 +632,9 @@ void MeasureBackgroundSystematicNormalization(std::string inputFileName, std::st
     theCanvasNormalization->SaveAs((std::string(theCanvasNormalization->GetName()) + "_" + std::to_string(year) + ".png").data());
 
 
-    TH1D * ratioDeviationHistogram = new TH1D("Ratio deviation", "Ratio deviation", 15, -0.2, 0.2);
+    int ratioDevNbins = 15; float ratioDevLow = -0.2; float ratioDevHigh = 0.2;
+    if (group==4){ratioDevNbins = 30; ratioDevLow = -0.4; ratioDevHigh = 0.4;}
+    TH1D * ratioDeviationHistogram = new TH1D("Ratio deviation", "Ratio deviation", ratioDevNbins, ratioDevLow, ratioDevHigh);
 
     float maxDeviation = -1.;
     float minBinContent = 1e20;

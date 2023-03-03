@@ -3,8 +3,8 @@ if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <F1> :set invfullscreena
-nnoremap <silent> y :CCTreeWindowSaveCopy
 nnoremap <silent> w :CCTreeWindowToggle
+nnoremap <silent> y :CCTreeWindowSaveCopy
 vnoremap / /\v
 nnoremap / /\v
 vmap [% [%m'gv``
@@ -54,33 +54,38 @@ set softtabstop=4
 set tabstop=4
 set visualbell
 set whichwrap=b,s,<,>,h,l,[,]
+set wildignore=*.pyc
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd /uscms_data/d3/agrummer/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis
+cd /uscms_data/d3/agrummer/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/limits
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +9 unrollCRandVR_byYear.sh
-badd +9 scripts/UnrollAll.sh
-badd +313 scripts/Unroll2DplotsSubRange.cc
-badd +48 privateTools/PlotUnrolled.C
-badd +319 scripts/Unroll2Dplots.cc
-badd +10 scripts/UnrollAllSubdir.sh
-badd +50 scripts/UnrollAllSubdirValidationTest.sh
-badd +321 scripts/Unroll2DplotsSubRangeValidationTest.cc
-badd +17 Notes/Unroll.md
-badd +682 scripts/MeasureBackgroundSystematic.C
+badd +11 prepareModels/SubmitFullRunIILimits.py
+badd +28 Notes/limits.md
+badd +1 prepareModels/config/LimitsConfig_2016.cfg
+badd +41 prepareModels/config/LimitsConfig_2017.cfg
+badd +40 prepareModels/config/LimitsConfig_2018.cfg
+badd +18 datacardExamples/datacard_2016_sig_NMSSM_bbbb_MX_300_MY_150.txt
+badd +6 datacardExamples/datacard_RunII_sig_NMSSM_bbbb_MX_300_MY_150.txt
+badd +203 prepareModels/listOfSamples.txt
+badd +1 an-scripts/produceAllResults.sh
+badd +1 an-scripts/PlotLimitsFromCondor.cc
+badd +1 an-scripts/PlotLimitsFromCondor_allyears.cc
 argglobal
 silent! argdel *
-edit Notes/Unroll.md
+argadd prepareModels/SubmitFullRunIILimits.py
+edit an-scripts/PlotLimitsFromCondor_allyears.cc
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 argglobal
+nnoremap <buffer> <silent> - :CCTreeRecurseDepthMinus
+nnoremap <buffer> <silent> = :CCTreeRecurseDepthPlus
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -91,12 +96,12 @@ setlocal breakindentopt=
 setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
-setlocal nocindent
+setlocal cindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
@@ -113,8 +118,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'modula2'
-setlocal filetype=modula2
+if &filetype != 'cpp'
+setlocal filetype=cpp
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -127,7 +132,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
@@ -151,7 +156,7 @@ setlocal nrformats=octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=
+setlocal omnifunc=ccomplete#Complete
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -173,8 +178,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'modula2'
-setlocal syntax=modula2
+if &syntax != 'cpp'
+setlocal syntax=cpp
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -187,11 +192,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 17 - ((16 * winheight(0) + 30) / 60)
+let s:l = 1 - ((0 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
+1
 normal! 0
 tabnext 1
 if exists('s:wipebuf')

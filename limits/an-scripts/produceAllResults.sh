@@ -1,10 +1,14 @@
 # TAG="fullSubmission_v53"
-TAG="2022Nov22_bJetScoreLoose_shapes2"
+# TAG="2022Nov22_bJetScoreLoose_shapes2"
+TAG="2023Feb28"
+# some scripts in this file have been relocated - check an-scripts, or results
+# possible that things were using Fabio's `scripts` directory with a sym link. Check fromFabio directory.
 
 # compile the cpp codes (if needed)
 # g++  -std=c++17 -I `root-config --incdir`  -o PlotLimitsFromCondor PlotLimitsFromCondor.cc `root-config --libs` -O3
 # g++  -std=c++17 -I `root-config --incdir`  -o Plot2DLimitMap       Plot2DLimitMap.C        `root-config --libs` -O3
 # # ##################################################
+#LOOKS LIKE THIS WAS only used for the old vr closure tests
 # g++  -std=c++17 -I `root-config --incdir`  -o PlotLimitsFromCondor_allyears PlotLimitsFromCondor_allyears.cc `root-config --libs` -O3
 # mkdir LimitPlots_${TAG}${option}
 # ./PlotLimitsFromCondor_allyears $TAG
@@ -13,15 +17,15 @@ TAG="2022Nov22_bJetScoreLoose_shapes2"
 
 # makes the base plots in a root file (used just the impact version):
 # ./PlotLimitsFromCondor $TAG
-# ./PlotLimitsFromCondor $TAG impacts
+# ./an-scripts/PlotLimitsFromCondor $TAG impacts
 
 ##################################################
 ## no DiHiggs_v1 in Fabio's folder:
 # needs: spin0/CombineResults_syst.txt
-python CompareHHAnalysisAll_fromRootFile.py --input Limits_$TAG.root --systematics
+# python CompareHHAnalysisAll_fromRootFile.py --input Limits_$TAG.root --systematics
 
 # needs: spin0/CombineResults_statOnly.txt
-python CompareHHAnalysisAll_fromRootFile.py --input Limits_$TAG.root
+# python CompareHHAnalysisAll_fromRootFile.py --input Limits_$TAG.root
 
 ##################################################
 # makes: CentralLimitMap_RunII_TheoryComparison.png
@@ -47,7 +51,7 @@ python CompareHHAnalysisAll_fromRootFile.py --input Limits_$TAG.root
 # makes: LimitsRunII_Limits_syst_mX_*.png, and prints central combine r values to a text file (text file is always appended to so need to remove old version as needed)
 ### a set of commands:######
 # rm limitValues.txt
-# python PlotLimitVsMy_orig.py --input Limits_$TAG.root --systematics
+python an-scripts/PlotLimitVsMy_orig.py --input data/Limits_$TAG.root --systematics
 # python PlotLimitVsMy_orig.py --input Limits_$TAG.root --systematics --year 2016
 # python PlotLimitVsMy_orig.py --input Limits_$TAG.root --systematics --year 2017
 # python PlotLimitVsMy_orig.py --input Limits_$TAG.root --systematics --year 2018

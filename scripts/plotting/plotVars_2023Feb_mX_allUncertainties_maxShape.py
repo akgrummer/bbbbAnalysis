@@ -406,7 +406,8 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
 # 
 gROOT.SetBatch(True)
 # ********************
-odir = "VarPlots/2023Feb20_mXmY_shapeUnc_maxShape/"
+# odir = "VarPlots/2023Feb20_mXmY_shapeUnc_maxShape/"
+odir = "VarPlots/2023Mar2_TrigCut/"
 # odir = "VarPlots/2023Feb20_mXmY_shapeUnc_maxShape_oldBinning/"
 # odir = "VarPlots/2023Feb20_mXmY_shapeUncRebin/"
 odiro = odir
@@ -422,18 +423,18 @@ years = ["2016","2017","2018"]
 # regionTag = ["CR", "VR", "SR"]
 directories = ["selectionbJets_ControlRegionBlinded", "selectionbJets_ValidationRegionBlinded"]
 regionTag = ["CR", "VR"]
-#  iTag="2022Jan26_VR"
-#  iTag="2022Jul7_fullBDT_bJetScoreLoose"
-#  iTag="2022Jul14_fullBDT_bJetScore1p5"
-# iTags = ["2022Jan26_VR", "2022Jul7_fullBDT_bJetScoreLoose", "2022Jul14_fullBDT_bJetScore1p5"]
-#  iTags = ["2022Sep14_Mx300_bJetLoose_3"]
+# Old event selections:
 # iTags = ["2022Jul7_fullBDT_bJetScoreLoose"]
 # iTags = ["2022Nov14_bJetScoreLoose_shapes2"]
-iTags = ["2023Feb22_analysisBinning"]
-# iTags = ["2023Feb22_Mxlt500_3"]
-# iTags = ["2023Feb22_Mxgt500"]
-# iTags = ["2023Feb22_Mxgt800"]
-# iTags = ["2023Feb22_Mxlt800"]
+# iTags = ["2023Feb22_analysisBinning"]
+#New event selections:
+# all sigs, few vars:
+# iTags = ["2023Feb28_3"]
+# few sigs, analysis vars:
+# iTags = ["2023Feb28_vars"]
+# iTags = ["2023Feb28_vars_sans_mXmY"]
+# iTags = ["2023Feb28_vars_only_mXmY"]
+iTags = ["2023Feb28_vars_sans_dfd"]
 for iTag in iTags:
    for year in years:
        for i, directory in enumerate(directories):

@@ -61,12 +61,13 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +587 plotVars_2022Feb.py
-badd +693 plotUnrolledVars_2022July.py
+badd +434 scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape.py
+badd +1 scripts/plotting/VariableDicts.py
 argglobal
 silent! argdel *
-argadd plotVars_2022Feb.py
-edit plotVars_2022Feb.py
+argadd scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape.py
+argadd scripts/plotting/VariableDicts.py
+edit scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape.py
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -179,12 +180,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 166 - ((27 * winheight(0) + 25) / 50)
+let s:l = 432 - ((15 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-166
-normal! 05|
+432
+normal! 030|
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

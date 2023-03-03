@@ -3,8 +3,6 @@ if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <F1> :set invfullscreena
-nnoremap <silent> y :CCTreeWindowSaveCopy
-nnoremap <silent> w :CCTreeWindowToggle
 vnoremap / /\v
 nnoremap / /\v
 vmap [% [%m'gv``
@@ -54,27 +52,23 @@ set softtabstop=4
 set tabstop=4
 set visualbell
 set whichwrap=b,s,<,>,h,l,[,]
+set wildignore=*.pyc
+set window=37
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd /uscms_data/d3/agrummer/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis
+cd /uscms_data/d3/agrummer/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/limits
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +9 unrollCRandVR_byYear.sh
-badd +9 scripts/UnrollAll.sh
-badd +313 scripts/Unroll2DplotsSubRange.cc
-badd +48 privateTools/PlotUnrolled.C
-badd +319 scripts/Unroll2Dplots.cc
-badd +10 scripts/UnrollAllSubdir.sh
-badd +50 scripts/UnrollAllSubdirValidationTest.sh
-badd +321 scripts/Unroll2DplotsSubRangeValidationTest.cc
-badd +17 Notes/Unroll.md
-badd +682 scripts/MeasureBackgroundSystematic.C
+badd +54 an-scripts/produceAllResults.sh
+badd +15 an-scripts/PlotLimitVsMy_orig.py
+badd +1 Notes/produceResults.md
 argglobal
 silent! argdel *
-edit Notes/Unroll.md
+argadd an-scripts/produceAllResults.sh
+edit an-scripts/produceAllResults.sh
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -97,7 +91,7 @@ setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
+setlocal commentstring=#%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -113,8 +107,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'modula2'
-setlocal filetype=modula2
+if &filetype != 'sh'
+setlocal filetype=sh
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -134,10 +128,10 @@ setlocal iminsert=0
 setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal indentexpr=GetShIndent()
+setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
+setlocal iskeyword=@,48-57,_,192-255,.
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -173,8 +167,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'modula2'
-setlocal syntax=modula2
+if &syntax != 'sh'
+setlocal syntax=sh
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -187,12 +181,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 17 - ((16 * winheight(0) + 30) / 60)
+let s:l = 54 - ((26 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 0
+54
+normal! 052|
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

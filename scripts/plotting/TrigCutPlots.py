@@ -51,8 +51,9 @@ def rootplot_2Dhist(h1,year,region, odir, tag):
 
 def makePlotsPerYear(year):
   ifileTag = "2022Nov14_bJetScoreLoose_shapes2"
-  ifileTag2 = "2023Feb27_TrigCut_5"
-  odir = "VarPlots/2023Feb27_trigCuts/"
+  # ifileTag2 = "2023Feb27_TrigCut_5"
+  ifileTag2 = "2023Feb28_3"
+  odir = "VarPlots/2023Feb28_trigCuts/"
   tag = ifileTag2
   years = ["2016", "2017", "2018"]
   h2dCR = ROOT.TH2D( "h2dCR", "HistCR ", 11, MXbins, 19, MYbins);
