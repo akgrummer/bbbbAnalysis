@@ -1,0 +1,28 @@
+imax *  number of channels
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+----------------------------------------------------------------------------------------------------------------------------------
+shapes * selectionbJets_SignalRegion outPlotter_2016_sig_NMSSM_bbbb_MX_300_MY_150.root $PROCESS $PROCESS_$SYSTEMATIC
+----------------------------------------------------------------------------------------------------------------------------------
+bin                                 selectionbJets_SignalRegion
+observation                         -1    
+----------------------------------------------------------------------------------------------------------------------------------
+# list the expected events for signal and all backgrounds in that bin
+# the second process line must have a positive number for backgrounds, and 0 or neg for signal
+bin                                        selectionbJets_SignalRegion selectionbJets_SignalRegion
+process                                    sig_NMSSM_bbbb_MX_300_MY_150 data_BTagCSV_dataDriven_kinFit
+process                                                            0                         1
+rate                                                              -1                        -1
+----------------------------------------------------------------------------------------------------------------------------------
+CMS_bkgnorm_2016                    lnN                            -                     1.010
+lumi_13TeV_2016                     lnN                        1.012                         -
+CMS_trg_eff_2016                    lnN                  0.798/1.284                         -
+CMS_eff_b_b_2016                    lnN                  0.944/1.059                         -
+CMS_scale_j_Total_2016              lnN                  0.955/1.055                         -
+CMS_res_j_breg_2016                 lnN                  0.986/1.019                         -
+CMS_PS_weights                      lnN                        1.070                         -
+
+CMS_LHE_pdf                         lnN                        1.024                         -
+* autoMCStats 10
+myscale rateParam * ['sig_NMSSM_bbbb_MX_300_MY_150'] 1
+nuisance edit freeze myscale
