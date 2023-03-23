@@ -60,11 +60,18 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_Full_offShell.cfg
+badd +12 mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_Full_offShell.cfg
+badd +55 mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_Full_kinFit.cfg
+badd +5 mlskim_NMSSM_XYH_bbbb/config/outputskim_2017_Full_offShell.cfg
+badd +31 mlskim_NMSSM_XYH_bbbb/config/outputskim_2018_Full_offShell.cfg
+badd +1 mlskim_NMSSM_XYH_bbbb/config/outputskim_2017_Full_kinFit.cfg
+badd +13 mlskim_NMSSM_XYH_bbbb/config/outputskim_2018_Full_kinFit.cfg
+badd +4 scripts/ApplyBDTs_offShell.sh
+badd +37 scripts/ApplyBDTs.sh
 argglobal
 silent! argdel *
 argadd mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_Full_offShell.cfg
-edit mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_Full_offShell.cfg
+edit scripts/ApplyBDTs_offShell.sh
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -87,7 +94,7 @@ setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
+setlocal commentstring=#%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -103,8 +110,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'cfg'
-setlocal filetype=cfg
+if &filetype != 'sh'
+setlocal filetype=sh
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -124,10 +131,10 @@ setlocal iminsert=0
 setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal indentexpr=GetShIndent()
+setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
+setlocal iskeyword=@,48-57,_,192-255,.
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -163,8 +170,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'cfg'
-setlocal syntax=cfg
+if &syntax != 'sh'
+setlocal syntax=sh
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -177,11 +184,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 23) / 46)
+let s:l = 4 - ((3 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+4
 normal! 0
 tabnext 1
 if exists('s:wipebuf')

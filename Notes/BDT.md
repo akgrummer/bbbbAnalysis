@@ -73,3 +73,16 @@ python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmiss
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Feb28_shapeDown_sans_dfd
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Feb28_shapeDown_sans_dfd
 
+
+- Nominal vars, offshell
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Feb28_offshell
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Feb28_offshell
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Feb28_offshell
+
+!!!Dont run these in parallel!
+
+- Nominal vars, offshell, added blinding for offshell h1 and h2
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Mar23_offshell_blind
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Mar23_offshell_blind
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Mar23_offshell_blind
+

@@ -61,24 +61,28 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +2 scripts/submitAllFillOnTier3_RunII.sh
-badd +12 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
-badd +12 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+badd +23 scripts/submitAllFillOnTier3_RunII.sh
+badd +9 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+badd +25 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
 badd +12 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
-badd +1533 config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
-badd +1578 config/Resonant_NMSSM_bbbb/selectionCfg_2017Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
-badd +1580 config/Resonant_NMSSM_bbbb/selectionCfg_2018Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
-badd +7 scripts/mergeHistograms.sh
-badd +20 scripts/renameFullSubmissions.sh
-badd +7 scripts/mergeHistograms.py
+badd +1606 config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+badd +1591 config/Resonant_NMSSM_bbbb/selectionCfg_2017Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+badd +1593 config/Resonant_NMSSM_bbbb/selectionCfg_2018Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+badd +12 scripts/mergeHistograms.sh
+badd +28 scripts/renameFullSubmissions.sh
+badd +16 scripts/mergeHistograms.py
 badd +6 testpy.py
 badd +64 vim-sessions/fillHists.vim
-badd +24 Notes/fillHists.md
+badd +47 Notes/fillHists.md
 badd +163 scripts/submitFillOnTier3.py
+badd +68 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
+badd +68 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
+badd +68 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
+badd +8 Notes/Reminders.md
 argglobal
 silent! argdel *
 argadd config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
-edit Notes/fillHists.md
+edit config/Resonant_NMSSM_bbbb/selectionCfg_2018Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -117,8 +121,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'modula2'
-setlocal filetype=modula2
+if &filetype != 'cfg'
+setlocal filetype=cfg
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -177,8 +181,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'modula2'
-setlocal syntax=modula2
+if &syntax != 'cfg'
+setlocal syntax=cfg
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -188,15 +192,14 @@ setlocal noundofile
 setlocal undolevels=-123456
 setlocal nowinfixheight
 setlocal nowinfixwidth
-set nowrap
-setlocal nowrap
+setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 45 - ((44 * winheight(0) + 24) / 48)
+let s:l = 1593 - ((21 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-45
+1593
 normal! 0
 tabnext 1
 if exists('s:wipebuf')
