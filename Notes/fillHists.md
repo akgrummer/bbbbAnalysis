@@ -44,4 +44,8 @@ Weight_forBackground_BDTweights_2028Feb28_shapeDown_sans_dfd
 
 
 # for offshell:
+submit with the submitAllfill
+then
 source ./scripts/mergeHistograms.sh 2023Mar23_offShell
+
+source ./scripts/mergeHistograms.sh 2023Mar23_offShell_rebin
