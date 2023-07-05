@@ -94,7 +94,7 @@ class InterpolatorHist2D
             RooAddPdf   *thePfd           = new RooAddPdf(pdfName.c_str(), pdfName.c_str(), RooArgList(*theRooHistPdg), RooArgList(*theNormalization));
             int mXvectorPosition = find(mXvector.begin(), mXvector.end(), mX) - mXvector.begin();
             int mYvectorPosition = find(mYvector.begin(), mYvector.end(), mY) - mYvector.begin();
-            
+
             std::cout << "mX = " << mX << " (" << mXvectorPosition << ") - mY = " << mY << " (" << mYvectorPosition << ")" << std::endl;
             theGrid.addPdf(*thePfd, mXvectorPosition, mYvectorPosition);
         }
@@ -125,7 +125,7 @@ class InterpolatorHist2D
 };
 
 
-/*std::vector<std::string> signalList = 
+/*std::vector<std::string> signalList =
     {
         "FileList_NMSSM_XYH_bbbb_MX_1000_NANOAOD_v7_Full_MY_100.txt" ,
         "FileList_NMSSM_XYH_bbbb_MX_1000_NANOAOD_v7_Full_MY_125.txt" ,
@@ -310,7 +310,7 @@ class InterpolatorHist2D
         "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_70.txt"   ,
         "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_700.txt"  ,
         "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_80.txt"   ,
-        "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_90.txt"  
+        "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_90.txt"
     };
 */
 
@@ -356,13 +356,13 @@ class getMassGridPoint
   public:
     getMassGridPoint(int year)
     {
-        for(const auto & signalName : fSignalList) 
+        for(const auto & signalName : fSignalList)
         {
             std::pair<int, int> signalPoint = getMxMyFromSample(signalName);
             fMassXlist.push_back(signalPoint.first );
             fMassYlist.push_back(signalPoint.second);
         }
-        
+
         sort( fMassXlist.begin(), fMassXlist.end() );
         fMassXlist.erase( unique( fMassXlist.begin(), fMassXlist.end() ), fMassXlist.end() );
 
@@ -377,7 +377,7 @@ class getMassGridPoint
             }
         }
 
-        for(const auto & signalName : fSignalList) 
+        for(const auto & signalName : fSignalList)
         {
             std::pair<int, int> signalPoint = getMxMyFromSample(signalName);
             if(year==2017 && signalPoint.first == 1000 && signalPoint.second == 125) continue;
@@ -388,11 +388,11 @@ class getMassGridPoint
 
     std::vector<std::pair<int, int>> getListOfREferencePoints(int mXtarget, int mYtarget)
     {
-        
+
     }
 
   private:
-    std::vector<std::string> fSignalList = 
+    std::vector<std::string> fSignalList =
     {
         "FileList_NMSSM_XYH_bbbb_MX_1000_NANOAOD_v7_Full_MY_100.txt" ,
         "FileList_NMSSM_XYH_bbbb_MX_1000_NANOAOD_v7_Full_MY_125.txt" ,
@@ -467,48 +467,48 @@ class getMassGridPoint
         "FileList_NMSSM_XYH_bbbb_MX_1600_NANOAOD_v7_Full_MY_800.txt" ,
         "FileList_NMSSM_XYH_bbbb_MX_1600_NANOAOD_v7_Full_MY_90.txt"  ,
         "FileList_NMSSM_XYH_bbbb_MX_1600_NANOAOD_v7_Full_MY_900.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_100.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1000.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1200.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_125.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1400.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_150.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1600.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_200.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_250.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_300.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_400.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_500.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_600.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_700.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_800.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_90.txt"  ,
-        "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_900.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_100.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1000.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1200.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_125.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1400.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_150.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1600.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1800.txt",
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_200.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_250.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_300.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_400.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_500.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_600.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_700.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_800.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_90.txt"  ,
-        "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_900.txt" ,
-        "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_100.txt"  ,
-        "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_125.txt"  ,
-        "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_150.txt"  ,
-        "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_60.txt"   ,
-        "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_70.txt"   ,
-        "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_80.txt"   ,
-        "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_90.txt"   ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_100.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1000.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1200.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_125.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1400.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_150.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_1600.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_200.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_250.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_300.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_400.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_500.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_600.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_700.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_800.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_90.txt"  ,
+//         "FileList_NMSSM_XYH_bbbb_MX_1800_NANOAOD_v7_Full_MY_900.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_100.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1000.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1200.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_125.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1400.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_150.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1600.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_1800.txt",
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_200.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_250.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_300.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_400.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_500.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_600.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_700.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_800.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_90.txt"  ,
+//         "FileList_NMSSM_XYH_bbbb_MX_2000_NANOAOD_v7_Full_MY_900.txt" ,
+//         "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_100.txt"  ,
+//         "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_125.txt"  ,
+//         "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_150.txt"  ,
+//         "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_60.txt"   ,
+//         "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_70.txt"   ,
+//         "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_80.txt"   ,
+//         "FileList_NMSSM_XYH_bbbb_MX_300_NANOAOD_v7_Full_MY_90.txt"   ,
         "FileList_NMSSM_XYH_bbbb_MX_400_NANOAOD_v7_Full_MY_100.txt"  ,
         "FileList_NMSSM_XYH_bbbb_MX_400_NANOAOD_v7_Full_MY_125.txt"  ,
         "FileList_NMSSM_XYH_bbbb_MX_400_NANOAOD_v7_Full_MY_150.txt"  ,
@@ -577,16 +577,17 @@ class getMassGridPoint
         "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_70.txt"   ,
         "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_700.txt"  ,
         "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_80.txt"   ,
-        "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_90.txt"  
+        "FileList_NMSSM_XYH_bbbb_MX_900_NANOAOD_v7_Full_MY_90.txt"
     };
-    std::map<std::pair<int,int>, bool> fMassGridFilledPoints; 
-    std::vector<int> fMassXlist; 
-    std::vector<int> fMassYlist; 
+    std::map<std::pair<int,int>, bool> fMassGridFilledPoints;
+    std::vector<int> fMassXlist;
+    std::vector<int> fMassYlist;
 };
 
 void TestInterpolation(int year=2016, int plotVersion=21, int mXtestPoint=700, int mYtestPoint=300)
 {
-    std::string plotInputFileName  = "../DataPlots_fullSubmission_" + std::to_string(year) + "_v" + std::to_string(plotVersion) + "/outPlotter.root";
+    // std::string plotInputFileName  = "../DataPlots_fullSubmission_" + std::to_string(year) + "_v" + std::to_string(plotVersion) + "/outPlotter.root";
+    std::string plotInputFileName  = "../VarPlots/rootHists/fullSubmission_2022Nov/" + std::to_string(year) + "DataPlots_2023Feb28_3" + "/outPlotter.root";
     TFile plotInputFile(plotInputFileName.data());
     InterpolatorHist2D theInterpolatorHist2D;
 

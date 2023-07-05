@@ -13,10 +13,16 @@ TestInterpolatorHist2D2D.o: TestInterpolatorHist2D2D.cc RooMomentMorphND_local.h
 RooMomentMorphND_local.o: RooMomentMorphND_local.cpp
 	$(CC) $(OBJFLAGS) -c RooMomentMorphND_local.cpp
 
+TestInterpolatorHist:
+	$(CC) $(LDFLAGS) TestInterpolatorHist.C -o TestInterpolatorHist $(LDLIBS)
+
+oned:
+	$(CC) $(LDFLAGS) TestInterpolatorHist_2023Apr.C -o TestInterpolatorHist_2023Apr $(LDLIBS)
+
 clean:
 	rm *.o TestInterpolatorHist2D2D
 
 
 
-# g++ -std=c++17 -g -o3 -fPIC -I `root-config --incdir` -c RooMomentMorphND_local.cpp -o RooMomentMorphND_local.o 
+# g++ -std=c++17 -g -o3 -fPIC -I `root-config --incdir` -c RooMomentMorphND_local.cpp -o RooMomentMorphND_local.o
 # g++  -std=c++17 -g -I `root-config --incdir` -lRooFit -lRooFitCore -o TestInterpolatorHist2D2D TestInterpolatorHist2D2D.cc `root-config --libs` -O3 RooMomentMorphND_local.o

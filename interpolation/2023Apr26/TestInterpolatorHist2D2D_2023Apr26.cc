@@ -3,7 +3,7 @@
 #include "RooRealVar.h"
 #include "RooArgList.h"
 #include "TVectorD.h"
-#include "RooMomentMorphND_local.h"
+#include "RooMomentMorphND.h"
 #include "RooGaussian.h"
 #include "TCanvas.h"
 #include "TROOT.h"
@@ -20,7 +20,7 @@
 
 using namespace RooFit;
 
-float TestInterpolatorHist2D2D(int numberOfGridBins=1, float mXtarget=200., float mYtarget=200.)
+float TestInterpolatorHist2D2D(int numberOfGridBins, float mXtarget=50., float mYtarget=200.)
 {
 
 	float mXrecoMin =   0.;
@@ -38,8 +38,8 @@ float TestInterpolatorHist2D2D(int numberOfGridBins=1, float mXtarget=200., floa
 
 	float mXlow       = 50.;
 	float mXlowSigma  = mXlow/10.;
-	float mXmean      = 175.;
-	float mXmeanSigma = mXmean/10.;
+	float mXmed       = 175.;
+	float mXmedSigma  = mXmed/10.;
 	float mXhigh      = 300.;
 	float mXhighSigma = mXhigh/10.;
 
@@ -47,39 +47,79 @@ float TestInterpolatorHist2D2D(int numberOfGridBins=1, float mXtarget=200., floa
 	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXlow_mYlow->Fill(gRandom->Gaus(mXlow, mXlowSigma), gRandom->Gaus(mXlow, mXlowSigma));
 	RooDataHist dh2Gaussian_mXlow_mYlow("dh2Gaussian_mXlow_mYlow", "dh2Gaussian_mXlow_mYlow", variableList, histGaussian_mXlow_mYlow);
 	RooHistPdf  pdfGaussian_mXlow_mYlow("pdfGaussian_mXlow_mYlow", "pdfGaussian_mXlow_mYlow", variableList, dh2Gaussian_mXlow_mYlow );
-	RooRealVar normGaussian_mXlow_mYlow("normGaussian_mXlow_mYlow", "normGaussian_mXlow_mYlow", 0.5 * entriesNumber, 1.5 * entriesNumber);
-	RooAddPdf gaussian_mXlow_mYlow("gaussian_mXlow_mYlow", "gaussian_mXlow_mYlow", RooArgList(pdfGaussian_mXlow_mYlow), RooArgList(normGaussian_mXlow_mYlow));
+
+	TH2F* histGaussian_mXlow_mYmed = new TH2F("histGaussian_mXlow_mYmed", "histGaussian_mXlow_mYmed", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
+	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXlow_mYmed->Fill(gRandom->Gaus(mXlow, mXlowSigma), gRandom->Gaus(mXmed, mXmedSigma));
+	RooDataHist dh2Gaussian_mXlow_mYmed("dh2Gaussian_mXlow_mYlow", "dh2Gaussian_mXlow_mYlow", variableList, histGaussian_mXlow_mYlow);
+	RooHistPdf  pdfGaussian_mXlow_mYmed("pdfGaussian_mXlow_mYmed", "pdfGaussian_mXlow_mYmed", variableList, dh2Gaussian_mXlow_mYmed );
+
+	TH2F* histGaussian_mXmed_mYlow = new TH2F("histGaussian_mXmed_mYlow", "histGaussian_mXmed_mYlow", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
+	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXmed_mYlow->Fill(gRandom->Gaus(mXmed, mXmedSigma), gRandom->Gaus(mXlow, mXlowSigma));
+	RooDataHist dh2Gaussian_mXmed_mYlow("dh2Gaussian_mXmed_mYlow", "dh2Gaussian_mXmed_mYlow", variableList, histGaussian_mXmed_mYlow);
+	RooHistPdf  pdfGaussian_mXmed_mYlow("pdfGaussian_mXmed_mYlow", "pdfGaussian_mXmed_mYlow", variableList, dh2Gaussian_mXmed_mYlow );
 
 	TH2F* histGaussian_mXlow_mYhigh = new TH2F("histGaussian_mXlow_mYhigh", "histGaussian_mXlow_mYhigh", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
 	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXlow_mYhigh->Fill(gRandom->Gaus(mXlow, mXlowSigma), gRandom->Gaus(mXhigh, mXhighSigma));
 	RooDataHist dh2Gaussian_mXlow_mYhigh("dh2Gaussian_mXlow_mYhigh", "dh2Gaussian_mXlow_mYhigh", variableList, histGaussian_mXlow_mYhigh);
 	RooHistPdf  pdfGaussian_mXlow_mYhigh("pdfGaussian_mXlow_mYhigh", "pdfGaussian_mXlow_mYhigh", variableList, dh2Gaussian_mXlow_mYhigh );
-	RooRealVar normGaussian_mXlow_mYhigh("normGaussian_mXlow_mYhigh", "normGaussian_mXlow_mYhigh", 0.5 * entriesNumber, 1.5 * entriesNumber);
-	RooAddPdf gaussian_mXlow_mYhigh("gaussian_mXlow_mYhigh", "gaussian_mXlow_mYhigh", RooArgList(pdfGaussian_mXlow_mYhigh), RooArgList(normGaussian_mXlow_mYhigh));
 
+	TH2F* histGaussian_mXmed_mYhigh = new TH2F("histGaussian_mXmed_mYhigh", "histGaussian_mXmed_mYhigh", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
+	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXmed_mYhigh->Fill(gRandom->Gaus(mXmed, mXmedSigma), gRandom->Gaus(mXhigh, mXhighSigma));
+	RooDataHist dh2Gaussian_mXmed_mYhigh("dh2Gaussian_mXmed_mYhigh", "dh2Gaussian_mXmed_mYhigh", variableList, histGaussian_mXmed_mYhigh);
+	RooHistPdf  pdfGaussian_mXmed_mYhigh("pdfGaussian_mXmed_mYhigh", "pdfGaussian_mXmed_mYhigh", variableList, dh2Gaussian_mXmed_mYhigh );
+
+	TH2F* histGaussian_mXhigh_mYmed = new TH2F("histGaussian_mXhigh_mYmed", "histGaussian_mXhigh_mYmed", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
+	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXhigh_mYmed->Fill(gRandom->Gaus(mXhigh, mXhighSigma), gRandom->Gaus(mXmed, mXmedSigma));
+	RooDataHist dh2Gaussian_mXhigh_mYmed("dh2Gaussian_mXhigh_mYmed", "dh2Gaussian_mXhigh_mYmed", variableList, histGaussian_mXhigh_mYmed);
+	RooHistPdf  pdfGaussian_mXhigh_mYmed("pdfGaussian_mXhigh_mYmed", "pdfGaussian_mXhigh_mYmed", variableList, dh2Gaussian_mXhigh_mYmed );
+
+	TH2F* histGaussian_mXmed_mYmed = new TH2F("histGaussian_mXmed_mYmed", "histGaussian_mXmed_mYmed", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
+	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXmed_mYmed->Fill(gRandom->Gaus(mXmed, mXmedSigma), gRandom->Gaus(mXmed, mXmedSigma));
+	RooDataHist dh2Gaussian_mXmed_mYmed("dh2Gaussian_mXmed_mYmed", "dh2Gaussian_mXmed_mYmed", variableList, histGaussian_mXmed_mYmed);
+	RooHistPdf  pdfGaussian_mXmed_mYmed("pdfGaussian_mXmed_mYmed", "pdfGaussian_mXmed_mYmed", variableList, dh2Gaussian_mXmed_mYmed );
 
 	TH2F* histGaussian_mXhigh_mYlow = new TH2F("histGaussian_mXhigh_mYlow", "histGaussian_mXhigh_mYlow", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
 	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXhigh_mYlow->Fill(gRandom->Gaus(mXhigh, mXhighSigma), gRandom->Gaus(mXlow, mXlowSigma));
 	RooDataHist dh2Gaussian_mXhigh_mYlow("dh2Gaussian_mXhigh_mYlow", "dh2Gaussian_mXhigh_mYlow", variableList, histGaussian_mXhigh_mYlow);
 	RooHistPdf  pdfGaussian_mXhigh_mYlow("pdfGaussian_mXhigh_mYlow", "pdfGaussian_mXhigh_mYlow", variableList, dh2Gaussian_mXhigh_mYlow );
-	RooRealVar normGaussian_mXhigh_mYlow("normGaussian_mXhigh_mYlow", "normGaussian_mXhigh_mYlow", 0.5 * entriesNumber, 1.5 * entriesNumber);
-	RooAddPdf gaussian_mXhigh_mYlow("gaussian_mXhigh_mYlow", "gaussian_mXhigh_mYlow", RooArgList(pdfGaussian_mXhigh_mYlow), RooArgList(normGaussian_mXhigh_mYlow));
 
 	TH2F* histGaussian_mXhigh_mYhigh = new TH2F("histGaussian_mXhigh_mYhigh", "histGaussian_mXhigh_mYhigh", numberOfBins, mXrecoMin, mXrecoMax, numberOfBins, mXrecoMin, mXrecoMax);
 	for (int i = 0; i < entriesNumber; ++i) histGaussian_mXhigh_mYhigh->Fill(gRandom->Gaus(mXhigh, mXhighSigma), gRandom->Gaus(mXhigh, mXhighSigma));
 	RooDataHist dh2Gaussian_mXhigh_mYhigh("dh2Gaussian_mXhigh_mYhigh", "dh2Gaussian_mXhigh_mYhigh", variableList, histGaussian_mXhigh_mYhigh);
 	RooHistPdf  pdfGaussian_mXhigh_mYhigh("pdfGaussian_mXhigh_mYhigh", "pdfGaussian_mXhigh_mYhigh", variableList, dh2Gaussian_mXhigh_mYhigh );
-	RooRealVar normGaussian_mXhigh_mYhigh("normGaussian_mXhigh_mYhigh", "normGaussian_mXhigh_mYhigh", 0.5 * entriesNumber, 1.5 * entriesNumber);
-	RooAddPdf gaussian_mXhigh_mYhigh("gaussian_mXhigh_mYhigh", "gaussian_mXhigh_mYhigh", RooArgList(pdfGaussian_mXhigh_mYhigh), RooArgList(normGaussian_mXhigh_mYhigh));
 
 	RooBinning binningX(numberOfGridBins, mXlow, mXhigh);
 	RooBinning binningY(numberOfGridBins, mXlow, mXhigh);
+	// RooBinning binningX(2, mXlow, mXhigh);
+	// RooBinning binningY(2, mXlow, mXhigh);
+	// RooBinning binningX(2,0,1);
+	// RooBinning binningY(2,0,1);
 
-	RooMomentMorphND_local::Grid theGrid(binningX,binningY);
-	theGrid.addPdf(gaussian_mXlow_mYlow  ,                0,                0);
-	theGrid.addPdf(gaussian_mXlow_mYhigh ,                0, numberOfGridBins);
-	theGrid.addPdf(gaussian_mXhigh_mYlow , numberOfGridBins,                0);
-	theGrid.addPdf(gaussian_mXhigh_mYhigh, numberOfGridBins, numberOfGridBins);
+	RooMomentMorphND::Grid theGrid(binningX,binningY);
+    // RooArgList pdfs;
+    // pdfs.add(gaussian_mXlow_mYlow);
+    // pdfs.add(gaussian_mXmed_mYlow );
+    // pdfs.add(gaussian_mXlow_mYmed );
+    // pdfs.add(gaussian_mXlow_mYhigh);
+    // pdfs.add(gaussian_mXmed_mYhigh);
+    // pdfs.add(gaussian_mXhigh_mYmed);
+    // pdfs.add(gaussian_mXhigh_mYlow );
+    // pdfs.add(gaussian_mXhigh_mYhigh);
+
+    theGrid.addPdf(pdfGaussian_mXlow_mYlow  , 0, 0);
+    theGrid.addPdf(pdfGaussian_mXlow_mYhigh  , 0, 1);
+    theGrid.addPdf(pdfGaussian_mXhigh_mYlow  , 1, 0);
+    theGrid.addPdf(pdfGaussian_mXhigh_mYhigh  , 1, 1);
+
+    // theGrid.addPdf(pdfGaussian_mXlow_mYlow  , 0, 0);
+    // theGrid.addPdf(pdfGaussian_mXlow_mYmed  , 0, 1);
+    // theGrid.addPdf(pdfGaussian_mXlow_mYhigh , 0, 2);
+    // theGrid.addPdf(pdfGaussian_mXmed_mYlow  , 1, 0);
+    // theGrid.addPdf(pdfGaussian_mXmed_mYmed  , 1, 1);
+    // theGrid.addPdf(pdfGaussian_mXmed_mYhigh , 1, 2);
+    // theGrid.addPdf(pdfGaussian_mXhigh_mYlow , 2, 0);
+    // theGrid.addPdf(pdfGaussian_mXhigh_mYmed , 2, 1);
+    // theGrid.addPdf(pdfGaussian_mXhigh_mYhigh, 2, 2);
 
 	RooArgList alphaTargetList;
 	RooRealVar alphaTargetX("alphaTargetX", "alphaTargetX", 0., 400.);
@@ -90,7 +130,7 @@ float TestInterpolatorHist2D2D(int numberOfGridBins=1, float mXtarget=200., floa
 	alphaTargetList.add(alphaTargetY);
 
 	std::cout<< __PRETTY_FUNCTION__ << __LINE__ << std::endl;
-	RooMomentMorphND_local gaussian_mXmean_mYmean("morph", "morph", alphaTargetList, variableList, theGrid, RooMomentMorphND_local::Linear);
+	RooMomentMorphND gaussian_mXmean_mYmean("morph", "morph", alphaTargetList, variableList, theGrid, RooMomentMorphND::Linear);
 	std::cout<< __PRETTY_FUNCTION__ << __LINE__ << std::endl;
 	gaussian_mXmean_mYmean.useHorizontalMorphing(true);
 	std::cout<< __PRETTY_FUNCTION__ << __LINE__ << std::endl;
@@ -107,7 +147,12 @@ float TestInterpolatorHist2D2D(int numberOfGridBins=1, float mXtarget=200., floa
     TCanvas c1;
     histGaussian_mXmean_mYmean->Draw(      );
     histGaussian_mXlow_mYlow  ->Draw("same");
+    // histGaussian_mXmed_mYlow  ->Draw("same");
+    // histGaussian_mXlow_mYmed  ->Draw("same");
     histGaussian_mXlow_mYhigh ->Draw("same");
+    // histGaussian_mXmed_mYhigh ->Draw("same");
+    // histGaussian_mXhigh_mYmed ->Draw("same");
+    // histGaussian_mXmed_mYmed ->Draw("same");
     histGaussian_mXhigh_mYlow ->Draw("same");
     histGaussian_mXhigh_mYhigh->Draw("same");
 	c1.SaveAs("testHist2D2D.pdf");
@@ -116,41 +161,15 @@ float TestInterpolatorHist2D2D(int numberOfGridBins=1, float mXtarget=200., floa
 	return histGaussian_mXmean_mYmean->GetMean(2);
 }
 
-void scanTest()
-{
-	std::map<float,std::vector<std::pair<float, float>>> massValues;
-
-	for(int xMass = 50; xMass <=300; xMass+=50)
-	{
-		massValues[xMass] = std::vector<std::pair<float, float>>();
-		// std::cout<< "X mass = " << xMass << std::endl;
-		for(int yMass = 50; yMass <=300; yMass+=50)
-		{
-			// std::cout<<  yMass << "\t" << TestInterpolatorHist2D2D(xMass, yMass) << std::endl;
-			massValues[xMass].push_back(std::make_pair<float,float>(yMass,TestInterpolatorHist2D2D(xMass, yMass)));
-		}
-	}
-
-	for(const auto& xMassPoint : massValues)
-	{
-		std::cout<< "X mass = " << xMassPoint.first << std::endl;
-		for(const auto& yMassPoint : xMassPoint.second)
-		{
-			std::cout<< yMassPoint.first << "\t" << yMassPoint.second << std::endl;
-		}
-	}
-
-	return;
-}
-
 int main(int argc, char** argv)
 {
 	ROOT::EnableThreadSafety();
     gSystem->ResetSignal(kSigSegmentationViolation, kTRUE);
 
-	if(argc !=2) return EXIT_FAILURE;
+	if(argc == 1) return EXIT_FAILURE;
 
-	TestInterpolatorHist2D2D(atoi(argv[1]));
+    cout<<argv[2]<<endl;
+	TestInterpolatorHist2D2D(atoi(argv[1]), atof(argv[2]), atof(argv[3]));
 
 	return EXIT_SUCCESS;
 }

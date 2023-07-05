@@ -12,6 +12,7 @@
 #include "RooHistPdf.h"
 #include "RooAddPdf.h"
 #include "TRandom.h"
+#include "TSystem.h"
 
 using namespace RooFit;
 
@@ -63,7 +64,7 @@ void TestInterpolatorHist()
 	TH1D* histGaussianAlpha05 = new TH1D("histGaussianAlpha05", "histGaussianAlpha05", numberOfBins, mXrecoMin, mXrecoMax);
 	gaussianAlpha05.fillHistogram(histGaussianAlpha05, mXreco, entriesNumber);
     histGaussianAlpha05->SetLineColor(kRed);
-    
+
 	gROOT->SetBatch(true);
     TCanvas c1;
     histGaussianAlpha0 ->Draw() ;
@@ -73,3 +74,14 @@ void TestInterpolatorHist()
 	gROOT->SetBatch(false);
 
 }
+
+int main(int argc, char** argv)
+{
+	ROOT::EnableThreadSafety();
+    gSystem->ResetSignal(kSigSegmentationViolation, kTRUE);
+
+	TestInterpolatorHist();
+
+	return EXIT_SUCCESS;
+}
+
