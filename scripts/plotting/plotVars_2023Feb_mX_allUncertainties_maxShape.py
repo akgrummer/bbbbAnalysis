@@ -1,6 +1,6 @@
 import ROOT
-from ROOT import TFile, TH1F, TH2F, TCanvas, gStyle, gPad, gDirectory, TLatex, gROOT, PyConfig, TMath, kBlue, TLine, TPad, TLegend, TGraph, TBox, kThermometer, THStack, TGraphAsymmErrors 
-from ROOT import kRed 
+from ROOT import TFile, TH1F, TH2F, TCanvas, gStyle, gPad, gDirectory, TLatex, gROOT, PyConfig, TMath, kBlue, TLine, TPad, TLegend, TGraph, TBox, kThermometer, THStack, TGraphAsymmErrors
+from ROOT import kRed
 # PyConfig.IgnoreCommandLineOptions = False
 import numpy as np
 import re
@@ -23,7 +23,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     for i in range(h2.GetSize()):
         if (h4.GetBinContent(i)>0): h4.SetBinError(i,h4.GetBinError(i)/h4.GetBinContent(i))
         else: h4.SetBinError(i,0)
-        # h4.SetBinContent(i,1) 
+        # h4.SetBinContent(i,1)
 
     # get the 3b hist, and start computing the shape uncertainties
     h3 = h1.Clone("h3")
@@ -48,11 +48,11 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
         shape_err_down = max_shape
         # if ( hshape1.GetBinContent(i) >= h3.GetBinContent(i)):
         #     shape_err_up = hshape1.GetBinContent(i) - h3.GetBinContent(i)
-        #     # print("shape_err_up:",shape_err_up) 
+        #     # print("shape_err_up:",shape_err_up)
         #     shape_err_down = h3.GetBinContent(i) - hshape2.GetBinContent(i)
         # else:
         #     shape_err_up = hshape2.GetBinContent(i) - h3.GetBinContent(i)
-        #     # print("shape_err_up:",shape_err_up) 
+        #     # print("shape_err_up:",shape_err_up)
         #     shape_err_down = h3.GetBinContent(i) - hshape1.GetBinContent(i)
         norm_err = h3.GetBinContent(i)*0.04
         if (h3.GetBinContent(i)>0):
@@ -67,6 +67,8 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
             h3.SetBinError(i,0)
             bin_err_up = 0
             bin_err_down = 0
+            bin_err_up_1 = 0
+            bin_err_down_1 = 0
 
         # if (5<i and i<10):
         #     print("statErr:", h3.GetBinError(i))
@@ -76,7 +78,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
         # # gr.SetPointError(i+1, h3.GetXaxis().GetBinWidth(i)/2, h3.GetXaxis().GetBinWidth(i)/2, h3.GetBinError(i), h3.GetBinError(i))# i, exl, exh, eyl, eyh
         gr.SetPointError(i+1, h3.GetXaxis().GetBinWidth(i)/2, h3.GetXaxis().GetBinWidth(i)/2, bin_err_down, bin_err_up)# i, exl, exh, eyl, eyh
         gr1.SetPointError(i+1, h3.GetXaxis().GetBinWidth(i)/2, h3.GetXaxis().GetBinWidth(i)/2, bin_err_down_1, bin_err_up_1)# i, exl, exh, eyl, eyh
-        h3.SetBinContent(i,1) 
+        h3.SetBinContent(i,1)
         # # use the i+1 for the graph def to avoid the underflow bin
         gr.SetPoint(i+1, x, 1)
     h1 = h1.Clone("h1copy")
@@ -106,7 +108,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     c1 = TCanvas('c1', 'c1',800,600)
     gStyle.SetOptStat(0) # remove the stats box
     gStyle.SetOptTitle(0) # remove the title
-    
+
     #### define the upper and lower pads
     p1 = TPad("p1", "p1", 0., 0.3, 1., 1.0, 0, 0, 0)
     p1.SetMargin(0.12,0.05,0.05,0.09) #left,right,bottom,top
@@ -166,12 +168,14 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     hshape2.GetXaxis().SetLabelSize(0.)
     hshape2.GetXaxis().SetTitleSize(0.)
     #yaxis
-    h1.GetYaxis().SetTitle(varInfo[var]['YaxisTitle'] + "/bin")
+    if var == "HH_kinFit_m" or var == "H2_m": h1.GetYaxis().SetTitle(varInfo[var]['YaxisTitle'] + "/bin")
+    else: h1.GetYaxis().SetTitle(varInfo[var]['YaxisTitle'])
     h1.GetYaxis().SetLabelSize(0.05)
     h1.GetYaxis().SetTitleSize(0.05)
     h1.GetYaxis().SetTitleOffset(1.1)
     h1.GetYaxis().SetTickLength(0.02)
-    h2.GetYaxis().SetTitle(varInfo[var]['YaxisTitle']+"/bin")
+    if var == "HH_kinFit_m" or var == "H2_m": h2.GetYaxis().SetTitle(varInfo[var]['YaxisTitle']+"/bin")
+    else: h2.GetYaxis().SetTitle(varInfo[var]['YaxisTitle'])
     h2.GetYaxis().SetLabelSize(0.05)
     h2.GetYaxis().SetTitleSize(0.05)
     h2.GetYaxis().SetTitleOffset(1.1)
@@ -182,7 +186,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     #  h1.GetYaxis().SetRangeUser(0,np.max( [ h1.GetMaximum(), h2.GetMaximum(), href.GetMaximum() ] )*yrangeFactor)
     h1.GetYaxis().SetRangeUser(0,np.max( [ h2.GetMaximum()] )*yrangeFactor)
     # h1.GetYaxis().SetRangeUser(0,np.max( [ h1.GetMaximum(), h2.GetMaximum(), hshape1.GetMaximum(), hshape2.GetMaximum()] )*yrangeFactor)
-    
+
     ### KStest and AD test
     ksval = "KS Test: %.4f"%h1.KolmogorovTest(h2)
     # print("KS test, UO %e"%h1.KolmogorovTest(h2, "UO"))
@@ -198,14 +202,14 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     CMSlabel.SetTextSize( 30 )
     CMSlabel.DrawLatexNDC(0.12, 0.93, "CMS #scale[0.8]{#it{#bf{Work In Progress}}}")
 
-    KSlabel = TLatex()
-    KSlabel.SetTextFont( 43 )
-    KSlabel.SetTextSize( 12 )
-    KSlabel.DrawTextNDC(0.72, 0.63, ksval)
-    KSlabel.DrawTextNDC(0.72, 0.59, ksvalMaxDist)
-    KSlabel.DrawTextNDC(0.72, 0.55, ksvalX)
-    KSlabel.SetTextFont( 63 )
-    KSlabel.SetTextSize( 16 )
+    # KSlabel = TLatex()
+    # KSlabel.SetTextFont( 43 )
+    # KSlabel.SetTextSize( 12 )
+    # KSlabel.DrawTextNDC(0.72, 0.63, ksval)
+    # KSlabel.DrawTextNDC(0.72, 0.59, ksvalMaxDist)
+    # KSlabel.DrawTextNDC(0.72, 0.55, ksvalX)
+    # KSlabel.SetTextFont( 63 )
+    # KSlabel.SetTextSize( 16 )
     # KSlabel.DrawTextNDC(0.72, 0.50, "mX < 500 GeV")
     # KSlabel.DrawTextNDC(0.72, 0.50, "mX >= 500 GeV")
     # KSlabel.DrawTextNDC(0.72, 0.50, "mX < 800 GeV")
@@ -220,7 +224,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     plotlabels.DrawLatexNDC(0.65, 0.93, labelText)
     plotlabels.SetTextFont(63)
     plotlabels.SetTextSize(16)
-    if "weights" in tag:    
+    if "weights" in tag:
         plotlabels.DrawTextNDC(0.72, 0.68, "3b reweighted")
         # print(year +labelText+ "3b Reweightied Integral: %0.4f, 4b Integral: %0.4f "%(h1area, h2area))
     if "orig" in tag:
@@ -261,7 +265,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     # #  print("number of bins, 3b: ", h1.GetSize())
     # #  print("a bin error %.4f"%(h1.GetBinError(50)))
     # for i in range(h1.GetSize()):
-    #     h4.SetBinContent(i,1) 
+    #     h4.SetBinContent(i,1)
     #     #  print(h1.GetBinError(i))
     hErrors.SetMarkerStyle(20) # marker style (20 = filled circle) that can be resized
     hErrors.SetMarkerSize(0.4)
@@ -346,10 +350,10 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href, h_up, h_do
     hErrors.GetYaxis().SetTitleOffset(0.3)
     hErrors.GetYaxis().SetTitle("target / model")
     odir = odir + "/" + region
-    if not (os.path.exists(odir)): os.makedirs(odir) 
+    if not (os.path.exists(odir)): os.makedirs(odir)
     #  odirpng = odir + "/png"
     #  if not (os.path.exists(odirpng)): os.makedirs(odirpng)
-    c1.SaveAs("%s/%s_%s.pdf"%( odir   , var, tag ))
+    c1.SaveAs("%s/%s_%s_%s.pdf"%( odir   , var, tag, year ))
     #  c1.SaveAs("%s/%s_%s.png"%( odirpng, var, tag ))
 
 def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
@@ -365,21 +369,21 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
     dir_ttbar_4b = "ttbar"
     dir_data_3b = "data_BTagCSV_3btag"
     dir_data_4b = "data_BTagCSV"
-    dir_data_3b_weights = "data_BTagCSV_dataDriven_kinFit" 
-    dir_data_3b_weights_down = "data_BTagCSV_dataDriven_kinFit_down" 
-    dir_data_3b_weights_up = "data_BTagCSV_dataDriven_kinFit_up" 
+    dir_data_3b_weights = "data_BTagCSV_dataDriven_kinFit"
+    dir_data_3b_weights_down = "data_BTagCSV_dataDriven_kinFit_down"
+    dir_data_3b_weights_up = "data_BTagCSV_dataDriven_kinFit_up"
     dir_QCD = "QCD"
     #  varname = "_HH_kinFit_m_H2_m"
-        
+
     dir_sig_MX_600_MY_400 = "sig_NMSSM_bbbb_MX_600_MY_400" # signal
     dir_sig_MX_300_MY_60 = "sig_NMSSM_bbbb_MX_300_MY_60" # signal
     dir_sig_MX_300_MY_150 = "sig_NMSSM_bbbb_MX_300_MY_150" # signal
     dir_sig_3b_weights = "sig_NMSSM_bbbb_MX_600_MY_400_3bScaled"
     #  varlist = [ "H1_b1_ptRegressed", "H1_b2_ptRegressed", "H1_b1_kinFit_ptRegressed", "H1_b2_kinFit_ptRegressed", "H2_b1_ptRegressed", "H2_b2_ptRegressed", "H1_b1_deepCSV", "H1_b2_deepCSV", "H2_b1_deepCSV", "H2_b2_deepCSV", "H1_pt", "H1_kinFit_pt", "H2_pt", "HH_m", "HH_kinFit_m", "HH_pt", "HH_kinFit_pt", "H1_m", "H2_m", "H1_eta", "H1_kinFit_eta", "H2_eta", "H1_bb_DeltaR", "H1_kinFit_bb_DeltaR", "H2_bb_DeltaR", "H1_H2_sphericity", "FourBjet_sphericity", "distanceFromDiagonal" ]
-    #  varlist = [ "H1_b1_kinFit_ptRegressed", "H1_b2_kinFit_ptRegressed", "H2_b1_ptRegressed", "H2_b2_ptRegressed", "H1_kinFit_pt", "H2_pt", "HH_kinFit_m", "HH_kinFit_pt", "H2_m", "H1_kinFit_eta", "H2_eta", "H1_kinFit_bb_DeltaR", "H2_bb_DeltaR", "distanceFromDiagonal" ]
+    # varlist = [ "H1_b1_kinFit_ptRegressed", "H1_b2_kinFit_ptRegressed", "H2_b1_ptRegressed", "H2_b2_ptRegressed", "H1_kinFit_pt", "H2_pt", "HH_kinFit_m", "HH_kinFit_pt", "H2_m", "H1_kinFit_eta", "H2_eta", "H1_kinFit_bb_DeltaR", "H2_bb_DeltaR", "distanceFromDiagonal" ]
     #  "H1_kinFit_m",
     varlist = [ "H2_m", "HH_kinFit_m"]
-    varlist2D = [ "H1_m_H2_m", "HH_m_H2_m", "HH_kinFit_m_H2_m" ]
+    # varlist2D = [ "H1_m_H2_m", "HH_m_H2_m", "HH_kinFit_m_H2_m" ]
 
     #  masspoint_list = [ "MX_1800_MY_800" ]
     masspoint_list = "MX_600_MY_400"
@@ -403,11 +407,12 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
 
 # ********************
 #run pyROOT in batch mode  - ie don't show graphics!
-# 
+#
 gROOT.SetBatch(True)
 # ********************
 # odir = "VarPlots/2023Feb20_mXmY_shapeUnc_maxShape/"
-odir = "VarPlots/2023Mar2_TrigCut/"
+# odir = "VarPlots/2023Mar2_TrigCut/"
+odir = "VarPlots/2023Apr21/"
 # odir = "VarPlots/2023Feb20_mXmY_shapeUnc_maxShape_oldBinning/"
 # odir = "VarPlots/2023Feb20_mXmY_shapeUncRebin/"
 odiro = odir
@@ -432,9 +437,10 @@ regionTag = ["CR", "VR"]
 # iTags = ["2023Feb28_3"]
 # few sigs, analysis vars:
 # iTags = ["2023Feb28_vars"]
+iTags = ["2023Feb28_hourglass"]
 # iTags = ["2023Feb28_vars_sans_mXmY"]
 # iTags = ["2023Feb28_vars_only_mXmY"]
-iTags = ["2023Feb28_vars_sans_dfd"]
+# iTags = ["2023Feb28_vars_sans_dfd"]
 for iTag in iTags:
    for year in years:
        for i, directory in enumerate(directories):

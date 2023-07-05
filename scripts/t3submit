@@ -52,6 +52,8 @@ fi
 # EOF
 
 
+# request_cpus            = 1
+# request_disk            = 128M
 
 condor_submit <<EOF
 universe = vanilla
@@ -63,6 +65,7 @@ Error  = ${command}_\$(Cluster).stderr
 Log    = ${command}_\$(Cluster).log
 notify_user = ${LOGNAME}@FNAL.GOV
 x509userproxy = ${X509_USER_PROXY}
+request_memory          = 1024M
 Queue 1
 
 EOF

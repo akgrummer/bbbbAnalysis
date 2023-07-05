@@ -84,11 +84,11 @@ void FillRebinnedPlot (TH2F *the2DsourcePlot, TH2F *the2DtargetPlot)
 void Rebin2DPlot(TH2F *&the2Dplot, float minNumberOfEntries, bool rebinX=true, uint xBinStart=1, uint yBinStart=1)
 {
     std::cout<<"Rebinning\n";
-  
+
     uint nXbin = the2Dplot->GetNbinsX();
     uint nYbin = the2Dplot->GetNbinsY();
     the2Dplot->SetName("oldPlot");
-    
+
     uint xBin = xBinStart;
     uint yBin = yBinStart;
 
@@ -200,7 +200,7 @@ void Rebin2DPlot(TH2F *&the2Dplot, float minNumberOfEntries, bool rebinX=true, u
             {
                 theBinList[binListSize] = theOriginalBinArray.At(theOriginalBinArray.GetSize()-1);
                 break;
-            }        
+            }
             //if just 1 bin remains, I merge it with the last one
         }
         binListSize++;
@@ -247,7 +247,7 @@ TH1F* UnrollPlot(TH2F* the2Dplot, bool isBkg)
     // uint numberOfBins = nXbin*nYbin;
     // float theBinArray[numberOfBins+1];
     // theBinArray[0] = the2Dplot->GetXaxis()->GetBinLowEdge(1);
-    
+
     uint totalNumberOfBins = 0;
     for(uint yBin=1; yBin<=nYbin; ++yBin)
     {
@@ -300,11 +300,16 @@ int main(int argc, char *argv[])
 {
 
     std::map<int, std::pair<float, float>> theMassGroupList;
-    theMassGroupList[0] = std::make_pair(212.,  800.);
-    theMassGroupList[1] = std::make_pair(300., 1000.);
+    // theMassGroupList[0] = std::make_pair(212.,  800.);
+    // theMassGroupList[1] = std::make_pair(300., 1000.);
+    // theMassGroupList[2] = std::make_pair(450., 1200.);
+    // theMassGroupList[3] = std::make_pair(600., 1600.);
+    // theMassGroupList[4] = std::make_pair(950., 2320.);
+    theMassGroupList[0] = std::make_pair(340.,  800.);
+    theMassGroupList[1] = std::make_pair(340., 1000.);
     theMassGroupList[2] = std::make_pair(450., 1200.);
     theMassGroupList[3] = std::make_pair(600., 1600.);
-    theMassGroupList[4] = std::make_pair(950., 2320.);
+    theMassGroupList[4] = std::make_pair(950., 1936.);
 
     gSystem->ResetSignal(kSigSegmentationViolation, kTRUE);
 
@@ -324,7 +329,7 @@ int main(int argc, char *argv[])
     TFile theInputFile (inputFileName.c_str() );
 
     // std::string outputFileName = inputFileName.substr(0,inputFileName.find(".root")) + "_rebinned";
-    
+
     float integralBackgroundPlot = -1.;
 
     for(const auto& massGroup : theMassGroupList)
@@ -336,7 +341,7 @@ int main(int argc, char *argv[])
         std::string dataHistogramName = dataDataset + "/" + selection + "/" + dataDataset + "_" + selection + "_"  + variable;
         TH2F *the2Dplot = (TH2F*)theInputFile.Get(dataHistogramName.data());
         the2Dplot->SetDirectory(0);
-    
+
         // Rebin2DPlot(the2Dplot, minNumberOfEntries);
 
         uint nXbin = the2Dplot->GetNbinsX();
@@ -349,7 +354,7 @@ int main(int argc, char *argv[])
         TKey *key;
         // std::cout<<__PRETTY_FUNCTION__<<__LINE__<<std::endl;
 
-        while ((key = (TKey*)next())) 
+        while ((key = (TKey*)next()))
         {
             TClass *cl = gROOT->GetClass(key->GetClassName());
             if (!cl->InheritsFrom("TDirectoryFile")) continue;
@@ -367,7 +372,7 @@ int main(int argc, char *argv[])
                 TIter nextHistogram(gDirectory->GetListOfKeys());
                 TKey *keyHistogram;
 
-                while ((keyHistogram = (TKey*)nextHistogram())) 
+                while ((keyHistogram = (TKey*)nextHistogram()))
                 {
                     std::string theCurrentHistogramFullName = keyHistogram->ReadObj()->GetName();
                     TClass *cl2 = gROOT->GetClass(keyHistogram->GetClassName());
