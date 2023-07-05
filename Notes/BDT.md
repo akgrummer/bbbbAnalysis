@@ -23,7 +23,17 @@ python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_b
 python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_bbbb/config/outputskim_2017_Full_kinFit.cfg --bJetScore
 python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_bbbb/config/outputskim_2018_Full_kinFit.cfg --bJetScore
 
-## BDT variants 
+## 2023 Jun 30
+
+Rerunning the BDT now with mX cuts at 340 and 1936
+
+- Edit the config files and run:
+
+python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_Full_kinFit.cfg --bJetScore
+python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_bbbb/config/outputskim_2017_Full_kinFit.cfg --bJetScore
+python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_bbbb/config/outputskim_2018_Full_kinFit.cfg --bJetScore
+
+## BDT variants
 
 Total of 5 trainings
 - nominal - all vars used in training (minus XpT, and nominal CR bands
@@ -37,7 +47,7 @@ Total of 5 trainings
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Feb28
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Feb28
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Feb28
-    
+
 - Shape UP:
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Feb28_shapeUp
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Feb28_shapeUp
@@ -62,7 +72,7 @@ python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmiss
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Feb28_sans_dfd
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Feb28_sans_dfd
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Feb28_sans_dfd
-    
+
 - Shape UP: SANS distance from the diagonal
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Feb28_shapeUp_sans_dfd
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Feb28_shapeUp_sans_dfd
@@ -86,3 +96,11 @@ python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmiss
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Mar23_offshell_blind
 python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Mar23_offshell_blind
 
+- uncertainty tests
+python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Feb28
+python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Feb28
+python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Feb28
+
+# python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Apr10_10folds
+python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Apr10_10folds
+# python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Apr10_10folds
