@@ -25,27 +25,28 @@ import ROOT
 import threading
 import time
 
-def CreatePredictionModel(reweightermodel,transferfactor,normalization,dataset_3bTag, backgroundWeightName):
+def CreatePredictionModel(reweightermodel,transferfactor,normalization,dataset_3bTag, backgroundWeightName, voteName, weightNum):
     ############################################################################
     ##Let's slice data one more time to have the inputs for the bdt reweighting#
     ############################################################################
     original_weights = numpy.ones(dtype='float64',shape=len(dataset_3bTag))
     original_weights = numpy.multiply(original_weights,transferfactor)
 
-    folding_weights= data.getmodelweights(dataset_3bTag,original_weights,reweightermodel,transferfactor,normalization)
-
+    # print("create pred weightNum", weightNum, type(weightNum))
+    folding_weights= data.getmodelweights_unc(dataset_3bTag,original_weights,reweightermodel,transferfactor, voteName, weightNum, normalization)
+    backgroundWeightName = backgroundWeightName+"_"+voteName
     dataset_3bTag[backgroundWeightName] = folding_weights
     return dataset_3bTag[[backgroundWeightName]]
 
 
-def getWeightsForBackground(dataset, theReweightModelAndTransferFactor, backgroundWeightName):
+def getWeightsForBackground(dataset, theReweightModelAndTransferFactor, backgroundWeightName, voteName, weightNum):
 
     reweightermodel      = theReweightModelAndTransferFactor.reweightMethod
     transferfactor       = theReweightModelAndTransferFactor.transferFactor
     normalization        = theReweightModelAndTransferFactor.normalization
 
     #Get weights for the dataset
-    weights = CreatePredictionModel(reweightermodel, transferfactor, normalization, dataset, backgroundWeightName)
+    weights = CreatePredictionModel(reweightermodel, transferfactor, normalization, dataset, backgroundWeightName, voteName, weightNum)
 
     del dataset
     return weights
@@ -55,7 +56,7 @@ def updateFile(fileName, theBackgroudWeights):
     data.pandas2root(theBackgroudWeights,'bbbbTree', fileName, mode='a')
 
 
-def ApplyBDTweightsToFileList(fileList, treeName, trainingVariables, theReweightModelAndTransferFactor, backgroundWeightName, mode, seed):
+def ApplyBDTweightsToFileList(fileList, treeName, trainingVariables, theReweightModelAndTransferFactor, backgroundWeightName, mode, seed, n_folds):
     print "Staring with list of ", len(fileList), " files"
     for theRootFileName in fileList:
         theRootFile = ROOT.TFile.Open(theRootFileName)
@@ -83,17 +84,26 @@ def ApplyBDTweightsToFileList(fileList, treeName, trainingVariables, theReweight
         # time.sleep(2)
         singleListFile = [tmpFileName]
         theDataFile = data.root2pandas(singleListFile, treeName, branches=trainingVariables)
-        theBackgroudWeights = getWeightsForBackground(theDataFile, theReweightModelAndTransferFactor, backgroundWeightName)
-        if mode=="a":
+        theDataFile_copy = theDataFile.copy()
+        theBackgroudWeights = getWeightsForBackground(theDataFile_copy, theReweightModelAndTransferFactor, backgroundWeightName, "mean", -1)
+        theDataFile_copy = theDataFile.copy()
+        updateFile(tmpFileName, theBackgroudWeights)
+        theBackgroudWeights = getWeightsForBackground(theDataFile_copy, theReweightModelAndTransferFactor, backgroundWeightName, "max", -1)
+        theDataFile_copy = theDataFile.copy()
+        updateFile(tmpFileName, theBackgroudWeights)
+        theBackgroudWeights = getWeightsForBackground(theDataFile_copy, theReweightModelAndTransferFactor, backgroundWeightName, "min", -1)
+        theDataFile_copy = theDataFile.copy()
+        updateFile(tmpFileName, theBackgroudWeights)
+        theBackgroudWeights = getWeightsForBackground(theDataFile_copy, theReweightModelAndTransferFactor, backgroundWeightName, "std", -1)
+        theDataFile_copy = theDataFile.copy()
+        updateFile(tmpFileName, theBackgroudWeights)
+        for ii in range(n_folds):
+            theBackgroudWeights =getWeightsForBackground(theDataFile_copy, theReweightModelAndTransferFactor, backgroundWeightName, "%s"%(ii), ii)
+            theDataFile_copy = theDataFile.copy()
             updateFile(tmpFileName, theBackgroudWeights)
+        if mode=="a":
             copyToEosCommand = "xrdcp -f " + tmpFileName + " " + theRootFileName
             os.system(copyToEosCommand)
-        if mode=="w":
-            data.pandas2root(theBackgroudWeights,'bbbbTree', tmpFileNameJustWeights)
-            copyToEosCommand = "xrdcp -f " + tmpFileNameJustWeights + " " + theRootFileNameJustWeights
-            os.system(copyToEosCommand)
-            removeCommand = "rm " + tmpFileNameJustWeights
-            os.system(removeCommand)
         removeCommand = "rm " + tmpFileName
         os.system(removeCommand)
 
@@ -105,7 +115,7 @@ def ApplyBDTweightsToFileList(fileList, treeName, trainingVariables, theReweight
 ###########OPTIONS
 parser = argparse.ArgumentParser(description='Command line parser of skim options')
 parser.add_argument('--dir'       , dest='bdtModelDir',  help='Name of config file',   required = False, default = True)
-parser.add_argument('--mode'       , dest='mode',  help='write mode - append to files ("a"), just weights ("w")',   required = False, default = "a")
+parser.add_argument('--mode'       , dest='mode',  help='write mode - append to files ("a")',   required = False, default = "a")
 parser.add_argument('--seed'       , dest='seed', type=int,  help='BKG model seed - used in Build Background',   required = False, default = 0)
 parser.add_argument('--signals'   , dest='signalPath' ,  help='Name of config file',   required = False, default = "None")
 parser.add_argument('--singleFile', dest='singleFile' ,  help='Name of config file',   required = False, default = "None")
@@ -130,6 +140,8 @@ if seed !=0:
 skimFolder                  = configFile.skimFolder
 trainingVariables           = configFile.trainingVariables
 threadNumber                = configFile.threadNumber
+analysisBackgroundArgument  = configFile.analysisBackgroundArgument
+n_folds = analysisBackgroundArgument[6]
 
 if args.weightsDir is not "None":
     modelFileName = args.weightsDir + "/" + const.modelFileName
@@ -181,7 +193,7 @@ for fileName in fileList:
 
 threads = list()
 for index in range(threadNumber):
-    x = threading.Thread(target=ApplyBDTweightsToFileList, args=(skimFileListOfList[index], const.treeName, trainingVariables, theReweightModelAndTransferFactor, backgroundWeightName, mode, seed))
+    x = threading.Thread(target=ApplyBDTweightsToFileList, args=(skimFileListOfList[index], const.treeName, trainingVariables, theReweightModelAndTransferFactor, backgroundWeightName, mode, seed, n_folds))
     threads.append(x)
     x.start()
 

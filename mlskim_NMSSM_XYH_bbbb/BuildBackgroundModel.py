@@ -1,4 +1,4 @@
-import numpy 
+import numpy
 import os
 import root_numpy
 import pandas
@@ -47,20 +47,20 @@ def BuildReweightingModel(data_4b, data_3b, trainingVariables, outputDirectory, 
     #######################################
     ##Folding Gradient Boosted Reweighter (2-fold BDT reweighter)
     #######################################
-    foldingcr_weights,reweightermodel, normalization = data.fitreweightermodel(originalcr,targetcr,originalcr_weights,targetcr_weights,transferFactorOriginal,analysisBackgroundArgument)  
+    foldingcr_weights,reweightermodel, normalization = data.fitreweightermodel(originalcr,targetcr,originalcr_weights,targetcr_weights,transferFactorOriginal,analysisBackgroundArgument)
     if seed ==0:
         plotter.Draw1DHistosComparison(originalcr, targetcr, trainingVariables, foldingcr_weights,False,outputDirectory,"weights")
     #  plotter.rootplot_2samp_ratio(originalcr, targetcr, trainingVariables, foldingcr_weights, outputDirectory,"weights")
     #  plotter.rootplot_2Dhist(originalcr, targetcr, foldingcr_weights, 'HH_kinFit_m', 'H2_m', outputDirectory, "weights")
-    
+
     ########################################
     ## KS Test (as the developers of the method do), currently used for optimization/check of the parameters
     ########################################
     ksresult_original = bdtreweighter.ks_test(originalcr, targetcr, trainingVariables, originalcr_weights)
-    ksresult_model    = bdtreweighter.ks_test(originalcr, targetcr, trainingVariables, foldingcr_weights)   
+    ksresult_model    = bdtreweighter.ks_test(originalcr, targetcr, trainingVariables, foldingcr_weights)
     bdtreweighter.ks_comparison(trainingVariables,ksresult_original,ksresult_model)
     ksresult_originalpy = bdtreweighter.ks_testpy(originalcr, targetcr, trainingVariables, originalcr_weights)
-    ksresult_modelpy    = bdtreweighter.ks_testpy(originalcr, targetcr, trainingVariables, foldingcr_weights)   
+    ksresult_modelpy    = bdtreweighter.ks_testpy(originalcr, targetcr, trainingVariables, foldingcr_weights)
     bdtreweighter.ks_comparison(trainingVariables,ksresult_originalpy,ksresult_modelpy)
     ########################################
     ## GB ROC AUC Test Study (Very slow test, needs to train a classifier in cross-validation)
@@ -72,7 +72,7 @@ def BuildReweightingModel(data_4b, data_3b, trainingVariables, outputDirectory, 
     # #######################################
     # ##Folding Gradient Boosted Reweighter
     # #######################################
-    # foldingcr_weights,reweightermodel,renormtransferfactor = data.fitreweightermodel(originalcr,targetcr,originalcr_weights,targetcr_weights,transferfactor,modelArguments)  
+    # foldingcr_weights,reweightermodel,renormtransferfactor = data.fitreweightermodel(originalcr,targetcr,originalcr_weights,targetcr_weights,transferfactor,modelArguments)
     # ########################################
     # ##GB ROC AUC
     # ########################################
@@ -99,19 +99,19 @@ seed = args.BKGseed
 CRside = args.CRside
 configFile = ConfigurationReader(configFileName)
 
-backgroundWeightName        = configFile.backgroundWeightName   
-minpt                       = configFile.minpt       
-minRegressedPt              = configFile.minRegressedPt       
-minEta                      = configFile.minEta       
-maxEta                      = configFile.maxEta       
-preSelection                = configFile.preSelection       
-controlRegionSelection      = configFile.controlRegionSelection       
+backgroundWeightName        = configFile.backgroundWeightName
+minpt                       = configFile.minpt
+minRegressedPt              = configFile.minRegressedPt
+minEta                      = configFile.minEta
+maxEta                      = configFile.maxEta
+preSelection                = configFile.preSelection
+controlRegionSelection      = configFile.controlRegionSelection
 if args.selectTrainingData:
     print("I am in the mass window training")
     skimFolder                  = configFile.skimFolderMW
 else:
     skimFolder                  = configFile.skimFolder
-variables                   = configFile.variables   
+variables                   = configFile.variables
 trainingVariables           = configFile.trainingVariables
 bTagSelection               = configFile.bTagSelection
 antiBTagSelection           = configFile.antiBTagSelection
@@ -168,14 +168,14 @@ if os.system(cmd) != 0:
 # type = ["4 btag", "3 btag"]
 # # skim events
 # for i in range(len(data_4b_and_3b)):
-#   print "   -Number of events in dataset ", type[i], " (before) = ",len(data_4b_and_3b[i]) 
-#   data_4b_and_3b[i]          = data_4b_and_3b[i][ (data_4b_and_3b[i].H1_b1_pt > minpt) & (data_4b_and_3b[i].H1_b2_pt > minpt) & (data_4b_and_3b[i].H2_b1_pt > minpt) & (data_4b_and_3b[i].H2_b2_pt > minpt)] 
-#   data_4b_and_3b[i]          = data_4b_and_3b[i][ (data_4b_and_3b[i].H1_b1_ptRegressed > minRegressedPt) & (data_4b_and_3b[i].H1_b2_ptRegressed > minRegressedPt) & (data_4b_and_3b[i].H2_b1_ptRegressed > minRegressedPt) & (data_4b_and_3b[i].H2_b2_ptRegressed > minRegressedPt)] 
-#   data_4b_and_3b[i]          = data_4b_and_3b[i][ (data_4b_and_3b[i].H1_b1_eta > minEta) & (data_4b_and_3b[i].H1_b2_eta > minEta) & (data_4b_and_3b[i].H2_b1_eta > minEta) & (data_4b_and_3b[i].H2_b2_eta > minEta)] 
+#   print "   -Number of events in dataset ", type[i], " (before) = ",len(data_4b_and_3b[i])
+#   data_4b_and_3b[i]          = data_4b_and_3b[i][ (data_4b_and_3b[i].H1_b1_pt > minpt) & (data_4b_and_3b[i].H1_b2_pt > minpt) & (data_4b_and_3b[i].H2_b1_pt > minpt) & (data_4b_and_3b[i].H2_b2_pt > minpt)]
+#   data_4b_and_3b[i]          = data_4b_and_3b[i][ (data_4b_and_3b[i].H1_b1_ptRegressed > minRegressedPt) & (data_4b_and_3b[i].H1_b2_ptRegressed > minRegressedPt) & (data_4b_and_3b[i].H2_b1_ptRegressed > minRegressedPt) & (data_4b_and_3b[i].H2_b2_ptRegressed > minRegressedPt)]
+#   data_4b_and_3b[i]          = data_4b_and_3b[i][ (data_4b_and_3b[i].H1_b1_eta > minEta) & (data_4b_and_3b[i].H1_b2_eta > minEta) & (data_4b_and_3b[i].H2_b1_eta > minEta) & (data_4b_and_3b[i].H2_b2_eta > minEta)]
 #   data_4b_and_3b[i]          = data_4b_and_3b[i][ (data_4b_and_3b[i].H1_b1_eta < maxEta) & (data_4b_and_3b[i].H1_b2_eta < maxEta) & (data_4b_and_3b[i].H2_b1_eta < maxEta) & (data_4b_and_3b[i].H2_b2_eta < maxEta)]
 #   data_4b_and_3b[i].query(preSelection, inplace = True)
 #   data_4b_and_3b[i].query(controlRegionSelection, inplace = True)
-#   print "   -Number of events in dataset ", type[i], " (after) = ",len(data_4b_and_3b[i]) 
+#   print "   -Number of events in dataset ", type[i], " (after) = ",len(data_4b_and_3b[i])
 
 
 if seed != 0:
@@ -202,7 +202,7 @@ dataset          = dataset[ (dataset.H1_b1_eta > minEta) & (dataset.H1_b2_eta > 
 dataset          = dataset[ (dataset.H1_b1_eta < maxEta) & (dataset.H1_b2_eta < maxEta) & (dataset.H2_b1_eta < maxEta) & (dataset.H2_b2_eta < maxEta)]
 dataset.query(preSelection, inplace = True)
 dataset.query(controlRegionSelection, inplace = True)
-    
+
 # for mass window cut study:
 #  dataset.query(addSelection, inplace = True)
 if (args.bJetScore): dataset.query(bTagScoreSelection, inplace = True)

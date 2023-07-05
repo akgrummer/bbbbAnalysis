@@ -1,4 +1,4 @@
-import numpy 
+import numpy
 import os
 import math
 import matplotlib
@@ -23,6 +23,7 @@ from sklearn.externals.joblib import dump, load
 import modules.plotter as plotter
 import modules.bdtreweighter as bdtreweighter
 import time
+import sys
 
 def PrepareFeaturesFromSkim(skim,features,tag):
 	#Get features
@@ -35,7 +36,7 @@ def PrepareFeaturesFromSkim(skim,features,tag):
 
 def PrepareModel(tag):
 	model = load_model(tag)
-	print("Loaded model and weights from mymodels")	
+	print("Loaded model and weights from mymodels")
 	return model
 
 def root2pandas(files_path, tree_name, **kwargs):
@@ -94,11 +95,39 @@ def calculateWeight(original, original_weights, model, tfactor,normalization = -
 	print ("   -The sum of original weights                 = ",int(len(original)),"+/-",math.sqrt(len(original) ))
 	print ("   -The sum of model weights                    = ",weights.sum(),"+/-",math.sqrt(numpy.square(weights).sum() ))
 	return weights, normalization
-	
+
+def calculateWeight_unc(original, original_weights, model, tfactor, voteName, weightNum, normalization = -1):
+    # print("weightNum", weightNum, type(weightNum))
+    #temp:
+
+    if weightNum<0:
+        if (voteName == "mean"):
+            ws_unnormalized      = model.predict_weights(original,original_weights,lambda x: numpy.mean(x, axis=0))
+            print("stats tfactor", tfactor)
+            print("stat norm", ws_unnormalized)
+        elif (voteName == "max"): ws_unnormalized      = model.predict_weights(original,original_weights,lambda x: numpy.max(x, axis=0))
+        elif (voteName == "min"): ws_unnormalized      = model.predict_weights(original,original_weights,lambda x: numpy.min(x, axis=0))
+        elif (voteName == "std"): ws_unnormalized      = model.predict_weights(original,original_weights,lambda x: numpy.std(x, axis=0))
+        else:
+            print("need to select valid voteName if weightNum is less than 0")
+            sys.exit()
+    else:
+        ws_unnormalized      = model.predict_weights(original,original_weights,lambda x: x[int(weightNum)])
+        print("val tfactor", tfactor)
+        print("val norm", ws_unnormalized)
+    if normalization < 0: normalization = ws_unnormalized.mean()
+    totalnorm  = tfactor/normalization
+    weights    = numpy.multiply(ws_unnormalized,totalnorm)
+    print ("   -The sum of original weights                 = ",int(len(original)),"+/-",math.sqrt(len(original) ))
+    print ("   -The sum of 'unnormalized' model weights     = ",ws_unnormalized.sum(),"+/-",math.sqrt(numpy.square(ws_unnormalized).sum() ))
+    print ("   -The sum of model weights                    = ",weights.sum(),"+/-",math.sqrt(numpy.square(weights).sum() ))
+    sys.exit()
+    return weights, normalization
+
 
 def fitreweightermodel(original,target,original_weights,target_weights,tfactor, model_args):
 	print ("[INFO] Fitting BDT-reweighter ...")
-	model                = bdtreweighter.reweightermodel(original,target,original_weights,target_weights,model_args) 
+	model                = bdtreweighter.reweightermodel(original,target,original_weights,target_weights,model_args)
 	print ("[INFO] Event yields report in control region derivation:")
 	weights, normalization= calculateWeight(original, original_weights, model, tfactor)
 	print ("   -The sum of target weights                   = ",int(len(target)),"+/-",math.sqrt(len(target)))
@@ -112,6 +141,14 @@ def getmodelweights(original,original_weights,model,tfactor,normalization):
 	print ("   -The transfer factor from control regions        = ",tfactor)
 	weights, normalization = calculateWeight(original, original_weights, model, tfactor,normalization)
 	return weights
+
+def getmodelweights_unc(original,original_weights,model,tfactor, voteName, weightNum, normalization):
+    print ("[INFO] Running prediction from BDT-reweighter ...")
+    print ("[INFO] Event yields report in prediction:")
+    print ("   -The transfer factor from control regions        = ",tfactor)
+    # print("get model weightNum", weightNum, type(weightNum))
+    weights, normalization = calculateWeight_unc(original, original_weights, model, tfactor, voteName, weightNum, normalization)
+    return weights
 
 
 def pandas2root(tree_dataframe, tree_name, rootfile_name, mode="w"):

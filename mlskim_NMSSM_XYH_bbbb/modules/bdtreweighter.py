@@ -1,4 +1,4 @@
-import numpy 
+import numpy
 import os
 import matplotlib
 import root_numpy
@@ -20,10 +20,10 @@ from matplotlib.colors import LogNorm
 from sklearn.utils.class_weight import compute_sample_weight
 from sklearn.model_selection import StratifiedKFold
 
-def reweightermodel(ioriginal,itarget,ioriginal_weights,itarget_weights,args): 
+def reweightermodel(ioriginal,itarget,ioriginal_weights,itarget_weights,args):
 	numpy.random.seed(args[5]) #Fix any random seed using numpy arrays
 	reweighter_base = reweight.GBReweighter(n_estimators=args[0], learning_rate=args[1], max_depth=args[2], min_samples_leaf=args[3],gb_args={'subsample': args[4]})
-	reweighter = reweight.FoldingReweighter(reweighter_base, random_state=args[5], n_folds=2, verbose=True)
+	reweighter = reweight.FoldingReweighter(reweighter_base, random_state=args[5], n_folds=args[6], verbose=True)
 	reweighter.fit(ioriginal,itarget,ioriginal_weights,itarget_weights)
 	return reweighter
 
@@ -32,7 +32,7 @@ def check_ks_of_expression(expression):
 	col_target = target_test.eval(expression, engine='python')
 	w_target = numpy.ones(len(col_target), dtype='float')
 	print('Variable: %s'%expression)
-	print('No reweight   KS:', ks_2samp_weighted(col_original, col_target, 
+	print('No reweight   KS:', ks_2samp_weighted(col_original, col_target,
 												 weights1=original_weights_test, weights2=w_target))
 	print('GB Reweight   KS:', ks_2samp_weighted(col_original, col_target,
 												 weights1=gb_weights_test, weights2=w_target))
@@ -69,7 +69,7 @@ def roc_auc_study(data,labels,weights,args,outputDirectory,tag):
 			#Draw Classifier Output
 			datatest           =pandas.DataFrame({'GBscore':probas_[:,1]})
 			datatest['Weights']=pandas.DataFrame(weights[test])
-			datatest['Class']  =pandas.DataFrame(labels[test])  
+			datatest['Class']  =pandas.DataFrame(labels[test])
 			datatest_signal    =datatest[datatest.Class==0]
 			datatest_background=datatest[datatest.Class==1]
 			hist_settings = {'bins': 20, 'density': True, 'alpha': 0.3}
@@ -86,13 +86,13 @@ def roc_auc_study(data,labels,weights,args,outputDirectory,tag):
 		mean_tpr[-1] = 1.0
 		mean_auc = auc(mean_fpr, mean_tpr)
 		std_auc = numpy.std(aucs)
-		print "  **Mean ROC (AUC) in %s = "%tag, mean_auc	
-		ax1.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',label='Chance', alpha=.8)    
-		ax1.plot(mean_fpr, mean_tpr, color='b',label=r'Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (mean_auc, std_auc),lw=2, alpha=.8)  	       
+		print "  **Mean ROC (AUC) in %s = "%tag, mean_auc
+		ax1.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',label='Chance', alpha=.8)
+		ax1.plot(mean_fpr, mean_tpr, color='b',label=r'Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (mean_auc, std_auc),lw=2, alpha=.8)
 		std_tpr = numpy.std(tprs, axis=0)
 		tprs_upper = numpy.minimum(mean_tpr + std_tpr, 1)
 		tprs_lower = numpy.maximum(mean_tpr - std_tpr, 0)
-		ax1.fill_between(mean_fpr, tprs_lower, tprs_upper, color='grey', alpha=.2,label=r'$\pm$ 1 std. dev.')        
+		ax1.fill_between(mean_fpr, tprs_lower, tprs_upper, color='grey', alpha=.2,label=r'$\pm$ 1 std. dev.')
 		ax1.set_xlim([-0.05, 1.05])
 		ax1.set_ylim([-0.05, 1.05])
 		ax1.set_xlabel('False Positive Rate')
@@ -116,9 +116,9 @@ def ks_comparison(variables,ks_noweight,ks_weight):
 	print "[INFO] Runninng KS-test on each variable to define the bdt-reweighter paramaters:"
 	mean=0
 	for i in range(0, len(variables) ):
-		ratio = ks_weight[i] / ks_noweight[i] 
+		ratio = ks_weight[i] / ks_noweight[i]
 		print "   -KS distance ratio in %s (after/before) = (%0.3f/%0.3f)  = %0.3f"%(variables[i],ks_weight[i],ks_noweight[i], ratio)
-		mean+=ratio 
+		mean+=ratio
 	print "                     **The average KS distance ratio = %0.3f"%(mean/len(variables))
 
 
@@ -130,7 +130,7 @@ def ks_test(original, target, variables, original_weights):
 		ks =  ks_2samp_weighted(original[column], target[column], weights1=original_weights, weights2=numpy.ones(len(target), dtype=int))
 		ksresults.append(ks)
 		i+=1
-	return ksresults 
+	return ksresults
 
 def ks_testpy(original, target, variables, original_weights):
 	ksresults=[]
