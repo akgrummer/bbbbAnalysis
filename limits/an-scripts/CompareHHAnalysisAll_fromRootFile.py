@@ -16,7 +16,7 @@ parser.add_argument('--systematics'   , dest='systematics'   , help='systematics
 args = parser.parse_args()
 append = "statOnly"
 if args.systematics : append = "syst"
-inputFile = TFile("HHanalysisComparison_" + append +  ".root","READ")
+inputFile = TFile("data/HHanalysisComparison_" + append +  ".root","READ")
 
 # inputFileName = "/uscms/home/fravera/nobackup/DiHiggs_v1/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/Hig16/hig-17-009-master/spin0/CombineResults_" + append + ".txt"
 

@@ -1,12 +1,13 @@
 # TAG="fullSubmission_v53"
 # TAG="2022Nov22_bJetScoreLoose_shapes2"
-TAG="2023Feb28"
+# TAG="2023Feb28"
+TAG="2023Feb28_hourglass"
 # some scripts in this file have been relocated - check an-scripts, or results
 # possible that things were using Fabio's `scripts` directory with a sym link. Check fromFabio directory.
 
 # compile the cpp codes (if needed)
 # g++  -std=c++17 -I `root-config --incdir`  -o PlotLimitsFromCondor PlotLimitsFromCondor.cc `root-config --libs` -O3
-# g++  -std=c++17 -I `root-config --incdir`  -o Plot2DLimitMap       Plot2DLimitMap.C        `root-config --libs` -O3
+# g++  -std=c++17 -I `root-config --incdir`  -o an-scripts/Plot2DLimitMap       an-scripts/Plot2DLimitMap.C        `root-config --libs` -O3
 # # ##################################################
 #LOOKS LIKE THIS WAS only used for the old vr closure tests
 # g++  -std=c++17 -I `root-config --incdir`  -o PlotLimitsFromCondor_allyears PlotLimitsFromCondor_allyears.cc `root-config --libs` -O3
@@ -22,39 +23,42 @@ TAG="2023Feb28"
 ##################################################
 ## no DiHiggs_v1 in Fabio's folder:
 # needs: spin0/CombineResults_syst.txt
-# python CompareHHAnalysisAll_fromRootFile.py --input Limits_$TAG.root --systematics
+# python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root --systematics
 
 # needs: spin0/CombineResults_statOnly.txt
-# python CompareHHAnalysisAll_fromRootFile.py --input Limits_$TAG.root
+# python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root
 
 ##################################################
 # makes: CentralLimitMap_RunII_TheoryComparison.png
 # can also run syst, statOnly and all years and runII
-# ./Plot2DLimitMap Limits_$TAG.root
+./an-scripts/Plot2DLimitMap hists/Limits_$TAG.root
 
 # makes: SistematicImpact_<YEAR>_*.png
-# python MeasureSystematicEffect.py --input Limits_$TAG.root --impacts
+# python an-scripts/MeasureSystematicEffect.py --input hists/Limits_$TAG.root --impacts
 # makes just the systematic versinos, (no impacts)
 # python MeasureSystematicEffect.py --input Limits_$TAG.root
 
 # makes: LimitsRunII_Limits_syst_Overlap.png
-# python OverlapPlots.py  --input Limits_$TAG.root --systematics
+# python an-scripts/OverlapPlots.py  --input hists/Limits_$TAG.root --systematics
 
 # /uscms/home/fravera/nobackup/DiHiggs_v1/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root
 # needs: /uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root
 # makes: LimitsRunII_Limits_syst_Theory.png
-# python OverlapTheory.py --input Limits_$TAG.root --systematics
+# python an-scripts/OverlapTheory.py --input hists/Limits_$TAG.root --systematics
 
 # makes: LimitsRunII_Limits_syst_HH.png
-# python PlotHHLimit.py --input Limits_$TAG.root --systematics
+# python an-scripts/PlotHHLimit.py --input hists/Limits_$TAG.root --systematics
 
 # makes: LimitsRunII_Limits_syst_mX_*.png, and prints central combine r values to a text file (text file is always appended to so need to remove old version as needed)
 ### a set of commands:######
 # rm limitValues.txt
-python an-scripts/PlotLimitVsMy_orig.py --input data/Limits_$TAG.root --systematics
-# python PlotLimitVsMy_orig.py --input Limits_$TAG.root --systematics --year 2016
-# python PlotLimitVsMy_orig.py --input Limits_$TAG.root --systematics --year 2017
-# python PlotLimitVsMy_orig.py --input Limits_$TAG.root --systematics --year 2018
+# python an-scripts/PlotLimitVsMy_orig.py --input hists/Limits_$TAG.root --systematics
+# to compare two limit runs:
+# python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Feb28.root --input2 hists/Limits_2023Feb28_hourglass.root --systematics
+# the individual years didn't run
+# python an-scripts/PlotLimitVsMy_orig.py --input hists/Limits_$TAG.root --systematics --year 2016
+# python an-scripts/PlotLimitVsMy_orig.py --input hists/Limits_$TAG.root --systematics --year 2017
+# python an-scripts/PlotLimitVsMy_orig.py --input hists/Limits_$TAG.root --systematics --year 2018
 ############################
 
 

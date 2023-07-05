@@ -1,0 +1,192 @@
+[FERMIHTC-APPTAINER]: INFO -- No Apptainer image specified
+[FERMIHTC-APPTAINER]: INFO -- Running job on the host machine
+
+[FERMIHTC-APPTAINER]: INFO -- Running ./condor_exec.exe
+... starting job on  Tue Jun 6 18:17:47 UTC 2023
+... running on: Linux agrummer-78497879-0-cmswn2062.fnal.gov 3.10.0-1160.90.1.el7.x86_64 #1 SMP Thu Apr 27 13:14:20 CDT 2023 x86_64 x86_64 x86_64 GNU/Linux
+... system software: Scientific Linux release 7.9 (Nitrogen)
+SCRAM_ARCH=slc7_amd64_gcc700
+WARNING: In non-interactive mode release checks e.g. deprecated releases, production architectures are disabled.
+Cloning into 'HiggsAnalysis/CombinedLimit'...
+Note: checking out 'v8.2.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 612fafc6 fix sys analyser to show type (remove print)
+Cleaning up src/HiggsAnalysis/CombinedLimit
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gmake/4.2.1-omkpbe2/bin/gmake -f tmp/slc7_amd64_gcc700/Makefile poisoned_edmplugins
+gmake[1]: Entering directory '/storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13'
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+>> Done generating edm plugin poisoned information
+gmake[1]: Leaving directory '/storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13'
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+>> Entering Package HiggsAnalysis/CombinedLimit
+>> Creating project symlinks
+Entering library rule at HiggsAnalysis/CombinedLimit
+>> Building LCG reflex dict from header file src/HiggsAnalysis/CombinedLimit/src/classes.h
+>> Compiling LCG dictionary: tmp/slc7_amd64_gcc700/src/HiggsAnalysis/CombinedLimit/src/HiggsAnalysisCombinedLimit/a/HiggsAnalysisCombinedLimit_xr.cc
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/GaussExp.cxx 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooMultiPdf.cxx 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooParametricHist.cxx 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/AtlasPdfs.cxx 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZGRooPdfs.cxx 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HWWLVJRooPdfs.cxx 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooSpinZeroPdf_2D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooRealFlooredSumPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooSpline1D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SimplerLikelihoodRatioTestStatExt.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/PdfDiagonalizer.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CloseCoutSentry.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ2L2QRooPdfs.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/AsymptoticLimits.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooTaylorExpansion.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SimpleCacheSentry.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CombDataSetFactory.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/TestProposal.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VerticalInterpPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CachingMultiPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SimplePoissonConstraint.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/BayesianToyMC.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/Logger.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/BestFitSigmaTestStat.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SimpleGaussianConstraint.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/JacknifeQuantile.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooCTauPdf_1D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooScaleLOSM.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CMSHistFunc.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooFuncPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooParametricShapeBinPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/ProfiledLikelihoodRatioTestStat.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/DebugProposal.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HWWLVJJRooPdfs.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/MarkovChainMC.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/FeldmanCousins.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooSpinZeroPdf_phase.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/MultiDimFit.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooNCSplineCore.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/th1fmorph.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooSpinZeroPdf_1D_fast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/GBRMath.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SimpleConstraintGroup.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooPiecewisePolynomial.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/TH1Keys.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooCTauPdf_1D_Expanded.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CMSHistFuncWrapper.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/utils.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooBernsteinFast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RobustHesse.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/FitDiagnostics.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooNCSplineFactory_1D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/GenerateOnly.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VectorizedHistFactoryPdfs.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SimplerLikelihoodRatioTestStat.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VectorizedGaussian.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VerticalInterpHistPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HGGRooPdfs.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooFitGlobalKillSentry.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/rVrFLikelihood.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VectorizedCB.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/Significance.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooMorphingPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooDoubleCBFast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooCheapProduct.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooSplineND.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/FastTemplate_Old.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HybridNew.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooNCSplineFactory_2D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SimpleTaylorExpansion1D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/FnTimer.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CMSHistErrorPropagator.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/vectorized.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/tdrstyle.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooNCSpline_1D_fast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CachingNLL.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/ProfiledLikelihoodRatioTestStatExt.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/SequentialMinimizer.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VBFHZZ4L_RooSpinZeroPdf_fast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooSpinZeroPdf_2D_fast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooSimultaneousOpt.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooNCSpline_3D_fast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VectorizedSimplePdfs.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooSpinZeroPdf_phase_fast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooNCSplineFactory_3D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VBFHZZ4L_RooSpinZeroPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/CascadeMinimizer.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooSpinZeroPdf.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/AsymQuad.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/RooNCSpline_2D_fast.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/AsimovUtils.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooSpinZeroPdf_1D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/GoodnessOfFit.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/BayesianFlatPrior.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/AsymPow.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/Combine.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/ToyMCSamplerOpt.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/ProcessNormalization.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/ChannelCompatibilityCheck.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/FitterAlgoBase.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4LRooPdfs.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/HZZ4L_RooCTauPdf_2D.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/ProfilingTools.cc 
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/src/VVHZZ4L_RooSpinZeroPdf_1D_fast.cc 
+>> Building shared library tmp/slc7_amd64_gcc700/src/HiggsAnalysis/CombinedLimit/src/HiggsAnalysisCombinedLimit/libHiggsAnalysisCombinedLimit.so
+Copying tmp/slc7_amd64_gcc700/src/HiggsAnalysis/CombinedLimit/src/HiggsAnalysisCombinedLimit/libHiggsAnalysisCombinedLimit.so to productstore area:
+>> Checking EDM Class Version for src/HiggsAnalysis/CombinedLimit/src/classes_def.xml in libHiggsAnalysisCombinedLimit.so
+@@@@ ----> OK  EDM Class Version 
+>> Checking EDM Class Transients in libHiggsAnalysisCombinedLimit.so
+@@@@ ----> OK  EDM Class Transients 
+Leaving library rule at HiggsAnalysis/CombinedLimit
+------- copying files from src/HiggsAnalysis/CombinedLimit/scripts -------
+>> copied commentUncerts.py
+>> copied text2workspace.py
+>> copied pruneUncerts.py
+>> copied combineCards.py
+>> Compiling  /storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13/src/HiggsAnalysis/CombinedLimit/bin/combine.cpp 
+>> Building binary combine
+Copying tmp/slc7_amd64_gcc700/src/HiggsAnalysis/CombinedLimit/bin/combine/combine to productstore area:
+>> Leaving Package HiggsAnalysis/CombinedLimit
+>> Package HiggsAnalysis/CombinedLimit built
+gmake[1]: Entering directory '/storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13'
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+>> Creating project symlinks
+>> Done python_symlink
+>> Compiling python modules python
+>> Compiling python modules src/HiggsAnalysis/CombinedLimit/python
+>> All python modules compiled
+>> Plugins of all types refreshed.
+>> Done generating edm plugin poisoned information
+gmake[1]: Leaving directory '/storage/local/data1/condor/execute/dir_62714/CMSSW_10_2_13'
+... retrieving bbbb executables tarball
+xrdcp: Destination not specified.
+
+Usage:   xrdcp [<options>] <src> [<src> [. . .]] <dest>
+
+Options: [--cksum <args>] [--debug <lvl>] [--coerce] [--dynamic-src]
+         [--force] [--help] [--infiles <fn>] [--license] [--nopbar]
+         [--path] [--posc] [--proxy <host>:<port>] [--recursive]
+         [--retry <n>] [--server] [--silent] [--sources <n>] [--streams <n>]
+         [--tpc {first|only}] [--verbose] [--version] [--xrate <rate>]
+         [--parallel <n>] [--zip <file>]
+<src>:   [[x]root://<host>[:<port>]/]<path> | -
+<dest>:  [[x]root://<host>[:<port>]/]<path> | -
+... uncompressing bbbb executables tarball
+tar (child): test.tar.gz: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+rm: cannot remove 'test.tar.gz': No such file or directory
+... retrieving filelist
+RUN JOBS HERE
+... job finished with status 0
+... finished job on  Tue Jun 6 18:32:41 UTC 2023
+... exiting script

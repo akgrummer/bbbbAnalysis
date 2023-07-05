@@ -281,11 +281,11 @@ int main(int argc, char** argv)
     }
 
 
-    // std::vector<std::string> optionList {"statOnly", "syst"};
-    // std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
+    std::vector<std::string> optionList {"statOnly", "syst"};
+    std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
 
-    std::vector<std::string> optionList {"syst"};
-    std::vector<std::string> yearList {"RunII"};
+    // std::vector<std::string> optionList {"syst"};
+    //std::vector<std::string> yearList {"RunII"};
 
     for(const auto & year : yearList)
     {

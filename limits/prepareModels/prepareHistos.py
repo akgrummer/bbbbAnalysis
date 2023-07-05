@@ -15,20 +15,20 @@ addForUnrolling = "_Rebinned_Unrolled"
 
 def combine_histos_quadrature (histo_list, h_nominal, name):
     """ for every bin, compute the pos and neg separations, and then sum them in quadrature separately """
-    
+
     h_up = h_nominal.Clone(name + 'Up')
     h_dn = h_nominal.Clone(name + 'Down')
 
     for ibin in range(1, h_nominal.GetNbinsX()+1):
-        
+
         deltas_up = [0] # 0 delta protects against one-sided variations
         deltas_dn = [0] # 0 delta protects against one-sided variations
         y_nominal = h_nominal.GetBinContent(ibin)
-        
+
         for h in histo_list:
             y_this = h.GetBinContent(ibin)
             delta  = y_this - y_nominal
-            
+
             if delta >= 0:
                 deltas_up.append(delta)
             else:
@@ -44,20 +44,20 @@ def combine_histos_quadrature (histo_list, h_nominal, name):
 
 def combine_histos_maxmin (histo_list, h_nominal, name):
     """ for every bin, compute the pos and neg separations, and then sum them in quadrature separately """
-    
+
     h_up = h_nominal.Clone(name + 'Up')
     h_dn = h_nominal.Clone(name + 'Down')
 
     for ibin in range(1, h_nominal.GetNbinsX()+1):
-        
+
         deltas_up = [0] # 0 delta protects against one-sided variations
         deltas_dn = [0] # 0 delta protects against one-sided variations
         y_nominal = h_nominal.GetBinContent(ibin)
-        
+
         for h in histo_list:
             y_this = h.GetBinContent(ibin)
             delta  = y_this - y_nominal
-            
+
             if delta >= 0:
                 deltas_up.append(delta)
             else:
@@ -82,7 +82,7 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
     rootFileName = "outPlotter.root"
     if group != "none": rootFileName = "outPlotter_massGroup" + str(group) + ".root"
     file = ROOT.TFile.Open("%s/%s" % (directory, rootFileName) )
-    
+
     os.system('rm -rf %s'%folder)
     os.system('mkdir -p %s'%folder)
     #Open output file
@@ -92,10 +92,10 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
             #Get histograms
             # h=ROOT.TH1F()
             #print "%s/Bfolder4_%s_SR_110_Histogram/%s_Bfolder4_%s_SR_110_Histogram_%s"%(process,categandobs[k][0],process,categandobs[k][0],categandobs[k][1])
-            
-            h = file.Get(get_h_nominal_name(process, categandobs[k][0], categandobs[k][1])) 
+
+            h = file.Get(get_h_nominal_name(process, categandobs[k][0], categandobs[k][1]))
             print get_h_nominal_name(process, categandobs[k][0], categandobs[k][1])
-            
+
             newname = process if process not in process_rename else process_rename[process]
             h.SetName("%s" % newname)
 
@@ -105,7 +105,7 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
         ### now systematics
         for process in processes:
             newname = process if process not in process_rename else process_rename[process]
-            
+
             h_nominal = file.Get(get_h_nominal_name(process, categandobs[k][0], categandobs[k][1]))
 
             # parsing the input systematics
@@ -114,7 +114,7 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
                 sys_dirs    = sys_desc[1]
                 sys_read    = sys_desc[2]
                 sys_outname = sys_desc[3] if len(sys_desc) > 3 else sys_name
-                
+
                 variable  = categandobs[k][1]
                 selection = categandobs[k][0]
 
@@ -138,9 +138,9 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
                         continue ## some cases (e.g. the data) won't have it
 
                     outname_proto = '{sample}_{syst}{Dir}'
-                    if sd == 'up' or sd == '_up' or sd == 'Up' or sd == "_Up" or sd == 'upRefined':
+                    if sd == 'up' or sd == '_up' or sd == 'Up' or sd == "_Up" or sd == 'upRefined' or sd == 'hourglass_up':
                         Dir = 'Up'
-                    elif sd == 'down' or sd == '_down' or sd == 'Down' or sd == "_Dn" or sd == 'downRefined':
+                    elif sd == 'down' or sd == '_down' or sd == 'Down' or sd == "_Dn" or sd == 'downRefined' or sd == 'hourglass_down':
                         Dir = 'Down'
                     elif sd is None:
                         Dir = ''
@@ -153,7 +153,7 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
 
             # making the combination of input systematics
             for comb_desc in syst_to_comb:
-                
+
                 inputs = comb_desc['inputs']
 
                 if comb_desc['read_as'] == 'wsyst':
@@ -186,7 +186,7 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
                 ## compute the variations according to the method
                 if comb_desc['combine'] == 'quadrature':
                     h_up, h_down = combine_histos_quadrature (histos_to_comb, h_nominal, comb_desc['name'])
-                    
+
                 elif comb_desc['combine'] == 'maxmin':
                     h_up, h_down = combine_histos_maxmin (histos_to_comb, h_nominal, comb_desc['name'])
                 else:
@@ -194,7 +194,7 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
 
                 h_up   .SetName(outname_proto.format(sample=newname, syst=comb_desc['name'], Dir='Up'))
                 h_down .SetName(outname_proto.format(sample=newname, syst=comb_desc['name'], Dir='Down'))
-                
+
                 # print " --------- ", process,categandobs[k][0],process,categandobs[k][0],categandobs[k][1]
                 # print h_nominal.GetName(), h_nominal.Integral()
                 # print h_up.GetName(), h_up.Integral()
@@ -203,7 +203,7 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
                 h_up   .Write()
                 h_down .Write()
 
-        hfile.Close()       
+        hfile.Close()
 #############COMMAND CODE IS BELOW ######################
 
 ###########OPTIONS

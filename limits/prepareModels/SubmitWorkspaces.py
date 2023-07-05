@@ -54,6 +54,10 @@ print "... Welcome", username
 outputDirNoEos = "/store/user/{0}/bbbb_limits/"
 eosLink = "root://cmseos.fnal.gov/"
 outputDir = eosLink + outputDirNoEos.format(username)
+cmsEnvTar = "cmssw10213.tar.gz" # need to remove the matching dir at end of script
+cmssw_base    = os.environ['CMSSW_BASE']
+cmssw_version = "CMSSW_10_2_13"# os.environ['CMSSW_VERSION']
+scram_arch    = os.environ['SCRAM_ARCH']
 listOfSystematics = ["CMS_bkgnorm_YEAR", "CMS_bkgShape_YEAR", "CMS_hourglassShape_YEAR", "lumi_13TeV_YEAR", "CMS_trg_eff_YEAR", "CMS_l1prefiring_YEAR", "CMS_eff_b_b_YEAR", "CMS_eff_b_c_YEAR", "CMS_eff_b_udsg_YEAR", "CMS_PU", "CMS_scale_j_Total_YEAR", "CMS_res_j_YEAR", "CMS_res_j_breg_YEAR",  "CMS_LHE_pdf", "CMS_PS_weights"]
 
 blindFlag = " --run blind "
@@ -89,9 +93,6 @@ outPlotFileNameProto     = "outPlotter_{0}_{1}.root"
 
 allLimitOptions = copy.deepcopy(LimitOptions)
 if args.impacts: allLimitOptions.update(LimitOptionsForImpacts)
-cmssw_base    = os.environ['CMSSW_BASE']
-cmssw_version = os.environ['CMSSW_VERSION']
-scram_arch    = os.environ['SCRAM_ARCH']
 
 tarName      = 'LimitCalculator.tar.gz' #%s_tar.tgz' % cmssw_version
 limitWorkDir = os.getcwd()
@@ -180,16 +181,29 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
     writeln(outScript, 'echo "... starting job on " `date` #Date/time of start of job')
     writeln(outScript, 'echo "... running on: `uname -a`" #Condor job is running on this node')
     writeln(outScript, 'echo "... system software: `cat /etc/redhat-release`" #Operating System on that node')
+    ##New setup
+    writeln(outScript, 'echo "New Setup Commands"')
     writeln(outScript, 'source /cvmfs/cms.cern.ch/cmsset_default.sh')
+    writeln(outScript, 'xrdcp -f -s {0}/{1} {1}'.format(outputDir, cmsEnvTar))
+    writeln(outScript, 'tar -xzf %s' % cmsEnvTar)
+    writeln(outScript, 'rm %s' % cmsEnvTar)
     writeln(outScript, 'export SCRAM_ARCH=%s' % scram_arch)
-    writeln(outScript, 'eval `scramv1 project CMSSW %s`' % cmssw_version)
-    writeln(outScript, 'cd %s/src' % cmssw_version)
+    writeln(outScript, 'cd {0}/src'.format(cmssw_version))
+    writeln(outScript, 'scramv1 b ProjectRename')
+    writeln(outScript, 'cd HiggsAnalysis/CombinedLimit/')
     writeln(outScript, 'eval `scramv1 runtime -sh`')
-    writeln(outScript, 'git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit')
-    writeln(outScript, 'cd HiggsAnalysis/CombinedLimit')
-    writeln(outScript, 'git fetch origin')
-    writeln(outScript, 'git checkout v8.2.0')
-    writeln(outScript, 'scramv1 b clean; scramv1 b')
+    writeln(outScript, '')
+    ##Old setup
+    # writeln(outScript, 'source /cvmfs/cms.cern.ch/cmsset_default.sh')
+    # writeln(outScript, 'export SCRAM_ARCH=%s' % scram_arch)
+    # writeln(outScript, 'eval `scramv1 project CMSSW %s`' % cmssw_version)
+    # writeln(outScript, 'cd %s/src' % cmssw_version)
+    # writeln(outScript, 'eval `scramv1 runtime -sh`')
+    # writeln(outScript, 'git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit')
+    # writeln(outScript, 'cd HiggsAnalysis/CombinedLimit')
+    # writeln(outScript, 'git fetch origin')
+    # writeln(outScript, 'git checkout v8.2.0')
+    # writeln(outScript, 'scramv1 b clean; scramv1 b')
     writeln(outScript, 'echo "... retrieving bbbb executables tarball"')
     writeln(outScript, 'xrdcp -f -s %s .' % tarEOSdestLFN) ## force overwrite CMSSW tar
     writeln(outScript, 'echo "... uncompressing bbbb executables tarball"')
@@ -250,31 +264,35 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 
     for year in yearList:
         workspaceName = folderYearName.format(year) + "/datacard" + str(year) + "_selectionbJets_SignalRegion.root"
-        # outputWorkspaceFile  = plotFileFolderProto.format(year) + outFileWorkspaceProto.format(year,signal)
-        # writeln(outScript, 'xrdcp -s -f %s %s' % (workspaceName, outputWorkspaceFile)) ## no force overwrite output in destination
-        for option, combineCommand in allLimitOptions.items():
-            # if "YEAR" in combineCommand:
-            theRealCombineCommand = combineCommand.replace("YEAR", str(year))
-            writeln(outScript, 'echo "... running %s %s datacard"' % (year,option))
-            writeln(outScript, 'combine %s -M AsymptoticLimits --rMax 30 %s --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,blindFlag,theRealCombineCommand))
-            writeln(outScript, 'echo "... execution finished with status $?"')
-            outputLimitFile  = plotFileFolderProto.format(year) + outFileNameProto.format(year,signal,option)
-            writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputLimitFile))
-            writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileName, outputLimitFile)) ## no force overwrite output in destination
-            writeln(outScript, 'echo "... copy done with status $?"')
+        outputWorkspaceFile  = plotFileFolderProto.format(year) + outFileWorkspaceProto.format(year,signal)
+        writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (workspaceName, outputWorkspaceFile))
+        writeln(outScript, 'xrdcp -s -f %s %s' % (workspaceName, outputWorkspaceFile)) ## no force overwrite output in destination
+        writeln(outScript, 'echo "... copy done with status $?"')
+        # for option, combineCommand in allLimitOptions.items():
+        #     # if "YEAR" in combineCommand:
+        #     theRealCombineCommand = combineCommand.replace("YEAR", str(year))
+        #     writeln(outScript, 'echo "... running %s %s datacard"' % (year,option))
+        #     writeln(outScript, 'combine %s -M AsymptoticLimits --rMax 30 %s --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,blindFlag,theRealCombineCommand))
+        #     writeln(outScript, 'echo "... execution finished with status $?"')
+        #     outputLimitFile  = plotFileFolderProto.format(year) + outFileNameProto.format(year,signal,option)
+        #     writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputLimitFile))
+        #     writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileName, outputLimitFile)) ## no force overwrite output in destination
+        #     writeln(outScript, 'echo "... copy done with status $?"')
 
     if args.year == "RunII":
         workspaceName = folderRunIIName + "/datacardRunII_selectionbJets_SignalRegion.root"
-        # outputWorkspaceFile  = plotFileFolderProto.format("RunII") + outFileWorkspaceProto.format("RunII",signal)
-        # writeln(outScript, 'xrdcp -s -f %s %s' % (workspaceName, outputWorkspaceFile)) ## no force overwrite output in destination
-        for option, combineCommand in LimitOptions.items():
-            writeln(outScript, 'echo "... running RunII %s datacard"' % option)
-            writeln(outScript, 'combine %s -M AsymptoticLimits --rMax 30 %s --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,blindFlag,combineCommand))
-            writeln(outScript, 'echo "... execution finished with status $?"')
-            outputLimitFile  = plotFileFolderProto.format("RunII") + outFileNameProto.format("RunII",signal,option)
-            writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputLimitFile))
-            writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileName, outputLimitFile)) ## no force overwrite output in destination
-            writeln(outScript, 'echo "... copy done with status $?"')
+        outputWorkspaceFile  = plotFileFolderProto.format("RunII") + outFileWorkspaceProto.format("RunII",signal)
+        writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (workspaceName, outputWorkspaceFile))
+        writeln(outScript, 'xrdcp -s -f %s %s' % (workspaceName, outputWorkspaceFile)) ## no force overwrite output in destination
+        writeln(outScript, 'echo "... copy done with status $?"')
+        # for option, combineCommand in LimitOptions.items():
+        #     writeln(outScript, 'echo "... running RunII %s datacard"' % option)
+        #     writeln(outScript, 'combine %s -M AsymptoticLimits --rMax 30 %s --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,blindFlag,combineCommand))
+        #     writeln(outScript, 'echo "... execution finished with status $?"')
+        #     outputLimitFile  = plotFileFolderProto.format("RunII") + outFileNameProto.format("RunII",signal,option)
+        #     writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputLimitFile))
+        #     writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileName, outputLimitFile)) ## no force overwrite output in destination
+        #     writeln(outScript, 'echo "... copy done with status $?"')
 
     writeln(outScript, 'cd ${_CONDOR_SCRATCH_DIR}')
     writeln(outScript, 'rm -rf %s' % cmssw_version)

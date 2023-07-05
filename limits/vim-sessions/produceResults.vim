@@ -3,25 +3,27 @@ if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <F1> :set invfullscreena
-vnoremap / /\v
+nnoremap <silent> w :CCTreeWindowToggle
+nnoremap <silent> y :CCTreeWindowSaveCopy
 nnoremap / /\v
+vnoremap / /\v
 vmap [% [%m'gv``
-map \l :set list! " Toggle tabs and EOL
-map \q gqip
 map \  :let @/='' " clear search
+map \q gqip
+map \l :set list! " Toggle tabs and EOL
 vmap ]% ]%m'gv``
 vmap a% [%v]%
 nmap gx <Plug>NetrwBrowseX
 nnoremap j gj
 nnoremap k gk
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
-vnoremap <F1> :set invfullscreen
 nnoremap <F1> :set invfullscreen
+vnoremap <F1> :set invfullscreen
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
 inoremap  =strftime("%c")
 imap fd 
 imap jj 
-cnoremap  
 inoremap  
+cnoremap  
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set background=dark
@@ -50,6 +52,7 @@ set showmatch
 set smartcase
 set softtabstop=4
 set tabstop=4
+set viminfo='20,\"50
 set visualbell
 set whichwrap=b,s,<,>,h,l,[,]
 set wildignore=*.pyc
@@ -65,6 +68,7 @@ set shortmess=aoO
 badd +54 an-scripts/produceAllResults.sh
 badd +15 an-scripts/PlotLimitVsMy_orig.py
 badd +1 Notes/produceResults.md
+badd +182 ../privateTools/ProduceLimitTable.C
 argglobal
 silent! argdel *
 argadd an-scripts/produceAllResults.sh
@@ -181,12 +185,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 54 - ((26 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-54
-normal! 052|
+1
+normal! 0
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

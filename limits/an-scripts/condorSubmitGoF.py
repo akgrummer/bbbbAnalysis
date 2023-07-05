@@ -75,7 +75,6 @@ outScriptNameBareProto   = 'job_{0}.sh'
 outScriptNameProto       = (jobsDir + '/' + outScriptNameBareProto)
 outFileNameProto         = 'Limit_{0}_{1}_{2}.root'
 outFileDatacardProto     = 'datacard_{0}_{1}.txt'
-outFileWorkspaceProto    = 'datacard_{0}_{1}.root'
 outputFileName           = 'higgsCombineTest.AsymptoticLimits.mH120.root'
 baseFolder               = outputDir + '/' + tag
 baseFolderNoEos          = outputDirNoEos.format(username) + '/' + tag
@@ -250,8 +249,6 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 
     for year in yearList:
         workspaceName = folderYearName.format(year) + "/datacard" + str(year) + "_selectionbJets_SignalRegion.root"
-        # outputWorkspaceFile  = plotFileFolderProto.format(year) + outFileWorkspaceProto.format(year,signal)
-        # writeln(outScript, 'xrdcp -s -f %s %s' % (workspaceName, outputWorkspaceFile)) ## no force overwrite output in destination
         for option, combineCommand in allLimitOptions.items():
             # if "YEAR" in combineCommand:
             theRealCombineCommand = combineCommand.replace("YEAR", str(year))
@@ -265,8 +262,6 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 
     if args.year == "RunII":
         workspaceName = folderRunIIName + "/datacardRunII_selectionbJets_SignalRegion.root"
-        # outputWorkspaceFile  = plotFileFolderProto.format("RunII") + outFileWorkspaceProto.format("RunII",signal)
-        # writeln(outScript, 'xrdcp -s -f %s %s' % (workspaceName, outputWorkspaceFile)) ## no force overwrite output in destination
         for option, combineCommand in LimitOptions.items():
             writeln(outScript, 'echo "... running RunII %s datacard"' % option)
             writeln(outScript, 'combine %s -M AsymptoticLimits --rMax 30 %s --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH %s' % (workspaceName,blindFlag,combineCommand))

@@ -174,8 +174,14 @@ void ProduceLimitTable(std::string year, std::string plotInputFileName, std::str
 void ProduceAllLimitTable(int plotVersion=0, int limitVersion=0)
 {
     std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
-      std::string tag="2022Nov14_bJetScoreLoose_shapes2";
-      std::string limitTag="2022Nov22_bJetScoreLoose_shapes2";
+      // std::string tag="2022Nov14_bJetScoreLoose_shapes2";
+      // std::string limitTag="2022Nov22_bJetScoreLoose_shapes2";
+      // std::string submissionDir="fullSubmission_2022Nov";
+      //
+      // std::string tag="2023Feb28_3";
+      // std::string limitTag="2023Feb28";
+      std::string tag="2023Feb28_3";
+      std::string limitTag="2023Feb28_hourglass";
       std::string submissionDir="fullSubmission_2022Nov";
 
     for(auto year : yearList)
@@ -183,7 +189,8 @@ void ProduceAllLimitTable(int plotVersion=0, int limitVersion=0)
         // std::string plotInputFileName  = "DataPlots_fullSubmission_" + year + "_v" + std::to_string(plotVersion) + "/outPlotter.root";
         std::string plotInputFileName  = "VarPlots/rootHists/"+submissionDir+"/"+year+"DataPlots_"+tag+"/outPlotter.root";
         // std::string limitInputFileName = "limits/Limits_fullSubmission_v" + std::to_string(limitVersion) + ".root";
-        std::string limitInputFileName = "limits/Limits_"+limitTag+".root";
+        // std::string limitInputFileName = "limits/data/Limits_"+limitTag+".root";
+        std::string limitInputFileName = "limits/hists/Limits_"+limitTag+".root";
         ProduceLimitTable(year, plotInputFileName, limitInputFileName);
     }
 }

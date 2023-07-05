@@ -35,6 +35,7 @@ for xMass in xMassList:
     theCanvas.SetLogy()
 
     inputGraph2sigmaName = "Limits_{0}/Option_{1}/2SigmaLimit_{0}_{1}_massX_{2}".format(args.year, append, xMass)
+    print("here", inputGraph2sigmaName)
     theGraph2sigma = inputFile.Get(inputGraph2sigmaName)
     theGraph2sigma.SetTitle("")
     theGraph2sigma.GetXaxis().SetTitle("m_{Y} [GeV]")
