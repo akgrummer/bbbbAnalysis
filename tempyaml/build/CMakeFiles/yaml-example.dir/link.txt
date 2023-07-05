@@ -1,0 +1,1 @@
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/bin/c++    -rdynamic CMakeFiles/yaml-example.dir/main.cpp.o  -o yaml-example  third-party/yaml-cpp/libyaml-cpp.a 
