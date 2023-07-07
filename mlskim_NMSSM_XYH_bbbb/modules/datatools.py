@@ -2,6 +2,7 @@ import numpy
 import os
 import math
 import matplotlib
+matplotlib.use('Agg')
 import root_numpy
 import pandas
 import glob

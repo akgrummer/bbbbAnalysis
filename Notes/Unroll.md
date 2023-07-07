@@ -2,6 +2,7 @@
 
 Unrolling for the full analysis study is done with:
 `source ./scripts/UnrollAllSubdir.sh`
+Edit the Tag in that script
 This unrolls the signal region and the validation region
 
 - Unrolling should be done in screen (takes ~4-5 hrs)
@@ -38,5 +39,5 @@ root -l -q './scripts/modifyAllPlotForValidationTest.C("2023Feb28_3_hourglass_un
 root -l -q './scripts/modifyAllPlotForValidationTest.C("2023Feb28_3_trim_VR", "fullSubmission_2022Nov/")'
 root -l -q './scripts/modifyAllPlotForValidationTest.C("2023Feb28_3_VR", "fullSubmission_2022Nov/")'
 
-and still apply the hourglass uncertainty after (after bkg shape, or before? maybe that doesn't matter)
+and still apply the hourglass uncertainty after (after bkg shape, or before? maybe that doesnt matter)
 

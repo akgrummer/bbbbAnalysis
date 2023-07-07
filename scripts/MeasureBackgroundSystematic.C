@@ -48,7 +48,7 @@ struct Rectangle
 class ImprovedPloty : public TH2Poly
 {
     public:
-        ImprovedPloty() : TH2Poly() 
+        ImprovedPloty() : TH2Poly()
         {
             SetStats(false);
         }
@@ -103,7 +103,7 @@ std::array<Hist*, sizeof...(Name)> getHistogramList(std::string inputFileName, N
     TFile inputFile(inputFileName.data());
     std::array<Hist*, sizeof...(Name)> theOutputArray =  {getHistogramFromFile<Hist>(inputFile, histogramName)...};
     inputFile.Close();
-    
+
     return theOutputArray;
 }
 
@@ -127,13 +127,13 @@ float getEntriesInRectangle(const TH2F *theInputHistogram, const Rectangle& theR
 std::pair<Rectangle,Rectangle> getRectangleWithEntries(const TH2F *theInputHistogram, const Rectangle& theRectangle, float numberOfEntries, bool horizontal, bool entriesInLowerRectangle)
 {
     float totalEntries = getEntriesInRectangle(theInputHistogram, theRectangle);
-    
+
     int nBinsX = theInputHistogram->GetNbinsX();
     int nBinsY = theInputHistogram->GetNbinsY();
-    
+
     int firstNBins;
     int secondNBins;
-    
+
     if(horizontal) firstNBins  = nBinsY;
     else firstNBins  = nBinsY;
 
@@ -152,7 +152,7 @@ std::pair<Rectangle,Rectangle> getRectangleWithEntries(const TH2F *theInputHisto
                 theNewRectangle = new Rectangle(theRectangle.fXmin, theRectangle.fXmax, theRectangle.fYmin, tmpDividerValue);
             }
             else
-                theNewRectangle = new Rectangle(theRectangle.fXmin, theRectangle.fXmax, tmpDividerValue, theRectangle.fYmax);  
+                theNewRectangle = new Rectangle(theRectangle.fXmin, theRectangle.fXmax, tmpDividerValue, theRectangle.fYmax);
         }
         else
         {
@@ -179,7 +179,7 @@ std::pair<Rectangle,Rectangle> divideFromRatio(const TH2F *theInputHistogram, co
     float totalEntries = getEntriesInRectangle(theInputHistogram,theRectangle);
     int nBinsX = theInputHistogram->GetNbinsX();
     int nBinsY = theInputHistogram->GetNbinsY();
-    
+
     int firstNBins;
     if(horizontal)
     {
@@ -211,7 +211,7 @@ std::pair<Rectangle,Rectangle> divideFromRatio(const TH2F *theInputHistogram, co
             float binCenter = theInputHistogram->GetXaxis()->GetBinCenter(nBin1);
             if(binCenter < theRectangle.fXmin || binCenter > theRectangle.fXmax) continue;
         }
-        currentRatio = getEntriesInRectangle(theInputHistogram,*theNewRectangle)/totalEntries; 
+        currentRatio = getEntriesInRectangle(theInputHistogram,*theNewRectangle)/totalEntries;
         if(currentRatio >= ratioContentLowRectangle) break;
         else
         {
@@ -265,7 +265,7 @@ std::vector<Rectangle> alternateHalfDivide(const TH2F *theInputHistogram, const 
             theOutputRectangleVector.emplace_back(rectanglePair.second);
         }
     }
-    
+
     return theOutputRectangleVector;
 
 }
@@ -300,7 +300,7 @@ std::vector<Rectangle> alternateDivideUntil(const TH2F *theInputHistogram, const
         theOutputRectangleVector.clear();
         for(auto rectangle : theCurrentRectangleVector) theOutputRectangleVector.emplace_back(rectangle);
     } while(stillToBeDivided);
-    
+
     return theOutputRectangleVector;
 
 }
@@ -312,14 +312,14 @@ void MeasureBackgroundSystematicShape(std::string inputFileName, std::string Fou
     auto ThreeBtagHistogram = histogramList[1];
 
     ThreeBtagHistogram->Scale(FourBtagHistogram->Integral(0,9999999,0,9999999)/ThreeBtagHistogram->Integral(0,9999999,0,9999999));
-    
+
     std::vector<Rectangle> theBinList;
 
     Rectangle theTotalRectangle
         (
-            FourBtagHistogram->GetXaxis()->GetXmin(), 
+            FourBtagHistogram->GetXaxis()->GetXmin(),
             FourBtagHistogram->GetXaxis()->GetXmax(),
-            FourBtagHistogram->GetYaxis()->GetXmin(), 
+            FourBtagHistogram->GetYaxis()->GetXmin(),
             FourBtagHistogram->GetYaxis()->GetXmax()
         );
     std::cout<<FourBtagHistogram->GetXaxis()->GetXmax()<<std::endl;
@@ -332,7 +332,7 @@ void MeasureBackgroundSystematicShape(std::string inputFileName, std::string Fou
     auto rectanglePair_1c = divideFromRatio(FourBtagHistogram, rectanglePair_1b.first, 1./2., false);
     theBinList.push_back(rectanglePair_1c.first);
     theBinList.push_back(rectanglePair_1c.second);
-    
+
     // auto rectanglePair_1d = rectanglePair_1.first.divide(1100.,true);
     // theBinList.push_back(rectanglePair_1d.second);
 
@@ -377,7 +377,7 @@ void MeasureBackgroundSystematicShape(std::string inputFileName, std::string Fou
     FourBtagPoly->fillFromHistogram(FourBtagHistogram);
     // FourBtagPoly->Fill(400., 150., 10.);
     // FourBtagPoly->Fill(1600., 400., 5.);
-    
+
     TCanvas *theCanvasShapeSystematic = new TCanvas("CanvasShapeSystematic","CanvasShapeSystematic", 1400,800);
     theCanvasShapeSystematic->Divide(2,2);
     theCanvasShapeSystematic->cd(1);
@@ -385,7 +385,7 @@ void MeasureBackgroundSystematicShape(std::string inputFileName, std::string Fou
     // FourBtagPoly->SetMinimum(1e2);
     // FourBtagPoly->SetMaximum(1e5);
     // theCanvas->SetLogz();
-    
+
     ImprovedPloty *ThreeBtagPoly = new ImprovedPloty();
     ThreeBtagPoly->SetDirectory(0);
     ThreeBtagPoly->SetNameTitle("ThreeBtag_entries","Bkg model events");
@@ -455,7 +455,7 @@ void MeasureBackgroundSystematicShape(std::string inputFileName, std::string Fou
     SystematicPolyNo4Bstat->Write();
     SystematicPoly->Write();
     outputFile.Close();
-    
+
 }
 
 void doMeasureShape(float minEntriesPerRectangle, std::string tagName, int year)
@@ -482,7 +482,7 @@ std::tuple<Hist*, Hist*> dividePlots(const Hist* referencePlot, const Hist* inpu
     {
         float referenceValue = referencePlot->GetBinContent(nBin);
         float referenceError = referencePlot->GetBinError  (nBin);
-        if(referenceValue == 0.) 
+        if(referenceValue == 0.)
         {
             referenceValue = 1.;
             referenceError = 1.;
@@ -508,7 +508,7 @@ void MeasureBackgroundSystematicNormalizationOld(std::string inputFileName, std:
 
     FourBtagHistogram->Rebin(2);
     ThreeBtagHistogram->Rebin(2);
-    
+
     TCanvas *theCanvasNormalization = new TCanvas("NormalizationSyst","NormalizationSyst", 1000,800);
     auto theRatioPlots = dividePlots(FourBtagHistogram, ThreeBtagHistogram);
     TH1F *ratio = std::get<0>(theRatioPlots);
@@ -555,7 +555,7 @@ void MeasureBackgroundSystematicNormalizationOld(std::string inputFileName, std:
     }
     std::cout<< "Maximum normalization deviation = " << maxDeviation*100 <<"%"<<std::endl;
     std::cout<< "Miniumum bin content = " << minBinContent<<std::endl;
-    
+
     TCanvas *theCanvasratioDeviation = new TCanvas("NormalizationratioDeviationSyst","NormalizationratioDeviationSyst", 1000,800);
     ratioDeviationHistogram->Fit("gaus");
     ratioDeviationHistogram->GetXaxis()->SetTitle("1-ratio");
@@ -570,7 +570,7 @@ void doMeasureNormOld(std::string tagName, int year)
 {
     gROOT->SetBatch(true);
     std::string inputFileName = "VarPlots/rootHists/fullSubmission_2022Nov/" +std::to_string(year)+ "DataPlots_" + tagName + "/outPlotter.root";
-    
+
     gROOT->ForceStyle();
     MeasureBackgroundSystematicNormalizationOld(inputFileName,
         "data_BTagCSV/selectionbJets_ValidationRegionBlinded/data_BTagCSV_selectionbJets_ValidationRegionBlinded_H1_m",
@@ -649,7 +649,7 @@ void MeasureBackgroundSystematicNormalization(std::string inputFileName, std::st
     }
     std::cout<< "Maximum normalization deviation = " << maxDeviation*100 <<"%"<<std::endl;
     std::cout<< "Miniumum bin content = " << minBinContent<<std::endl;
-    
+
     std::string canvasNameRatio = "NormalizationratioDeviationSyst_massGroup" + std::to_string(group);
     TCanvas *theCanvasratioDeviation = new TCanvas(canvasNameRatio.c_str(), canvasNameRatio.c_str(), 1000,800);
     // ratioDeviationHistogram->Fit("gaus");
@@ -668,22 +668,25 @@ void doMeasureNorm(std::string tagName, int year)
 {
 
     std::map<int, std::pair<float, float>> theMassGroupList;
-    theMassGroupList[0] = std::make_pair(212.,  800.);
-    theMassGroupList[1] = std::make_pair(300., 1000.);
+    // theMassGroupList[0] = std::make_pair(212.,  800.);
+    // theMassGroupList[1] = std::make_pair(300., 1000.);
+    theMassGroupList[0] = std::make_pair(340.,  800.);
+    theMassGroupList[1] = std::make_pair(340., 1000.);
     theMassGroupList[2] = std::make_pair(450., 1200.);
     theMassGroupList[3] = std::make_pair(600., 1600.);
-    theMassGroupList[4] = std::make_pair(950., 2320.);
+    // theMassGroupList[4] = std::make_pair(950., 2320.);
+    theMassGroupList[4] = std::make_pair(950., 1936.);
 
     gROOT->SetBatch(true);
     /* std::string inputFileName = "DataPlots_" + tagName + "/outPlotter.root"; */
     std::string inputFileName = "VarPlots/rootHists/fullSubmission_2022Nov/" +std::to_string(year)+ "DataPlots_" + tagName + "/outPlotter.root";
-    
+
     gROOT->ForceStyle();
     for(const auto& massGroup : theMassGroupList)
     {
         MeasureBackgroundSystematicNormalization(inputFileName,
             "data_BTagCSV/selectionbJets_ValidationRegionBlinded/data_BTagCSV_selectionbJets_ValidationRegionBlinded_HH_kinFit_m_H1_m",
-            "data_BTagCSV_dataDriven_kinFit/selectionbJets_ValidationRegionBlinded/data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded_HH_kinFit_m_H1_m", 
+            "data_BTagCSV_dataDriven_kinFit/selectionbJets_ValidationRegionBlinded/data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded_HH_kinFit_m_H1_m",
             year, massGroup.first, massGroup.second.first, massGroup.second.second);
     }
     gROOT->SetBatch(false);
@@ -698,7 +701,7 @@ void MeasureBackgroundSystematicCRhole(TVirtualPad *theCanvas, std::string input
     auto ThreeBtagHistogramHole = histogramList[2];
 
     int yBinMin, yBinMax;
-    
+
     yBinMin = FourBtagHistogram->GetYaxis()->FindBin(CRcutMin);
     if(FourBtagHistogram->GetYaxis()->GetBinLowEdge(yBinMin) < CRcutMin) --yBinMin;
     yBinMax = FourBtagHistogram->GetYaxis()->FindBin(CRcutMax);
@@ -774,7 +777,7 @@ void MeasureBackgroundSystematicCRhole(TVirtualPad *theCanvas, std::string input
     float rationHoleMax = ratioHoleDeviationHistogram->GetMaximum();
     float theMax = rationHoleMax>ratioMax ? rationHoleMax : ratioMax;
     ratioDeviationHistogram->SetMaximum(theMax*1.4);
-    
+
     // TCanvas *theCanvasratioDeviation = new TCanvas("NormalizationratioDeviationSyst","NormalizationratioDeviationSyst", 1000,800);
     theCanvas->cd();
     TF1 *theFirstGaus = new TF1("theFirstGaus","gaus", -2,2);
@@ -823,11 +826,11 @@ void doMeasureCRhole(std::string tagName, int year)
     gROOT->SetBatch(true);
     std::string canvasName = "Systematic_CRHole_" + std::to_string(year);
     std::string inputFileName = "DataPlots_" + tagName + "/outPlotter.root";
-    
+
     TCanvas *theCanvas = new TCanvas(canvasName.data(), canvasName.data(), 1400, 800);
     theCanvas->DivideSquare(6,0.005,0.005);
 
-    
+
     MeasureBackgroundSystematicCRhole(theCanvas->cd(1), inputFileName,
         "data_BTagCSV/selectionbJets_ValidationRegionBlinded/data_BTagCSV_selectionbJets_ValidationRegionBlinded_HH_kinFit_m_H2_m",
         "data_BTagCSV_dataDriven_kinFit/selectionbJets_ValidationRegionBlinded/data_BTagCSV_dataDriven_kinFit_selectionbJets_ValidationRegionBlinded_HH_kinFit_m_H2_m",
@@ -860,7 +863,7 @@ void doMeasureCRhole(std::string tagName, int year)
         305, 345, 4, year);
 
     theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").data());
-    
+
     gROOT->SetBatch(false);
 }
 

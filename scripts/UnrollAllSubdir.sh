@@ -1,5 +1,6 @@
 # TAG=2022Nov14_bJetScoreLoose_shapes2
-TAG=2023Feb28_3_trim
+# TAG=2023Feb28_3_trim
+TAG=2023Jul5 # everything is trimmed now - starting from the BDT, and the fill
 submissionDir=fullSubmission_2022Nov
 cd scripts && g++  -std=c++17 -I `root-config --incdir` -o Unroll2DplotsSubRange Unroll2DplotsSubRange.cc `root-config --libs` -O3 ; cd -
 

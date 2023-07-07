@@ -49,3 +49,25 @@ then
 source ./scripts/mergeHistograms.sh 2023Mar23_offShell
 
 source ./scripts/mergeHistograms.sh 2023Mar23_offShell_rebin
+
+# Fill for 2023Jul5
+edit and submit with the submitAllfillonTier3_RunII.sh
+in the shell script submitAllfillonTier3_RunII.sh:
+need to edit the (1) cfg file and (2) the tag accordingly
+now submitting jobs for both the Limits plotting and Variable Plots at the same time
+
+Submitting the jobs takes ~30 min - would be nicer to run the submissions in screen. Jobs don't take very long to complete.  Would be faster to tar the compiled cmssw and ship it with the jobs instead of compile each separately (like done in the GoF)
+
+for Variable plots:
+config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
+for plots for Limits:
+config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+
+using the same selection cfg files for both sets of jobs
+
+Memory request in t3submit script is set to 512M
+
+Then: main merge takes ~10/15 min
+source ./scripts/mergeHistograms.sh 2023Jul5
+source ./scripts/mergeHistograms.sh 2023Jul5_vars
+

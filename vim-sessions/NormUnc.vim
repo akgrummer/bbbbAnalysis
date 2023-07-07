@@ -13,32 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +125 mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py
-badd +1 mlskim_NMSSM_XYH_bbbb/config/outputskim_2016_Full_kinFit.cfg
-badd +15 mlskim_NMSSM_XYH_bbbb/config/outputskim_2017_Full_kinFit.cfg
-badd +12 mlskim_NMSSM_XYH_bbbb/config/outputskim_2018_Full_kinFit.cfg
-badd +1 mlskim_NMSSM_XYH_bbbb/modules/ConfigurationReader.py
-badd +26 Notes/BDT.md
-badd +65 vim-sessions/BDT.vim
-badd +184 mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py
-badd +6 Notes/Reminders.md
-badd +5 scripts/ApplyBDTs.sh
-badd +144 mlskim_NMSSM_XYH_bbbb/modules/datatools.py
-badd +26 mlskim_NMSSM_XYH_bbbb/modules/bdtreweighter.py
-badd +97 mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py
+badd +682 scripts/MeasureBackgroundSystematic.C
+badd +8 Notes/BKGNormUnc.md
 argglobal
 %argdel
-$argadd mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py
-edit Notes/BDT.md
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
+$argadd scripts/MeasureBackgroundSystematic.C
+edit Notes/BKGNormUnc.md
 argglobal
-balt mlskim_NMSSM_XYH_bbbb/modules/datatools.py
+balt scripts/MeasureBackgroundSystematic.C
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -49,11 +31,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 26 - ((16 * winheight(0) + 17) / 34)
+let s:l = 7 - ((6 * winheight(0) + 18) / 37)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 26
+keepjumps 7
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
@@ -62,14 +44,11 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
-set hlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

@@ -2,6 +2,7 @@ import numpy
 from ROOT import TFile, TH1F, TCanvas, gROOT, kTRUE, gPad, TLegend, gStyle, kRed, kBlue,TPad, TLatex, TLine, TH2F
 import os
 import matplotlib
+matplotlib.use('Agg')
 import root_numpy
 import pandas
 import glob

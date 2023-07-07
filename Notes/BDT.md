@@ -23,7 +23,7 @@ python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_b
 python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_bbbb/config/outputskim_2017_Full_kinFit.cfg --bJetScore
 python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config mlskim_NMSSM_XYH_bbbb/config/outputskim_2018_Full_kinFit.cfg --bJetScore
 
-## 2023 Jun 30
+## 2023 July 5
 
 Rerunning the BDT now with mX cuts at 340 and 1936
 
@@ -104,3 +104,21 @@ python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmiss
 # python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Apr10_10folds
 python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Apr10_10folds
 # python mlskim_NMSSM_XYH_bbbb/ApplyBkg_Uncertainty.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Apr10_10folds
+
+# New BDT mX boundaries 2023 Jul 5
+!! Don't run in parallel
+
+- Nominal vars
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Jul5
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Jul5
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Jul5
+
+- Upshape
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Jul5_up
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Jul5_up
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Jul5_up
+
+- Down shape
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2016_v27_BDTweights_2023Jul5_down
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2017_v27_BDTweights_2023Jul5_down
+python mlskim_NMSSM_XYH_bbbb/ApplyBackgroundModel.py --dir BDToutput/fullSubmission_2018_v27_BDTweights_2023Jul5_down
