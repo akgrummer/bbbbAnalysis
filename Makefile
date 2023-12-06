@@ -1,7 +1,7 @@
-  
+
 SRC=src
 
-.PHONY: all clean cleandict exe test
+.PHONY: all clean cleandict exe fabio_src
 
 all:
 	$(MAKE) -C $(SRC)
@@ -11,5 +11,5 @@ clean:
 	$(MAKE) -C $(SRC) clean
 exe:
 	$(MAKE) -C $(SRC) exe
-test:
-	$(MAKE) -C $(SRC) test
+fabio_src:
+	$(MAKE) -C $(SRC) fabio_src
