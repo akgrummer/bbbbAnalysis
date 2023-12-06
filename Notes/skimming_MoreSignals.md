@@ -119,38 +119,38 @@ Comparing PU root files in TBrowser:
 
 ## for skimming:
 
-using:
-./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh
-based on the orig file discussed above:
+using:<br>
+./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh<br>
+based on the orig file discussed above:<br>
 ./scripts/submitAllSkimsOnTier3_2017_moreSignals.sh
 
-!! future note - should have used the same submission tag for all signal mass points
-ie `submitTag="moreSignals_mX650_mY${mYval}_${year}"` should not have the mY or year in it
+!! future note - should have used the same submission tag for all signal mass points<br>
+ie `submitTag="moreSignals_mX650_mY${mYval}_${year}"` should not have the mY or year in it<br>
 - just results in busier output in the eosls bbbb_ntuples directory
 
 ## failed skim jobs
 
 for MX650 signals started at 60 jobs with at least one error
-most (54) errors are that file is not able to open
-`Server responded with an error: [3000] Unable to open` one of the dataset files
+
+most (54) errors are that file is not able to open<br>
+`Server responded with an error: [3000] Unable to open` one of the dataset files<br>
 (sometimes the number 3000 is slightly different
 
-
-found failed jobs with grep
+found failed jobs with grep<br>
 `grep -irl -e "Server responded with an error" -e "zombie" CondorJobs/skimming/`
 ```
 CondorJobs/skimming/jobs_moreSignals_mX650_mY450_2018_Total_down/SKIM_NMSSM_XToYHTo4B_MX-650_MY-450_2018/job_1.sh_79737930.stdout:Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3000] Unable to open - cannot determine the prefix path to use for the given filesystem id /store/mc/RunIIAutumn18NanoAODv7/NMSSM_XToYHTo4B_MX-650_MY-450_TuneCP5_13TeV-madgraph-pythia8/NANOAODSIM/Nano02Apr2020_102X_upgrade2018_realistic_v21-v2/70000/88076FDF-9AFF-BF40-BFC8-526FF3328832.root; invalid argument
 ```
 
-additionally, some (7) errors are:
+additionally, some (7) errors are:<br>
 `matrix is singular, 0 diag elements < tolerance of 2.2204e-16`
 ```
 Error in <TDecompLU::DecomposeLUCrout>: matrix is singular
 Error in <TDecompLU::InvertLU>: matrix is singular, 0 diag elements < tolerance of 2.2204e-16
 ```
-but I think these are for single events - because it happens during event processing
-- so probably very minimal impact
-files with the issue:
+but I think these are for single events - because it happens during event processing<br>
+- so probably very minimal impact.<br>
+files with the issue:<br>
 ```
 >>> grep -irl "matrix is singular" CondorJobs/skimming/
 CondorJobs/skimming/jobs_moreSignals_mX650_mY70_2016_bjer_up/SKIM_NMSSM_XToYHTo4B_MX-650_MY-70_2016/job_0.sh_79737874.stdout
@@ -162,19 +162,19 @@ CondorJobs/skimming/jobs_moreSignals_mX650_mY500_2016_bjer_up/SKIM_NMSSM_XToYHTo
 CondorJobs/skimming/jobs_moreSignals_mX650_mY60_2017_bjer_up/SKIM_NMSSM_XToYHTo4B_MX-650_MY-60_2017/job_1.sh_79737881.stdout
 ```
 
-resubmitted failed skim jobs with
-`./Resub_2023Dec6.sh`
-(until file not found errors go away)
-- copies the log, stdout and stderr files to another folder and
+resubmitted failed skim jobs with<br>
+`./Resub_2023Dec6.sh`<br>
+(until file not found errors go away)<br>
+- copies the log, stdout and stderr files to another folder and<br>
 - then resubmits the sh script
 
-- could also consider increasing the number of jobs (so there are fewer files to look up per job)
-in orignal submission: `./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh`
+- could also consider increasing the number of jobs (so there are fewer files to look up per job)<br>
+in orignal submission: `./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh`<br>
 
 ### rsubmitting mX650_mY450_2018_Total_down
 
-after 5 resubmissions got to one job failing. so rewrote `./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh` to `./scripts/submitAllSkimsOnTier3_moreSignals_mX650_mY450_2018_Total_down.sh`
-and resubmitted it with 6 jobs (3files per job) instead of 2 jobs
+after 5 resubmissions got to one job failing. so rewrote `./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh` to `./scripts/submitAllSkimsOnTier3_moreSignals_mX650_mY450_2018_Total_down.sh`<br>
+and resubmitted it with 6 jobs (3files per job) instead of 2 jobs <br>
 
 no errors after resubmit:
 ```
