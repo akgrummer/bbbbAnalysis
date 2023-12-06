@@ -25,5 +25,7 @@ for VR for preparing HISTs for Limits and GoF
     need the TARGET name (run from hourglassUnc/)
     make add_hourglass_unc_VR_forLimits
 
+-> the script looks at outPlotter.root directly, so need to use both versions
+
     differences from the nominal are the region pointed to in the outPlotter.root file
     and the tag where I copied the outPlotter_massgroup* files

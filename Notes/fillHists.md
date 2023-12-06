@@ -71,3 +71,51 @@ Then: main merge takes ~10/15 min
 source ./scripts/mergeHistograms.sh 2023Jul5
 source ./scripts/mergeHistograms.sh 2023Jul5_vars
 
+# for 2023Jul5_binX4
+
+edited the bin arrays for the 2D plots (not the corresponding 1D plots)
+in the selection config files
+use the same:
+config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+
+Memory request in t3submit script is set to 512M
+
+Then: main merge takes ~10/15 min
+source ./scripts/mergeHistograms.sh 2023Jul5_binX4
+
+# for 2023Jul5_binMYx2
+
+same instructions as binX4
+and change tag here
+scripts/submitAllFillOnTier3_RunII.sh
+
+source ./scripts/mergeHistograms.sh 2023Jul5_binMYx2
+
+# for 2023Jul5_binMYx2_MXx2
+
+same instructions as binX4
+and change tag here
+scripts/submitAllFillOnTier3_RunII.sh
+
+source ./scripts/mergeHistograms.sh 2023Jul5_binMYx2_MXx2
+
+# for 2023Nov1_binMYx2_add2017Sig
+
+added new Signal MC for 2017 mX=1000, mY=150
+edited config/Resonant_NMSSM_bbbb/sampleCfg_2017Resonant_NMSSM_XYH_bbbb_all.cfg
+added: sig_NMSSM_bbbb_MX_1000_MY_150  = plotterListFiles/2017Resonant_NMSSM_XYH_bbbb/Signal/FileList_NMSSM_XYH_bbbb_MX_1000_NANOAOD_v7_Full_MY_150_rerun.txt
+
+edited the bin arrays for the 2D plots for all years (not the corresponding 1D plots)
+in the selection config files
+-> nominal mX bins, mY bins x2
+
+
+for plotter script, I think this was just for a study:
+removed sig_NMSSM_bbbb_*_3bScaled
+config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+
+and change tag here
+scripts/submitAllFillOnTier3_RunII.sh
+
+source ./scripts/mergeHistograms.sh 2023Nov1_binMYx2_add2017Sig
+

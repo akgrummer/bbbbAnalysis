@@ -114,10 +114,10 @@ TH1F* UnrollPlot(TH2F* the2Dplot)
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------//
-void calculate_HG_BKGshape(int year, TString tagNew)
+void calculate_HG_BKGshape(int year, TString tag)
 {
     TString tagDir = "fullSubmission_2022Nov/";
-    TString tag= "2023Feb28_3";
+    // TString tag= "2023Feb28_3";
     TString odir = "./hists/";
     TString ifilename = "../VarPlots/rootHists/" + tagDir + Form("%d", year) + "DataPlots_" + tag + "/outPlotter.root";
     // TString ofilename = "hourglass_test_unrolled"+std::to_string(year)+".root";
@@ -158,6 +158,7 @@ void calculate_HG_BKGshape(int year, TString tagNew)
         // mXmax = 1200;
 
         // TString tagNew= "2023Feb28_3_hourglass_unc_VR";
+        TString tagNew= tag+"_VR";
         TString ofilename = "../VarPlots/rootHists/" + tagDir + Form("%d", year) + "DataPlots_" + tagNew + Form("/outPlotter_massGroup%d.root", massGroup.first);
         // TFile *ofile = new TFile(odir+ofilename, "UPDATE");
         TFile *ofile = new TFile(ofilename, "UPDATE");
@@ -216,7 +217,7 @@ void calculate_HG_BKGshape(int year, TString tagNew)
 
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     std::vector<int> massesGroupList {0, 1, 2, 3, 4};
     std::vector<int> yearList {2016, 2017, 2018};
@@ -225,10 +226,12 @@ int main()
     // instead of SR if needed and shape unc. already added
     // TString tagNew= "2023Feb28_3_hourglass_unc_VR";
     // TString tagNew= "2023Feb28_3_trim_VR";
-    TString tagNew= "2023Feb28_3_VR";
+    // TString tagNew= "2023Feb28_3_VR";
+    TString tag = argv[1];
+    // TString tagNew= "2023Jul5_VR";
     for(const auto year : yearList)
     {
-        calculate_HG_BKGshape(year, tagNew);
+        calculate_HG_BKGshape(year, tag);
     }
     return 0;
 }

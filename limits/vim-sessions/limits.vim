@@ -14,7 +14,7 @@ else
   set shortmess=aoO
 endif
 badd +11 prepareModels/SubmitFullRunIILimits.py
-badd +28 Notes/limits.md
+badd +64 Notes/limits.md
 badd +1 prepareModels/config/LimitsConfig_2016.cfg
 badd +41 prepareModels/config/LimitsConfig_2017.cfg
 badd +40 prepareModels/config/LimitsConfig_2018.cfg
@@ -24,11 +24,13 @@ badd +203 prepareModels/listOfSamples.txt
 badd +1 an-scripts/produceAllResults.sh
 badd +1 an-scripts/PlotLimitsFromCondor.cc
 badd +1 an-scripts/PlotLimitsFromCondor_allyears.cc
+badd +68 ~/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit
 argglobal
 %argdel
 $argadd prepareModels/SubmitFullRunIILimits.py
-edit an-scripts/PlotLimitsFromCondor_allyears.cc
+edit Notes/limits.md
 argglobal
+balt ~/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -39,11 +41,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 68 - ((45 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 68
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

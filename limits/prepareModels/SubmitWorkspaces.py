@@ -21,10 +21,22 @@ def writeln(f, line):
 # }
 
 # for analysis Trig Cut 2023Feb28
+# bkgNormPerMassGroupDictionary = {
+#   "2016" : { "0" : "1.018", "1" :  "1.019", "2" :  "1.016", "3" :  "1.016", "4" :  "1.040", "none" : "1.010"},
+#   "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.018", "3" :  "1.012", "4" :  "1.021", "none" : "1.010"},
+#   "2018" : { "0" : "1.043", "1" :  "1.037", "2" :  "1.034", "3" :  "1.023", "4" :  "1.015", "none" : "1.010"},
+# }
+# for ananlysis - new mX boundaries, 2023Jul5
+# bkgNormPerMassGroupDictionary = {
+#   "2016" : { "0" : "1.022", "1" :  "1.022", "2" :  "1.018", "3" :  "1.018", "4" :  "1.042", "none" : "1.010"},
+#   "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.017", "3" :  "1.013", "4" :  "1.019", "none" : "1.010"},
+#   "2018" : { "0" : "1.046", "1" :  "1.039", "2" :  "1.033", "3" :  "1.024", "4" :  "1.012", "none" : "1.010"},
+# }
+# for analysis - with double mY bin widths
 bkgNormPerMassGroupDictionary = {
-  "2016" : { "0" : "1.018", "1" :  "1.019", "2" :  "1.016", "3" :  "1.016", "4" :  "1.040", "none" : "1.010"},
-  "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.018", "3" :  "1.012", "4" :  "1.021", "none" : "1.010"},
-  "2018" : { "0" : "1.043", "1" :  "1.037", "2" :  "1.034", "3" :  "1.023", "4" :  "1.015", "none" : "1.010"},
+  "2016" : { "0" : "1.022", "1" :  "1.022", "2" :  "1.018", "3" :  "1.018", "4" :  "1.042", "none" : "1.010"},
+  "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.017", "3" :  "1.013", "4" :  "1.019", "none" : "1.010"},
+  "2018" : { "0" : "1.046", "1" :  "1.039", "2" :  "1.033", "3" :  "1.024", "4" :  "1.012", "none" : "1.010"},
 }
 
 #  mXandGroup = {300 : 0, 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4, 1800 : 4, 2000 : 4}
@@ -36,6 +48,7 @@ parser.add_argument('--tag'    , dest = 'tag'    , help = 'production tag' , req
 parser.add_argument('--group'  , dest = 'group'  , help = 'mass group'     , required = False, default = "none")
 parser.add_argument('--impacts', dest = 'impacts', help = 'Measure impacts', action='store_true', default=False)
 parser.add_argument('--unblind', dest = 'unblind', help = 'Unblind data'   , action='store_true', default=False)
+parser.add_argument('--samplelist'    , dest = 'samplelist'    , help = 'production tag' , required = True)
 
 args = parser.parse_args()
 
@@ -119,7 +132,7 @@ else:
 
 if os.path.isdir(jobsDir):
     print "... working folder", jobsDir, " already exists, exit"
-    sys.exit()
+    # sys.exit()
 
 cmd='mkdir -p ' + jobsDir
 if os.system(cmd) != 0:
@@ -306,7 +319,8 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 
 ## set directory to job directory, so that logs will be saved there
 os.chdir(jobsDir)
-for signalRaw in open("../../prepareModels/listOfSamples.txt", 'rb').readlines():
+# for signalRaw in open("../../prepareModels/listOfSamples.txt", 'rb').readlines():
+for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'rb').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     command = "%s job_%s.sh" % (t3SubmitScript,signal)

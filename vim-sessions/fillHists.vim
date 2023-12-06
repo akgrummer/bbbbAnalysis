@@ -13,25 +13,25 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +34 scripts/submitAllFillOnTier3_RunII.sh
+badd +38 scripts/submitAllFillOnTier3_RunII.sh
 badd +19 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
 badd +19 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
 badd +19 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
-badd +1606 config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
-badd +1591 config/Resonant_NMSSM_bbbb/selectionCfg_2017Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
-badd +1593 config/Resonant_NMSSM_bbbb/selectionCfg_2018Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+badd +3260 config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+badd +3242 config/Resonant_NMSSM_bbbb/selectionCfg_2017Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+badd +3245 config/Resonant_NMSSM_bbbb/selectionCfg_2018Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
 badd +12 scripts/mergeHistograms.sh
 badd +28 scripts/renameFullSubmissions.sh
 badd +16 scripts/mergeHistograms.py
 badd +6 testpy.py
 badd +64 vim-sessions/fillHists.vim
-badd +55 Notes/fillHists.md
+badd +79 Notes/fillHists.md
 badd +247 scripts/submitFillOnTier3.py
 badd +68 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
 badd +68 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
 badd +68 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
 badd +8 Notes/Reminders.md
-badd +1 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+badd +40 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
 badd +1 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
 badd +1 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
 badd +68 scripts/t3submit
@@ -40,7 +40,7 @@ argglobal
 $argadd config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
 edit Notes/fillHists.md
 argglobal
-balt scripts/t3submit
+balt scripts/submitAllFillOnTier3_RunII.sh
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -51,11 +51,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 53 - ((29 * winheight(0) + 17) / 34)
+let s:l = 74 - ((32 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 53
+keepjumps 74
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

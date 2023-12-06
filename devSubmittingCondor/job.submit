@@ -1,0 +1,13 @@
+universe = vanilla
+Executable = sleep.sh
+Should_Transfer_Files = YES
+transfer_input_files = sleep.sh
+WhenToTransferOutput = ON_EXIT
+Output = sleep_$(time).stdout_\$(Cluster)_\$(Process)
+Error  = sleep_$(time).stderr_\$(Cluster)_\$(Process)
+Log    = sleep_$(time).log_\$(Cluster)_\$(Process)
+notify_user = agrummer@FNAL.GOV
+x509userproxy = /uscms/home/agrummer/x509up_u58219
+request_memory  = 8M
+Arguments = $(time)
+Queue time from mytimes.txt

@@ -1,0 +1,32 @@
+#! /bin/bash
+
+command=$1
+
+if [ "x$command" == "x" ];
+then
+  echo "Missing script"
+  exit 1
+fi
+
+# request_cpus            = 1
+# request_disk            = 128M
+#
+# to append output in stdout file on restart (instead of erase and start over)
+# erase_output_and_error_on_restart = false
+# WhenToTransferOutput = ON_EXIT_OR_EVICT
+
+condor_submit <<EOF
+universe = vanilla
+Executable = ${command}
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Output = ${command}_\$(time).stdout_\$(Cluster)_\$(Process)
+Error  = ${command}_\$(time).stderr_\$(Cluster)_\$(Process)
+Log    = ${command}_\$(time).log_\$(Cluster)_\$(Process)
+notify_user = ${LOGNAME}@FNAL.GOV
+x509userproxy = ${X509_USER_PROXY}
+request_memory  = 8M
+Arguments = \$(time)
+Queue time from mytimes.txt
+
+EOF

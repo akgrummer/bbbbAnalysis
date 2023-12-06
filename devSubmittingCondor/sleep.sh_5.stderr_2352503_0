@@ -1,0 +1,5 @@
++ sleep 5
++ echo '##### HOST DETAILS #####'
++ echo 'I slept for 5 seconds on:'
++ hostname
++ date

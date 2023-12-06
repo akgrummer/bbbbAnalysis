@@ -30,7 +30,7 @@ def formOutName (outputDir, tag, outputName):
     oput = outputDir
     if oput[-1] != '/':
         oput += '/'
-    oput += tag + '/' + outputName 
+    oput += tag + '/' + outputName
     return oput
 
 def parseInputFileList (fileName) :
@@ -107,7 +107,7 @@ oLFN_base = formOutName(odir, args.tag, oname)
 if oLFN_base[-1] == '/':
     oLFN_base = oLFN_base[:-1]
 
-jobsDir                = 'jobs_' + args.tag + '/' + oname
+jobsDir                = 'CondorJobs/skimming/jobs_' + args.tag + '/' + oname
 outListNameBareProto   = 'filelist_{0}.txt'
 outScriptNameBareProto = 'job_{0}.sh'
 outListNameProto       = (jobsDir + '/' + outListNameBareProto)
@@ -296,8 +296,8 @@ if args.xrdcptar:
 else:
     print "** INFO: not going to xrdcp the CMSSW tarball to EOS, assuming it exists at", tarEOSdestLFN
 
-if args.xrdcpflist:    
-    
+if args.xrdcpflist:
+
     print "** INFO: copying input filelists to:", EOSfilelistProto.format('*')
     command = 'eos root://cmseos.fnal.gov mkdir -p %s' % EOSfilelistBase.replace('root://cmseos.fnal.gov/', '/eos/uscms')
      # there is an incompatibility of EOS commands with cmsenv, so this below encapsulated the call of the command in a new shell
@@ -307,7 +307,7 @@ if args.xrdcpflist:
         print "... Not able to execute command \"", command, "\", exit"
         sys.exit()
 
-    
+
     command = 'xrdcp -f -s %s %s' % (outListNameProto.format('*'), EOSfilelistBase)
     if args.verbose: print "** INFO: executing:", command
     if os.system(command) != 0:

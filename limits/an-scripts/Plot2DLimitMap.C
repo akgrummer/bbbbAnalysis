@@ -119,14 +119,15 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
     limitMap->GetZaxis()->SetTitleFont(62);
     limitMap->GetZaxis()->SetTitleSize(0.045);
     limitMap->SetMinimum(1.);
-    limitMap->SetMaximum(2000.);
+    // limitMap->SetMaximum(2000.);
+    limitMap->SetMaximum(900.);
     limitMap->SetStats(false);
     theCanvas->SetLogz();
-    theCanvas->SetLogy();
+    // theCanvas->SetLogy();
 
-    // theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").c_str());
-    theCanvas->SaveAs((std::string(theCanvas->GetName()) + "_log.png").c_str());
-    
+    theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").c_str());
+    // theCanvas->SaveAs((std::string(theCanvas->GetName()) + "_log.png").c_str());
+
 
     if(year == "RunII" && option == "syst")
     {
@@ -160,7 +161,7 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
         limitMap->GetYaxis()->SetTitleOffset(1.15);
         limitMap->SetTitle("");
         limitMap->Draw("colz");
-        
+
         /* std::string inputTheoryFileName = "/uscms/home/fravera/nobackup/DiHiggs_v1/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root"; */
         std::string inputTheoryFileName = "/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/HXSG_NMSSM_recommendations_00.root";
         std::string inputTheoryPlotName = "g_bbbb";
@@ -258,9 +259,9 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
         theoryContour->Draw("box same");
         theTheoryCanvas->SetLogz();
         // theTheoryCanvas->SetLogy();
-        theTheoryCanvas->SetLogy();
-        // theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + ".png").c_str());
-         theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + "_log.png").c_str());
+        // theTheoryCanvas->SetLogy();
+        theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + ".png").c_str());
+         // theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + "_log.png").c_str());
 
 
     }

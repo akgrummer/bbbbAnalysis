@@ -25,11 +25,25 @@
 # python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Mar23_offShell_rebin --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
 #
 # For limits:
-python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2023Jul5 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
-python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Jul5 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
-python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Jul5 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2023Jul5 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Jul5 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Jul5 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
 # For Variable plots:
 # python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2023Jul5_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
 # python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Jul5_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
 # python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Jul5_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
-#
+# for bin x4
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2023Jul5_binX4 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Jul5_binX4 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Jul5_binX4 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2023Jul5_binMYx2 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Jul5_binMYx2 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Jul5_binMYx2 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2023Jul5_binMYx2_MXx2 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Jul5_binMYx2_MXx2 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Jul5_binMYx2_MXx2 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
+
+python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2023Nov1_binMYx2_add2017Sig --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
+python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Nov1_binMYx2_add2017Sig --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
+python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Nov1_binMYx2_add2017Sig --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg

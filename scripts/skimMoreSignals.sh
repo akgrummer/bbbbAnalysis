@@ -1,0 +1,1 @@
+skim_ntuple.exe --cfg config/Resonant_NMSSM_bbbb/skim_2017Resonant_NMSSM_XYH_bbbb.cfg --input MoreSignals/NMSSM_XYH_bbbb_MX_1000_MY_150_NANOAOD_v7_2017.txt --output test_NMSSM_XYH_bbbb_MC.root --is-signal --xs=1 --puWeight weights/2017_NMSSM_XYH_bbbb_weights_MoreSignals//NMSSM_XYH_bbbb_MX_1000_MY_150_NANOAOD_v7_2017_PUweights.root --maxEvt 100000

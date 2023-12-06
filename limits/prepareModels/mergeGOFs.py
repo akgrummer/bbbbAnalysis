@@ -39,7 +39,8 @@ def mergeFiles(sig):
     cmd='mkdir -p ' + folderName
     runCMD(cmd)
     outputFileName = folderName + "/GOF_{0}_{1}_{2}_TOYS.root".format(year,sig,algo)
-    haddCmd = "hadd -f0 " + outputFileName + " `xrdfs root://cmseos.fnal.gov ls -u /store/user/" + username + "/bbbb_limits/" + tag + "/" +"gofFiles_{}".format(year) + " | egrep 'GOF_{0}_{1}_{2}_NTOYS.*\.root'`".format(year,sig,algo)
+    # excluded the sig zeroes - the fixed signal strenth runs
+    haddCmd = "hadd -f0 " + outputFileName + " `xrdfs root://cmseos.fnal.gov ls -u /store/user/" + username + "/bbbb_limits/" + tag + "/" +"gofFiles_{}".format(year) + " | egrep 'GOF_{0}_{1}_{2}_NTOYS.*\.root'| grep -v 'sig0'`".format(year,sig,algo)
     runCMD(haddCmd)
     runCMD('xrdcp -f -s {0}/{1} {2}/{1}'.format(outputDir, 'GOF_{0}_{1}_{2}_DATA.root'.format(year,sig,algo), folderName))
 

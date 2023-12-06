@@ -21,10 +21,17 @@ def writeln(f, line):
 # }
 
 # for analysis Trig Cut 2023Feb28
+# bkgNormPerMassGroupDictionary = {
+#   "2016" : { "0" : "1.018", "1" :  "1.019", "2" :  "1.016", "3" :  "1.016", "4" :  "1.040", "none" : "1.010"},
+#   "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.018", "3" :  "1.012", "4" :  "1.021", "none" : "1.010"},
+#   "2018" : { "0" : "1.043", "1" :  "1.037", "2" :  "1.034", "3" :  "1.023", "4" :  "1.015", "none" : "1.010"},
+# }
+
+# for ananlysis - new mX boundaries, 2023Jul5
 bkgNormPerMassGroupDictionary = {
-  "2016" : { "0" : "1.018", "1" :  "1.019", "2" :  "1.016", "3" :  "1.016", "4" :  "1.040", "none" : "1.010"},
-  "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.018", "3" :  "1.012", "4" :  "1.021", "none" : "1.010"},
-  "2018" : { "0" : "1.043", "1" :  "1.037", "2" :  "1.034", "3" :  "1.023", "4" :  "1.015", "none" : "1.010"},
+  "2016" : { "0" : "1.022", "1" :  "1.022", "2" :  "1.018", "3" :  "1.018", "4" :  "1.042", "none" : "1.010"},
+  "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.017", "3" :  "1.013", "4" :  "1.019", "none" : "1.010"},
+  "2018" : { "0" : "1.046", "1" :  "1.039", "2" :  "1.033", "3" :  "1.024", "4" :  "1.012", "none" : "1.010"},
 }
 
 #  mXandGroup = {300 : 0, 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4, 1800 : 4, 2000 : 4}
@@ -38,6 +45,7 @@ parser.add_argument('--ntoys'    , dest = 'ntoys'    , help = 'production tag' ,
 parser.add_argument('--seed'    , dest = 'seed'    , help = 'production tag' , required = True)
 parser.add_argument('--algo'    , dest = 'algo'    , help = 'production tag' , required = True)
 parser.add_argument('--samplelist'    , dest = 'samplelist'    , help = 'production tag' , required = True)
+parser.add_argument('--fixsig'    , dest = 'fixsig'    , help = 'ability to set signal strength' , required = False, default= None)
 parser.add_argument('--group'  , dest = 'group'  , help = 'mass group'     , required = False, default = "none")
 
 args = parser.parse_args()
@@ -76,11 +84,12 @@ groupString = ""
 if args.group != 'none' and args.group != 'auto' : groupString = ('_massGroup' + args.group)
 tag = tag + groupString
 
-jobsDir                  = 'CondorJobs/jobsLimits_' + tag+ '_' + args.year + '_' +args.tagid
+fixsigTag = "_sig{0}".format(args.fixsig) if args.fixsig is not None else ""
+jobsDir                  = 'CondorJobs/jobsLimits_{0}_{1}_{2}{3}'.format(tag, args.year, args.tagid, fixsigTag)
 outScriptNameBareProto   = 'job_{0}.sh'
 outScriptNameProto       = (jobsDir + '/' + outScriptNameBareProto)
-outFileNameTOYSProto         = 'GOF_{0}_{1}_{2}_NTOYS{3}_id{4}.root'
-outFileNameDATAProto         = 'GOF_{0}_{1}_{2}_DATA.root'
+outFileNameTOYSProto         = 'GOF_{0}_{1}_{2}_NTOYS{3}_id{4}{5}.root'
+outFileNameDATAProto         = 'GOF_{0}_{1}_{2}_DATA{3}.root'
 outFileDatacardProto     = 'datacard_{0}_{1}.txt'
 outFileWorkspaceProto    = 'datacard_{0}_{1}.root'
 # outputFileName           = 'higgsCombineTest.AsymptoticLimits.mH120.root'
@@ -123,7 +132,7 @@ else:
 
 if os.path.isdir(jobsDir):
     print "... working folder", jobsDir, " already exists, exit"
-    sys.exit()
+    # sys.exit()
 
 cmd='mkdir -p ' + jobsDir
 if os.system(cmd) != 0:
@@ -286,19 +295,23 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
         algo=args.algo
         ntoys=args.ntoys
         gof_options ='--redefineSignalPOIs r --setParameters r=1.0 --cminDefaultMinimizerType Minuit2 --cminDefaultMinimizerStrategy 0 --cminDefaultMinimizerTolerance 0.1 --cminFallbackAlgo Minuit2,0:0.2 --cminFallbackAlgo Minuit2,0:0.4 --X-rtd REMOVE_CONSTANT_ZERO_POINT=1'
+        if (args.fixsig is not None):
+            # gof_options+=" --fixedSignalStrength={0}".format(args.fixsig)
+            # gof_options =' --fixedSignalStrength={0} --cminDefaultMinimizerType Minuit2 --cminDefaultMinimizerStrategy 0 --cminDefaultMinimizerTolerance 0.1 --cminFallbackAlgo Minuit2,0:0.2 --cminFallbackAlgo Minuit2,0:0.4 --X-rtd REMOVE_CONSTANT_ZERO_POINT=1'.format(args.fixsig)
+            gof_options =' --fixedSignalStrength={0} --X-rtd MINIMIZER_analytic'.format(args.fixsig)
         if (int(ntoys)==0):
             writeln(outScript, 'combine -M GoodnessOfFit {0} --algo={1} --mass 125.0 {2}'.format(workspaceName, algo, gof_options))
             writeln(outScript, 'echo "... execution finished running DATA with status $?"')
             # writeln(outScript, 'echo "search for output files"')
             # writeln(outScript, 'find ./ -name "higgsCombine*.root"')
-            outputGOFFile  = gofFileFolderProto.format(year) + outFileNameDATAProto.format(year,signal,algo)
+            outputGOFFile  = gofFileFolderProto.format(year) + outFileNameDATAProto.format(year,signal,algo, fixsigTag)
             writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileNameDATA, outputGOFFile))
             writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileNameDATA, outputGOFFile)) ## no force overwrite output in destination
             writeln(outScript, 'echo "... copy done with status $?"')
         else:
             writeln(outScript, 'combine -M GoodnessOfFit {0} --verbose 1 --algo={1} -t {2} -s {3} --toysFreq --mass 125.0 {4}'.format(workspaceName, algo, ntoys, args.seed, gof_options))
             writeln(outScript, 'echo "... execution finished running TOYS with status $?"')
-            outputGOFFile  = gofFileFolderProto.format(year) + outFileNameTOYSProto.format(year,signal,algo, ntoys, args.tagid )
+            outputGOFFile  = gofFileFolderProto.format(year) + outFileNameTOYSProto.format(year,signal,algo, ntoys, args.tagid, fixsigTag)
             writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileNameTOYS.format(args.seed), outputGOFFile))
             writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileNameTOYS.format(args.seed), outputGOFFile)) ## no force overwrite output in destination
             writeln(outScript, 'echo "... copy done with status $?"')

@@ -34,7 +34,7 @@ MX_1400_MY_900
 MX_1600_MY_125
 MX_1600_MY_700
 
-to submit the jobs:
+# to submit the jobs (LOCALLY)
 run:
 from screen
 source an-scripts/GoFsubmit2016.sh
@@ -42,23 +42,78 @@ source an-scripts/GoFsubmit2017.sh
 source an-scripts/GoFsubmit2018.sh
 
 
-for GRID submit:
+# for GRID submit:
 
 python prepareModels/SubmitGoF.py --tag 2023Feb28_hourglass_VR_ws --tagid 1 --year 2016 --group auto
+python prepareModels/SubmitGoF.py --tag 2023Jul5_VR --tagid 1 --year 2016 --group auto
 
 python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_2023Feb28_hourglass_VR_ws/ --long
 
 
 
-!!!!In order to Run Workspaces on the grid:!!!!
+# !!!!In order to Run Workspaces on the grid:!!!!
 1. need to have limits config up to date.
 2. Need to have the prepareModels/listOfSamples.txt ready
 3. Need to used the correct tag in the SubmitAllWorkspaces.sh
+- make sure normalization values are correct in both Workspaces submit and GOF submit scripts
 source prepareModels/SubmitAllWorkspaces.sh
 
+For workspaces all mass points are about at the limit of 512 (so some are held)
+ran all mass points at
+1024 MB
 
-for GOF jobs:
 
-Need to have the right tag:
+# for GOF jobs:
+
+need right diretory in config file
+Need to have the right tag, and point to correct samplelist:
 source prepareModels/SubmitAllGoF.sh
+
+
+# for Plotting:
+
+need correct tag and run:
+source prepareModels/mergeAllGOFs.sh
+
+# Added fixsig option to GoF jobs
+use
+--fixsig <value>
+where value will probabaly always be 0
+a new jobs dir is created, output GOF root files will have a "_sig<value>" tag added to the name
+
+- have to exclude the sig0 files from the hadd
+sig0 files need to be moved to a separate folder on eos
+
+
+# !!!!In order to Run Workspaces on the grid:!!!!
+1. need to have limits config up to date.
+2. Need to have the prepareModels/listOfSamples.txt ready
+3. Need to used the correct tag in the prepareModels/SubmitAllWorkspaces.sh
+- make sure normalization values are correct in both Workspaces submit and GOF submit scripts
+source prepareModels/SubmitAllWorkspaces.sh
+
+USED 1024M in t3 script
+(a few jobs hit the 512 limit)
+
+for nonClosureMCStats:
+    removed hourglass unc lines from config files
+
+# for GOF jobs:
+
+1. need right diretory in config file
+2. Need to have the right tag, and point to correct samplelist:
+3. USED 512M in t3 script
+source prepareModels/SubmitAllGoF.sh
+
+after jobs are done - run:
+Use the right tags (for comparison and new one):
+source ./prepareModels/mergeAllGOFs.sh
+
+# for FitDiagnositics:
+
+1. Need to have the right tag, and point to correct samplelist:
+2. USED 512M in t3 script
+doesn't depend on limitConfig files (but probably needs the workspace run first)
+source ./prepareModels/SubmitAllFitDiagnostic.sh
+
 

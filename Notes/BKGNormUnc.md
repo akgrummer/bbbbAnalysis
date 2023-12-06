@@ -14,6 +14,10 @@ doMeasureNorm("2023Jul5", 2016)
 doMeasureNorm("2023Jul5", 2017)
 doMeasureNorm("2023Jul5", 2018)
 
+doMeasureNorm("2023Jul5_binMYx2_ncMCStats", 2016)
+doMeasureNorm("2023Jul5_binMYx2_ncMCStats", 2017)
+doMeasureNorm("2023Jul5_binMYx2_ncMCStats", 2018)
+
 This code has to be run without "AidanStyle"
 - the stat box isn't printed on the plot
 - The uncertainty band is not displayed
