@@ -15,7 +15,7 @@ else
 endif
 badd +2 scripts/computeMoreSignalsPUWeights.sh
 badd +28 MoreSignals/NMSSM_XYH_bbbb_MX_1000_MY_150_NANOAOD_v7_2017.txt
-badd +123 Notes/skimming_MoreSignals.md
+badd +176 Notes/skimming_MoreSignals.md
 badd +68 config/Resonant_NMSSM_bbbb/skim_2016Resonant_NMSSM_XYH_bbbb_Fast.cfg
 badd +178 config/Resonant_NMSSM_bbbb/skim_2017Resonant_NMSSM_XYH_bbbb.cfg
 badd +1 JECfiles/Fall17_17Nov2017_V32_MC_UncertaintySources_AK4PFchs.txt
@@ -27,7 +27,9 @@ badd +143 scripts/submitAllSkimsOnTier3_2016.sh
 badd +147 scripts/submitAllSkimsOnTier3_2017.sh
 badd +252 scripts/submitSkimOnTier3.py
 badd +1 scripts/submitAllSkimsOnTier3_2017_moreSignals.sh
-badd +1 ./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh
+badd +85 ./scripts/submitAllSkimsOnTier3_moreSignals_mX650_mY450_2018_Total_down.sh
+badd +44 Resub_2023Dec6.sh
+badd +76 ./scripts/submitAllSkimsOnTier3_moreSignals_mX650.sh
 argglobal
 %argdel
 $argadd scripts/computeMoreSignalsPUWeights.sh
@@ -51,11 +53,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 120 - ((29 * winheight(0) + 20) / 40)
+let s:l = 188 - ((41 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 120
+keepjumps 188
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
