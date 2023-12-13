@@ -15,7 +15,7 @@ def writeln(f, line):
 
 
 #  mXandGroup = {300 : 0, 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4, 1800 : 4, 2000 : 4}
-mXandGroup = { 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4}
+mXandGroup = { 400 : 0, 500 : 0, 600 : 0, 650: 1, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4}
 
 parser = argparse.ArgumentParser(description='Command line parser of skim options')
 parser.add_argument('--year'   , dest = 'year'   , help = 'year'           , required = True)

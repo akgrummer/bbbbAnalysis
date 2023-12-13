@@ -147,13 +147,17 @@ MXbins     = np.array([212, 228, 244, 260, 276, 292, 308, 324, 340, 360, 392, 42
 # zmin = 0.
 # zmax=1.0
 tag = args.tag
+ogTag=tag.replace("_VR","")
+ogTag=ogTag.replace("_SR","")
+print(ogTag)
+print(tag)
 # tag ="2023Jul5_binMYx2_ncMCStats_lowStatsCut"
 inputFile = "/uscms/homes/a/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/VarPlots/rootHists/fullSubmission_2022Nov/{0}DataPlots_{1}/outPlotter_massGroup{2}.root".format(args.year, tag, args.massGroup)
-iodir = "/uscms/homes/a/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/VarPlots/rootHists/fullSubmission_2022Nov/{0}DataPlots_{1}/".format(args.year, tag)
+iodir = "/uscms/homes/a/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/VarPlots/rootHists/fullSubmission_2022Nov/{0}DataPlots_{1}/".format(args.year, ogTag)
 ifile = iodir + "outPlotter_UnrollLocation_massGroup{0}.txt".format(args.massGroup)
 
 sigs = ["sig_NMSSM_bbbb_MX_400_MY_125", "sig_NMSSM_bbbb_MX_700_MY_60", "sig_NMSSM_bbbb_MX_900_MY_600", "sig_NMSSM_bbbb_MX_1200_MY_300", "sig_NMSSM_bbbb_MX_1600_MY_125"]
-histosFile = "root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Jul5_VR/HistogramFiles_{0}/outPlotter_{0}_{1}.root".format(args.year, sigs[int(args.massGroup)])
+# histosFile = "root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Jul5_VR/HistogramFiles_{0}/outPlotter_{0}_{1}.root".format(args.year, sigs[int(args.massGroup)])
 # sig= "sig_NMSSM_bbbb_MX_400_MY_125"
 # # labels = ["prefit", "2016", "Mass Group 0", sig]
 # tag = "2023Jul5_VR"
@@ -165,6 +169,6 @@ histosFile = "root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Jul5_V
 #         for i, sig in enumerate(sigs):
 #             labels = [afittype, tag, year, "Mass Group {}".format(i), sig]
 #             makePlot(labels)
-labels = ["fit_b", tag+"_SR", args.year, "Mass Group {}".format(args.massGroup), sigs[int(args.massGroup)]]
+labels = ["fit_b", tag, args.year, "Mass Group {}".format(args.massGroup), sigs[int(args.massGroup)]]
 makePlotsPerYear("{}".format(args.year), ifile, labels, inputFile)
 

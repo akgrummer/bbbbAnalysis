@@ -14,7 +14,7 @@ else
   set shortmess=aoO
 endif
 badd +11 prepareModels/SubmitFullRunIILimits.py
-badd +64 Notes/limits.md
+badd +88 Notes/limits.md
 badd +1 prepareModels/config/LimitsConfig_2016.cfg
 badd +41 prepareModels/config/LimitsConfig_2017.cfg
 badd +40 prepareModels/config/LimitsConfig_2018.cfg
@@ -41,11 +41,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 68 - ((45 * winheight(0) + 24) / 49)
+let s:l = 72 - ((12 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 68
+keepjumps 72
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

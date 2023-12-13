@@ -4,14 +4,15 @@
 # TAG="2023Feb28_hourglass"
 # TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR"
 # TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_5ev_SR"
-TAG="2023Nov1_binMYx2_add2017Sig_10ev_SR"
+# TAG="2023Nov1_binMYx2_add2017Sig_10ev_SR"
+TAG="2023Dec7_binMYx2_addMX650_10ev_SR"
 # TAG="2023Jul5_nonClosureMCStats2_SR"
 # some scripts in this file have been relocated - check an-scripts, or results
 # possible that things were using Fabio's `scripts` directory with a sym link. Check fromFabio directory.
 
 # compile the cpp codes (if needed)
 # g++  -std=c++17 -I `root-config --incdir`  -o an-scripts/PlotLimitsFromCondor an-scripts/PlotLimitsFromCondor.cc `root-config --libs` -O3
-# g++  -std=c++17 -I `root-config --incdir`  -o an-scripts/Plot2DLimitMap       an-scripts/Plot2DLimitMap.C        `root-config --libs` -O3
+g++  -std=c++17 -I `root-config --incdir`  -o an-scripts/Plot2DLimitMap       an-scripts/Plot2DLimitMap.C        `root-config --libs` -O3
 # # ##################################################
 #LOOKS LIKE THIS WAS only used for the old vr closure tests
 # g++  -std=c++17 -I `root-config --incdir`  -o PlotLimitsFromCondor_allyears PlotLimitsFromCondor_allyears.cc `root-config --libs` -O3
@@ -35,7 +36,7 @@ TAG="2023Nov1_binMYx2_add2017Sig_10ev_SR"
 ##################################################
 # makes: CentralLimitMap_RunII_TheoryComparison.png
 # can also run syst, statOnly and all years and runII
-# ./an-scripts/Plot2DLimitMap hists/Limits_$TAG.root
+./an-scripts/Plot2DLimitMap hists/Limits_$TAG.root
 
 # makes: SistematicImpact_<YEAR>_*.png
 # python an-scripts/MeasureSystematicEffect.py --input hists/Limits_$TAG.root --impacts
@@ -60,9 +61,9 @@ TAG="2023Nov1_binMYx2_add2017Sig_10ev_SR"
 # to compare two limit runs:
 # python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Feb28.root --input2 hists/Limits_2023Feb28_hourglass.root --systematics
 # python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Feb28_hourglass.root --input2 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --systematics
-python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
-python an-scripts/PlotLimitVsMy_orig_twoLimits.py --vsMY --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
-python an-scripts/PlotLimitVsMy_orig_twoLimits.py --vsMY --year 2017 --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
+# python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
+# python an-scripts/PlotLimitVsMy_orig_twoLimits.py --vsMY --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
+# python an-scripts/PlotLimitVsMy_orig_twoLimits.py --vsMY --year 2017 --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
 # python an-scripts/PlotLimitVsMy_orig_threeLimits.py --input1 hists/Limits_2023Jul5_nonClosureMCStats2_SR.root --input2 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_5ev_SR.root --input3 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --systematics
 # the individual years didn't run
 # python an-scripts/PlotLimitVsMy_orig.py --input hists/Limits_$TAG.root --systematics --year 2016

@@ -22,7 +22,7 @@ if args.systematics : append = "syst"
 color     = ROOT.kBlue
 
 #  xMassList = [300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600, 1800, 2000]
-xMassList = [400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1600]
+xMassList = [400, 500, 600, 650, 700, 800, 900, 1000, 1100, 1200, 1400, 1600]
 
 inputFile = TFile(args.input)
 

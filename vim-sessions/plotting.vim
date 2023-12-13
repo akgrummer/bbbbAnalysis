@@ -17,20 +17,21 @@ badd +51 scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape.py
 badd +1 scripts/plotting/VariableDicts.py
 badd +176 scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape_beforeWeights.py
 badd +5 scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape_hourglass.py
+badd +39 scripts/plotting/plotVars_2023Feb_mX_signals.py
+badd +140 Notes/Unroll.md
+badd +1 scripts/plotting/plotVars_2023Feb_mH_signals.py
+badd +134 Notes/fillHists.md
 argglobal
 %argdel
 $argadd scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape.py
 $argadd scripts/plotting/VariableDicts.py
-edit scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape.py
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
+edit scripts/plotting/plotVars_2023Feb_mX_signals.py
 argglobal
-balt scripts/plotting/plotVars_2023Feb_mX_allUncertainties_maxShape_hourglass.py
+if bufexists(fnamemodify("scripts/plotting/plotVars_2023Feb_mX_signals.py", ":p")) | buffer scripts/plotting/plotVars_2023Feb_mX_signals.py | else | edit scripts/plotting/plotVars_2023Feb_mX_signals.py | endif
+if &buftype ==# 'terminal'
+  silent file scripts/plotting/plotVars_2023Feb_mX_signals.py
+endif
+balt scripts/plotting/plotVars_2023Feb_mH_signals.py
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -41,12 +42,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 51 - ((20 * winheight(0) + 21) / 42)
+let s:l = 39 - ((29 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 51
-normal! 0
+keepjumps 39
+normal! 034|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -54,8 +55,6 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

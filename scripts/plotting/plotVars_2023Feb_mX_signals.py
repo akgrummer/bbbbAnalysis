@@ -1,6 +1,6 @@
 import ROOT
 from ROOT import TFile, TH1F, TH2F, TCanvas, gStyle, gPad, gDirectory, TLatex, gROOT, PyConfig, TMath, kBlue, TLine, TPad, TLegend, TGraph, TBox, kThermometer, THStack
-from ROOT import kRed 
+from ROOT import kRed
 # PyConfig.IgnoreCommandLineOptions = False
 import numpy as np
 import re
@@ -10,7 +10,7 @@ from VariableDicts import varInfo
 def rootplot_2Dhist(h2d, var1, var2, odir, tag, region, xRange=None, yRange=None, zRange=None):
     h2d = h2d.Clone("h2dCopy")
     odir = odir + "/" + region
-    if not (os.path.exists(odir)): os.makedirs(odir) 
+    if not (os.path.exists(odir)): os.makedirs(odir)
     ofileName = "%s/histograms.root"%(odir)
     ofile = TFile.Open ( ofileName, "UPDATE" )
     def CreatePlot(h1, tag):
@@ -31,8 +31,13 @@ def rootplot_2Dhist(h2d, var1, var2, odir, tag, region, xRange=None, yRange=None
         plotlabels = TLatex()
         plotlabels.SetTextFont(63)
         plotlabels.SetTextSize(20)
-        #  labelText = "mX = %.0f GeV, mY = %.0f GeV"%(mXval,mYval)
-        labelText = ""
+        mXval = tag.split("MX_")[1]
+        mXval = mXval.split("_")[0]
+        mYval = tag.split("MY_")[1]
+        mYval = mYval.split("_")[0]
+        labelText = "mX = %.0f GeV, mY = %.0f GeV"%(float(mXval),float(mYval))
+        plotlabels.DrawLatexNDC(0.20, 0.8, labelText)
+        labelText=""
         if "VR" in region:    labelText = labelText + "Validation Region"
         if "CR" in region:    labelText = labelText + "Control Region"
         if "SR" in region:    labelText = labelText + "Signal Region"
@@ -141,7 +146,7 @@ def rootplot_2Dhist(h2d, var1, var2, odir, tag, region, xRange=None, yRange=None
             h1.GetYaxis().SetRangeUser(varInfo[var2]['xlow'],varInfo[var2]['xhigh'])
         c1.SaveAs("%s/mXvsmY_%s.pdf"%(odir,tag))
         del c1
-    
+
     CreatePlot(h2d,tag)
     h2d.Write()
     del h2d
@@ -156,13 +161,13 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href ):
     for i in range(h1.GetSize()):
         if (h4.GetBinContent(i)>0): h4.SetBinError(i,h4.GetBinError(i)/h4.GetBinContent(i))
         else: h4.SetBinError(i,0)
-        # h4.SetBinContent(i,1) 
+        # h4.SetBinContent(i,1)
 
     h3 = h2.Clone("h3")
     for i in range(h3.GetSize()):
         if (h3.GetBinContent(i)>0): h3.SetBinError(i,h3.GetBinError(i)/h3.GetBinContent(i))
         else: h3.SetBinError(i,0)
-        h3.SetBinContent(i,1) 
+        h3.SetBinContent(i,1)
     h1 = h1.Clone("h1copy")
     h2 = h2.Clone("h2copy")
     href = href.Clone("hrefcopy")
@@ -183,7 +188,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href ):
     c1 = TCanvas('c1', 'c1',800,600)
     gStyle.SetOptStat(0) # remove the stats box
     gStyle.SetOptTitle(0) # remove the title
-    
+
     c1.SetMargin(0.12,0.05,0.12,0.09) #left,right,bottom,top
     c1.SetTicks(1,1)
 
@@ -225,7 +230,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href ):
     if var == "HH_kinFit_m": yrangeFactor = 1.57
     #  h1.GetYaxis().SetRangeUser(0,np.max( [ h1.GetMaximum(), h2.GetMaximum(), href.GetMaximum() ] )*yrangeFactor)
     h1.GetYaxis().SetRangeUser(0,np.max( [ h2.GetMaximum()] )*yrangeFactor)
-    
+
     CMSlabel = TLatex()
     #  CMSlabel.SetTextSize( 0.08 )
     #  CMSlabel.DrawTextNDC(0.7, 0.85, "CMS Internal")
@@ -241,7 +246,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href ):
     plotlabels.DrawLatexNDC(0.5, 0.93, "mX = {}, mY = {}".format(mXval, mYval))
     plotlabels.SetTextFont(63)
     plotlabels.SetTextSize(16)
-    if "weights" in tag:    
+    if "weights" in tag:
         plotlabels.DrawTextNDC(0.72, 0.70, "3b reweighted")
         print(year +labelText+ "3b Reweightied Integral: %0.4f, 4b Integral: %0.4f "%(h1area, h2area))
     if "orig" in tag:
@@ -292,7 +297,7 @@ def rootplot_2samp_ratio( h1, h2, year, region, var, tag, odir, href ):
     leg.Draw()
 
     odir = odir + "/" + region
-    if not (os.path.exists(odir)): os.makedirs(odir) 
+    if not (os.path.exists(odir)): os.makedirs(odir)
     #  odirpng = odir + "/png"
     #  if not (os.path.exists(odirpng)): os.makedirs(odirpng)
     c1.SaveAs("%s/%s_%s.pdf"%( odir   , var, tag ))
@@ -343,12 +348,12 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
     dir_ttbar_4b = "ttbar"
     dir_data_3b = "data_BTagCSV_3btag"
     dir_data_4b = "data_BTagCSV"
-    dir_data_3b_weights = "data_BTagCSV_dataDriven_kinFit" 
-    dir_data_3b_weights_down = "data_BTagCSV_dataDriven_kinFit_down" 
-    dir_data_3b_weights_up = "data_BTagCSV_dataDriven_kinFit_up" 
+    dir_data_3b_weights = "data_BTagCSV_dataDriven_kinFit"
+    dir_data_3b_weights_down = "data_BTagCSV_dataDriven_kinFit_down"
+    dir_data_3b_weights_up = "data_BTagCSV_dataDriven_kinFit_up"
     dir_QCD = "QCD"
     #  varname = "_HH_kinFit_m_H2_m"
-        
+
     dir_sig_MX_600_MY_400 = "sig_NMSSM_bbbb_MX_600_MY_400" # signal
     dir_sig_MX_300_MY_60 = "sig_NMSSM_bbbb_MX_300_MY_60" # signal
     dir_sig_MX_300_MY_150 = "sig_NMSSM_bbbb_MX_300_MY_150" # signal
@@ -375,104 +380,67 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
 #  # data plots
     varname1 = "HH_m"
     varname2 = "HH_kinFit_m"
-    signalDirList = [dir_sig_MX_400_MY_150  , dir_sig_MX_500_MY_200  , dir_sig_MX_700_MY_150  , dir_sig_MX_900_MY_700  , dir_sig_MX_1000_MY_200 , dir_sig_MX_1000_MY_700 , dir_sig_MX_1200_MY_500 , dir_sig_MX_1600_MY_1200]
-    for sigDir in signalDirList:
-    #  varname = "H1_b1_kinFit_ptRegressed"
-        myfile.cd(sigDir+"/"+dir_region)
-        h1 = gDirectory.Get(sigDir+"_"+dir_region+"_"+varname1)
-        h2 = gDirectory.Get(sigDir+"_"+dir_region+"_"+varname2)
-        rootplot_2samp_ratio( h1, h2, year, region, varname2, sigDir, odir, h2 )
-#         myfile.cd(dir_data_3b_weights+"/"+dir_region)
-#         h_3b_weights = gDirectory.Get(dir_data_3b_weights+"_"+dir_region+"_"+varname)
-#         myfile.cd(dir_data_3b_weights_up+"/"+dir_region)
-#         h_3b_weights_up = gDirectory.Get(dir_data_3b_weights_up+"_"+dir_region+"_"+varname)
-#         myfile.cd(dir_data_3b_weights_down+"/"+dir_region)
-#         h_3b_weights_down = gDirectory.Get(dir_data_3b_weights_down+"_"+dir_region+"_"+varname)
-#         myfile.cd(dir_data_4b+"/"+dir_region)
-#         h_4b = gDirectory.Get(dir_data_4b+"_"+dir_region+"_"+varname)
-#         #  rootplot_2samp_ratio( h_3b        , h_4b, year, region, varname, "orig"   , odir, h_3b_weights, ksval_2D, ksvalMaxDist_2D)
-#         #  rootplot_2samp_ratio( h_3b_weights, h_4b, year, region, varname, "weights", odir, h_3b,         ksval_2D_weights, ksvalMaxDist_2D_weights )
-#         # rootplot_2samp_ratio( h_3b        , h_4b, year, region, varname, "orig"   , odir, h_3b_weights )
-        # rootplot_2samp_ratio( h_3b_weights_up, h_4b, year, region, varname, "weights_up", odir, h_3b         )
-        # rootplot_2samp_ratio( h_3b_weights_down, h_4b, year, region, varname, "weights_down", odir, h_3b         )
-        # rootplot_2samp_ratio( h_3b        , h_3b, year, region, varname, "orig"   , odir, h_3b_weights )
-        # rootplot_2samp_ratio( h_3b_weights, h_3b, year, region, varname, "weights", odir, h_3b         )
+    signalDirList = [dir_sig_MX_400_MY_150  , dir_sig_MX_500_MY_200  , dir_sig_MX_700_MY_150  , dir_sig_MX_900_MY_700  , dir_sig_MX_1000_MY_200 , dir_sig_MX_1000_MY_700 , dir_sig_MX_1200_MY_500 , dir_sig_MX_1600_MY_1200,
+                     "sig_NMSSM_bbbb_MX_600_MY_60",
+                     "sig_NMSSM_bbbb_MX_600_MY_70",
+                     "sig_NMSSM_bbbb_MX_600_MY_80",
+                     "sig_NMSSM_bbbb_MX_600_MY_90",
+                     "sig_NMSSM_bbbb_MX_600_MY_100",
+                     "sig_NMSSM_bbbb_MX_600_MY_125",
+                     "sig_NMSSM_bbbb_MX_600_MY_150",
+                     "sig_NMSSM_bbbb_MX_600_MY_200",
+                     "sig_NMSSM_bbbb_MX_600_MY_250",
+                     "sig_NMSSM_bbbb_MX_600_MY_300",
+                     "sig_NMSSM_bbbb_MX_600_MY_400",
+                     "sig_NMSSM_bbbb_MX_650_MY_60",
+                     "sig_NMSSM_bbbb_MX_650_MY_70",
+                     "sig_NMSSM_bbbb_MX_650_MY_80",
+                     "sig_NMSSM_bbbb_MX_650_MY_90",
+                     "sig_NMSSM_bbbb_MX_650_MY_100",
+                     "sig_NMSSM_bbbb_MX_650_MY_125",
+                     "sig_NMSSM_bbbb_MX_650_MY_150",
+                     "sig_NMSSM_bbbb_MX_650_MY_190",
+                     "sig_NMSSM_bbbb_MX_650_MY_250",
+                     "sig_NMSSM_bbbb_MX_650_MY_300",
+                     "sig_NMSSM_bbbb_MX_650_MY_350",
+                     "sig_NMSSM_bbbb_MX_650_MY_400",
+                     "sig_NMSSM_bbbb_MX_650_MY_450",
+                     "sig_NMSSM_bbbb_MX_650_MY_500",
+                     "sig_NMSSM_bbbb_MX_700_MY_60",
+                     "sig_NMSSM_bbbb_MX_700_MY_70",
+                     "sig_NMSSM_bbbb_MX_700_MY_80",
+                     "sig_NMSSM_bbbb_MX_700_MY_90",
+                     "sig_NMSSM_bbbb_MX_700_MY_100",
+                     "sig_NMSSM_bbbb_MX_700_MY_125",
+                     "sig_NMSSM_bbbb_MX_700_MY_150",
+                     "sig_NMSSM_bbbb_MX_700_MY_200",
+                     "sig_NMSSM_bbbb_MX_700_MY_250",
+                     "sig_NMSSM_bbbb_MX_700_MY_300",
+                     "sig_NMSSM_bbbb_MX_700_MY_400",
+                     "sig_NMSSM_bbbb_MX_1000_MY_150",
+                     ]
+    # for sigDir in signalDirList:
+    # #  varname = "H1_b1_kinFit_ptRegressed"
+    #     myfile.cd(sigDir+"/"+dir_region)
+    #     h1 = gDirectory.Get(sigDir+"_"+dir_region+"_"+varname1)
+    #     h2 = gDirectory.Get(sigDir+"_"+dir_region+"_"+varname2)
+    #     rootplot_2samp_ratio( h1, h2, year, region, varname2, sigDir, odir, h2 )
 ##################################################
-    #  #ttbar plots
-    #  for varname in varlist:
-    #  #  varname = "H1_b1_kinFit_ptRegressed"
-        #  myfile.cd(dir_ttbar_3b + "/" + dir_region)
-        #  h_3b = gDirectory.Get(dir_ttbar_3b+"_"+dir_region+"_"+varname)
-        #  #  print("Integral: %0.4f"% (h_3b_weights.Integral("width")))
-        #  #  print("Entries: %0.4f"% (h_3b_weights.GetEntries()))
-        #  myfile.cd(dir_ttbar_3b_weights+"/"+dir_region)
-        #  h_3b_weights = gDirectory.Get(dir_ttbar_3b_weights+"_"+dir_region+"_"+varname)
-        #  myfile.cd(dir_ttbar_4b+"/"+dir_region)
-        #  h_4b = gDirectory.Get(dir_ttbar_4b+"_"+dir_region+"_"+varname)
-        #  #  print("Integral: %0.4f"% (h_3b_weights.Integral("width")))
-        #  #  print("Entries: %0.4f"% (h_3b_weights.GetEntries()))
+    # signal MC
+    varlist2D = "HH_kinFit_m_H2_m"
+    # for varname in varlist:
+    for sigDir in signalDirList:
+        myfile.cd(sigDir +"/"+dir_region)
+        h_4b = gDirectory.Get(sigDir+"_"+dir_region+"_"+varlist2D)
+        rootplot_2Dhist( h_4b,  "HH_kinFit_m","H2_m", odir, sigDir,  region, xRange=[300,1000], yRange=[0,800])
+        if ("MX_1000" in sigDir): rootplot_2Dhist( h_4b,  "HH_kinFit_m","H2_m", odir, sigDir,  region, xRange=[300,1400], yRange=[0,400])
         #  rootplot_2samp_ratio( h_3b        , h_4b, year, region, varname, "orig"   , odir, h_3b_weights )
         #  rootplot_2samp_ratio( h_3b_weights, h_4b, year, region, varname, "weights", odir, h_3b         )
 ##################################################
 
-##################################################
-    # signal MC
-    #  for varname in varlist:
-    #  #  varname = "h1_b1_kinfit_ptregressed"
-        #  myfile.cd(dir_sig_3b_weights+"/"+dir_region)
-        #  h_3b_weights = gdirectory.get(dir_sig_3b_weights+"_"+dir_region+"_"+varname)
-        #  myfile.cd(dir_sig +"/"+dir_region)
-        #  h_4b = gDirectory.Get(dir_sig +"_"+dir_region+"_"+varname)
-        #  #  print("Integral: %0.4f"% (h_3b_weights.Integral()))
-        #  rootplot_2samp_ratio( h_3b_weights, h_4b, year, region, varname, "weights"   , odir, h_3b_weights )
-        #  #  rootplot_2samp_ratio( h_3b        , h_4b, year, region, varname, "orig"   , odir, h_3b_weights )
-        #  #  rootplot_2samp_ratio( h_3b_weights, h_4b, year, region, varname, "weights", odir, h_3b         )
-##################################################
-
-# ********************
-#run pyROOT in batch mode  - ie don't show graphics!
-# 
 gROOT.SetBatch(True)
-# ********************
-# MOVED `studies/plotting2021Dec13 to `VarPlots/plotting2021Dec13`
-# odir = "studies/plotting2021Dec13/plots2021Dec16_2"
-# odir = "studies/plotting2021Dec13/plots2021Dec17"
-#  odir = "studies/plotting2021Dec13/plots2021Dec23"
-#  odir = "studies/plotting2021Dec13/plots2022Jan27"
-#  odir = "studies/plotting2021Dec13/plots2022Jan28"
-#  odir = "studies/varPlots/plots2022Feb2/"
-
-#  odir = "VarPlots/FullMassRegionFullBDT2022Jan26/" # the 2022Jan26 doesn't have all of the variables in the branches, need to rerun fillhistograms.exe without the mass window cut
-#  odir = "VarPlots/New2022Feb9/"
-#  odir = "VarPlots/FullBDT2022Feb2/"
-#  odir = "VarPlots/BDTmasscut_2022Feb8/"
-#  odir = "VarPlots/BDTmasscut_ptX_2022Feb8/"
-#  odir = "VarPlots/FullBDT2022Feb11/"
-#  odir = "VarPlots/FullBDT2022Mar9/"
-#  odir = "VarPlots/sig_2D_2022Mar24/"
-#  odir = "VarPlots/data_2D_2022Mar25/"
-#  odir = "VarPlots/data_2D_2022Apr4/"
-#  odir = "VarPlots/2022Jun22/"
-# odir = "VarPlots/2022July29/"
-#  odir = "VarPlots/2022Aug12/"
-#  odir = "VarPlots/2022Aug30/"
-# odir = "VarPlots/2022Nov17/"
-# odir = "VarPlots/2022Dec20/"
-# odir = "VarPlots/2022Dec20_sigRegion3bONLY/"
-# odir = "VarPlots/2022Dec20/"
-# odir = "VarPlots/2022Feb6/"
-odir = "VarPlots/2023Feb20_signalMX/"
-#  odir = "VarPlots/BDTmasscut_2022Feb11/"
-#  odir = "VarPlots/BDTmasscut_ptX_2022Feb11/"
-#  odir = "VarPlots/FullBDTandMassWindow2022Mar3/"
-#  odir = "VarPlots/BDTmasscut_only_mXmY2022Mar3/"
-#  odir = "VarPlots/BDTmasscut_without_mXmY2022Mar3/"
-#  odir = "VarPlots/TTbarClosure2022Mar4/"
-#  odir = "VarPlots/TTbarClosure2022Mar7/"
-#  odir = "VarPlots/TTbarClosure2022Mar9/"
-#  odir = "VarPlots/SignalClosure2022Mar7/"
+odir = "VarPlots/2023Dec7_signal_2d/"
 odiro = odir
-#  if not (os.path.exists(odir)): os.makedirs(odir)
 years = ["2016","2017","2018"]
 #  years = ["2018"]
 # !!!!!!!!!!! CAREFUL using Signal Region! !!!!!!!!!!! only for MC
@@ -492,7 +460,8 @@ regionTag = ["SR"]
 # iTags = ["2022Jan26_VR", "2022Jul7_fullBDT_bJetScoreLoose", "2022Jul14_fullBDT_bJetScore1p5"]
 #  iTags = ["2022Sep14_Mx300_bJetLoose_3"]
 # iTags = ["2022Jul7_fullBDT_bJetScoreLoose"]
-iTags = ["2022Nov14_bJetScoreLoose_shapes2"]
+# iTags = ["2022Nov14_bJetScoreLoose_shapes2"]
+iTags = ["2023Dec7_binMYx2_addMX650_10ev"]
 for iTag in iTags:
    for year in years:
        for i, directory in enumerate(directories):

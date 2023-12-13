@@ -186,3 +186,14 @@ no errors after resubmit:
 files for this job:
 `eosls -ltrh /store/user/agrummer/bbbb_ntuples/moreSignals_mX650_mY450_2018_njobs6_Total_down/SKIM_NMSSM_XToYHTo4B_MX-650_MY-450_2018/output`
 
+### also resubmit mX650_mY350_2018_jer_up
+
+one file is corrupted on the save for this (Error message in the skim output)
+
+used:
+`./scripts/submitAllSkimsOnTier3_moreSignals_mX650_mY350_2018_jer_up.sh`<br>
+
+now with 6 jobs
+grep -ir "error" CondorJobs/skimming/jobs_moreSignals_mX650_mY350_2018_jer_up/SKIM_NMSSM_XToYHTo4B_MX-650_MY-350_2018/
+grep -ir "error" CondorJobs/skimming/jobs_moreSignals_mX650_mY350_2018_njobs6_jer_up/SKIM_NMSSM_XToYHTo4B_MX-650_MY-350_2018/
+

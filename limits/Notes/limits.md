@@ -69,3 +69,34 @@ produceAllResults can be used
 - plot the limit results
 - compare 2 limit results
 
+# 2023 Dec 8
+
+add MX 650 mass points to the sample list:
+prepareModels/listOfSamples.txt
+
+updated config files `directory` parameter
+
+submit with:
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="SR"; python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_${tag}_${region}/ --long
+
+add MX 650 to group 1 in
+prepareModels/SubmitFullRunIILimits.py
+- line 37: mXandGroup variable definition
+
+ran these jobs twice :/
+hope there weren't race conditions - but should be fine. logs look the same
+```
+>>> Too many logs found for job sig_NMSSM_bbbb_MX_700_MY_60  (resubmitted?) , returning last
+>>> Too many logs found for job sig_NMSSM_bbbb_MX_700_MY_70  (resubmitted?) , returning last
+>>> Too many logs found for job sig_NMSSM_bbbb_MX_700_MY_80  (resubmitted?) , returning last
+>>> Too many logs found for job sig_NMSSM_bbbb_MX_700_MY_90  (resubmitted?) , returning last
+```
+
+# 2023 Dec 12
+
+remove mX=1600, mY mass below 200GeV from sample list
+
+tag="2023Dec7_binMYx2_addMX650_10ev_rmSigs"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts
+tag="2023Dec7_binMYx2_addMX650_10ev_rmSigs"; region="SR"; python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_${tag}_${region}/ --long
+

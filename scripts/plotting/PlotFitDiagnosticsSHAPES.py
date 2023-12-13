@@ -5,7 +5,7 @@ import math
 
 
 ROOT.gROOT.SetBatch(True)
-def makePlot(labels,xMin, xMax):
+def makePlot(labels,xMin, xMax, globalMaxVal):
   fittype=labels[0]
   tag = labels[1]
   year = labels[2]
@@ -26,21 +26,19 @@ def makePlot(labels,xMin, xMax):
   hNewPoints = grDataShape.GetN()
   hDataShape = ROOT.TH1D( "hratio", "hratio", hNewPoints, 0, hNewPoints);
   hpullShape = ROOT.TH1D( "hpull", "hpull", hNewPoints, 0, hNewPoints);
-  for i in range(0,hNewPoints+1):
+  for i in range(1,hNewPoints+1):
       dataVal = grDataShape.Eval(float(i)-0.5)
-      dataErr = grDataShape.GetErrorY(i)
+      dataErr = grDataShape.GetErrorY(i-1)
       bkgVal =  hBkgShape.GetBinContent(i)
       if ("fit" in fittype): bkgErr = hBkgShape.GetBinError(i)
       else: bkgErr = math.sqrt(hBkgShape.GetBinContent(i)) # prefit bkg hist has no error.
-      #     pull = bkgVal-dataVal
       pull = (bkgVal-dataVal)/math.sqrt(dataErr**2)
-      # pull = 0
-      # if (bkgVal!=0): pull = dataVal/bkgVal
       hDataShape.SetBinContent(i, dataVal)
       hDataShape.SetBinError(i, dataErr)
       hpullShape.SetBinContent(i, pull)
       # hpullShape.SetBinError(i, dataErr)
-      if("2016" in year and "0" in massGroup): print(dataVal, bkgVal, dataErr, bkgErr, pull)
+      # if("2016" in year and "0" in massGroup): print(dataVal, bkgVal, dataErr, bkgErr, pull)
+      # if("2017" in year and "0" in massGroup and xMin==200 and fittype=="fit_b"): print(i, dataVal, bkgVal, dataErr, bkgErr, pull)
 
   #### define the canvas
   c1 = ROOT.TCanvas('c1', 'c1',800,600)
@@ -68,8 +66,13 @@ def makePlot(labels,xMin, xMax):
   # hDataShape.Draw("same p")
   #hDataShapeError.Draw("same e")
   #xaxis
-  hBkgShape.GetXaxis().SetRangeUser(xMin, xMax)
-  hDataShape.GetXaxis().SetRangeUser(xMin, xMax)
+  hBkgShape.GetXaxis().SetRange(xMin, xMax)
+  hDataShape.GetXaxis().SetRange(xMin, xMax)
+  yMax = max(hBkgShape.GetMaximum(), hDataShape.GetMaximum(), globalMaxVal)
+  globalMaxVal=yMax
+  # yMax = hDataShape.GetMaximum()
+  hBkgShape.GetYaxis().SetRangeUser(0, yMax*1.25)
+  hDataShape.GetYaxis().SetRangeUser(0, yMax*1.25)
   # axis = hDataShape.GetXaxis()
   # axis.SetLimits(xMin, xMax)
   hDataShape.GetXaxis().SetLabelSize(0.)
@@ -100,7 +103,7 @@ def makePlot(labels,xMin, xMax):
   #### define legend
   leg = TLegend(0.2,0.75,0.45,0.89)
   leg.AddEntry(hDataShape, "Data", "l")
-  leg.AddEntry(hBkgShape, "Background Fit", "l")
+  leg.AddEntry(hBkgShape, "Background", "l")
   # leg.AddEntry(hError, "Fit Error", "f")
   #  leg.AddEntry(h1, "3b ttbar", "l")
   #  leg.AddEntry(h2, "4b ttbar", "l")
@@ -138,9 +141,11 @@ def makePlot(labels,xMin, xMax):
   if ("_s" in fittype):
       fitLabel = "Fit with Signal"
   if ("pre" in fittype):
-      fitLabel = "PreFit"
-  plotlabels.DrawLatexNDC(0.65, 0.85,fitLabel)
-  plotlabels.DrawLatexNDC(0.65, 0.81,massGroup)
+      fitLabel = "Pre-fit"
+  plotlabels.SetTextFont(63)
+  plotlabels.DrawLatexNDC(0.65, 0.83,fitLabel)
+  plotlabels.SetTextFont(53)
+  plotlabels.DrawLatexNDC(0.65, 0.77,massGroup)
   # plotlabels.DrawLatexNDC(0.65, 0.77,labels[2])
 
 #   hDataShapeError.SetMarkerStyle(20) # marker style (20 = filled circle) that can be resized
@@ -195,23 +200,34 @@ def makePlot(labels,xMin, xMax):
   hpullShape.SetMarkerColor(1)
   hpullShape.SetLineColor(1)
   # hNew.SetLineWidth(0)
-  hpullShape.GetXaxis().SetRangeUser(xMin,xMax)
-  hpullShape.GetYaxis().SetRangeUser(-2.8,2.8)
+  hpullShape.GetXaxis().SetRange(xMin,xMax)
+  if("VR" in tag): hpullShape.GetYaxis().SetRangeUser(-2.8,2.8)
+  else: hpullShape.GetYaxis().SetRangeUser(-5,5)
+  # else: hpullShape.GetYaxis().SetRangeUser(-3.6,3.6)
   # hpullShape.GetYaxis().SetRangeUser(0.,2.)
   # hNew.GetXaxis().SetLimits(xMin, xMax)
   # axis2 = hNew.GetXaxis()
   # axis2.SetLimits(xMin, xMax)
   # ROOT.gPad.Modified()
   # ROOT.gPad.Update()
-  odir = "FitDiagnostics/plots_{0}SHAPES".format(tag)
+  odir = "FitDiagnostics/SHAPES_1D_{0}/".format(tag)
   if (not os.path.exists(odir)):
       os.mkdir(odir)
-  odir = "FitDiagnostics/plots_{0}SHAPES/{1}/".format(tag,fittype)
+  odir = "{0}{1}/".format(odir,year)
   if (not os.path.exists(odir)):
       os.mkdir(odir)
-  odir = "FitDiagnostics/plots_{0}SHAPES/{1}/{2}/".format(tag,fittype,year)
+  odir = "{0}{1}{2}/".format(odir,"massGroup", massGroup.replace("Mass Group ",""))
   if (not os.path.exists(odir)):
       os.mkdir(odir)
+  odir = "{0}{1}/".format(odir,fittype)
+  if (not os.path.exists(odir)):
+      os.mkdir(odir)
+#   odir = "FitDiagnostics/SHAPES_1D_{0}/{1}/massGroup{2}/".format(tag,year,massGroup.replace("Mass Group ",""))
+ #  if (not os.path.exists(odir)):
+  #     os.mkdir(odir)
+  #odir = "FitDiagnostics/SHAPES_1D_{0}/{1}/massGroup{2}/{3}/".format(tag,year,massGroup.replace("Mass Group ",""),fittype)
+  #if (not os.path.exists(odir)):
+      #os.mkdir(odir)
   saveName = "{0}fitRatio{1}_{2}_bin{3}to{4}.pdf".format(odir, sig, year, xMin,xMax)
   c1.SaveAs(saveName)
   del c1
@@ -228,23 +244,29 @@ def makePlot(labels,xMin, xMax):
   # (const char *) "pdf_binselectionbJets_SignalRegion_Norm[CMS_th1x]"
   # root [20] selectionbJets_SignalRegion_CMS_th1x_prefit->getObject(5)->GetName()
   # (const char *) "h_selectionbJets_SignalRegion"
+  return globalMaxVal
 
-BinRanges = [0,100,200,300,400,500,600, 700, 800]
-sigs = ["sig_NMSSM_bbbb_MX_400_MY_125", "sig_NMSSM_bbbb_MX_700_MY_60", "sig_NMSSM_bbbb_MX_900_MY_600", "sig_NMSSM_bbbb_MX_1200_MY_300", "sig_NMSSM_bbbb_MX_1600_MY_125"]
+# BinRanges = [0,100,200,300,400,500,600,700,800]
+BinRanges = [0,100,200,300,400,500]
+sigs = ["sig_NMSSM_bbbb_MX_400_MY_125", "sig_NMSSM_bbbb_MX_700_MY_60", "sig_NMSSM_bbbb_MX_900_MY_600", "sig_NMSSM_bbbb_MX_1200_MY_300", "sig_NMSSM_bbbb_MX_1600_MY_700"]
 # sig= "sig_NMSSM_bbbb_MX_400_MY_125"
 # labels = ["prefit", "2016", "Mass Group 0", sig]
-tag = "2023Jul5_VR"
+# tag = "2023Jul5_VR"
 # tag = "2023Jul5_SR"
+# tag = "2023Dec7_binMYx2_addMX650_10ev_VR"
+# globalMaxVal = [0, 0, 0, 0, 0]
+tag = "2023Dec7_binMYx2_addMX650_10ev_SR"
 years=["2016", "2017", "2018"]
-allfittypes= ["fit_b", "fit_s", "prefit"]
-for afittype in allfittypes:
-    for year in years:
-        for i, sig in enumerate(sigs):
-            labels = [afittype, tag, year, "Mass Group {}".format(i), sig]
-# labels = ["prefit", tag, year, "Mass Group {}".format(0), sig]
-            for i in range(1, len(BinRanges)):
-              makePlot(labels, BinRanges[i-1],BinRanges[i])
+allfittypes= ["prefit", "fit_b", "fit_s", "prefit"]
+for year in years:
+    for i, sig in enumerate(sigs):
+        for j in range(1, len(BinRanges)):
+            globalMaxVal=0
+            for afittype in allfittypes:
+                labels = [afittype, tag, year, "Mass Group {}".format(i), sig]
+                globalMaxVal = makePlot(labels, BinRanges[j-1],BinRanges[j], globalMaxVal)
 
+# labels = ["prefit", tag, year, "Mass Group {}".format(0), sig]
 #
 # afittype = "fit_b"
 # year = "2016"

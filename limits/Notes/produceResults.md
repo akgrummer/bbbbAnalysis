@@ -8,5 +8,5 @@ produceAllResults can be used
 - compare 3 limit results
 
 
-source an-scripts/produceAllResults.sh
+source ./an-scripts/produceAllResults.sh
 

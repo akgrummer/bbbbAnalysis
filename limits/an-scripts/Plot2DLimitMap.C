@@ -11,6 +11,8 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <stdio.h>
+
 
 // g++  -std=c++17 -I `root-config --incdir`  -o Plot2DLimitMap Plot2DLimitMap.cc `root-config --libs` -O3
 
@@ -21,6 +23,8 @@ std::vector<float> getBinning(const std::vector<float>& listOfPoints)
     for (int point=0; point<numberOfPoints-1; ++point) binning[point+1] = (listOfPoints[point]+listOfPoints[point+1])/2.;
     binning[0]              = 2.*listOfPoints[0] - binning[1];
     binning[numberOfPoints] = 2.*listOfPoints[numberOfPoints-1] - binning[numberOfPoints-1];
+    for(auto bin : binning) std::cout << bin << " - ";
+    std::cout<<std::endl;
     return binning;
 }
 
@@ -33,8 +37,8 @@ std::vector<float> doubleBinning(const std::vector<float>& originalBinning)
     binning[numberOfPoints-1] = originalBinning[originalNumberOfPoints-1];
     for(uint point=1; point<originalNumberOfPoints-1; ++point) binning[point*2] = originalBinning[point];
     for(uint point=0; point<originalNumberOfPoints-1; ++point) binning[point*2+1] = (originalBinning[point]+originalBinning[point+1])/2.;
-    for(auto bin : binning) std::cout << bin << " - ";
-    std::cout<<std::endl;
+    // for(auto bin : binning) std::cout << bin << " - ";
+    // std::cout<<std::endl;
     return binning;
 }
 
@@ -149,8 +153,17 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
         auto xOriginalBinning = getBinning(xMassList);
         auto yOriginalBinning = getBinning(yMassList);
 
-        auto xBinning = doubleBinning(xOriginalBinning);
-        auto yBinning = doubleBinning(yOriginalBinning);
+        // auto xBinning = doubleBinning(xOriginalBinning);
+        // auto yBinning = doubleBinning(yOriginalBinning);
+        // std::cout<<"Doing custom binning though"<<std::endl;
+
+        // xOriginalBinning.clear();
+        // yOriginalBinning.clear();
+        // binning before mx=650 with different mY values added
+        //                       350, 450, 550, 650, 750, 850, 950, 1050, 1150, 1300, 1500, 1700
+        // xOriginalBinning.assign({ 350, 450, 550, 625, 675, 750, 850, 950, 1050, 1150, 1300, 1500, 1700 });
+        //                        55, 65, 75, 85, 95, 112.5, 137.5, 175, 225, 275, 350, 450, 550, 650, 750, 850, 950, 1100, 1300, 1500
+        // yOriginalBinning.assign({55, 65, 75, 85, 95, 112.5, 137.5, 175, 225, 275, 350, 450, 550, 650, 750, 850, 950, 1100, 1300, 1500});
 
         std::string theoryCanvasName = "CentralLimitMap_RunII_TheoryComparison";
         TCanvas* theTheoryCanvas = new TCanvas(theoryCanvasName.c_str(), theoryCanvasName.c_str(), 1200, 800);
@@ -179,6 +192,7 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
         {
             float xBinCenter = theoryContour->GetXaxis()->GetBinCenter(xBin);
             if(xBinCenter<400. || xBinCenter>1000.) continue;
+            if (xBinCenter==587.50)xBinCenter=600.0;
             float theoreticalXsec = theTheoryGraph->Eval(xBinCenter) * 1000.;
             for(int yBin = 1; yBin<=theoryContour->GetNbinsY(); ++yBin)
             {
@@ -187,6 +201,9 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
                 if(limit>0 && limit <= theoreticalXsec)
                 {
                     theoryContour->SetBinContent(xBin, yBin, 1000.);
+                    // std::cout<<"MX: "<<xBinCenter<<" MY:"<<yBinCenter<< " theory: "<< theoreticalXsec<<" exp: "<<limit<<std::endl;
+                    printf ("MX: %8.2f MX: %8.2f theory: %8.2f limit: %8.2f \n", xBinCenter, yBinCenter, theoreticalXsec, limit);
+
                 }
             }
         }

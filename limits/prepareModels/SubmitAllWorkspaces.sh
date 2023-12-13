@@ -23,10 +23,13 @@
 # TAG="2023Jul5_binMYx2_MXx2_VR"
 # TAG="2023Jul5_binMYx2_MXx2_SR"
 # TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_5ev_SR"
-TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR"
+# TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR"
+# TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR"
+# TAG="2023Dec7_binMYx2_addMX650_10ev_VR"
+TAG="2023Dec7_binMYx2_addMX650_10ev_SR"
 YEAR="RunII"
-# SAMPLES="prepareModels/listOfSamples_10points.txt"
-SAMPLES="prepareModels/listOfSamples_3in1600.txt"
+SAMPLES="prepareModels/listOfSamples_10points.txt"
+# SAMPLES="prepareModels/listOfSamples_3in1600.txt"
 
 
 python prepareModels/SubmitWorkspaces.py --tag ${TAG} --year ${YEAR} --group auto --samplelist ${SAMPLES}

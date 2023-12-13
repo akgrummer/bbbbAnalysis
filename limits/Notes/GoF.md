@@ -117,3 +117,38 @@ doesn't depend on limitConfig files (but probably needs the workspace run first)
 source ./prepareModels/SubmitAllFitDiagnostic.sh
 
 
+# 2023 Dec 11
+
+already have submitted limits for SR - but STILL need to submit workspace (!)
+2023Dec7_binMYx2_addMX650_10ev_SR
+
+## followed workspace submit instructions above for VR
+
+task status doesn't work for workspace jobs
+
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="VR"; ayear=2018; grep -Eir --color=always "error" CondorJobs/jobsLimits_${tag}_${region} | egrep -v "is zero" | egrep -v "*ignored*" | egrep -iv "Analysing"| egrep -iv "Notes" | egrep -iv "CMSHistErrorPropagator"
+
+followed GOF submit for VR - won't look at output though. (not actually interested)
+acually - just canceled these jobs.
+
+## submitted fit diagnostics for VR
+
+followed instructions above
+ERRORS in 2016 and 2017 mx1600, my=125 - probably because the bins are cut there
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="VR"; ayear=2018; grep -ir "error" CondorJobs/FitDiagnostics/jobsLimits_${tag}_${region}_${ayear}_0_sig0/
+
+## submitted fit diagnostics for SR
+
+followed instructions above
+(needed to run workspace for SR even tho limits were already done)
+
+no errors, some warnings
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="SR"; ayear=2018; grep -ir "error" CondorJobs/FitDiagnostics/jobsLimits_${tag}_${region}_${ayear}_0_sig0/
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="SR"; ayear=2018; grep -ilr "warning" CondorJobs/FitDiagnostics/jobsLimits_${tag}_${region}_${ayear}_0_sig0/
+
+```
+CondorJobs/FitDiagnostics/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_SR_2018_0_sig0/job_sig_NMSSM_bbbb_MX_1000_MY_800.sh_4014454.stdout:[WARNING]: Unable to determine uncertainties on all fit parameters in s+b fit. The option --saveWithUncertainties will be ignored as it would lead to incorrect results. Have a look at https://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/part3/nonstandard/#fit-parameter-uncertainties for more information.
+```
+not sure how problematic this is...
+
+

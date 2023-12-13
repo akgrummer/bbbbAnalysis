@@ -1,3 +1,6 @@
+# Notes for FitDiagnostics
+-- These notes are more aimed at plotting, see GoF notes for submitting
+
 run fit diagnositics with the right tag
 prepareModels/SubmitAllFitDiagnostic.sh
 more info in GoF notes
@@ -18,7 +21,7 @@ set @q=dd02dtFdt24ldtM2dtMi fdfihDjddkJj
 
 
 For Plotting:
-bbbbAnalysis/scripts/plotting/PlotFitDiagnosticsSHAPES.py
+scripts/plotting/PlotFitDiagnosticsSHAPES.py
 
 for distrbution of events for different binning
 plotting/PlotFitDiagnosticsSHAPES_NumEvents.py
@@ -27,6 +30,7 @@ copying files from eos to local lpc space:
 FitDiagnostics/copyFilesLocal.sh
 
 # 2023 Sep 26
+
 rerolling scripts added
 scripts/plotting/RerollEvents.py
 run with
@@ -44,5 +48,74 @@ scripts/plotting/FitDiag_EventDist_compare3_5ev.py
 from
 source ./scripts/plotting/compareEventDist3_5ev.sh
 
+
+# 2023 Dec11
+
+tag 2023Dec7_binMYx2_addMX650_10ev
+
+after adding mX=650 mass points
+ran jobs using notes in GoF.md
+
+copied files from eos to local lpc space:
+FitDiagnostics/copyFilesLocal.sh
+
+syncing jobs to local mac in folder plotting/FitDiag_2023Dec
+
+!used for unblinding step 3
+update tag and run:
+for unrolled plots:
+python scripts/plotting/PlotFitDiagnosticsSHAPES.py
+for 2d pulls of the 1d ratio:
+(renamed the output directory to SHAPES_1D_* in stead of plots_*SHAPES)
+
+!used for unblinding step 3
+./scripts/plotting/runAllFitDiag2Dpull.sh
+which runs:
+scripts/plotting/FitDiag2Dpull.py
+
+---
+The reroll plots the background model with an upper limit on the z axis of 10 events
+- this was used for determining the bins to cut in the lower left part of the mX-mY plane
+reroll:
+./scripts/plotting/Reroll.sh
+which runs:
+scripts/plotting/RerollEvents.py
+
+---
+used for investigating the number of events in each bin in the background
+python scripts/plotting/PlotFitDiagnosticsSHAPES_NumEvents_comp.py
+output folder: 'plots_2023Jul5_nonClosureMCStats2_SRvs2023Jul5_binMYx2_ncMCStats_SREventDist'
+
+python scripts/plotting/FitDiag_EventDist_compare3.py --year 2016 --monitor mean
+output folder: 'EventDist_2023Sep'
+
+---
+
+
+
+# 2023 Dec 12
+
+- Definition of pull
+    - set as (data-bkg) / sigma
+    - clarify what sigma is used
+
+- set as (data-bkg) / sigma
+- show uncertainty on data and background in the unrolled plots
+- add better bin labels on the unrolled plots
+
+quote from Arne:
+
+Could you please clarify your definition of "pull"?
+It seems to be something like "(bkg - data) / sigma", while one is used to look at (data-bkg) / sigma", please move to the latter.
+Also, please clarify what sigma is used here and
+show the uncertainty in the data and background
+    using error bars and shaded/hatched bands where applicable.
+
+In addition, please
+add some indication in the unrolled distributions that show the mY and mX a given bin corresponds to
+(e.g., repeating bins on the x-axis to indicate one dimension and vertical lines that separate one slice from another).
+
+At the same time, please proceed to the final step of unblinding,
+"Derive observed limits (and post-fit expected limits) and signal strength/significance for the largest excess observed" as described on the twiki.
 
 

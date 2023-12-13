@@ -1,6 +1,6 @@
 import ROOT
 from ROOT import TFile, TH1F, TH2F, TCanvas, gStyle, gPad, gDirectory, TLatex, gROOT, PyConfig, TMath, kBlue, TLine, TPad, TLegend, TGraph, TBox, kThermometer, THStack
-from ROOT import kRed 
+from ROOT import kRed
 # PyConfig.IgnoreCommandLineOptions = False
 import numpy as np
 import re
@@ -24,7 +24,7 @@ def rootplot( h1, year, region, var, tag, odir):
     c1 = TCanvas('c1', 'c1',800,600)
     gStyle.SetOptStat(0) # remove the stats box
     gStyle.SetOptTitle(0) # remove the title
-    
+
     c1.SetMargin(0.12,0.05,0.12,0.09) #left,right,bottom,top
     c1.SetTicks(1,1)
 
@@ -51,7 +51,7 @@ def rootplot( h1, year, region, var, tag, odir):
     h1.GetYaxis().SetTickLength(0.02)
     yrangeFactor = 1.3
     if var == "HH_kinFit_m": yrangeFactor = 1.57
-    
+
     CMSlabel = TLatex()
     #  CMSlabel.SetTextSize( 0.08 )
     #  CMSlabel.DrawTextNDC(0.7, 0.85, "CMS Internal")
@@ -69,7 +69,7 @@ def rootplot( h1, year, region, var, tag, odir):
     plotlabels.SetTextSize(16)
     plotlabels.SetTextFont(63)
     plotlabels.SetTextSize(14)
-    plotlabels.DrawLatexNDC(0.8, 0.85, "gen matched")
+    # plotlabels.DrawLatexNDC(0.8, 0.85, "gen matched")
     plotlabels.SetTextFont(53)
     plotlabels.SetTextSize(20)
     plotlabels.DrawTextNDC(0.88, 0.93, year)
@@ -90,8 +90,8 @@ def rootplot( h1, year, region, var, tag, odir):
     leg.SetFillStyle(0) # make the legend background transparent
     leg.Draw()
 
-    odir = odir 
-    if not (os.path.exists(odir)): os.makedirs(odir) 
+    odir = odir
+    if not (os.path.exists(odir)): os.makedirs(odir)
     c1.SaveAs("%s/%s%s_%s.pdf"%( odir   ,year, var, tag ))
 
 def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
@@ -107,11 +107,11 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
     dir_ttbar_4b = "ttbar"
     dir_data_3b = "data_BTagCSV_3btag"
     dir_data_4b = "data_BTagCSV"
-    dir_data_3b_weights = "data_BTagCSV_dataDriven_kinFit" 
-    dir_data_3b_weights_down = "data_BTagCSV_dataDriven_kinFit_down" 
-    dir_data_3b_weights_up = "data_BTagCSV_dataDriven_kinFit_up" 
+    dir_data_3b_weights = "data_BTagCSV_dataDriven_kinFit"
+    dir_data_3b_weights_down = "data_BTagCSV_dataDriven_kinFit_down"
+    dir_data_3b_weights_up = "data_BTagCSV_dataDriven_kinFit_up"
     dir_QCD = "QCD"
-        
+
     dir_sig_MX_600_MY_400 = "sig_NMSSM_bbbb_MX_600_MY_400" # signal
     dir_sig_MX_300_MY_60 = "sig_NMSSM_bbbb_MX_300_MY_60" # signal
     dir_sig_MX_300_MY_150 = "sig_NMSSM_bbbb_MX_300_MY_150" # signal
@@ -137,7 +137,44 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
 ##################################################
 #  # data plots
     varname1 = "H1_m"
-    signalDirList = [dir_sig_MX_400_MY_150  , dir_sig_MX_500_MY_200  , dir_sig_MX_700_MY_150  , dir_sig_MX_900_MY_700  , dir_sig_MX_1000_MY_200 , dir_sig_MX_1000_MY_700 , dir_sig_MX_1200_MY_500 , dir_sig_MX_1600_MY_1200]
+    signalDirList = [dir_sig_MX_400_MY_150  , dir_sig_MX_500_MY_200  , dir_sig_MX_700_MY_150  , dir_sig_MX_900_MY_700  , dir_sig_MX_1000_MY_200 , dir_sig_MX_1000_MY_700 , dir_sig_MX_1200_MY_500 , dir_sig_MX_1600_MY_1200,
+                     "sig_NMSSM_bbbb_MX_600_MY_60",
+                     "sig_NMSSM_bbbb_MX_600_MY_70",
+                     "sig_NMSSM_bbbb_MX_600_MY_80",
+                     "sig_NMSSM_bbbb_MX_600_MY_90",
+                     "sig_NMSSM_bbbb_MX_600_MY_100",
+                     "sig_NMSSM_bbbb_MX_600_MY_125",
+                     "sig_NMSSM_bbbb_MX_600_MY_150",
+                     "sig_NMSSM_bbbb_MX_600_MY_200",
+                     "sig_NMSSM_bbbb_MX_600_MY_250",
+                     "sig_NMSSM_bbbb_MX_600_MY_300",
+                     "sig_NMSSM_bbbb_MX_600_MY_400",
+                     "sig_NMSSM_bbbb_MX_650_MY_60",
+                     "sig_NMSSM_bbbb_MX_650_MY_70",
+                     "sig_NMSSM_bbbb_MX_650_MY_80",
+                     "sig_NMSSM_bbbb_MX_650_MY_90",
+                     "sig_NMSSM_bbbb_MX_650_MY_100",
+                     "sig_NMSSM_bbbb_MX_650_MY_125",
+                     "sig_NMSSM_bbbb_MX_650_MY_150",
+                     "sig_NMSSM_bbbb_MX_650_MY_190",
+                     "sig_NMSSM_bbbb_MX_650_MY_250",
+                     "sig_NMSSM_bbbb_MX_650_MY_300",
+                     "sig_NMSSM_bbbb_MX_650_MY_350",
+                     "sig_NMSSM_bbbb_MX_650_MY_400",
+                     "sig_NMSSM_bbbb_MX_650_MY_450",
+                     "sig_NMSSM_bbbb_MX_650_MY_500",
+                     "sig_NMSSM_bbbb_MX_700_MY_60",
+                     "sig_NMSSM_bbbb_MX_700_MY_70",
+                     "sig_NMSSM_bbbb_MX_700_MY_80",
+                     "sig_NMSSM_bbbb_MX_700_MY_90",
+                     "sig_NMSSM_bbbb_MX_700_MY_100",
+                     "sig_NMSSM_bbbb_MX_700_MY_125",
+                     "sig_NMSSM_bbbb_MX_700_MY_150",
+                     "sig_NMSSM_bbbb_MX_700_MY_200",
+                     "sig_NMSSM_bbbb_MX_700_MY_250",
+                     "sig_NMSSM_bbbb_MX_700_MY_300",
+                     "sig_NMSSM_bbbb_MX_700_MY_400",
+                     ]
     for sigDir in signalDirList:
     #  varname = "H1_b1_kinFit_ptRegressed"
         myfile.cd(sigDir+"/"+dir_region)
@@ -146,9 +183,10 @@ def makeplotsForRegion(dir_region, region, odir, year, ifileTag):
 
 # ********************
 #run pyROOT in batch mode  - ie don't show graphics!
-# 
+#
 gROOT.SetBatch(True)
-odir = "VarPlots/2023Feb21_signalMH/"
+# odir = "VarPlots/2023Feb21_signalMH/"
+odir = "VarPlots/2023Dec7_signalMH/"
 odiro = odir
 years = ["2016","2017","2018"]
 # !!!!!!!!!!! CAREFUL using Signal Region! !!!!!!!!!!! only for MC
@@ -161,7 +199,8 @@ directories = ["selectionbJets_SignalRegion"]
 regionTag = ["SR"]
 # iTags = ["2022Jul7_fullBDT_bJetScoreLoose"]
 # iTags = ["2022Nov14_bJetScoreLoose_shapes2"]
-iTags = ["2023Feb21_genMatched"]
+# iTags = ["2023Feb21_genMatched"]
+iTags = ["2023Dec7_binMYx2_addMX650_10ev"]
 for iTag in iTags:
    for year in years:
        for i, directory in enumerate(directories):

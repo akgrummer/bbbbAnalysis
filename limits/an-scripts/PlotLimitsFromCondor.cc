@@ -23,6 +23,8 @@ std::vector<float> getBinning(const std::vector<float>& listOfPoints)
     for (int point=0; point<numberOfPoints-1; ++point) binning[point+1] = (listOfPoints[point]+listOfPoints[point+1])/2.;
     binning[0]              = 2.*listOfPoints[0] - binning[1];
     binning[numberOfPoints] = 2.*listOfPoints[numberOfPoints-1] - binning[numberOfPoints-1];
+    for(auto bin : binning) std::cout << bin << " - ";
+    std::cout<<std::endl;
     return binning;
 }
 
@@ -127,10 +129,19 @@ int main(int argc, char** argv)
 
     auto xBinning = getBinning(xMassList);
     auto yBinning = getBinning(yMassList);
-    for(auto bin : xBinning) std::cout<< bin << " - ";
-    std::cout<<std::endl;
-    for(auto bin : yBinning) std::cout<< bin << " - ";
-    std::cout<<std::endl;
+    // for(auto bin : xBinning) std::cout<< bin << " - ";
+    // std::cout<<std::endl;
+    // for(auto bin : yBinning) std::cout<< bin << " - ";
+    // std::cout<<std::endl;
+    std::cout<<"Doing custom binning though"<<std::endl;
+
+    xBinning.clear();
+    yBinning.clear();
+    // binning before mx=650 with different mY values added
+    //                       350, 450, 550, 650, 750, 850, 950, 1050, 1150, 1300, 1500, 1700
+    xBinning.assign({ 350, 450, 550, 625, 675, 750, 850, 950, 1050, 1150, 1300, 1500, 1700 });
+    //                        55, 65, 75, 85, 95, 112.5, 137.5, 175, 225, 275, 350, 450, 550, 650, 750, 850, 950, 1100, 1300, 1500
+    yBinning.assign({55, 65, 75, 85, 95, 112.5, 137.5, 175, 225, 275, 350, 450, 550, 650, 750, 850, 950, 1100, 1300, 1500});
 
     std::map<std::string, std::map<std::string, std::tuple<std::map<std::string, TH2D*>, std::map<float, std::tuple<TGraph*, TGraphAsymmErrors*, TGraphAsymmErrors*, TGraph*>>>>> theFullMapOfPlots;
     std::map<float, std::tuple<TGraph*, TGraphAsymmErrors*, TGraphAsymmErrors*, TGraph*>> mapOfLimitsVsY;
@@ -317,7 +328,7 @@ int main(int argc, char** argv)
     }
 
 
-    TFile outputFile(("Limits_" + tagName + ".root").c_str(), "RECREATE");
+    TFile outputFile(("hists/Limits_" + tagName + ".root").c_str(), "RECREATE");
     for(const auto& year : yearList)
     {
                 // std::cout<<__LINE__<<std::endl;

@@ -123,3 +123,20 @@ scripts/Unroll2DplotsSubRange_dev_hourglassMCStats_lowStatsCuts.cc
 saves the location files already
 
 
+# 2023 Dec 8:
+
+myyear=2018; tag="2023Dec7_binMYx2_addMX650"; ls -ltrh VarPlots/rootHists/fullSubmission_2022Nov/${myyear}DataPlots_${tag}/
+myyear=2018; tag="2023Dec7_binMYx2_addMX650"; addtag="10ev"; ls -ltrh VarPlots/rootHists/fullSubmission_2022Nov/${myyear}DataPlots_${tag}_${addtag}/
+myyear=2018; tag="2023Dec7_binMYx2_addMX650"; addtag="10ev"; mkdir VarPlots/rootHists/fullSubmission_2022Nov/${myyear}DataPlots_${tag}_${addtag}
+
+add additional tag with (for 10ev bin cut):
+for all year, using:
+./scripts/Unroll_addTag.sh
+
+update tag and run
+source ./scripts/UnrollAllSubdir.sh
+
+for ayear in 2016 2017 2018; do tag="2023Dec7_binMYx2_addMX650_10ev"; echo VarPlots/rootHists/fullSubmission_2022Nov/${ayear}DataPlots_${tag}; ls -ltrh VarPlots/rootHists/fullSubmission_2022Nov/${ayear}DataPlots_${tag}; done
+for ayear in 2016 2017 2018; do tag="2023Dec7_binMYx2_addMX650_10ev_SR"; echo VarPlots/rootHists/fullSubmission_2022Nov/${ayear}DataPlots_${tag}; ls -ltrh VarPlots/rootHists/fullSubmission_2022Nov/${ayear}DataPlots_${tag}; done
+
+

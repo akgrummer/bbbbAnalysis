@@ -22,7 +22,9 @@
 # TAG="2023Jul5_binMYx2_MXx2_VR"
 # TAG="2023Jul5_binMYx2_MXx2_SR"
 # TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_5ev_SR"
-TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR"
+# TAG="2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR"
+TAG="2023Dec7_binMYx2_addMX650_10ev_VR"
+# TAG="2023Dec7_binMYx2_addMX650_10ev_SR"
 # YEAR=2016
 # NTOYS=100
 # SAMPLES="prepareModels/listOfSamples.txt"
