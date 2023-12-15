@@ -10,6 +10,12 @@ import math
 import argparse
 import csv
 
+bkgNormPerMassGroupDictionary = {
+    "2016" : { "0" : "1.022", "1" :  "1.022", "2" :  "1.018", "3" :  "1.018", "4" :  "1.042", "none" : "1.010"},
+    "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.017", "3" :  "1.013", "4" :  "1.019", "none" : "1.010"},
+    "2018" : { "0" : "1.046", "1" :  "1.039", "2" :  "1.033", "3" :  "1.024", "4" :  "1.012", "none" : "1.010"},
+}
+
 def rootplot_2Dhist(h1, year, odir, tag, descriptionLabel):
     c1 = TCanvas('c1', 'c1',800,600)
     gStyle.SetOptStat(0) # remove the stats box
@@ -32,7 +38,7 @@ def rootplot_2Dhist(h1, year, odir, tag, descriptionLabel):
     # if("bkg" in tag and args.year == "2016" and int(args.massGroup) == 3): h1.GetZaxis().SetRangeUser(0., 190.)
     # if("bkg" in tag and args.year == "2016" and int(args.massGroup) == 4): h1.GetZaxis().SetRangeUser(0., 70.)
     # h1.GetZaxis().SetRangeUser(zmin, zmax)
-    if ("pull" in tag): h1.GetZaxis().SetTitle("pull")
+    if ("pull" in tag): h1.GetZaxis().SetTitle("pull [(data-bkg)/#sigma]")
     else: h1.GetZaxis().SetTitle("entries")
     h1.GetZaxis().SetTitleOffset(1.3)
     h1.GetXaxis().SetTitle("m_{X} [GeV]")
@@ -66,13 +72,20 @@ def rootplot_2Dhist(h1, year, odir, tag, descriptionLabel):
         fitDir="prefit"
     if("fit_s" in tag):
         fitDir="fit_s"
-    if not os.path.isdir("FitDiagnostics/pulls/{0}".format(mainTag)):
-        os.mkdir("FitDiagnostics/pulls/{0}".format(mainTag))
-    if not os.path.isdir("FitDiagnostics/pulls/{0}/{1}".format(mainTag,year)):
-        os.mkdir("FitDiagnostics/pulls/{0}/{1}".format(mainTag, year))
-    if not os.path.isdir("FitDiagnostics/pulls/{0}/{1}/{2}".format(mainTag,year,fitDir)):
-        os.mkdir("FitDiagnostics/pulls/{0}/{1}/{2}".format(mainTag, year, fitDir))
-    c1.SaveAs("FitDiagnostics/pulls/{0}/{1}/{2}/{3}_{1}.pdf".format(mainTag,year, fitDir, tag))
+
+    odir = "FitDiagnostics/{0}/".format("pulls_updated")
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    odir = "{0}{1}/".format(odir,mainTag)
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    odir = "{0}{1}/".format(odir,year)
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    odir = "{0}{1}/".format(odir,fitDir)
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    c1.SaveAs("{0}{1}_{2}.pdf".format(odir, tag, year))
     # c1.SaveAs("FitDiagnostics/pulls/{1}/{0}_{1}.root".format(tag, year))
     # c1.SaveAs("test.pdf")
 
@@ -87,7 +100,7 @@ def rootplot_1Dhist(h1, year, odir, tag, descriptionLabel):
     gPad.SetMargin(0.12,0.09,0.12,0.09) #left,right,bottom,top
 
     h1.Draw("hist")
-    h1.GetXaxis().SetTitle("pull")
+    h1.GetXaxis().SetTitle("pull [(data-bkg)/#sigma]")
     # h1.GetXaxis().SetRangeUser(-3., 3.)
     h1.GetXaxis().SetRangeUser(-5., 5.)
     h1.GetYaxis().SetTitle("entries")
@@ -123,13 +136,20 @@ def rootplot_1Dhist(h1, year, odir, tag, descriptionLabel):
         fitDir="prefit"
     if("fit_s" in tag):
         fitDir="fit_s"
-    if not os.path.isdir("FitDiagnostics/pulls/{0}".format(mainTag)):
-        os.mkdir("FitDiagnostics/pulls/{0}".format(mainTag))
-    if not os.path.isdir("FitDiagnostics/pulls/{0}/{1}".format(mainTag,year)):
-        os.mkdir("FitDiagnostics/pulls/{0}/{1}".format(mainTag, year))
-    if not os.path.isdir("FitDiagnostics/pulls/{0}/{1}/{2}".format(mainTag,year,fitDir)):
-        os.mkdir("FitDiagnostics/pulls/{0}/{1}/{2}".format(mainTag, year, fitDir))
-    c1.SaveAs("FitDiagnostics/pulls/{0}/{1}/{2}/{3}_{1}.pdf".format(mainTag,year, fitDir, tag))
+
+    odir = "FitDiagnostics/{0}/".format("pulls_updated")
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    odir = "{0}{1}/".format(odir,mainTag)
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    odir = "{0}{1}/".format(odir,year)
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    odir = "{0}{1}/".format(odir,fitDir)
+    if not os.path.isdir(odir):
+        os.mkdir(odir)
+    c1.SaveAs("{0}{1}_{2}.pdf".format(odir, tag, year))
     # c1.SaveAs("FitDiagnostics/pulls/{1}/{0}_{1}.root".format(tag, year))
     # c1.SaveAs("test.pdf")
 
@@ -193,13 +213,28 @@ def makePlotsPerYear(year, pvalFile, labels, inputFile):
   # hpullDistribution = ROOT.TH1D( "hpull", "hpull", 64, -3.6, 3.6);
   hpullDistribution = ROOT.TH1D( "hpull", "hpull", 90, -5., 5.);
 
+  inputHistsFileName = "/uscms/homes/a/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/VarPlots/rootHists/fullSubmission_2022Nov/{0}DataPlots_{1}/outPlotter_massGroup{2}.root".format(year, tag, args.massGroup)
+  inFile = ROOT.TFile(inputHistsFileName)
+  dir_shape_nom = "data_BTagCSV_dataDriven_kinFit"
+  dir_shape_down = "data_BTagCSV_dataDriven_kinFit_downRefined"
+  dir_shape_up = "data_BTagCSV_dataDriven_kinFit_upRefined"
+  dir_region = "selectionbJets_SignalRegion"
+  varname = "HH_kinFit_m_H2_m_Rebinned_Unrolled"
+  inFile.cd( dir_shape_nom+"/"+dir_region )
+  hShapeNom = gDirectory.Get( dir_shape_nom+"_"+dir_region+"_"+varname )
+  inFile.cd( dir_shape_down+"/"+dir_region )
+  hShapeDown = gDirectory.Get( dir_shape_down+"_"+dir_region+"_"+varname )
+  inFile.cd( dir_shape_up+"/"+dir_region )
+  hShapeUp     = gDirectory.Get( dir_shape_up+"_"+dir_region+"_"+varname )
+
   pullVal = ROOT.Double(0)
   dataVal = ROOT.Double(0)
   bkgVal = ROOT.Double(0)
   pull_bin_middle = ROOT.Double(0)
   with open(ifile) as csvfile:
       binMapping = csv.reader(csvfile, delimiter=',')
-      for i,mapmX,mapmY in binMapping:
+      for j,mapmX,mapmY in binMapping:
+          i=int(j)
           # hNew.GetPoint(int(i), pull_bin_middle, pullVal)
           # pullVal = hNew.Eval(float(i)-0.5)
           # hData.GetPoint(int(i), pull_bin_middle, dataVal)
@@ -211,10 +246,16 @@ def makePlotsPerYear(year, pvalFile, labels, inputFile):
           dataShapeVal = grDataShape.Eval(float(i)-0.5)
           errDataShape = grDataShape.GetErrorY(int(i)-1)
           bkgShapeVal = hBkgShape.GetBinContent(int(i))
-          if ("fit" in fittype): errBkgShape = hBkgShape.GetBinError(int(i))
-          else: errBkgShape = math.sqrt(hBkgShape.GetBinContent(i)) # prefit bkg hist has no error.
+          if ("fit_b" in fittype):
+              pull = (dataShapeVal-bkgShapeVal)/math.sqrt(errDataShape**2)
+          else:
+              errBkgShape = hBkgShape.GetBinError(i)
+              shapeErr=hShapeUp.GetBinContent(i)-hBkgShape.GetBinContent(i)
+              normErr=bkgShapeVal * ( float(bkgNormPerMassGroupDictionary[str(year)][str(args.massGroup)]) - 1 )
+              # pull = (dataShapeVal-bkgShapeVal)/math.sqrt(errDataShape**2)
+              pull = (dataShapeVal-bkgShapeVal)/math.sqrt(errDataShape**2+ errBkgShape**2 +shapeErr**2+normErr**2)
               # pull = bkgShapeVal-dataShapeVal
-          pull = (bkgShapeVal-dataShapeVal)/math.sqrt(errDataShape**2)
+              # if("2017" in year and "0" in massGroup): print(i, dataShapeVal, bkgShapeVal, errDataShape, errBkgShape, shapeErr, pull)
 
           if ("VR" in tag):
               if (125-20<float(mapmY) and float(mapmY)<125+20): pull = -1000
@@ -231,7 +272,7 @@ def makePlotsPerYear(year, pvalFile, labels, inputFile):
           h2dVR_pullShape.Fill(float(mapmX),float(mapmY), pull)
           if (pull>-500): hpullDistribution.Fill(pull)
           # if (int(i)==0 or int(i)==1 or int(i)==522): print("{0} bin {1}".format(fittype, i), mapmX, mapmY, dataShapeVal, bkgShapeVal, errDataShape, errBkgShape, pull)
-          if("2017" in year and "0" in massGroup and fittype=="fit_b"): print(i, dataShapeVal, bkgShapeVal, errDataShape, errBkgShape, pull)
+          # if("2017" in year and "0" in massGroup and fittype=="fit_b"): print(i, dataShapeVal, bkgShapeVal, errDataShape, errBkgShape, pull)
           # print(i, mapmX, mapmY, pullVal, dataVal, bkgVal)
       # print(i, mapmX, mapmY, pullVal, dataVal, bkgVal)
   # print(ifile)

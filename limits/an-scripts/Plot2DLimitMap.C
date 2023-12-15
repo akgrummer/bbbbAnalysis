@@ -81,12 +81,13 @@ std::pair<float, float> getMassesFromSignalName(const std::string& signalName)
     return std::make_pair(xMass, yMass);
 }
 
-void Plot2DLimitMap(std::string inputFileName, std::string year, std::string option = "syst")
+void Plot2DLimitMap(TString tag, std::string year, std::string option = "syst")
 {
     gROOT->SetBatch(true);
 
     std::string histogramName = "Limits_" + year + "/Option_" + option + "/LimitMapCentral_" + year + "_" + option;
-    auto *inputFile = new TFile(inputFileName.c_str());
+    TString inputFileName = "hists/Limits_"+tag+".root";
+    auto *inputFile = new TFile(inputFileName);
     if(inputFile == nullptr)
     {
         std::cout<< "File " << inputFileName << " does not exist, aborting..." << std::endl;
@@ -129,7 +130,10 @@ void Plot2DLimitMap(std::string inputFileName, std::string year, std::string opt
     theCanvas->SetLogz();
     // theCanvas->SetLogy();
 
-    theCanvas->SaveAs((std::string(theCanvas->GetName()) + ".png").c_str());
+    // theCanvas->SaveAs("results/"+tag.c_str()+"/"+(std::string(theCanvas->GetName()) + ".pdf").c_str());
+    theCanvas->SaveAs("results/Limits_"+tag+"/"+theCanvas->GetName() + ".pdf");
+    theCanvas->SaveAs("results/Limits_"+tag+"/"+theCanvas->GetName() + ".png");
+    // theCanvas->SaveAs("results/"+tag.c_str()+"/"+std::string(theCanvas->GetName()) + ".png").c_str());
     // theCanvas->SaveAs((std::string(theCanvas->GetName()) + "_log.png").c_str());
 
 
@@ -294,10 +298,11 @@ int main(int argc, char** argv)
 
     if(argc!=2)
     {
-        std::cout<<"Usage: ./Plot2DLimitMap <inputFile>"<<std::endl;
+        std::cout<<"Usage: ./Plot2DLimitMap <tag>"<<std::endl;
         exit(EXIT_FAILURE);
     }
 
+    TString inputTag=argv[1];
 
     std::vector<std::string> optionList {"statOnly", "syst"};
     std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
@@ -309,7 +314,7 @@ int main(int argc, char** argv)
     {
         for(const auto & option : optionList)
         {
-            Plot2DLimitMap(argv[1], year, option);
+            Plot2DLimitMap(inputTag, year, option);
         }
     }
 

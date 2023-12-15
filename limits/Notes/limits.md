@@ -100,3 +100,15 @@ remove mX=1600, mY mass below 200GeV from sample list
 tag="2023Dec7_binMYx2_addMX650_10ev_rmSigs"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts
 tag="2023Dec7_binMYx2_addMX650_10ev_rmSigs"; region="SR"; python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_${tag}_${region}/ --long
 
+tag="2023Dec7_binMYx2_addMX650_10ev_rmSigs"; region="VR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts
+tag="2023Dec7_binMYx2_addMX650_10ev_rmSigs"; region="VR"; python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_${tag}_${region}/ --long
+
+
+# 2023 Dec 14
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind"; region="SR"; python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_${tag}_${region}/ --long
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind"; region="VR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind"; region="VR"; python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_${tag}_${region}/ --long
+

@@ -95,6 +95,10 @@ output folder: 'EventDist_2023Sep'
 
 # 2023 Dec 12
 
+python scripts/plotting/PlotFitDiagnosticsSHAPES.py
+./scripts/plotting/runAllFitDiag2Dpull.sh
+scripts/plotting/FitDiag2Dpull.py
+
 - Definition of pull
     - set as (data-bkg) / sigma
     - clarify what sigma is used

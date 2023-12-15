@@ -13,15 +13,24 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +54 an-scripts/produceAllResults.sh
-badd +15 an-scripts/PlotLimitVsMy_orig.py
-badd +1 Notes/produceResults.md
+badd +13 an-scripts/produceAllResults.sh
+badd +25 an-scripts/PlotLimitVsMy_orig.py
+badd +17 Notes/produceResults.md
 badd +182 ../privateTools/ProduceLimitTable.C
+badd +101 Notes/limits.md
+badd +200 an-scripts/PlotLimitsFromCondor.cc
+badd +98 Notes/fitDiag.md
+badd +4 scripts/plotting/FitDiag2Dpull.py
+badd +138 an-scripts/Plot2DLimitMap.C
+badd +183 scripts/plotting/PlotFitDiagnosticsSHAPES.py
+badd +111 an-scripts/PlotLimitVsMy_orig_twoLimits.py
+badd +14 an-scripts/unblindingLimits_2023Dec14.sh
 argglobal
 %argdel
 $argadd an-scripts/produceAllResults.sh
-edit an-scripts/produceAllResults.sh
+edit an-scripts/unblindingLimits_2023Dec14.sh
 argglobal
+balt an-scripts/PlotLimitVsMy_orig.py
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -32,12 +41,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 28) / 56)
+let s:l = 8 - ((7 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 8
+normal! 05|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
