@@ -35,3 +35,5 @@ docker_stderror
 limits/SelfBiasTest*
 hourglassUnc/bin/*
 limits/an-scripts/Plot2DLimitMap
+limits/an-scripts/Plot2DSignificanceMap
+limits/an-scripts/PlotSignificanceFromCondor

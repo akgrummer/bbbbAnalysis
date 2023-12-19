@@ -13,24 +13,31 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +13 an-scripts/produceAllResults.sh
-badd +25 an-scripts/PlotLimitVsMy_orig.py
-badd +17 Notes/produceResults.md
-badd +182 ../privateTools/ProduceLimitTable.C
-badd +101 Notes/limits.md
-badd +200 an-scripts/PlotLimitsFromCondor.cc
-badd +98 Notes/fitDiag.md
-badd +4 scripts/plotting/FitDiag2Dpull.py
-badd +138 an-scripts/Plot2DLimitMap.C
+badd +23 an-scripts/produceAllResults.sh
+badd +30 an-scripts/PlotLimitVsMy_orig.py
+badd +35 Notes/produceResults.md
+badd +181 ../privateTools/ProduceLimitTable.C
+badd +123 Notes/limits.md
+badd +214 an-scripts/PlotSignificanceFromCondor.cc
+badd +125 Notes/fitDiag.md
+badd +288 scripts/plotting/FitDiag2Dpull.py
+badd +138 an-scripts/Plot2DSignificanceMap.C
 badd +183 scripts/plotting/PlotFitDiagnosticsSHAPES.py
 badd +111 an-scripts/PlotLimitVsMy_orig_twoLimits.py
-badd +14 an-scripts/unblindingLimits_2023Dec14.sh
+badd +10 an-scripts/unblindingLimits_2023Dec14.sh
+badd +13 an-scripts/produceMeanLimitPlots.sh
+badd +75 an-scripts/PlotSignficanceDist.py
+badd +96 prepareModels/config/LimitsConfig_2018.cfg
+badd +4 an-scripts/produce2DlimitMap.sh
+badd +159 an-scripts/PlotLimitsFromCondor.cc
+badd +1 an-scripts/Plot2DLimitMap.C
+badd +98 an-scripts/PlotLimitMean.py
 argglobal
 %argdel
 $argadd an-scripts/produceAllResults.sh
-edit an-scripts/unblindingLimits_2023Dec14.sh
+edit Notes/produceResults.md
 argglobal
-balt an-scripts/PlotLimitVsMy_orig.py
+balt an-scripts/Plot2DSignificanceMap.C
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -41,12 +48,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 8 - ((7 * winheight(0) + 34) / 68)
+let s:l = 37 - ((36 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 8
-normal! 05|
+keepjumps 37
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

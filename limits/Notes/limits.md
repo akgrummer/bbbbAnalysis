@@ -112,3 +112,32 @@ tag="2023Dec7_binMYx2_addMX650_10ev_unblind"; region="SR"; python scripts/getTas
 tag="2023Dec7_binMYx2_addMX650_10ev_unblind"; region="VR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
 tag="2023Dec7_binMYx2_addMX650_10ev_unblind"; region="VR"; python scripts/getTaskStatus.py --dir CondorJobs/jobsLimits_${tag}_${region}/ --long
 
+# 2023 Dec 14
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif"; region="SR"; python prepareModels/SubmitFullRunIIsignificance.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif"; region="SR"; python scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all"; region="SR"; python prepareModels/SubmitFullRunIIsignificance.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all"; region="SR"; python scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+## run for the pvals
+
+add --pval flag to the combine command in the python submission script (two places, lines 266 and 279)
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all_pval"; region="SR"; python prepareModels/SubmitFullRunIIsignificance.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all_pval"; region="SR"; python scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+
+# 2023 Dec 19
+
+ifile=datacard_2018_sig_NMSSM_bbbb_MX_700_MY_400.txt; xrdcp root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all_SR/HistogramFiles_2018/${ifile} ./${ifile}
+ifile=outPlotter_2018_sig_NMSSM_bbbb_MX_700_MY_400.root; xrdcp root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all_SR/HistogramFiles_2018/${ifile} ./${ifile}
+
+python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_2018.cfg  --no-comb --signal sig_NMSSM_bbbb_MX_700_MY_400 --bkgNorm 1.040 --folder ${PWD}
+
+
+toys=2; iter=1; seed=12345; combine -M HybridNew datacard2018_selectionbJets_SignalRegion.root --LHCmode LHC-significance  --saveToys --fullBToys --saveHybridResult -T ${toys} -i ${iter} -s ${seed}
+combine -M HybridNew datacard.txt --LHCmode LHC-significance --readHybridResult --grid=input.root [--pvalue ]
+combine -M HybridNew datacard2018_selectionbJets_SignalRegion.root --LHCmode LHC-significance --readHybridResult --grid=higgsCombineTest.HybridNew.mH120.123456.root
+
+combine -M Significance datacard2018_selectionbJets_SignalRegion.root

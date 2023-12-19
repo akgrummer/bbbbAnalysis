@@ -16,3 +16,23 @@ unblinding limits:
 
 ./an-scripts/unblindingLimits_2023Dec14.sh
 
+# 2023 Dec 15
+
+computed pulls of the observed limits:
+an-scripts/produceMeanLimitPlots.sh
+
+# 2023 Dec18
+2d limit map:
+
+for significance:
+./an-scripts/produce2DlimitMap.sh
+runs:
+./an-scripts/PlotSignificanceFromCondor.cc
+and
+./an-scripts/Plot2DSignificanceMap.C
+
+and
+an-scripts/PlotSignficanceDist.py
+
+
+

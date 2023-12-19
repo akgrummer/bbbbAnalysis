@@ -152,3 +152,8 @@ CondorJobs/FitDiagnostics/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_SR_2018_0_si
 not sure how problematic this is...
 
 
+# 2023 Dec 15
+
+significance:
+should be based on:
+scripts/plotting/GOF_2d_plots.py
