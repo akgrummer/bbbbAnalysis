@@ -29,25 +29,34 @@ int numberOfGridBins = 1;
 float mXtarget=1000.; float mYtarget=150.;
 
     TString filename = "";
-    filename.Form("../../VarPlots/rootHists/fullSubmission_2022Nov/%dDataPlots_2023Feb28_3/outPlotter.root", year);
+    // filename.Form("../../VarPlots/rootHists/fullSubmission_2022Nov/%dDataPlots_2023Feb28_3/outPlotter.root", year);
+    TString tag;
+    tag.Form("%dDataPlots_2023Dec7_binMYx2_addMX650_10ev",year);
+    // filename.Form("../../VarPlots/rootHists/fullSubmission_2022Nov/%dDataPlots_2023Feb28_3/outPlotter.root", year);
+    filename = "../../VarPlots/rootHists/fullSubmission_2022Nov/"+tag+"/outPlotter.root";
     TFile *ifile = new TFile( filename, "READ");
     TString ofilename = "";
     // ofilename.Form("hists/InterpHists_%d_newGrid.root", year);
-    ofilename.Form("hists/InterpHists_%d.root", year);
+    ofilename.Form("hists/InterpHists_%d_2023Dec19.root", year);
     TFile *ofile = new TFile( ofilename, "RECREATE");
     TString sigRegion  = "selectionbJets_SignalRegion";
     TString varname = "HH_kinFit_m_H2_m";
 
     TString sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","1000","125");
     TH2F *sig_low_low=(TH2F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname);
+    // sig_low_low->Scale(1./sig_low_low->Integral());
     sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","1000","200");
     TH2F *sig_low_high=(TH2F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname);
+    // sig_low_high->Scale(1./sig_low_high->Integral());
     sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","1100","125");
     TH2F *sig_high_low=(TH2F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname);
+    // sig_high_low->Scale(1./sig_high_low->Integral());
     sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","1100","200");
     TH2F *sig_high_high=(TH2F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname);
+    // sig_high_high->Scale(1./sig_high_high->Integral());
     sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","1000","150");
     TH2F *sig_real=(TH2F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname);
+    // sig_real->Scale(1./sig_real->Integral());
 
 	RooArgList variableList;
 

@@ -28,23 +28,29 @@ void TestInterpolatorHist(int year)
     TString varname = "HH_kinFit_m_H2_m";
 
     // get the 2d mX vs mY to reference the mX binning
-    filename.Form("../VarPlots/rootHists/fullSubmission_2022Nov/%dDataPlots_2023Feb28_3/outPlotter.root", year);
+    TString tag;
+    tag.Form("%dDataPlots_2023Dec7_binMYx2_addMX650_10ev",year);
+    // filename.Form("../VarPlots/rootHists/fullSubmission_2022Nov/%dDataPlots_2023Feb28_3/outPlotter.root", year);
+    filename = "../VarPlots/rootHists/fullSubmission_2022Nov/"+tag+"/outPlotter.root";
     TFile *ifileref = new TFile( filename, "READ");
     TH2F *ref2D=(TH2F*)ifileref->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname); //the actual point doesnt matter, just using binning
     cout<< ref2D->GetXaxis()->GetXmin()<< "to"<<  ref2D->GetXaxis()->GetXmax()<< endl;
 
-    filename.Form("interp1d/%d/outPlotter_massGroup2.root", year);
+    // filename.Form("interp1d/%d/outPlotter_massGroup2.root", year);
+    filename = "../VarPlots/rootHists/fullSubmission_2022Nov/"+tag+"_SR/outPlotter_massGroup2.root";
     TFile *ifile = new TFile( filename, "READ");
     // ofilename.Form("hists/InterpHists_1D_nparams150_wo456%d.root", year);
-    ofilename.Form("hists/InterpHists_1D_%d.root", year);
+    ofilename.Form("hists/InterpHists_1D_%d_2023Dec19.root", year);
     TFile *ofile = new TFile( ofilename, "RECREATE");
 
 
     sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","900","150");
     TH1F *sig_low=(TH1F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname +"_Rebinned_Unrolled");
+    // sig_low->Rebin(2);
 
     sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","1100","150");
     TH1F *sig_high=(TH1F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname+"_Rebinned_Unrolled");
+    // sig_high->Rebin(2);
 
     sigDir =Form("sig_NMSSM_bbbb_MX_%s_MY_%s","1000","150");
     TH1F *sig_real=(TH1F*)ifile->Get(sigDir+"/"+sigRegion+"/"+sigDir+"_"+sigRegion+"_"+varname+"_Rebinned_Unrolled");
@@ -75,7 +81,8 @@ void TestInterpolatorHist(int year)
 
     //--------------------------------------------------
     // variable to search for
-	RooRealVar mXreco("mXreco", "m_{Xreco}", sig_low->GetXaxis()->GetXmin(), sig_low->GetXaxis()->GetXmax(), "GeV");
+	// RooRealVar mXreco("mXreco", "m_{Xreco}", sig_low->GetXaxis()->GetXmin(), sig_low->GetXaxis()->GetXmax(), "GeV");
+	RooRealVar mXreco("mXreco", "m_{Xreco}", 0, 355, "GeV");
 	RooArgList variableList;
 	variableList.add(mXreco);
 
@@ -169,15 +176,19 @@ void TestInterpolatorHist(int year)
 	// parameters.add(alpha_800);
 
     pdfs.add(pdf_low);
-    RooRealVar alpha_low("alpha_low", "alpha_low",ref2D->GetXaxis()->GetXmin(), ref2D->GetXaxis()->GetXmax());
-    //RooConstVar alpha_low("alphaTargetX", "alphaTargetX", 900);
-    alpha_low.setVal(900);
+    // RooRealVar alpha_low("alpha_low", "alpha_low",ref2D->GetXaxis()->GetXmin(), ref2D->GetXaxis()->GetXmax());
+    // RooRealVar alpha_low("alpha_low", "alpha_low",900,1100);
+    // RooConstVar alpha_low("alphaTargetX", "alphaTargetX", 900);
+    // alpha_low.setVal(900);
+    const RooRealVar alpha_low("alpha_low", "alpha_low",900, "GeV");
     parameters.add(alpha_low);
 
 	pdfs.add(pdf_high);
-	RooRealVar alpha_high("alpha_high", "alpha_high",ref2D->GetXaxis()->GetXmin(), ref2D->GetXaxis()->GetXmax());
-	//RooConstVar alpha_high("alphaTargetX", "alphaTargetX", 1100);
-	alpha_high.setVal(1100);
+	// RooRealVar alpha_high("alpha_high", "alpha_high",ref2D->GetXaxis()->GetXmin(), ref2D->GetXaxis()->GetXmax());
+	// RooRealVar alpha_high("alpha_high", "alpha_high",900,1100);
+	// RooConstVar alpha_high("alphaTargetX", "alphaTargetX", 1100);
+    const RooRealVar alpha_high("alpha_low", "alpha_low",1100, "GeV");
+	// alpha_high.setVal(1100);
 	parameters.add(alpha_high);
 
 
@@ -201,7 +212,8 @@ void TestInterpolatorHist(int year)
 
     //--------------------------------------------------
     // Set the target value
-	RooRealVar alphaTarget("alphaTarget", "alphaTarget",ref2D->GetXaxis()->GetXmin(), ref2D->GetXaxis()->GetXmax());
+	// RooRealVar alphaTarget("alphaTarget", "alphaTarget",ref2D->GetXaxis()->GetXmin(), ref2D->GetXaxis()->GetXmax());
+	 RooRealVar alphaTarget("alphaTarget", "alphaTarget",900,1100);
 	alphaTarget.setVal(1000);
 
     cout<<"here last -2"<<endl;
