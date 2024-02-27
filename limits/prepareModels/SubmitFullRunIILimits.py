@@ -176,7 +176,7 @@ for year in yearList:
             print "... Not able to execute command \"", command, "\", exit"
             sys.exit()
 
-for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
+for signalRaw in open("prepareModels/listOfSamples_10points.txt", 'rb').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     outScriptName  = outScriptNameProto.format(signal)
@@ -294,7 +294,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 
 ## set directory to job directory, so that logs will be saved there
 os.chdir(jobsDir)
-for signalRaw in open("../../prepareModels/listOfSamples.txt", 'rb').readlines():
+for signalRaw in open("../../prepareModels/listOfSamples_10points.txt", 'rb').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     command = "%s job_%s.sh" % (t3SubmitScript,signal)

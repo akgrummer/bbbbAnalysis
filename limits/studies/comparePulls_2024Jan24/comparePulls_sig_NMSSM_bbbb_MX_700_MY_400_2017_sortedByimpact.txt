@@ -1,0 +1,25 @@
+diffNuisances run on FitDiagnostics/2023Dec7_binMYx2_addMX650_10ev_SR/2017/FitDiagnostics_2017_sig_NMSSM_bbbb_MX_700_MY_400_id0_sig0.root, at 2024-02-02 17:22:28.735745 with the following options ... {'regex': '.*', 'absolute_values': False, 'show_all_parameters': False, 'format': 'text', 'stol2': 1.2, 'pullDef': '', 'vtol': 2.0, 'stol': 2.0, 'plotfile': 'studies/comparePulls_2024Jan24/comparePulls_sig_NMSSM_bbbb_MX_700_MY_400_2017_sortedByimpact.root', 'skipFitB': False, 'sortBy': 'impact', 'vtol2': 1.2, 'poi': 'r', 'skipFitS': False}
+
+name                                              b-only fit            s+b fit         rho  approx impact
+prop_binselectionbJets_SignalRegion_bin326         -1.47, 1.46     ! -1.46, 1.64!     !-0.26!      -1.101
+prop_binselectionbJets_SignalRegion_bin31         -1.55, 0.61     ! -1.53, 1.03!     !-0.25!      -0.669
+prop_binselectionbJets_SignalRegion_bin162         -1.90, 0.38     ! -1.90, 0.91!     !-0.26!      -0.624
+prop_binselectionbJets_SignalRegion_bin134         -2.09, 1.25     ! -2.09, 0.89!     !-0.24!      -0.567
+prop_binselectionbJets_SignalRegion_bin21         +1.87, 0.71     ! +1.88, 0.93!     !-0.23!      -0.561
+prop_binselectionbJets_SignalRegion_bin129         -1.22, 1.14     ! -1.21, 0.86!     !-0.24!      -0.541
+prop_binselectionbJets_SignalRegion_bin71         -1.27, 0.51     ! -1.25, 0.73!     !-0.24!      -0.459
+prop_binselectionbJets_SignalRegion_bin160         -1.29, 0.42     ! -1.27, 0.68!     !-0.25!      -0.436
+prop_binselectionbJets_SignalRegion_bin154         -1.30, 0.55     ! -1.31, 0.72!     !-0.23!      -0.431
+prop_binselectionbJets_SignalRegion_bin239         +1.46, 1.68     ! +1.45, 0.77!     !-0.19!      -0.392
+prop_binselectionbJets_SignalRegion_bin167         -1.33, 0.48     ! -1.33, 0.57!     !-0.22!      -0.327
+prop_binselectionbJets_SignalRegion_bin340         +1.20, 0.79     ! +1.22, 0.73!     !-0.16!      -0.298
+prop_binselectionbJets_SignalRegion_bin72         -1.83, 0.54     ! -1.82, 0.53!     !-0.17!      -0.241
+prop_binselectionbJets_SignalRegion_bin150         -2.32, 0.58     ! -2.32, 0.50!     !-0.16!      -0.217
+prop_binselectionbJets_SignalRegion_bin98         -1.24, 0.57     ! -1.23, 0.43!     !-0.15!      -0.169
+prop_binselectionbJets_SignalRegion_bin168         -1.27, 1.03     ! -1.27, 0.43!     !-0.14!      -0.159
+prop_binselectionbJets_SignalRegion_bin300         -1.38, 0.80     ! -1.36, 0.64!     !-0.09!      -0.145
+prop_binselectionbJets_SignalRegion_bin228         +1.27, 1.32     ! +1.27, 0.60!     !+0.07!      +0.104
+prop_binselectionbJets_SignalRegion_bin75         +1.95, 0.61     ! +1.96, 0.47!     !-0.06!      -0.073
+prop_binselectionbJets_SignalRegion_bin137         -1.33, 0.58     ! -1.33, 0.42!     !+0.05!      +0.059
+prop_binselectionbJets_SignalRegion_bin164         -1.26, 0.93     ! -1.26, 0.32!     !-0.03!      -0.026
+prop_binselectionbJets_SignalRegion_bin151         -1.68, 0.69     ! -1.68, 0.43!     !+0.02!      +0.020

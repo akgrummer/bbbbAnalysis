@@ -13,24 +13,32 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +11 prepareModels/SubmitFullRunIILimits.py
-badd +88 Notes/limits.md
-badd +1 prepareModels/config/LimitsConfig_2016.cfg
-badd +41 prepareModels/config/LimitsConfig_2017.cfg
-badd +40 prepareModels/config/LimitsConfig_2018.cfg
+badd +244 prepareModels/SubmitFullRunIILimits.py
+badd +163 Notes/limits.md
+badd +31 prepareModels/config/LimitsConfig_2016.cfg
+badd +30 prepareModels/config/LimitsConfig_2017.cfg
+badd +30 prepareModels/config/LimitsConfig_2018.cfg
 badd +18 datacardExamples/datacard_2016_sig_NMSSM_bbbb_MX_300_MY_150.txt
 badd +6 datacardExamples/datacard_RunII_sig_NMSSM_bbbb_MX_300_MY_150.txt
-badd +203 prepareModels/listOfSamples.txt
+badd +1 prepareModels/listOfSamples.txt
 badd +1 an-scripts/produceAllResults.sh
 badd +1 an-scripts/PlotLimitsFromCondor.cc
 badd +1 an-scripts/PlotLimitsFromCondor_allyears.cc
 badd +68 ~/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit
+badd +2 prepareModels/listOfSamples_10points.txt
 argglobal
 %argdel
 $argadd prepareModels/SubmitFullRunIILimits.py
 edit Notes/limits.md
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
-balt ~/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit
+balt prepareModels/config/LimitsConfig_2016.cfg
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -41,12 +49,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 72 - ((12 * winheight(0) + 28) / 56)
+let s:l = 185 - ((18 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 72
-normal! 0
+keepjumps 185
+normal! 020|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -54,6 +62,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

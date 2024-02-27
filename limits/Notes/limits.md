@@ -2,7 +2,7 @@
 
 - need to edit
 (1) `directory` in the LimitConfig (`folder` does not matter)
-(2) sample list to run all mass points,
+(2) sample list to run all mass points, (point to a different list inside: prepareModels/SubmitFullRunIILimits.py - name is repeated 2 times)
 (3) the tag in the command, controlling the output folder name
 
 
@@ -141,3 +141,46 @@ combine -M HybridNew datacard.txt --LHCmode LHC-significance --readHybridResult 
 combine -M HybridNew datacard2018_selectionbJets_SignalRegion.root --LHCmode LHC-significance --readHybridResult --grid=higgsCombineTest.HybridNew.mH120.123456.root
 
 combine -M Significance datacard2018_selectionbJets_SignalRegion.root
+
+# 2024 Jan 29
+
+run limits for pseudo datasets to cross check local excesses
+creation of psuedo datasets in bbbbAnalysis directory, vim session createPseudoDatatset.vim
+
+
+## change config files and input sample list to one sig for each command:
+
+copy 700,400:
+year=2016; mkdir VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2; cp VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2023Dec7_binMYx2_addMX650_10ev_SR/outPlotter_massGroup1.root VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2
+year=2017; mkdir VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2;cp VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2023Dec7_binMYx2_addMX650_10ev_SR/outPlotter_massGroup1.root VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2
+year=2018;mkdir VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2; cp VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2023Dec7_binMYx2_addMX650_10ev_SR/outPlotter_massGroup1.root VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2
+
+rm data hist 700,400:
+year=2016; rootrm VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2/outPlotter_massGroup1.root:data_BTagCSV/selectionbJets_SignalRegion/data_BTagCSV_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled
+year=2017; rootrm VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2/outPlotter_massGroup1.root:data_BTagCSV/selectionbJets_SignalRegion/data_BTagCSV_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled
+year=2018; rootrm VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx700_my400_2/outPlotter_massGroup1.root:data_BTagCSV/selectionbJets_SignalRegion/data_BTagCSV_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled
+
+copy 650,350:
+year=2016; mkdir VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2;cp VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2023Dec7_binMYx2_addMX650_10ev_SR/outPlotter_massGroup1.root VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2
+year=2017; mkdir VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2;cp VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2023Dec7_binMYx2_addMX650_10ev_SR/outPlotter_massGroup1.root VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2
+year=2018; mkdir VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2;cp VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2023Dec7_binMYx2_addMX650_10ev_SR/outPlotter_massGroup1.root VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2
+
+rm data hist 650,350:
+year=2016; rootrm VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2/outPlotter_massGroup1.root:data_BTagCSV/selectionbJets_SignalRegion/data_BTagCSV_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled
+year=2017; rootrm VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2/outPlotter_massGroup1.root:data_BTagCSV/selectionbJets_SignalRegion/data_BTagCSV_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled
+year=2018; rootrm VarPlots/rootHists/fullSubmission_2022Nov/${year}DataPlots_2024Jan26_psuedoData_checkExcessLimits_mx650_my350_2/outPlotter_massGroup1.root:data_BTagCSV/selectionbJets_SignalRegion/data_BTagCSV_selectionbJets_SignalRegion_HH_kinFit_m_H2_m_Rebinned_Unrolled
+
+memory limit for condor jobs set to 1024M
+
+sig_tag="mx700_my400_sigX100"; tag="2024Jan26_psuedoData_checkExcessLimits_${sig_tag}_unblind"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+sig_tag="mx650_my350_sigX100"; tag="2024Jan26_psuedoData_checkExcessLimits_${sig_tag}_unblind"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_repeat"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+
+sig_tag="mx700_my400_2"; tag="2024Jan26_psuedoData_checkExcessLimits_${sig_tag}_unblind"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+
+sig_tag="mx700_my400_2"; tag="2024Jan26_psuedoData_checkExcessLimits_${sig_tag}_unblind_sigX10"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+
+sig_tag="mx650_my350_2"; tag="2024Jan26_psuedoData_checkExcessLimits_${sig_tag}_unblind_sigX10"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
+

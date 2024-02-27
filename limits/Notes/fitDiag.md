@@ -123,3 +123,18 @@ At the same time, please proceed to the final step of unblinding,
 "Derive observed limits (and post-fit expected limits) and signal strength/significance for the largest excess observed" as described on the twiki.
 
 
+# 2024 Jan 24
+
+working on printing pull difference between b-only fit and s+b fit
+submitted fit diagnostics for two highest local significance points (see GoF.vim session)
+
+source ./FitDiagnostics/copyFilesLocal.sh
+source scripts/plotting/comparePulls_2024Jan24.sh
+
+- for largest signficance points, plotting:
+
+python scripts/plotting/PlotFitDiagnosticsSHAPES_LocalSignfPoints.py
+
+
+./scripts/plotting/runAllFitDiag2Dpull_LocalSignfPoints.sh
+scripts/plotting/FitDiag2Dpull_LocalSignfPoints.py

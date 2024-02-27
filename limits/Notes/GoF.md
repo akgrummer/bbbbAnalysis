@@ -157,3 +157,14 @@ not sure how problematic this is...
 significance:
 should be based on:
 scripts/plotting/GOF_2d_plots.py
+
+
+# 2024 Jan 24
+
+submit fit diagnostics for the two highest local significance values.
+(!) workspace were not already created previously
+used same tag as previous fit diagnostics performed (for each mass region).
+
+
+
+
