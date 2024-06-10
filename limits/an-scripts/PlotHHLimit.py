@@ -67,4 +67,4 @@ inputFile.Close()
 
 theLegend.Draw("same")
 
-theCanvas.SaveAs("LimitsRunII_Limits_" + append +  "_HH.png")
+theCanvas.SaveAs("LimitsRunII_Limits_" + append +  "_HH.pdf")

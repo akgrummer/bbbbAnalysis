@@ -13,21 +13,28 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +46 scripts/UnrollAllSubdir.sh
+badd +1 scripts/UnrollAllSubdir_FullPlane.sh
 badd +264 scripts/Unroll2DplotsSubRange_dev.cc
-badd +88 Notes/Unroll.md
-badd +99 scripts/calculateAllBKGshape.C
+badd +134 Notes/Unroll.md
+badd +109 scripts/calculateAllBKGshape_fullPlane.C
 badd +690 scripts/MeasureBackgroundSystematic.C
-badd +1 scripts/Unroll2DplotsSubRange.cc
+badd +426 scripts/Unroll2DplotsSubRange.cc
 badd +1 scripts/Unroll2DplotsSubRange_dev_saveLocation.cc
 badd +189 scripts/Unroll2DplotsSubRange_dev_doubleMCStats.cc
-badd +1 scripts/Unroll2DplotsSubRange_dev_hourglassMCStats_lowStatsCuts.cc
+badd +108 scripts/Unroll2DplotsSubRange_dev_hourglassMCStats_lowStatsCuts.cc
+badd +50 Notes/Unroll-FullPlane.md
+badd +187 scripts/Unroll2DplotsSubRange_dev_hourglassMCStats_lowStatsCuts_fullPlane.cc
+badd +63 scripts/UnrollAllSubdir.sh
+badd +125 scripts/calculateAllBKGshape.C
+badd +118 ./scripts/modifyAllPlotForValidationTest_fullPlane.C
+badd +1 ./scripts/modifyAllPlotForValidationTest.C
+badd +12 ./scripts/Unroll_addTag.sh
 argglobal
 %argdel
-$argadd scripts/UnrollAllSubdir.sh
-edit Notes/Unroll.md
+$argadd scripts/UnrollAllSubdir_FullPlane.sh
+edit Notes/Unroll-FullPlane.md
 argglobal
-balt scripts/UnrollAllSubdir.sh
+balt ./scripts/modifyAllPlotForValidationTest_fullPlane.C
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -38,12 +45,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 88 - ((36 * winheight(0) + 19) / 38)
+let s:l = 45 - ((32 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 88
-normal! 09|
+keepjumps 45
+normal! 013|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -59,7 +59,8 @@ done;
 
 
 # This comes before creating the backgrond shapes
-doublequote=\" singlequote=\'
+doublequote=\"
+singlequote=\'
 # if running the command line - use single quotes to wrap the function and arguement, otherwise this method seems to work here
 # FOR VALIDATION TEST
 root -l -b -q "./scripts/modifyAllPlotForValidationTest.C(${doublequote}${TAG}_VR${doublequote}, ${doublequote}fullSubmission_2022Nov/${doublequote})"

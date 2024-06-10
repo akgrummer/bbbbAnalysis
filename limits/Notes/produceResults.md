@@ -41,5 +41,11 @@ an-scripts/PlotSignficanceDist.py
 overlay the pseudoData crosscheck
 an-scripts/unblindingLimits_2023Dec14_pseudoDatasetOverlay.sh
 
+# 2023 Apr 5
+
+reruning with the limits produced from the full plane background (instigated for the LEE global significance study)
+2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR
+the full plane limits were not produced with impacts though - would need to add that option. see LEE vim session
+./an-scripts/produceAllResults.sh
 
 

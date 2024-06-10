@@ -80,7 +80,8 @@ def RunPreparation(dataset,directory,processes,categandobs,folder, process_renam
     #Get root file
     # file = ROOT.TFile.Open("../../MyHistos/%s/outPlotter.root"%directory)
     rootFileName = "outPlotter.root"
-    if group != "none": rootFileName = "outPlotter_massGroup" + str(group) + ".root"
+    if group == "all": rootFileName = "outPlotter_fullPlane" + ".root"
+    elif group != "none": rootFileName = "outPlotter_massGroup" + str(group) + ".root"
     file = ROOT.TFile.Open("%s/%s" % (directory, rootFileName) )
 
     os.system('rm -rf %s'%folder)

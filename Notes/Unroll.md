@@ -140,3 +140,8 @@ for ayear in 2016 2017 2018; do tag="2023Dec7_binMYx2_addMX650_10ev"; echo VarPl
 for ayear in 2016 2017 2018; do tag="2023Dec7_binMYx2_addMX650_10ev_SR"; echo VarPlots/rootHists/fullSubmission_2022Nov/${ayear}DataPlots_${tag}; ls -ltrh VarPlots/rootHists/fullSubmission_2022Nov/${ayear}DataPlots_${tag}; done
 
 
+# 2024 Apr 1
+
+unrolling full plane. has another set of scripts. dedication vim session
+notes on this task here: Notes/Unroll-FullPlane.md
+

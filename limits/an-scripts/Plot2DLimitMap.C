@@ -81,11 +81,11 @@ std::pair<float, float> getMassesFromSignalName(const std::string& signalName)
     return std::make_pair(xMass, yMass);
 }
 
-void Plot2DLimitMap(TString tag, std::string year, std::string option = "syst")
+void Plot2DLimitMap(TString tag, std::string year, std::string option = "syst", std::string obsORexp="Central")
 {
     gROOT->SetBatch(true);
 
-    std::string histogramName = "Limits_" + year + "/Option_" + option + "/LimitMapCentral_" + year + "_" + option;
+    std::string histogramName = "Limits_" + year + "/Option_" + option + "/LimitMap"+obsORexp+"_" + year + "_" + option;
     TString inputFileName = "hists/Limits_"+tag+".root";
     auto *inputFile = new TFile(inputFileName);
     if(inputFile == nullptr)
@@ -169,7 +169,7 @@ void Plot2DLimitMap(TString tag, std::string year, std::string option = "syst")
         //                        55, 65, 75, 85, 95, 112.5, 137.5, 175, 225, 275, 350, 450, 550, 650, 750, 850, 950, 1100, 1300, 1500
         // yOriginalBinning.assign({55, 65, 75, 85, 95, 112.5, 137.5, 175, 225, 275, 350, 450, 550, 650, 750, 850, 950, 1100, 1300, 1500});
 
-        std::string theoryCanvasName = "CentralLimitMap_RunII_TheoryComparison";
+        std::string theoryCanvasName = obsORexp+"LimitMap_RunII_TheoryComparison";
         TCanvas* theTheoryCanvas = new TCanvas(theoryCanvasName.c_str(), theoryCanvasName.c_str(), 1200, 800);
         gPad->SetTickx(1);
         gPad->SetTicky(1);
@@ -281,7 +281,7 @@ void Plot2DLimitMap(TString tag, std::string year, std::string option = "syst")
         theTheoryCanvas->SetLogz();
         // theTheoryCanvas->SetLogy();
         // theTheoryCanvas->SetLogy();
-        theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + ".png").c_str());
+        theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + ".pdf").c_str());
          // theTheoryCanvas->SaveAs((std::string(theTheoryCanvas->GetName()) + "_log.png").c_str());
 
 
@@ -304,8 +304,11 @@ int main(int argc, char** argv)
 
     TString inputTag=argv[1];
 
-    std::vector<std::string> optionList {"statOnly", "syst"};
-    std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
+    // std::vector<std::string> optionList {"statOnly", "syst"};
+    // std::vector<std::string> yearList {"2016", "2017", "2018", "RunII"};
+    std::vector<std::string> optionList {"syst"};
+    std::vector<std::string> yearList {"RunII"};
+    std::vector<std::string> obsORexpList {"Central", "Observed"};
 
     // std::vector<std::string> optionList {"syst"};
     //std::vector<std::string> yearList {"RunII"};
@@ -314,7 +317,10 @@ int main(int argc, char** argv)
     {
         for(const auto & option : optionList)
         {
-            Plot2DLimitMap(inputTag, year, option);
+            for(const auto & obsORexp : obsORexpList)
+            {
+                Plot2DLimitMap(inputTag, year, option, obsORexp);
+            }
         }
     }
 

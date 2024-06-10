@@ -412,9 +412,11 @@ gROOT.SetBatch(True)
 # ********************
 # odir = "VarPlots/2023Feb20_mXmY_shapeUnc_maxShape/"
 # odir = "VarPlots/2023Mar2_TrigCut/"
-odir = "VarPlots/2023Apr21/"
 # odir = "VarPlots/2023Feb20_mXmY_shapeUnc_maxShape_oldBinning/"
 # odir = "VarPlots/2023Feb20_mXmY_shapeUncRebin/"
+
+# odir = "VarPlots/2023Apr21/"
+odir = "VarPlots/2024May13/reg/"
 odiro = odir
 years = ["2016","2017","2018"]
 #  years = ["2018"]
@@ -424,10 +426,10 @@ years = ["2016","2017","2018"]
 # !!!!!!!!!!! CAREFUL using Signal Region! !!!!!!!!!!! only for MC
 # ##################################################
 # for data
-# directories = ["selectionbJets_ControlRegionBlinded", "selectionbJets_ValidationRegionBlinded", "selectionbJets_SignalRegion"]
-# regionTag = ["CR", "VR", "SR"]
-directories = ["selectionbJets_ControlRegionBlinded", "selectionbJets_ValidationRegionBlinded"]
-regionTag = ["CR", "VR"]
+directories = ["selectionbJets_ControlRegionBlinded", "selectionbJets_ValidationRegionBlinded", "selectionbJets_SignalRegion"]
+regionTag = ["CR", "VR", "SR"]
+# directories = ["selectionbJets_ControlRegionBlinded", "selectionbJets_ValidationRegionBlinded"]
+# regionTag = ["CR", "VR"]
 # Old event selections:
 # iTags = ["2022Jul7_fullBDT_bJetScoreLoose"]
 # iTags = ["2022Nov14_bJetScoreLoose_shapes2"]
@@ -436,8 +438,8 @@ regionTag = ["CR", "VR"]
 # all sigs, few vars:
 # iTags = ["2023Feb28_3"]
 # few sigs, analysis vars:
-# iTags = ["2023Feb28_vars"]
-iTags = ["2023Feb28_hourglass"]
+iTags = ["2023Feb28_vars"]
+# iTags = ["2023Feb28_hourglass"]
 # iTags = ["2023Feb28_vars_sans_mXmY"]
 # iTags = ["2023Feb28_vars_only_mXmY"]
 # iTags = ["2023Feb28_vars_sans_dfd"]

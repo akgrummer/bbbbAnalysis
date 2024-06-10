@@ -10,6 +10,7 @@ groups=( 1 )
 for ayear in "${years[@]}"; do
     for agroup in "${groups[@]}"; do
         python scripts/plotting/FitDiag2Dpull_LocalSignfPoints.py --tag ${tag} --year ${ayear} --group ${agroup}
+        # python scripts/plotting/FitDiag2Dpull_LocalSignfPoints_pullZoom_2024Apr16.py --tag ${tag} --year ${ayear} --group ${agroup}
     done;
 done
 

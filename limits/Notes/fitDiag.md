@@ -138,3 +138,10 @@ python scripts/plotting/PlotFitDiagnosticsSHAPES_LocalSignfPoints.py
 
 ./scripts/plotting/runAllFitDiag2Dpull_LocalSignfPoints.sh
 scripts/plotting/FitDiag2Dpull_LocalSignfPoints.py
+
+# 2024 Apr 16
+
+for CMSweek slides, needed a zoom version of the plot:
+./scripts/plotting/runAllFitDiag2Dpull_LocalSignfPoints.sh
+scripts/plotting/FitDiag2Dpull_LocalSignfPoints_pullZoom_2024Apr16.py
+

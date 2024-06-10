@@ -81,21 +81,40 @@ multiplicator = 1000.
 #
 yearList = ["2016", "2017", "2018", "RunII"]
 colorList = [ROOT.kRed, ROOT.kMagenta, ROOT.kBlue, ROOT.kBlack]
-comparisonPlotList = []
 inputComparison = TFile(args.input)
 
-for it in range(len(yearList)):
+# comparisonPlotList = []
+# for it in range(len(yearList)):
+#
+#     histogramName = "Limits_%s/Option_%s/CentralLimit_%s_%s_massY_125" % (yearList[it], append, yearList[it], append)
+#     comparisonPlot = inputComparison.Get(histogramName)
+#     comparisonPlot.SetName("DiHiggsLimits" + yearList[it])
+#     comparisonPlot.SetLineColor(colorList[it])
+#     comparisonPlot.SetMarkerColor(colorList[it])
+#     comparisonPlot.SetMarkerStyle(20+it)
+#     comparisonPlot.SetLineWidth(3)
+#     comparisonPlot.SetMarkerSize(2.)
+#     comparisonPlotList.append(comparisonPlot)
 
-    histogramName = "Limits_%s/Option_%s/CentralLimit_%s_%s_massY_125" % (yearList[it], append, yearList[it], append)
-    comparisonPlot = inputComparison.Get(histogramName)
-    comparisonPlot.SetName("DiHiggsLimits" + yearList[it])
-    comparisonPlot.SetLineColor(colorList[it])
-    comparisonPlot.SetMarkerColor(colorList[it])
-    comparisonPlot.SetMarkerStyle(20+it)
-    comparisonPlot.SetLineWidth(3)
-    comparisonPlot.SetMarkerSize(2.)
-    comparisonPlotList.append(comparisonPlot)
+histogramNameObserved = "Limits_RunII/Option_syst/ObservedLimit_RunII_syst_massY_125"
+histogramNameExpected = "Limits_RunII/Option_syst/CentralLimit_RunII_syst_massY_125"
+obsPlot = inputComparison.Get(histogramNameObserved)
+obsPlot.SetName("DiHiggsLimitsRunII")
+obsPlot.SetLineColor(ROOT.kRed+2)
+obsPlot.SetMarkerColor(ROOT.kRed+2)
+obsPlot.SetMarkerStyle(21)
+obsPlot.SetLineWidth(3)
+obsPlot.SetMarkerSize(2.)
+obsPlot.GetYaxis().SetRangeUser(2.,2e3)
+obsPlot.GetXaxis().SetRangeUser(200.,1400)
 
+expPlot = inputComparison.Get(histogramNameExpected)
+expPlot.SetName("DiHiggsLimitsRunII")
+expPlot.SetLineColor(ROOT.kBlack)
+expPlot.SetMarkerColor(ROOT.kBlack)
+expPlot.SetMarkerStyle(23)
+expPlot.SetLineWidth(3)
+expPlot.SetMarkerSize(2.)
 
 # outputFile = TFile("HHanalysisComparison_" + append +  ".root","RECREATE")
 # for plot in brazilianPlots:
@@ -108,8 +127,9 @@ brazilianPlots[2].Draw("a3")
 brazilianPlots[2].GetYaxis().SetRangeUser(2.,2e3)
 brazilianPlots[1].Draw("Same3")
 brazilianPlots[0].Draw("same")
-for comparisonPlot in comparisonPlotList:
-    comparisonPlot.Draw("pl same")
+# comparisonPlot.Draw("pl same")
+obsPlot.Draw("pl same")
+expPlot.Draw("pl same")
 theBrazilianCanvas.SetLogy()
 # theBrazilianCanvas.SetLogx()
 # theBrazilianCanvas.Write()
@@ -130,14 +150,12 @@ t.DrawLatexNDC(0.6,.84,"X #rightarrow Y(bb)H(bb), m_{Y} = 125 GeV")
 theLegend2  = TLegend(0.6,0.74,0.88,0.81)
 theLegend2.SetBorderSize(0)
 theLegend2.SetTextSize(0.03)
-theLegend2.SetNColumns(2);
-theLegend2.AddEntry(comparisonPlotList[0]   ,yearList[0], "lp")
-theLegend2.AddEntry(comparisonPlotList[1]   ,yearList[1], "lp")
-theLegend2.AddEntry(comparisonPlotList[2]   ,yearList[2], "lp")
-theLegend2.AddEntry(comparisonPlotList[3]   ,yearList[3], "lp")
+# theLegend2.SetNColumns(2);
+theLegend2.AddEntry(obsPlot, "RunII Observed", "lp")
+theLegend2.AddEntry(expPlot, "RunII Expected", "lp")
 theLegend2.Draw("same")
 # for it in range(len(yearList)):
     # theLegend.AddEntry(comparisonPlotList[it]   , "X #rightarrow Y(bb)H(bb), m_{Y} = 125 GeV - "+ yearList[it], "lp")
 
-theBrazilianCanvas.SaveAs("HHanalysisComparison_" + append +  ".pdf")
+theBrazilianCanvas.SaveAs("HHanalysisComparison_syst_Observed.pdf")
 

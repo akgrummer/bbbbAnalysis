@@ -10,6 +10,7 @@
 # TAG="2023Dec7_binMYx2_addMX650_10ev_rmSigs_SR"
 # TAG="2023Dec7_binMYx2_addMX650_10ev_unblind_VR"
 TAG="2023Dec7_binMYx2_addMX650_10ev_unblind_SR"
+# TAG="2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR"
 # TAG="2023Jul5_nonClosureMCStats2_SR"
 # some scripts in this file have been relocated - check an-scripts, or results
 # possible that things were using Fabio's `scripts` directory with a sym link. Check fromFabio directory.
@@ -26,13 +27,17 @@ TAG="2023Dec7_binMYx2_addMX650_10ev_unblind_SR"
 # # ##################################################
 
 # makes the base plots in a root file (used just the impact version):
+#
 # ./PlotLimitsFromCondor $TAG
-./an-scripts/PlotLimitsFromCondor $TAG impacts
+# outputs to "hists/Limits_" + tagName + ".root"
+# ./an-scripts/PlotLimitsFromCondor $TAG impacts
+# ./an-scripts/PlotLimitsFromCondor $TAG
 
 ##################################################
 ## no DiHiggs_v1 in Fabio's folder:
 # needs: spin0/CombineResults_syst.txt
-# python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root --systematics
+python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root --systematics
+python an-scripts/CompareHHAnalysisAll_fromRootFile_Observed.py --input hists/Limits_$TAG.root --systematics
 
 # needs: spin0/CombineResults_statOnly.txt
 # python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root
@@ -76,6 +81,10 @@ TAG="2023Dec7_binMYx2_addMX650_10ev_unblind_SR"
 # python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
 # python an-scripts/PlotLimitVsMy_orig_twoLimits.py --vsMY --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
 # python an-scripts/PlotLimitVsMy_orig_twoLimits.py --vsMY --year 2017 --input1 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --input2 hists/Limits_2023Nov1_binMYx2_add2017Sig_10ev_SR.root --systematics
+##### fullPlane comparison
+# python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Dec7_binMYx2_addMX650_10ev_unblind_SR.root --input2 hists/Limits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR.root --systematics --limitType exp
+# python an-scripts/PlotLimitVsMy_orig_twoLimits.py --input1 hists/Limits_2023Dec7_binMYx2_addMX650_10ev_unblind_SR.root --input2 hists/Limits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR.root --systematics --limitType obs
+###
 # python an-scripts/PlotLimitVsMy_orig_threeLimits.py --input1 hists/Limits_2023Jul5_nonClosureMCStats2_SR.root --input2 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_5ev_SR.root --input3 hists/Limits_2023Jul5_binMYx2_ncMCStats_lowStatsCut_10ev_SR.root --systematics
 # the individual years didn't run
 # python an-scripts/PlotLimitVsMy_orig.py --input hists/Limits_$TAG.root --systematics --year 2016

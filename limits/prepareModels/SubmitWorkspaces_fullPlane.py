@@ -34,9 +34,9 @@ def writeln(f, line):
 # }
 # for analysis - with double mY bin widths
 bkgNormPerMassGroupDictionary = {
-  "2016" : { "0" : "1.022", "1" :  "1.022", "2" :  "1.018", "3" :  "1.018", "4" :  "1.042", "none" : "1.010"},
-  "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.017", "3" :  "1.013", "4" :  "1.019", "none" : "1.010"},
-  "2018" : { "0" : "1.046", "1" :  "1.039", "2" :  "1.033", "3" :  "1.024", "4" :  "1.012", "none" : "1.010"},
+  "2016" : { "0" : "1.022", "1" :  "1.022", "2" :  "1.018", "3" :  "1.018", "4" :  "1.042", "none" : "1.010", "all": "1.042"},# "1.042"},
+  "2017" : { "0" : "1.015", "1" :  "1.015", "2" :  "1.017", "3" :  "1.013", "4" :  "1.019", "none" : "1.010", "all": "1.019"},
+  "2018" : { "0" : "1.046", "1" :  "1.039", "2" :  "1.033", "3" :  "1.024", "4" :  "1.012", "none" : "1.010", "all": "1.046"},
 }
 
 #  mXandGroup = {300 : 0, 400 : 0, 500 : 0, 600 : 0, 700 : 1, 800 : 1, 900 : 2, 1000 : 2, 1100 : 3, 1200 : 3, 1400 : 3, 1600 : 4, 1800 : 4, 2000 : 4}
@@ -84,8 +84,8 @@ LimitOptionsForImpacts["freeze_autoMCStats"] = "--freezeNuisanceGroups autoMCSta
 tag = args.tag
 
 groupString = ""
-if args.group != 'none' and args.group != 'auto' : groupString = ('_massGroup' + args.group)
-tag = tag + groupString
+if args.group == "all": groupString = ('_fullPlane')
+elif args.group != 'none' and args.group != 'auto' : groupString = ('_massGroup' + args.group)
 
 jobsDir                  = 'CondorJobs/jobsLimits_' + tag
 outScriptNameBareProto   = 'job_{0}.sh'
@@ -107,7 +107,7 @@ outPlotFileNameProto     = "outPlotter_{0}_{1}.root"
 allLimitOptions = copy.deepcopy(LimitOptions)
 if args.impacts: allLimitOptions.update(LimitOptionsForImpacts)
 
-tarName      = 'LimitCalculator.tar.gz' #%s_tar.tgz' % cmssw_version
+tarName      = 'WorkspaceCalculator.tar.gz' #%s_tar.tgz' % cmssw_version
 limitWorkDir = os.getcwd()
 tarLFN       = limitWorkDir + '/' + tarName
 
@@ -171,9 +171,8 @@ for year in yearList:
 
     if args.group != "auto":
         inputHistogramFile  = directory + "/outPlotter" + groupString + ".root"
-        # outputHistogramFile = plotFileFolderProto.format(year) + "/outPlotter.root"
-        # command = 'eos cp %s %s' % (inputHistogramFile, outputHistogramFile)
-        command = 'eos cp %s %s' % (inputHistogramFile, plotFileFolderProto.format(year))
+        outputHistogramFile = plotFileFolderProto.format(year) + "/outPlotter" + groupString + ".root"
+        command = 'eos cp %s %s' % (inputHistogramFile, outputHistogramFile)
         if os.system(command) != 0:
             print "... Not able to execute command \"", command, "\", exit"
             sys.exit()
@@ -185,7 +184,7 @@ for year in yearList:
             print "... Not able to execute command \"", command, "\", exit"
             sys.exit()
 
-for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
+for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'rb').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     outScriptName  = outScriptNameProto.format(signal)
@@ -237,12 +236,14 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
             massXstring =  signal[ signal.find("_MX_") + len("_MX_"): signal.find("_MY_" ) ]
             groupNumber = mXandGroup[int(massXstring)]
             groupFlag = " --group " + str(groupNumber)
+        elif args.group == "all":
+            massXstring =  signal[ signal.find("_MX_") + len("_MX_"): signal.find("_MY_" ) ]
+            groupFlag = " --group all"
 
         # print 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s'%(year,signal,plotFileFolderProto.format(year),folderName)
         writeln(outScript, 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s %s'%(year,signal,plotFileFolderProto.format(year),folderName, groupFlag))
         writeln(outScript, 'echo "... preparing datacard"')
         writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s'%(year,signal,folderName,bkgNormPerMassGroupDictionary[year][str(groupNumber)]))
-        # writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s --addScaleSignal'%(year,signal,folderName,bkgNormPerMassGroupDictionary[year][str(groupNumber)]))
 
     #copying Pdf, scale and PS systematics from samples in which they are present
     folderName2016 = folderYearName.format(2016)
