@@ -9,7 +9,7 @@ selectionFileName = "selectionCfg.cfg"
 configFileName    = "config.cfg"
 listOfSampleTypes = ["data", "datadriven", "backgrounds", "signals"]
 outputHistogramFolder = "DataPlots"
-    
+
 def printPair(thePair):
     theString = thePair[0] + " ="
     for theValue in thePair[1] : theString = theString + " " + theValue + ","
@@ -101,17 +101,17 @@ def getSampleList(inputCfgName):
                         isAmongMerged = True
                         if typeOfMergedSample[mergedSample[0]] == "": typeOfMergedSample[mergedSample[0]] = key
                         if typeOfMergedSample[mergedSample[0]] != key:
-                            print "Merged samples are of different type!!!"
+                            print( "Merged samples are of different type!!!")
                             exit(1)
                         break
                 if isAmongMerged: continue
                 listOfSamples.append( (key, [sample], "", [""]) )
-                # print listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3]
+                # print( listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3])
         inputFile.close()
-    
+
     for mergedSample in listOfMergedSamples:
         listOfSamples.append((typeOfMergedSample[mergedSample[0]], mergedSample[1], mergedSample[0], mergedSample[1]))
-        # print listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3]
+        # print( listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3])
 
     return listOfSamples
 
@@ -131,7 +131,7 @@ args = parser.parse_args()
 executable = "bin/fill_histograms.exe"
 
 username = getpass.getuser()
-print "... Welcome", username
+print( "... Welcome", username)
 
 outputFolder = outputFolderBase.format(username) + "/" + args.tag
 
@@ -157,12 +157,12 @@ tarEOSdestLFN         = outputFolder + '/analysis_tar/' + tarName
 
 
 if os.path.isdir(jobsDir):
-    print "... working folder", jobsDir, " already exists, exit"
+    print( "... working folder", jobsDir, " already exists, exit")
     sys.exit()
 
 cmd='mkdir -p ' + jobsDir
 if os.system(cmd) != 0:
-    print "... Not able to execute command \"", cmd, "\", exit"
+    print( "... Not able to execute command \"", cmd, "\", exit")
     sys.exit()
 
 theListOfSamples = getSampleList(args.cfg)
@@ -174,7 +174,7 @@ for sample in theListOfSamples:
     CreateNewConfigFile(args.cfg, outListNameProto.format(sampleName), (sample[0],sample[1]), (sample[2],sample[3]) )
     command = 'xrdcp -f -s %s %s' % (outListNameProto.format(sampleName), EOSconfigProto.format(sampleName))
     if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
+        print( "... Not able to execute command \"", command, "\", exit")
         sys.exit()
 
 ### NOTE: I must be in bbbb
@@ -188,27 +188,27 @@ command = 'tar -zcf {0} '.format(tarLFN)
 for ti in to_include:
     command += ti + ' '
 
-print '** INFO: Going to tar executable folder into', tarName
+print( '** INFO: Going to tar executable folder into', tarName)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
-print '** INFO: tar finished and saved in:', tarLFN
+print( '** INFO: tar finished and saved in:', tarLFN)
 
 command = 'xrdcp -f -s %s %s' % (tarLFN, tarEOSdestLFN)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
 
 command = 'xrdcp -f -s %s %s' % (getValue(args.cfg, "sampleCfg"), (EOSconfigFolderProto + "/" + sampleFileName))
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
 
 command = 'xrdcp -f -s %s %s' % (getValue(args.cfg, "cutCfg"), (EOSconfigFolderProto + "/" + selectionFileName))
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
-        
+
 
 for sample in theListOfSamples:
     sampleName = sample[1][0]
@@ -256,11 +256,11 @@ for sample in theListOfSamples:
     writeln(outScript, '} 2>&1') ## end of redirection
     outScript.close()
 
-for sample in theListOfSamples:
-    sampleName = sample[1][0]
-    if sample[2] != "":  sampleName = sample[2]
-    command = "%s/scripts/t3submit %s" % (bbbbWorkDir, outScriptNameProto.format(sampleName))
-    if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
-        sys.exit()
- 
+# for sample in theListOfSamples:
+#     sampleName = sample[1][0]
+#     if sample[2] != "":  sampleName = sample[2]
+#     command = "%s/scripts/t3el7submit %s" % (bbbbWorkDir, outScriptNameProto.format(sampleName))
+#     if os.system(command) != 0:
+#         print( "... Not able to execute command \"", command, "\", exit")
+#         sys.exit()
+

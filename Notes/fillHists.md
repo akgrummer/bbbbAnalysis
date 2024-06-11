@@ -186,4 +186,30 @@ scripts/t3submit CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2023Dec7_bin
 ```
 
 
+# 2024 Jun 11:
+
+- move to singularity script in t3 submit (now copied to t3el7submit)
+- running a variables fill (not all signal): 2024Jun11_vars
+
+## submission has to be done with both el7 and el9 now
+
+in an el7 image in singularity.
+bash .profile alias: el7image
+
+- The first part (el7) sets up the submission files.
+    a. It fails on el9 because of the CMSBASE and SCRAM_ARCH look ups (I think).
+    b. I tried to avoid the singularity by using cmssw14.0.8 for a little bit - was trying with the better way of submitting to the grid (making a tar ball of the of the cmssw env)
+    c. the method in b was able to submit from el9.
+- The second part (el9) submits to condor with a submission script that calls el7 on the grid.
+
+## submission scripts
+
+source ./scripts/submitAllFillOnTier3_RunII.sh
+source ./scripts/submitAllFillOnTier3_RunII_el9part.sh
+
+source ./scripts/mergeHistograms.sh 2024Jun11_vars
+
+
+
+
 

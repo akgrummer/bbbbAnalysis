@@ -13,20 +13,20 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +38 scripts/submitAllFillOnTier3_RunII.sh
-badd +19 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
-badd +19 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
-badd +19 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
-badd +3260 config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+badd +56 scripts/submitAllFillOnTier3_RunII_el9part.sh
+badd +33 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
+badd +18 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
+badd +18 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
+badd +3454 config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
 badd +3242 config/Resonant_NMSSM_bbbb/selectionCfg_2017Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
 badd +3245 config/Resonant_NMSSM_bbbb/selectionCfg_2018Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
-badd +12 scripts/mergeHistograms.sh
-badd +28 scripts/renameFullSubmissions.sh
+badd +8 scripts/mergeHistograms.sh
+badd +34 scripts/renameFullSubmissions.sh
 badd +16 scripts/mergeHistograms.py
 badd +6 testpy.py
 badd +64 vim-sessions/fillHists.vim
-badd +79 Notes/fillHists.md
-badd +247 scripts/submitFillOnTier3.py
+badd +186 Notes/fillHists.md
+badd +7 scripts/submitFillOnTier3.py
 badd +68 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
 badd +68 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
 badd +68 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full_offShell.cfg
@@ -35,12 +35,15 @@ badd +40 config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_Full.cfg
 badd +1 config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
 badd +1 config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
 badd +68 scripts/t3submit
+badd +1 ~/nobackup/DiHiggs_v2/CMSSW_14_0_8/src/bbbbAnalysis/scripts/submitFillOnTier3.py
+badd +15 scripts/submitFillOnTier3_el9part.py
+badd +59 scripts/submitAllFillOnTier3_RunII.sh
 argglobal
 %argdel
 $argadd config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
 edit Notes/fillHists.md
 argglobal
-balt scripts/submitAllFillOnTier3_RunII.sh
+balt scripts/submitFillOnTier3_el9part.py
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -51,11 +54,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 74 - ((32 * winheight(0) + 20) / 41)
+let s:l = 205 - ((45 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 74
+keepjumps 205
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
