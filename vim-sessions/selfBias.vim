@@ -57,7 +57,7 @@ set window=47
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd /uscms_data/d3/agrummer/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis
+cd /uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_14_0_8/src/bbbbAnalysis
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
