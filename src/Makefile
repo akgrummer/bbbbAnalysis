@@ -2,12 +2,12 @@ HDR   = ../interface/
 OBJ   = ../obj/
 LIB   = ../lib/
 BIN   = ../bin/
-PRG   = ../test/
+PRG   = ../fabio_src/
 
 ifdef CPP_BOOST_PATH
 	BOOSTLIBFLAG = -L$(CPP_BOOST_PATH)/lib
 else
-	BOOSTLIBFLAG = 
+	BOOSTLIBFLAG =
 endif
 
 HdrSuf  =  .h
@@ -69,18 +69,18 @@ LDFLAGS  =  -dynamiclib -shared -single_module -undefined dynamic_lookup $(ARCHL
 # SOFLAGS  =
 SONAME	 =  libbbbbAnalysis.so
 SONAME2  =  bbbbAnalysis
-SOFLAGS  =  
+SOFLAGS  =
 endif
 #################################################
 
-.PHONY: all exe test clean exef
+.PHONY: all exe fabio_src clean exef
 
 all: $(LIB)$(SONAME)
 
-exe: $(BINS) 
+exe: $(BINS)
 
 
-test:
+fabio_src:
 	@echo "..............................."
 	@echo "HDRS          = $(HDRS)"
 	@echo "....."
@@ -109,7 +109,7 @@ test:
 
 
 $(OBJ)%$(ObjSuf): %$(SrcSuf) $(HDRS)
-	$(CXX) $< -c $(CXXFLAGS) -o $@ 
+	$(CXX) $< -c $(CXXFLAGS) -o $@
 
 ## 28/12/2017 : LC - I removed the dictionary generation, generates a warning and is probably not needed as I am not reading / saving user classes in the input / output
 # $(OBJ)mydict.cc: $(DICTHDRS)
@@ -121,7 +121,7 @@ $(OBJ)%$(ObjSuf): %$(SrcSuf) $(HDRS)
 #         @echo "Linking $(SONAME):"
 
 $(LIB)$(SONAME): $(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) $(SOFLAGS) $(ROOTGLIBS) -o $(LIB)$(SONAME) 
+	$(LD) $(LDFLAGS) $(OBJS) $(SOFLAGS) $(ROOTGLIBS) -o $(LIB)$(SONAME)
         @echo "Linking $(SONAME):"
 
 
@@ -130,4 +130,4 @@ $(BIN)%$(BinSuf): $(PRG)%$(PrgSuf) $(HDRS) $(LIB)$(SONAME)
 
 
 clean:
-	rm -f $(OBJ)*$(ObjSuf)  $(OBJ)mydict* $(BIN)*$(BinSuf) $(LIB)*$(LibSuf) 
+	rm -f $(OBJ)*$(ObjSuf)  $(OBJ)mydict* $(BIN)*$(BinSuf) $(LIB)*$(LibSuf)

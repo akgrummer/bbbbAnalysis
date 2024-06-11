@@ -187,3 +187,20 @@ scripts/t3submit CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2023Dec7_bin
 
 
 
+# 2024 Jun 11:
+
+run for variable plotting for the paper
+changed to alma linux el9, branch in bbbbAnalysis repo
+
+ change tag here
+source ./scripts/submitAllFillOnTier3_RunII.sh
+
+check status
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_varSubmission_2016_BDTweights_2024Jun11_vars/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_varSubmission_2017_BDTweights_2024Jun11_vars/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_varSubmission_2018_BDTweights_2024Jun11_vars/ --long
+
+source ./scripts/mergeHistograms.sh 2024Jun11_vars
+
+
+

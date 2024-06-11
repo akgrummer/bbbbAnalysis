@@ -9,7 +9,7 @@ selectionFileName = "selectionCfg.cfg"
 configFileName    = "config.cfg"
 listOfSampleTypes = ["data", "datadriven", "backgrounds", "signals"]
 outputHistogramFolder = "DataPlots"
-    
+
 def printPair(thePair):
     theString = thePair[0] + " ="
     for theValue in thePair[1] : theString = theString + " " + theValue + ","
@@ -101,17 +101,17 @@ def getSampleList(inputCfgName):
                         isAmongMerged = True
                         if typeOfMergedSample[mergedSample[0]] == "": typeOfMergedSample[mergedSample[0]] = key
                         if typeOfMergedSample[mergedSample[0]] != key:
-                            print "Merged samples are of different type!!!"
+                            print("Merged samples are of different type!!!")
                             exit(1)
                         break
                 if isAmongMerged: continue
                 listOfSamples.append( (key, [sample], "", [""]) )
-                # print listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3]
+                # print( listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3])
         inputFile.close()
-    
+
     for mergedSample in listOfMergedSamples:
         listOfSamples.append((typeOfMergedSample[mergedSample[0]], mergedSample[1], mergedSample[0], mergedSample[1]))
-        # print listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3]
+        # print( listOfSamples[-1][0], listOfSamples[-1][1], listOfSamples[-1][2], listOfSamples[-1][3])
 
     return listOfSamples
 
@@ -131,7 +131,7 @@ args = parser.parse_args()
 executable = "bin/fill_histograms.exe"
 
 username = getpass.getuser()
-print "... Welcome", username
+print("... Welcome", username)
 
 outputFolder = outputFolderBase.format(username) + "/" + args.tag
 
@@ -144,10 +144,13 @@ EOSconfigFolderProto   = outputFolder + '/configFile/'
 EOSconfigProto         = (EOSconfigFolderProto + outCfgNameBareProto)
 outFileNameProto       = (outputFolder + '/bbbbHistograms_{0}.root')
 
-cmssw_base    = os.environ['CMSSW_BASE']
-cmssw_version = os.environ['CMSSW_VERSION']
-scram_arch    = os.environ['SCRAM_ARCH']
+cmsEnvTarDir = "root://cmseos.fnal.gov//store/user/{0}/cmssw_builds/".format(username)
+cmsEnvTar = "cmssw14_0_8.tar.gz" # need to remove the matching dir at end of script
 
+# cmssw_version = os.environ['CMSSW_VERSION']
+cmssw_version = "CMSSW_14_0_8"
+# scram_arch    = os.environ['SCRAM_ARCH']
+scram_arch    = "el9_amd64_gcc12"
 
 tarName      = 'bbbbHistograms.tar.gz' #%s_tar.tgz' % cmssw_version
 bbbbWorkDir  = os.getcwd()
@@ -157,12 +160,12 @@ tarEOSdestLFN         = outputFolder + '/analysis_tar/' + tarName
 
 
 if os.path.isdir(jobsDir):
-    print "... working folder", jobsDir, " already exists, exit"
+    print("... working folder", jobsDir, " already exists, exit")
     sys.exit()
 
 cmd='mkdir -p ' + jobsDir
 if os.system(cmd) != 0:
-    print "... Not able to execute command \"", cmd, "\", exit"
+    print("... Not able to execute command \"", cmd, "\", exit")
     sys.exit()
 
 theListOfSamples = getSampleList(args.cfg)
@@ -174,7 +177,7 @@ for sample in theListOfSamples:
     CreateNewConfigFile(args.cfg, outListNameProto.format(sampleName), (sample[0],sample[1]), (sample[2],sample[3]) )
     command = 'xrdcp -f -s %s %s' % (outListNameProto.format(sampleName), EOSconfigProto.format(sampleName))
     if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
+        print("... Not able to execute command \"", command, "\", exit")
         sys.exit()
 
 ### NOTE: I must be in bbbb
@@ -188,27 +191,27 @@ command = 'tar -zcf {0} '.format(tarLFN)
 for ti in to_include:
     command += ti + ' '
 
-print '** INFO: Going to tar executable folder into', tarName
+print('** INFO: Going to tar executable folder into', tarName)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
-print '** INFO: tar finished and saved in:', tarLFN
+print( '** INFO: tar finished and saved in:', tarLFN)
 
 command = 'xrdcp -f -s %s %s' % (tarLFN, tarEOSdestLFN)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
 
 command = 'xrdcp -f -s %s %s' % (getValue(args.cfg, "sampleCfg"), (EOSconfigFolderProto + "/" + sampleFileName))
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
 
 command = 'xrdcp -f -s %s %s' % (getValue(args.cfg, "cutCfg"), (EOSconfigFolderProto + "/" + selectionFileName))
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print( "... Not able to execute command \"", command, "\", exit")
     sys.exit()
-        
+
 
 for sample in theListOfSamples:
     sampleName = sample[1][0]
@@ -221,12 +224,22 @@ for sample in theListOfSamples:
     writeln(outScript, 'echo "... starting job on " `date` #Date/time of start of job')
     writeln(outScript, 'echo "... running on: `uname -a`" #Condor job is running on this node')
     writeln(outScript, 'echo "... system software: `cat /etc/redhat-release`" #Operating System on that node')
+
+    writeln(outScript, 'echo "New Setup Commands"')
+    writeln(outScript, 'mkdir {0}'.format(cmssw_version))
+    writeln(outScript, 'cd {0}'.format(cmssw_version))
     writeln(outScript, 'source /cvmfs/cms.cern.ch/cmsset_default.sh')
+    writeln(outScript, 'xrdcp -f -s {0}/{1} {1}'.format(cmsEnvTarDir, cmsEnvTar))
+    writeln(outScript, 'tar -xzf %s' % cmsEnvTar)
+    writeln(outScript, 'rm %s' % cmsEnvTar)
     writeln(outScript, 'export SCRAM_ARCH=%s' % scram_arch)
-    # writeln(outScript, 'cd %s/src/' % cmssw_version)
-    writeln(outScript, 'eval `scramv1 project CMSSW %s`' % cmssw_version)
-    writeln(outScript, 'cd %s/src' % cmssw_version)
+    writeln(outScript, 'cd src'.format(cmssw_version))
+    writeln(outScript, 'scramv1 b ProjectRename')
     writeln(outScript, 'eval `scramv1 runtime -sh`')
+    writeln(outScript, 'mkdir {0}'.format("work"))
+    writeln(outScript, 'cd {0}'.format("work"))
+    writeln(outScript, '')
+
     writeln(outScript, 'echo "... retrieving bbbb executables tarball"')
     writeln(outScript, 'xrdcp -f -s %s .' % tarEOSdestLFN) ## force overwrite CMSSW tar
     writeln(outScript, 'echo "... uncompressing bbbb executables tarball"')
@@ -248,6 +261,7 @@ for sample in theListOfSamples:
     writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputEOSName))
     writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileName, outputEOSName)) ## no force overwrite output in destination
     writeln(outScript, 'echo "... copy done with status $?"')
+
     writeln(outScript, 'cd ${_CONDOR_SCRATCH_DIR}')
     writeln(outScript, 'rm -rf %s' % cmssw_version)
     writeln(outScript, 'echo "... job finished with status $?"')
@@ -256,11 +270,11 @@ for sample in theListOfSamples:
     writeln(outScript, '} 2>&1') ## end of redirection
     outScript.close()
 
-for sample in theListOfSamples:
-    sampleName = sample[1][0]
-    if sample[2] != "":  sampleName = sample[2]
-    command = "%s/scripts/t3submit %s" % (bbbbWorkDir, outScriptNameProto.format(sampleName))
-    if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
-        sys.exit()
- 
+# for sample in theListOfSamples:
+#     sampleName = sample[1][0]
+#     if sample[2] != "":  sampleName = sample[2]
+#     command = "%s/scripts/t3submit %s" % (bbbbWorkDir, outScriptNameProto.format(sampleName))
+#     if os.system(command) != 0:
+#         print( "... Not able to execute command \"", command, "\", exit")
+#         sys.exit()
+#
