@@ -5,6 +5,7 @@
 # tag=2023Feb27_TrigCut_5 # check how many events pass cut at trig threshold
 # tag=2023Feb28_3 # Full Submission with pt and ht cuts that match the HLT trigger thresholds, the _3 is to include the Higgs variables in the output (I should not have removed them)
 tag=$1 # Full Submission with pt and ht cuts that match the HLT trigger thresholds, the _3 is to include the Higgs variables in the output (I should not have removed them)
+python ./scripts/mergeHistograms.py --tag fullSubmission_2016preVFP_BDTweights_${tag}
 python ./scripts/mergeHistograms.py --tag fullSubmission_2016_BDTweights_${tag}
 python ./scripts/mergeHistograms.py --tag fullSubmission_2017_BDTweights_${tag}
 python ./scripts/mergeHistograms.py --tag fullSubmission_2018_BDTweights_${tag}

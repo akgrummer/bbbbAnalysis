@@ -24,7 +24,7 @@ std::tuple<TH1F*, TH1F*> dividePlots(const THA* referencePlot, const THB* inputP
     {
         float referenceValue = referencePlot->GetBinContent(nBin);
         float referenceError = referencePlot->GetBinError  (nBin);
-        if(referenceValue == 0.) 
+        if(referenceValue == 0.)
         {
             referenceValue = 1.;
             referenceError = 1.;
@@ -111,7 +111,7 @@ void StackPlot(TVirtualPad *theCanvas, TFile* inputFile, const std::string& sele
     auto theSignalLegend = new TLegend(0.45,0.5,0.88,0.6);
     theSignalLegend->SetTextSize(0.04);
 
-    std::vector<std::tuple<TH1F*, const char*, const char*>> legendList;    
+    std::vector<std::tuple<TH1F*, const char*, const char*>> legendList;
 
     for(size_t dIt=0; dIt<datasetList.size(); ++dIt)
     {
@@ -227,7 +227,7 @@ void StackPlot(TVirtualPad *theCanvas, TFile* inputFile, const std::string& sele
     for(auto& legend : legendList) theLegend->AddEntry(std::get<0>(legend), std::get<1>(legend), std::get<2>(legend));
     theLegend->Draw("same");
     if(signalDatasetList.size()>0) theSignalLegend->Draw("same");
-    
+
     pad1->SetLogy();
 
     theCanvas->cd();          // Go back to the main canvas before defining pad2
@@ -290,7 +290,7 @@ void StackPlot(TVirtualPad *theCanvas, TFile* inputFile, const std::string& sele
 
 //     auto theLegend = new TLegend(0.30,0.7,0.88,0.88);
 //     theLegend->SetNColumns(3);
-//     std::vector<std::tuple<TH1F*, const char*, const char*>> legendList;    
+//     std::vector<std::tuple<TH1F*, const char*, const char*>> legendList;
 
 //     for(size_t dIt=0; dIt<datasetList.size(); ++dIt)
 //     {
@@ -388,7 +388,7 @@ void StackPlot(TVirtualPad *theCanvas, TFile* inputFile, const std::string& sele
 //     theLegend->AddEntry(std::get<1>(backgroundAndError), "BKG unc.", "f");
 //     for(auto& legend : legendList) theLegend->AddEntry(std::get<0>(legend), std::get<1>(legend), std::get<2>(legend));
 //     theLegend->Draw("same");
-    
+
 //     theCanvas->SetLogy();
 // }
 
@@ -398,16 +398,16 @@ void StackAllDatasets(TVirtualPad *theCanvas, TFile* inputFile, const std::strin
     std::vector<std::string> datasetList     = {"ggF_Hbb","VBF_Hbb","QCD"   ,"ttbar","WH"    ,"ZH"  ,"ZZ"  ,"ttH"   };
     std::vector<std::string> datasetNameList = {"ggF_Hbb","VBF_Hbb","QCD"   ,"ttbar","WH"    ,"ZH"  ,"ZZ"  ,"ttH"   };
     std::vector<EColor>      colorList       = {kRed     , kBlue   , kYellow, kGreen, kViolet, kCyan, kGray, kOrange};
-      
+
     StackPlot(theCanvas, inputFile, selectionAndRegion, variableName, datasetList, datasetNameList, colorList, modelDataset, modelName, signalDatasetList, signalName, dataDataset, dataName, normalizeBinByBin, xAxisName, yAxisName);
 
 }
 
-void StackAllVariables(const std::string& inputFileName, const std::string& selectionAndRegion, int year, const std::string& modelDataset=NO_PLOT, const std::string& modelName="BKG model",  const std::vector<std::string>& signalDatasetList = {}, const std::string& signalName="X{#rightarrow}YH", const std::string& dataDataset=NO_PLOT, const std::string& dataName="data")
+void StackAllVariables(const TString inputFileName, const std::string& selectionAndRegion, int year, const std::string& modelDataset=NO_PLOT, const std::string& modelName="BKG model",  const std::vector<std::string>& signalDatasetList = {}, const std::string& signalName="X{#rightarrow}YH", const std::string& dataDataset=NO_PLOT, const std::string& dataName="data")
 {
     gROOT->SetBatch();
 
-    TFile inputFile(inputFileName.data());
+    TFile inputFile(inputFileName);
 
     std::string canvasName = "BackgroundOverlap_" + selectionAndRegion + "_" + std::to_string(year);
     TCanvas *theCanvas = new TCanvas(canvasName.data(), canvasName.data(), 1400, 900);
@@ -433,8 +433,8 @@ void StackAllVariables(const std::string& inputFileName, const std::string& sele
 
 void StackPlots()
 {
-    
-    // const std::vector<std::string> signalForLMR = 
+
+    // const std::vector<std::string> signalForLMR =
     // {
     //       "sig_NMSSM_bbbb_MX_300_MY_60", "sig_NMSSM_bbbb_MX_300_MY_70", "sig_NMSSM_bbbb_MX_300_MY_80", "sig_NMSSM_bbbb_MX_300_MY_90", "sig_NMSSM_bbbb_MX_300_MY_100", "sig_NMSSM_bbbb_MX_300_MY_125", "sig_NMSSM_bbbb_MX_300_MY_150", "sig_NMSSM_bbbb_MX_400_MY_60"
     //     , "sig_NMSSM_bbbb_MX_400_MY_70", "sig_NMSSM_bbbb_MX_400_MY_80", "sig_NMSSM_bbbb_MX_400_MY_90", "sig_NMSSM_bbbb_MX_400_MY_100", "sig_NMSSM_bbbb_MX_400_MY_125"
@@ -450,7 +450,7 @@ void StackPlots()
     //     , "sig_NMSSM_bbbb_MX_1800_MY_90", "sig_NMSSM_bbbb_MX_1800_MY_100", "sig_NMSSM_bbbb_MX_1800_MY_125"
     //     // , "sig_NMSSM_bbbb_MX_2000_MY_90", "sig_NMSSM_bbbb_MX_2000_MY_100", "sig_NMSSM_bbbb_MX_2000_MY_125"
     // };
-    // const std::vector<std::string> signalForHMR = 
+    // const std::vector<std::string> signalForHMR =
     // {
     //       "sig_NMSSM_bbbb_MX_300_MY_125"
     //     , "sig_NMSSM_bbbb_MX_400_MY_125", "sig_NMSSM_bbbb_MX_400_MY_150", "sig_NMSSM_bbbb_MX_400_MY_200", "sig_NMSSM_bbbb_MX_400_MY_250", "sig_NMSSM_bbbb_MX_500_MY_125"
@@ -469,7 +469,7 @@ void StackPlots()
     // };
 
 
-    const std::vector<std::string> signalForLMR = 
+    const std::vector<std::string> signalForLMR =
     {
         //   /* "sig_NMSSM_bbbb_MX_300_MY_60", "sig_NMSSM_bbbb_MX_300_MY_70", "sig_NMSSM_bbbb_MX_300_MY_80" ,*/ "sig_NMSSM_bbbb_MX_300_MY_90"/* , "sig_NMSSM_bbbb_MX_300_MY_100", "sig_NMSSM_bbbb_MX_300_MY_125", "sig_NMSSM_bbbb_MX_300_MY_150" */
         // /* , "sig_NMSSM_bbbb_MX_400_MY_60", "sig_NMSSM_bbbb_MX_400_MY_70", "sig_NMSSM_bbbb_MX_400_MY_80" */, "sig_NMSSM_bbbb_MX_400_MY_90"/* , "sig_NMSSM_bbbb_MX_400_MY_100", "sig_NMSSM_bbbb_MX_400_MY_125" */
@@ -485,7 +485,7 @@ void StackPlots()
         // , "sig_NMSSM_bbbb_MX_1800_MY_90"/* , "sig_NMSSM_bbbb_MX_1800_MY_100", "sig_NMSSM_bbbb_MX_1800_MY_125" */
         // // , "sig_NMSSM_bbbb_MX_2000_MY_90", "sig_NMSSM_bbbb_MX_2000_MY_100", "sig_NMSSM_bbbb_MX_2000_MY_125"
     };
-    const std::vector<std::string> signalForHMR = 
+    const std::vector<std::string> signalForHMR =
     {
         // //   "sig_NMSSM_bbbb_MX_300_MY_125"
         // // , "sig_NMSSM_bbbb_MX_400_MY_125", "sig_NMSSM_bbbb_MX_400_MY_150", "sig_NMSSM_bbbb_MX_400_MY_200", "sig_NMSSM_bbbb_MX_400_MY_250"
@@ -513,19 +513,23 @@ void StackPlots()
     // StackAllVariables("2016DataPlots_NMSSM_XYH_bbbb_all_v1/outPlotter.root", "selectionbJetsLMR_ControlRegionBlinded", "data_BTagCSV_dataDriven_backgroundLMR", "Bkg model", {}, "X{#rightarrow}YH", "data_BTagCSV_background", "data");
     // StackAllVariables("2016DataPlots_NMSSM_XYH_bbbb_all_v1/outPlotter.root", "selectionbJetsHMR_ControlRegionBlinded", "data_BTagCSV_dataDriven_backgroundHMR", "Bkg model", {}, "X{#rightarrow}YH", "data_BTagCSV_background", "data");
 
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_SignalRegion"           , 2016, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2016, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_ControlRegionBlinded", 2016, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    // TString tag= "2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs"
+    TString idir= "VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_";
+    TString year2016dir= "2016DataPlots_";
+    TString tag= "2023Jul5_vars";
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_"+tag+"/outPlotter.root", "selectionbJets_SignalRegion"           , 2016, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_"+tag+"/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2016, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2016DataPlots_"+tag+"/outPlotter.root", "selectionbJets_ControlRegionBlinded", 2016, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
     // StackAllVariables("DataPlots_fullSubmission_2016_v17/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2016, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)", "data_BTagCSV", "data");
 
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2017DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_SignalRegion"           , 2017, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2017DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2017, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2017DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_ControlRegionBlinded", 2017, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2017DataPlots_"+tag+"/outPlotter.root", "selectionbJets_SignalRegion"           , 2017, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2017DataPlots_"+tag+"/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2017, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2017DataPlots_"+tag+"/outPlotter.root", "selectionbJets_ControlRegionBlinded", 2017, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
     // StackAllVariables("DataPlots_fullSubmission_2017_v17/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2017, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)", "data_BTagCSV", "data");
 
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2018DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_SignalRegion"           , 2018, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2018DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2018, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
-    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2018DataPlots_2022Nov14_bJetScoreLoose_shapes_allVars_selectSigs/outPlotter.root", "selectionbJets_ControlRegionBlinded", 2018, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2018DataPlots_"+tag+"/outPlotter.root", "selectionbJets_SignalRegion"           , 2018, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2018DataPlots_"+tag+"/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2018, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
+    StackAllVariables("VarPlots/rootHists/fullSubmission_2022Nov/2018DataPlots_"+tag+"/outPlotter.root", "selectionbJets_ControlRegionBlinded", 2018, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)");
     // StackAllVariables("DataPlots_fullSubmission_2018_v17/outPlotter.root", "selectionbJets_ValidationRegionBlinded", 2018, "data_BTagCSV_dataDriven_kinFit", "Bkg model", {"sig_NMSSM_bbbb_MX_700_MY_300"}, "X#rightarrowYH (m_{X} = 700 GeV, m_{Y} = 300 GeV)", "data_BTagCSV", "data");
 
 }

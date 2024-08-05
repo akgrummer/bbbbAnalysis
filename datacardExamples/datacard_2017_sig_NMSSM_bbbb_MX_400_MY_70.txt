@@ -1,0 +1,27 @@
+imax *  number of channels
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+----------------------------------------------------------------------------------------------------------------------------------
+shapes * selectionbJets_SignalRegion outPlotter_2017_sig_NMSSM_bbbb_MX_400_MY_70.root $PROCESS $PROCESS_$SYSTEMATIC
+----------------------------------------------------------------------------------------------------------------------------------
+bin                                 selectionbJets_SignalRegion
+observation                         -1    
+----------------------------------------------------------------------------------------------------------------------------------
+# list the expected events for signal and all backgrounds in that bin
+# the second process line must have a positive number for backgrounds, and 0 or neg for signal
+bin                                        selectionbJets_SignalRegion selectionbJets_SignalRegion
+process                                    sig_NMSSM_bbbb_MX_400_MY_70 data_BTagCSV_dataDriven_kinFit
+process                                                            0                         1
+rate                                                              -1                        -1
+----------------------------------------------------------------------------------------------------------------------------------
+CMS_bkgnorm_2017                    lnN                            -                     1.019
+CMS_bkgShape_2017                   shape                          -                     1.000
+lumi_13TeV_2017                     lnN                        1.023                         -
+CMS_trg_eff_2017                    lnN                  0.791/1.318                         -
+CMS_eff_b_b_2017                    lnN                  0.893/1.117                         -
+CMS_scale_j_Total_2017              lnN                  0.977/1.022                         -
+CMS_res_j_breg_2017                 lnN                  1.019/0.978                         -
+CMS_PS_weights                      lnN                        1.070                         -
+
+CMS_LHE_pdf                         lnN                        1.027                         -
+* autoMCStats 10

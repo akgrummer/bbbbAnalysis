@@ -65,7 +65,7 @@ Error  = ${command}_\$(Cluster).stderr
 Log    = ${command}_\$(Cluster).log
 notify_user = ${LOGNAME}@FNAL.GOV
 x509userproxy = ${X509_USER_PROXY}
-request_memory          = 512M
+request_memory          = 1024M
 +ApptainerImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7"
 Queue 1
 

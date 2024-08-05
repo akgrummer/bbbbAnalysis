@@ -112,14 +112,17 @@ outListNameBareProto   = 'filelist_{0}.txt'
 outScriptNameBareProto = 'job_{0}.sh'
 outListNameProto       = (jobsDir + '/' + outListNameBareProto)
 outScriptNameProto     = (jobsDir + '/' + outScriptNameBareProto)
-EOSfilelistBase        = oLFN_base + '/filelist'
+EOSfilelistBase        = oLFN_base + '/filelist/'
 EOSfilelistProto       = EOSfilelistBase + '/' + outListNameBareProto
 outFileNameProto       = 'bbbbNtuple_{0}.root'
 
-cmssw_base    = os.environ['CMSSW_BASE']
-cmssw_version = os.environ['CMSSW_VERSION']
-scram_arch    = os.environ['SCRAM_ARCH']
+cmsEnvTarDir = "root://cmseos.fnal.gov//store/user/{0}/cmssw_builds/".format(username)
+cmsEnvTar = "cmssw10_2_5.tar.gz" # need to remove the matching dir at end of script
 
+# cmssw_version = os.environ['CMSSW_VERSION']
+cmssw_version = "CMSSW_10_2_5"
+# scram_arch    = os.environ['SCRAM_ARCH']
+scram_arch    = "slc7_amd64_gcc700"
 
 
 tarName      = 'bbbbAnalysis.tar.gz' #%s_tar.tgz' % cmssw_version
@@ -241,12 +244,22 @@ for n in range(0, njobs):
     writeln(outScript, 'echo "... starting job on " `date` #Date/time of start of job')
     writeln(outScript, 'echo "... running on: `uname -a`" #Condor job is running on this node')
     writeln(outScript, 'echo "... system software: `cat /etc/redhat-release`" #Operating System on that node')
+
+    writeln(outScript, 'echo "New Setup Commands"')
+    writeln(outScript, 'mkdir {0}'.format(cmssw_version))
+    writeln(outScript, 'cd {0}'.format(cmssw_version))
     writeln(outScript, 'source /cvmfs/cms.cern.ch/cmsset_default.sh')
+    writeln(outScript, 'xrdcp -f -s {0}/{1} {1}'.format(cmsEnvTarDir, cmsEnvTar))
+    writeln(outScript, 'tar -xzf %s' % cmsEnvTar)
+    writeln(outScript, 'rm %s' % cmsEnvTar)
     writeln(outScript, 'export SCRAM_ARCH=%s' % scram_arch)
-    # writeln(outScript, 'cd %s/src/' % cmssw_version)
-    writeln(outScript, 'eval `scramv1 project CMSSW %s`' % cmssw_version)
-    writeln(outScript, 'cd %s/src' % cmssw_version)
+    writeln(outScript, 'cd src'.format(cmssw_version))
+    writeln(outScript, 'scramv1 b ProjectRename')
     writeln(outScript, 'eval `scramv1 runtime -sh`')
+    writeln(outScript, 'mkdir {0}'.format("work"))
+    writeln(outScript, 'cd {0}'.format("work"))
+    writeln(outScript, '')
+
     writeln(outScript, 'echo "... retrieving bbbb executables tarball"')
     writeln(outScript, 'xrdcp -f -s %s .' % tarEOSdestLFN) ## force overwrite CMSSW tar
     writeln(outScript, 'echo "... uncompressing bbbb executables tarball"')
@@ -299,9 +312,9 @@ else:
 if args.xrdcpflist:
 
     print "** INFO: copying input filelists to:", EOSfilelistProto.format('*')
-    command = 'eos root://cmseos.fnal.gov mkdir -p %s' % EOSfilelistBase.replace('root://cmseos.fnal.gov/', '/eos/uscms')
-     # there is an incompatibility of EOS commands with cmsenv, so this below encapsulated the call of the command in a new shell
-    command = 'env -i PATH="$(getconf PATH)" HOME="$HOME" USER="$USER" SHELL="$SHELL" "$SHELL" -lc "%s"' % command
+    command = 'mkdir -p %s' % EOSfilelistBase.replace('root://cmseos.fnal.gov/', '/eos/uscms')
+    # there is an incompatibility of EOS commands with cmsenv, so this below encapsulated the call of the command in a new shell
+    # command = 'env -i PATH="$(getconf PATH)" HOME="$HOME" USER="$USER" SHELL="$SHELL" "$SHELL" -lc "%s"' % command
     if args.verbose: print "** INFO: executing:", command
     if os.system(command) != 0:
         print "... Not able to execute command \"", command, "\", exit"
@@ -323,14 +336,14 @@ else:
 
 
 ## set directory to job directory, so that logs will be saved there
-os.chdir(jobsDir)
-for n in range(0, njobs):
-    command = "%s/scripts/t3submit %s" % (bbbbWorkDir, outScriptNameBareProto.format(n))
-    if not args.dryrun:
-        if args.verbose: print "** INFO: submit job with command", command
-        if os.system(command) != 0:
-            print "... Not able to execute command \"", command, "\", exit"
-            sys.exit()
-
+# os.chdir(jobsDir)
+# for n in range(0, njobs):
+#     command = "%s/scripts/t3submit %s" % (bbbbWorkDir, outScriptNameBareProto.format(n))
+#     if not args.dryrun:
+#         if args.verbose: print "** INFO: submit job with command", command
+#         if os.system(command) != 0:
+#             print "... Not able to execute command \"", command, "\", exit"
+#             sys.exit()
+#
 
 

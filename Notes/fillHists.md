@@ -209,6 +209,141 @@ source ./scripts/submitAllFillOnTier3_RunII_el9part.sh
 
 source ./scripts/mergeHistograms.sh 2024Jun11_vars
 
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2024Jun11_vars/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2017_BDTweights_2024Jun11_vars/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Jun11_vars/ --long
+
+# 2024 Jun 14:
+
+converted grid submission to the new tar file unpacking.
+
+rerun for background composition plots with mY=90 restriction.
+
+source ./scripts/submitAllFillOnTier3_RunII.sh
+source ./scripts/submitAllFillOnTier3_RunII_el9part.sh
+
+source ./scripts/mergeHistograms.sh 2024Jun11_vars_mY90pm10
+
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2024Jun11_vars_mY90pm10/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2017_BDTweights_2024Jun11_vars_mY90pm10/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Jun11_vars_mY90pm10/ --long
+
+and
+
+source ./scripts/mergeHistograms.sh 2024Jun11_vars_mY90pm1
+
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2024Jun11_vars_mY90pm1/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2017_BDTweights_2024Jun11_vars_mY90pm1/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Jun11_vars_mY90pm1/ --long
+
+and
+
+source ./scripts/mergeHistograms.sh 2024Jun11_vars_mY90pm1_3b
+
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2024Jun11_vars_mY90pm1_3b/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2017_BDTweights_2024Jun11_vars_mY90pm1_3b/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Jun11_vars_mY90pm1_3b/ --long
+
+and
+
+source ./scripts/mergeHistograms.sh 2024Jun11_vars_mY90pm10_3b
+
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2024Jun11_vars_mY90pm10_3b/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2017_BDTweights_2024Jun11_vars_mY90pm10_3b/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Jun11_vars_mY90pm10_3b/ --long
+
+
+source ./scripts/mergeHistograms.sh 2024Jun11_vars_3b
+
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2024Jun11_vars_3b/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2017_BDTweights_2024Jun11_vars_3b/ --long
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Jun11_vars_3b/ --long
+
+reverted the selection cfgs back to the main analysis versions
+this was for background component Nbjets parameter (line 1605) and mY90pm10 or mY90pm1 in selectionbJets (line 1684)
+
+# Jun 21, 2024
+
+fill again for slices of mX
+
+edit and run both: First one in el7 Singularity then one in el9
+source ./scripts/submitAllFillOnTier3_RunII.sh
+source ./scripts/submitAllFillOnTier3_RunII_el9part.sh
+
+
+tag="2024Jun21_vars_mY90_mX340"
+tag="2024Jun21_vars_mY90_mX488"
+tag="2024Jun21_vars_mY90_mX648"
+tag="2024Jun21_vars_mY90_mX960"
+tag="2024Jun21_vars_mY90_mX340to1216"
+tag="2024Jun21_vars_mY90_mX340_3b"
+tag="2024Jun21_vars_mY90_mX488_3b"
+tag="2024Jun21_vars_mY90_mX648_3b"
+tag="2024Jun21_vars_mY90_mX960_3b"
+tag="2024Jun21_vars_mY90_mX340to1216_3b"
+
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2016_BDTweights_2024Jun21_vars_mY90_mX340/ --long
+
+tag="2024Jun21_vars"; for year in "2016" "2017" "2018"; do echo ${year}; python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_${year}_BDTweights_${tag}/ --long; done
+
+tag="2024Jun21_vars"; source ./scripts/mergeHistograms.sh ${tag}
+
+actually run this in el7 image:
+./scripts/checkBkgCompJobs.sh
+
+
+# 2024 Jun 27 fill Zjets bkg
+
+wrote new  cfg files for UL Zjets samples
+- 4 files now because 2016 is split to pre and post VFP datsets
+
+new plotter scripts
+config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets_preVFP.cfg
+config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
+
+new selection scripts
+config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27_ULpreVFP.cfg
+config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27_UL.cfg
+
+also appended file lists in the sample cfg files. But used the standard cfg files (doesn't impact a normal fillHists run)
+
+used scripts/submitAllFillOnTier3_RunII_el9part.sh from both sl7 and el9 submissions - (edited file)
+
+
+
+grep -irl -e "error" -e "zombie" CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Jun27*
+
+added 2016preVFP and new tags here:
+scripts/checkBkgCompJobs.sh
+
+Added 2016preVFP year to mergeHistograms.sh
+and renameFullSubmissions.sh
+
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_Zjets
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_Zjets_3b
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_Zjets_mY90pm10
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_Zjets_mY90pm10_3b
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX340
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX488
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX648
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX960
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX340to1216
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX340_3b
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX488_3b
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX648_3b
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX960_3b
+source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX340to1216_3b
+
+
+
+
+
+
+
+# 2024 Jun 30
+
+repeated Zjets bkg fills
+- use the wrong plotter cng files for 2017 and 2018 on the first round.
 
 
 

@@ -17,7 +17,9 @@ saveDatasetNames(){
     if [ ${year} -eq 2018 ]; then
         datasetQuery="file dataset=/NMSSM_XToYHTo4B_MX-650_MY-${mYval}_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v2/NANOAODSIM"
     fi
-    dasgoclient -query "${datasetQuery}" >> "MoreSignals/MX650/NMSSM_XToYHTo4B_MX-650_MY-${mYval}_${year}.txt"
+    # dasgoclient -query "${datasetQuery}" >> "MoreSignals/MX650/NMSSM_XToYHTo4B_MX-650_MY-${mYval}_${year}.txt"
+    dasgoclient -query "${datasetQuery}" >> "/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/MoreSignals/MX650/NMSSM_XToYHTo4B_MX-650_MY-${mYval}_${year}.txt"
+
 }
 
 

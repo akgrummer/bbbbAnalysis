@@ -144,9 +144,13 @@ EOSconfigFolderProto   = outputFolder + '/configFile/'
 EOSconfigProto         = (EOSconfigFolderProto + outCfgNameBareProto)
 outFileNameProto       = (outputFolder + '/bbbbHistograms_{0}.root')
 
-cmssw_base    = os.environ['CMSSW_BASE']
-cmssw_version = os.environ['CMSSW_VERSION']
-scram_arch    = os.environ['SCRAM_ARCH']
+cmsEnvTarDir = "root://cmseos.fnal.gov//store/user/{0}/cmssw_builds/".format(username)
+cmsEnvTar = "cmssw10_2_5.tar.gz" # need to remove the matching dir at end of script
+
+# cmssw_version = os.environ['CMSSW_VERSION']
+cmssw_version = "CMSSW_10_2_5"
+# scram_arch    = os.environ['SCRAM_ARCH']
+scram_arch    = "slc7_amd64_gcc700"
 
 
 tarName      = 'bbbbHistograms.tar.gz' #%s_tar.tgz' % cmssw_version
@@ -221,12 +225,22 @@ for sample in theListOfSamples:
     writeln(outScript, 'echo "... starting job on " `date` #Date/time of start of job')
     writeln(outScript, 'echo "... running on: `uname -a`" #Condor job is running on this node')
     writeln(outScript, 'echo "... system software: `cat /etc/redhat-release`" #Operating System on that node')
+
+    writeln(outScript, 'echo "New Setup Commands"')
+    writeln(outScript, 'mkdir {0}'.format(cmssw_version))
+    writeln(outScript, 'cd {0}'.format(cmssw_version))
     writeln(outScript, 'source /cvmfs/cms.cern.ch/cmsset_default.sh')
+    writeln(outScript, 'xrdcp -f -s {0}/{1} {1}'.format(cmsEnvTarDir, cmsEnvTar))
+    writeln(outScript, 'tar -xzf %s' % cmsEnvTar)
+    writeln(outScript, 'rm %s' % cmsEnvTar)
     writeln(outScript, 'export SCRAM_ARCH=%s' % scram_arch)
-    # writeln(outScript, 'cd %s/src/' % cmssw_version)
-    writeln(outScript, 'eval `scramv1 project CMSSW %s`' % cmssw_version)
-    writeln(outScript, 'cd %s/src' % cmssw_version)
+    writeln(outScript, 'cd src'.format(cmssw_version))
+    writeln(outScript, 'scramv1 b ProjectRename')
     writeln(outScript, 'eval `scramv1 runtime -sh`')
+    writeln(outScript, 'mkdir {0}'.format("work"))
+    writeln(outScript, 'cd {0}'.format("work"))
+    writeln(outScript, '')
+
     writeln(outScript, 'echo "... retrieving bbbb executables tarball"')
     writeln(outScript, 'xrdcp -f -s %s .' % tarEOSdestLFN) ## force overwrite CMSSW tar
     writeln(outScript, 'echo "... uncompressing bbbb executables tarball"')
@@ -248,6 +262,7 @@ for sample in theListOfSamples:
     writeln(outScript, 'echo "... copying output file %s to EOS in %s"' % (outputFileName, outputEOSName))
     writeln(outScript, 'xrdcp -s -f %s %s' % (outputFileName, outputEOSName)) ## no force overwrite output in destination
     writeln(outScript, 'echo "... copy done with status $?"')
+
     writeln(outScript, 'cd ${_CONDOR_SCRATCH_DIR}')
     writeln(outScript, 'rm -rf %s' % cmssw_version)
     writeln(outScript, 'echo "... job finished with status $?"')

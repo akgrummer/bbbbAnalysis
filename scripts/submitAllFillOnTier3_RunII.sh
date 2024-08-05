@@ -52,8 +52,55 @@
 # python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2023Dec7_binMYx2_addMX650 --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_Full.cfg
 # python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2023Dec7_binMYx2_addMX650 --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_Full.cfg
 
-python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2024Jun11_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
-python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2024Jun11_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
-python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2024Jun11_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2024Jun11_vars2 --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2024Jun11_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
+# python scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2024Jun11_vars --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
+
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2024Jun11_vars_mY90pm10_3b --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2024Jun11_vars_mY90pm10_3b --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2024Jun11_vars_mY90pm10_3b --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
+
+# used for mY 90 study for all mX, mY=90 cuts pm1 and pm10
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_2024Jun11_vars_3b --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars.cfg
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_2024Jun11_vars_3b --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars.cfg
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_2024Jun11_vars_3b --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars.cfg
+#
+
+# NEW CFG FILE HERE for mY 90 study - mX sliced only
+# tag="2024Jun21_vars_mY90_mX340"
+# tag="2024Jun21_vars_mY90_mX488"
+# tag="2024Jun21_vars_mY90_mX648"
+# tag="2024Jun21_vars_mY90_mX960"
+# tag="2024Jun21_vars_mY90_mX340to1216"
+# tag="2024Jun21_vars_mY90_mX340_3b"
+# tag="2024Jun21_vars_mY90_mX488_3b"
+# tag="2024Jun21_vars_mY90_mX648_3b"
+# tag="2024Jun21_vars_mY90_mX960_3b"
+# tag="2024Jun21_vars_mY90_mX340to1216_3b"
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90.cfg
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars_mY90.cfg
+# python3 scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars_mY90.cfg
+
+
+
+# NEW CFG FILE HERE for mY 90 study - mX sliced only
+tag="2024Jun27_vars_Zjets"
+# tag="2024Jun27_vars_Zjets_3b"
+# tag="2024Jun27_vars_Zjets_mY90pm10"
+# tag="2024Jun27_vars_Zjets_mY90pm10_3b"
+# tag="2024Jun27_vars_mY90_Zjets_mX340"
+# tag="2024Jun27_vars_mY90_Zjets_mX488"
+# tag="2024Jun27_vars_mY90_Zjets_mX648"
+# tag="2024Jun27_vars_mY90_Zjets_mX960"
+# tag="2024Jun27_vars_mY90_Zjets_mX340to1216"
+# tag="2024Jun27_vars_mY90_Zjets_mX340_3b"
+# tag="2024Jun27_vars_mY90_Zjets_mX488_3b"
+# tag="2024Jun27_vars_mY90_Zjets_mX648_3b"
+# tag="2024Jun27_vars_mY90_Zjets_mX960_3b"
+# tag="2024Jun27_vars_mY90_Zjets_mX340to1216_3b"
+python3 scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets_preVFP.cfg
+python3 scripts/submitFillOnTier3.py --tag fullSubmission_2016_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
+python3 scripts/submitFillOnTier3.py --tag fullSubmission_2017_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
+python3 scripts/submitFillOnTier3.py --tag fullSubmission_2018_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
 
 
