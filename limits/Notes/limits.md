@@ -184,3 +184,69 @@ sig_tag="mx700_my400_2"; tag="2024Jan26_psuedoData_checkExcessLimits_${sig_tag}_
 
 sig_tag="mx650_my350_2"; tag="2024Jan26_psuedoData_checkExcessLimits_${sig_tag}_unblind_sigX10"; region="SR"; python prepareModels/SubmitFullRunIILimits.py --tag ${tag}_${region} --year RunII --group auto --impacts --unblind
 
+# 2024 Sep 24:
+
+rerun significance for largest deficit (400,250)
+removed --pval option in combine commands: in prepareModels/SubmitFullRunIIsignificance.py
+also run the largest excess - to make sure the same limit is produced
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250"; region="SR"; python3 prepareModels/SubmitFullRunIIsignificance.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+other changes for this run:
+
+changed to cmssw 10_2_13 (instead of picking up the environment version)
+and scram slc7_amd64_gcc700
+(still using old style of compiling cmssw in this script, unfortunately.)
+
+moved back to non- full plane directory in all three config files
+/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/VarPlots/rootHists/fullSubmission_2022Nov/2018DataPlots_2023Dec7_binMYx2_addMX650_10ev_SR
+
+submitted from b2el9 (no image) but used t3el7submit file to condor
+moved print statements to be python3 style
+changed package names:
+
+line 160-161
+from:
+from  ConfigParser import *
+to:
+from StringIO import StringIO
+from:
+from  configparser import *
+to:
+from io import StringIO
+from:
+cfgparser.readfp(StringIO(signalConfiguration))
+to:
+cfgparser.read_file(StringIO(signalConfiguration))
+
+updated print statements int he task status script
+
+# 2024 Sep 25
+
+
+followup on yesterday. adding options to combine command and repeat significance runs for largest excess and largest deficit
+in: prepareModels/SubmitFullRunIIsignificance.py
+to allow significance values to be negative
+--uncapped 1 --rMin=-20
+
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250_AllowNeg"; region="SR"; python3 prepareModels/SubmitFullRunIIsignificance.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250_AllowNeg"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+
+to check the values used
+limit->Scan() in these files:
+
+
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_400_MY_250_syst.root
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_400_MY_250_syst.root
+
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_all_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_700_MY_400_syst.root
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_700_MY_400_syst.root
+
+
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250_AllowNeg_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_400_MY_250_syst.root
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250_AllowNeg_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_700_MY_400_syst.root
+
+

@@ -83,7 +83,9 @@ for theMass in massList:
         # print("sigma: {}".format(ySig))
         pull =  diff/ySig
         # if (pull>2.5): print( "m{0}=({1},{2}), m{3}={4}, yObs={5}, yExp={6}, pull={7}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
-        if (pull>3.4): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
+        # if (pull>3.4): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
+        if (pull>4. and not args.listX and not args.use2sig): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
+        if (pull<-2.0 and not args.listX and not args.use2sig): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
         hMean.Fill(pull)
 
 theCanvas = TCanvas("limitsMean", "limitsMean", 800, 600)
