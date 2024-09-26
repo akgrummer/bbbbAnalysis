@@ -250,3 +250,40 @@ root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2
 root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_unblind_signif_mX400mY250_AllowNeg_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_700_MY_400_syst.root
 
 
+# 2024 Sep26:
+move limits to use cmssw tarball (dont compile on grid node)
+
+tag="sign_test"; region="SR"; python3 prepareModels/SubmitFullRunIIsignificance.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="sign_test"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/sign_test_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_400_MY_250_syst.root
+
+## add DeltaNLL submit
+- do a grid scan to determine significance of deficit manually
+
+prepareModels/SubmitDeltaNLL.py
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL"; region="SR"; python3 prepareModels/SubmitDeltaNLL.py --tag ${tag}_${region} --year RunII --group auto --unblind
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_neg"; region="SR"; python3 prepareModels/SubmitDeltaNLL.py --tag ${tag}_${region} --year RunII --group auto --unblind
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_autoR"; region="SR"; python3 prepareModels/SubmitDeltaNLL.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_autoR"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_sig0"; region="SR"; python3 prepareModels/SubmitDeltaNLL.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_sig0"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+- only mx400my250 scan to -50:
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_neg50"; region="SR"; python3 prepareModels/SubmitDeltaNLL.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_neg50"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+
+- only mx400my250 scan to -20 to 1:
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_neg20"; region="SR"; python3 prepareModels/SubmitDeltaNLL.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_neg20"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+## made a plotting script for deltaNLL study - to "manually" compute significance
+
+../scripts/plotting/DeltaNLL.C
+
+

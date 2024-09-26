@@ -14,7 +14,7 @@ else
   set shortmess=aoO
 endif
 badd +244 prepareModels/SubmitFullRunIILimits.py
-badd +186 Notes/limits.md
+badd +285 Notes/limits.md
 badd +31 prepareModels/config/LimitsConfig_2016.cfg
 badd +30 prepareModels/config/LimitsConfig_2017.cfg
 badd +30 prepareModels/config/LimitsConfig_2018.cfg
@@ -26,7 +26,12 @@ badd +1 an-scripts/PlotLimitsFromCondor.cc
 badd +1 an-scripts/PlotLimitsFromCondor_allyears.cc
 badd +68 ~/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit
 badd +2 prepareModels/listOfSamples_10points.txt
+badd +313 prepareModels/SubmitDeltaNLL.py
+badd +55 prepareModels/SubmitAllGoF.sh
+badd +314 prepareModels/SubmitGoF.py
 badd +1 prepareModels/SubmitFullRunIIsignificance.py
+badd +184 prepareModels/SubmitFitDiagnostics.py
+badd +25 ../scripts/plotting/DeltaNLL.C
 argglobal
 %argdel
 $argadd prepareModels/SubmitFullRunIILimits.py
@@ -39,7 +44,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt prepareModels/SubmitFullRunIIsignificance.py
+balt ../scripts/plotting/DeltaNLL.C
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -50,12 +55,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 186 - ((26 * winheight(0) + 22) / 44)
+let s:l = 287 - ((29 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 186
-normal! 0
+keepjumps 287
+normal! 030|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
