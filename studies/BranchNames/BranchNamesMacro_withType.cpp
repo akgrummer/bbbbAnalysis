@@ -18,11 +18,14 @@ using namespace std;
 void BranchNamesMacro_withType(TString ifName){
 // TFile* myfile = new TFile(ifName,"read");
 TFile* myfile = new TFile(ifName,"read");
-TTree* myTree = (TTree*) myfile->Get("bbbbTree");
+// TString treeName="bbbbTree";
+TString treeName="Events";
+TTree* myTree = (TTree*) myfile->Get(treeName);
+// TTree* myTree = (TTree*) myfile->Get("Events");
 // TTree* myTreeEV = (TTree*) myfile->Get("EventInfo");
-TObjArray *mycopy = myTree->GetListOfBranches(); 
-// TObjArray *mycopy = myTree->GetListOfBranches()->Clone(); 
-mycopy->SetOwner(kFALSE); 
+TObjArray *mycopy = myTree->GetListOfBranches();
+// TObjArray *mycopy = myTree->GetListOfBranches()->Clone();
+mycopy->SetOwner(kFALSE);
 mycopy->Sort();
 
 // TObjArray *mycopyEV = myTreeEV->GetListOfBranches();
@@ -41,10 +44,10 @@ TString odName = "/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbb
 ofileName = odName + ofileName;
 
 ofstream myTextfile;
-myTextfile.open (ofileName + "_bbbbTree.txt");
+myTextfile.open (ofileName + "_"+treeName+".txt");
 // myfile << "a  b\n";
-for(int i = 0; i < mycopy->GetEntries(); ++i) { 
-    myTextfile << mycopy->At(i)->GetName() << " "<< mycopy->At(i)->GetTitle() << '\n'; 
+for(int i = 0; i < mycopy->GetEntries(); ++i) {
+    myTextfile << mycopy->At(i)->GetName() << " "<< mycopy->At(i)->GetTitle() << '\n';
 }
 
 myTextfile.close();

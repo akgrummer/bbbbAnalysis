@@ -8,11 +8,11 @@ import re
 def getLog (proto, ID, silenceWarning=False):
     logs = glob.glob(proto.format(ID, '*'))
     if len(logs) == 0:
-        if not silenceWarning: print ">>> No log found for job", ID
+        if not silenceWarning: print( ">>> No log found for job", ID)
         return None
     if len(logs) > 1:
-        # print ">>> Too many logs found for job", ID, ' : ', logs, 'returning last'
-        if not silenceWarning: print ">>> Too many logs found for job", ID, ' (resubmitted?) , returning last'
+        # print (">>> Too many logs found for job", ID, ' : ', logs, 'returning last')
+        if not silenceWarning: print (">>> Too many logs found for job", ID, ' (resubmitted?) , returning last')
     return logs[-1]
 
 # def getExitCode(fname):
@@ -62,7 +62,7 @@ parser.add_argument('--resubMissing', dest='resubMissing',help='resubmit also mi
 args = parser.parse_args()
 
 if not args.folder:
-    print "Please set job+log folder name"
+    print ("Please set job+log folder name")
 
 ##############################
 #remove last last folder / if present
@@ -76,15 +76,15 @@ log_proto = folder + '/job_{0}.sh_{1}.stdout'
 jobs_sh = glob.glob(job_proto.format('*'))
 # jobs_ID = [int(re.search(job_proto.format('(\d+)'), x).group(1)) for x in jobs_sh]
 jobs_ID = [(re.search(job_proto.format('(\w+)'), x).group(1)) for x in jobs_sh]
-# print jobs_ID
-# print "** Found", len(jobs_ID), 'jobs'
+# print (jobs_ID)
+# print ("** Found", len(jobs_ID), 'jobs')
 
 if len(jobs_ID) == 0:
-    print "** No jobs found"
+    print ("** No jobs found")
     sys.exit()
 
 logs_txt = {ID: getLog(log_proto, ID) for ID in jobs_ID if getLog(log_proto, ID, silenceWarning=True)}
-# print logs_txt
+# print (logs_txt)
 
 #############################
 
@@ -119,15 +119,15 @@ failedButCopied = []
 #     if code <=-10000:
 #         failedButCopied.append(ID)
 #         code = code + 10000
-#     if   code == -999: 
+#     if   code == -999:
 #         missing.append((ID, code))
-#     elif code == -888: 
+#     elif code == -888:
 #         unfinished.append((ID, code))
-#     elif code == 0:    
+#     elif code == 0:
 #         success.append((ID, code))
 #     elif code == -777:
 #         notCopied.append((ID, code))
-#     else:              
+#     else:
 #         failed.append((ID, code))
 
 for idx, ID in enumerate(jobs_ID):
@@ -155,52 +155,52 @@ for idx, ID in enumerate(jobs_ID):
     # if code <=-10000:
     #     failedButCopied.append(ID)
     #     code = code + 10000
-    # if   code == -999: 
+    # if   code == -999:
     #     missing.append((ID, code))
-    # elif code == -888: 
+    # elif code == -888:
     #     unfinished.append((ID, code))
-    # elif code == 0:    
+    # elif code == 0:
     #     success.append((ID, code))
     # elif code == -777:
     #     notCopied.append((ID, code))
-    # else:              
+    # else:
     #     failed.append((ID, code))
 
 
 # print exitCodes
-print "\n***********************************************************"
-print "** TOTAL JOB FOUND: ", len(jobs_ID)
-print "** Success        : ", len(success) , "(%.1f%%)" % (100.*len(success)/len(jobs_ID))
-print "** Failed         : ", len(failed) , "(%.1f%%)" % (100.*len(failed)/len(jobs_ID))
-print "** Unfinished     : ", len(unfinished) , "(%.1f%%)" % (100.*len(unfinished)/len(jobs_ID))
-print "** Missing logs   : ", len(missing) , "(%.1f%%)" % (100.*len(missing)/len(jobs_ID))
-print "**************************** "
-print "** not copied          : ", len(notCopied) , "(%.1f%%)" % (100.*len(notCopied)/len(jobs_ID))
-print "** failed but copied   : ", len(failedButCopied) , "(%.1f%%)" % (100.*len(failedButCopied)/len(jobs_ID))
-print "***********************************************************"
+print ("\n***********************************************************")
+print ("** TOTAL JOB FOUND: ", len(jobs_ID))
+print ("** Success        : ", len(success) , "(%.1f%%)" % (100.*len(success)/len(jobs_ID)))
+print ("** Failed         : ", len(failed) , "(%.1f%%)" % (100.*len(failed)/len(jobs_ID)))
+print ("** Unfinished     : ", len(unfinished) , "(%.1f%%)" % (100.*len(unfinished)/len(jobs_ID)))
+print ("** Missing logs   : ", len(missing) , "(%.1f%%)" % (100.*len(missing)/len(jobs_ID)))
+print ("**************************** ")
+print ("** not copied          : ", len(notCopied) , "(%.1f%%)" % (100.*len(notCopied)/len(jobs_ID)))
+print ("** failed but copied   : ", len(failedButCopied) , "(%.1f%%)" % (100.*len(failedButCopied)/len(jobs_ID)))
+print ("***********************************************************")
 
 if not args.short:
-   print '\n'
-   print '** Failed jobs ID + CODE, logfile'
+   print ('\n')
+   print ('** Failed jobs ID + CODE, logfile')
    for val in failed:
-       print '-', val[0], '+', val[1], ' , ', logs_txt[val[0]]
-   print '** Unfinished jobs ID + CODE, logfile'
+       print ('-', val[0], '+', val[1], ' , ', logs_txt[val[0]])
+   print ('** Unfinished jobs ID + CODE, logfile')
    for val in unfinished:
-       print '-', val[0], '+', val[1], ' , ', logs_txt[val[0]]
-   print '** Missing log jobs ID'
+       print ('-', val[0], '+', val[1], ' , ', logs_txt[val[0]])
+   print ('** Missing log jobs ID')
    for val in missing:
-       print '-', val[0]
+       print ('-', val[0])
 
 #######################
 if args.resubCmd or args.issueCmd:
-    print "\n** Resubmit commands\n"
-    # print "cd %s" % args.folder
+    print ("\n** Resubmit commands\n")
+    # print ("cd %s" % args.folder)
     resubCmds = []
     failed = failed
     # failed = failed + notCopied
     for val in failed:
         if val[0] in failedButCopied:
-            print "file from job ", val[0], " need to be canceled"
+            print ("file from job ", val[0], " need to be canceled")
         # jobscript = job_proto.format(val[0]).replace(args.folder + '/', '')
         jobscript = args.folder + '/job_' + str(val[0]) + '.sh'
         command   = "scripts/t3submit %s" % jobscript
@@ -217,12 +217,12 @@ if args.resubCmd or args.issueCmd:
             command   = "scripts/t3submit %s" % jobscript
             resubCmds.append(command)
     for cmd in resubCmds:
-        print cmd
+        print (cmd)
 
 if args.issueCmd:
-    print "\n** Issuing resub\n"
+    print ("\n** Issuing resub\n")
     for cmd in resubCmds:
-        print cmd
+        print (cmd)
         os.system(cmd)
 
 

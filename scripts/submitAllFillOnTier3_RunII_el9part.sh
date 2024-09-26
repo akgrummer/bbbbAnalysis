@@ -81,23 +81,35 @@
 
 # NEW CFG FILE HERE for mY 90 study - mX sliced only
 # addel9=""
-addel9="_el9part"
-add3b=""
+# addel9="_el9part"
+# add3b=""
 # add3b="_3b"
-tag="2024Jun30_vars_Zjets"
+# tag="2024Jun30_vars_Zjets"
 # tag="2024Jun30_vars_Zjets_mY90pm10"
 # tag="2024Jun30_vars_mY90_Zjets_mX340"
 # tag="2024Jun30_vars_mY90_Zjets_mX488"
 # tag="2024Jun30_vars_mY90_Zjets_mX648"
 # tag="2024Jun30_vars_mY90_Zjets_mX960"
 # tag="2024Jun30_vars_mY90_Zjets_mX340to1216"
+#
+# thescript="scripts/submitFillOnTier3${addel9}.py"
+# tag=${tag}${add3b}
+
+# python3 ${thescript} --tag fullSubmission_2016preVFP_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets_preVFP.cfg
+# python3 ${thescript} --tag fullSubmission_2016_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
+# python3 ${thescript} --tag fullSubmission_2017_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
+# python3 ${thescript} --tag fullSubmission_2018_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
+
+#
+# addel9=""
+addel9="_el9part"
 
 thescript="scripts/submitFillOnTier3${addel9}.py"
-tag=${tag}${add3b}
+# tag=${tag}${add3b}
+tag="2024Aug12_vars_JetPt_v2" # different binning in v2
 
-python3 ${thescript} --tag fullSubmission_2016preVFP_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets_preVFP.cfg
-python3 ${thescript} --tag fullSubmission_2016_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
-python3 ${thescript} --tag fullSubmission_2017_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
-python3 ${thescript} --tag fullSubmission_2018_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars_mY90_Zjets.cfg
+python3 ${thescript} --tag fullSubmission_2016_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_JetPt.cfg
+python3 ${thescript} --tag fullSubmission_2017_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2017Resonant_NMSSM_XYH_bbbb_vars_JetPt.cfg
+python3 ${thescript} --tag fullSubmission_2018_BDTweights_${tag} --cfg config/Resonant_NMSSM_bbbb/plotter_2018Resonant_NMSSM_XYH_bbbb_vars_JetPt.cfg
 
 

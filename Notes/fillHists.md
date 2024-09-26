@@ -345,6 +345,35 @@ source ./scripts/mergeHistograms.sh 2024Jun27_vars_mY90_Zjets_mX340to1216_3b
 repeated Zjets bkg fills
 - use the wrong plotter cng files for 2017 and 2018 on the first round.
 
+Zjet samples are UL - but are still in the nominal sample cng
 
+
+
+# 2024 Aug 12.
+
+
+perform fill to look at jet pt distributions
+
+new plotter scripts
+config/Resonant_NMSSM_bbbb/plotter_2016Resonant_NMSSM_XYH_bbbb_vars_JetPt.cfg
+
+used scripts/submitAllFillOnTier3_RunII_el9part.sh from both sl7 and el9 submissions - (edited file)
+make submission files with el7, submit with el9
+
+commented out preVFP line (used for Z+jets study, which uses UL datasets):
+Run on el7image:
+source ./scripts/mergeHistograms.sh 2024Aug12_vars_JetPt
+
+python scripts/getTaskStatus.py --dir CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Aug12_vars_JetPt/ --long
+grep -irl -e "error" -e "zombie" CondorJobs/jobsFill_fullSubmission_2018_BDTweights_2024Aug12*
+
+Added variable (pT: FirstBtaggedJet_pt, etc) binning to these files:
+config/Resonant_NMSSM_bbbb/selectionCfg_2016Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+config/Resonant_NMSSM_bbbb/selectionCfg_2017Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+config/Resonant_NMSSM_bbbb/selectionCfg_2018Resonant_NMSSM_XYH_bbbb_TrigCut_2023Feb27.cfg
+
+tag="2024Aug12_vars_JetPt_v2"# different binning in v2
+set the maximum to 300 in the pT binning - used v2 in the tag
+source ./scripts/mergeHistograms.sh 2024Aug12_vars_JetPt_v2
 
 

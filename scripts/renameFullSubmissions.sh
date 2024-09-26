@@ -29,8 +29,8 @@
 tag=BDTweights_${1}
 tag2=${1}
 folderTag=fullSubmission_2022Nov
-for year in "2016preVFP" "2016" "2017" "2018"
-# for year in 2016 2017 2018
+# for year in "2016preVFP" "2016" "2017" "2018"
+for year in 2016 2017 2018
 do
     mv DataPlots_fullSubmission_${year}_${tag} ${year}DataPlots_${tag2}
     # mv fullSubmission_${year}_${tag} ${year}DataPlots_${tag}

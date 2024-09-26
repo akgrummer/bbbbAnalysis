@@ -1,0 +1,517 @@
+CaloMET_phi phi
+CaloMET_pt pt
+CaloMET_sumEt scalar sum of Et
+ChsMET_phi raw chs PF MET phi
+ChsMET_pt raw chs PF MET pt
+ChsMET_sumEt raw chs PF scalar sum of Et
+CorrT1METJet_area jet catchment area, for JECs
+CorrT1METJet_eta eta
+CorrT1METJet_muonSubtrFactor 1-(muon-subtracted raw pt)/(raw pt)
+CorrT1METJet_phi phi
+CorrT1METJet_rawPt pt()*jecFactor('Uncorrected')
+Electron_charge electric charge
+Electron_cleanmask simple cleaning mask with priority to leptons
+Electron_convVeto pass conversion veto
+Electron_cutBased cut-based ID Fall17 V2 (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
+Electron_cutBased_Fall17_V1 cut-based Fall17 ID (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
+Electron_cutBased_HEEP cut-based HEEP ID
+Electron_cutBased_HLTPreSel cut-based HLT pre-selection ID
+Electron_cutBased_Spring15 cut-based Spring15 ID (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
+Electron_cutBased_Sum16 cut-based Summer16 ID (0:fail, 1:veto, 2:loose, 3:medium, 4:tight)
+Electron_deltaEtaSC delta eta (SC,ele) with sign
+Electron_dr03EcalRecHitSumEt Non-PF Ecal isolation within a delta R cone of 0.3 with electron pt > 35 GeV
+Electron_dr03HcalDepth1TowerSumEt Non-PF Hcal isolation within a delta R cone of 0.3 with electron pt > 35 GeV
+Electron_dr03TkSumPt Non-PF track isolation within a delta R cone of 0.3 with electron pt > 35 GeV
+Electron_dr03TkSumPtHEEP Non-PF track isolation within a delta R cone of 0.3 with electron pt > 35 GeV used in HEEP ID
+Electron_dxy dxy (with sign) wrt first PV, in cm
+Electron_dxyErr dxy uncertainty, in cm
+Electron_dz dz (with sign) wrt first PV, in cm
+Electron_dzErr dz uncertainty, in cm
+Electron_eCorr ratio of the calibrated energy/miniaod energy
+Electron_eInvMinusPInv 1/E_SC - 1/p_trk
+Electron_energyErr energy error of the cluster-track combination
+Electron_eta eta
+Electron_genPartFlav Flavour of genParticle for MC matching to status==1 electrons or photons: 1 = prompt electron (including gamma*->mu mu), 15 = electron from prompt tau, 22 = prompt photon (likely conversion), 5 = electron from b, 4 = electron from c, 3 = electron from light or unknown, 0 = unmatched
+Electron_genPartIdx Index into genParticle list for MC matching to status==1 electrons or photons
+Electron_hoe H over E
+Electron_ip3d 3D impact parameter wrt first PV, in cm
+Electron_isPFcand electron is PF candidate
+Electron_jetIdx index of the associated jet (-1 if none)
+Electron_jetPtRelv2 Relative momentum of the lepton with respect to the closest jet after subtracting the lepton
+Electron_jetRelIso Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet)
+Electron_lostHits number of missing inner hits
+Electron_mass mass
+Electron_miniPFRelIso_all mini PF relative isolation, total (with scaled rho*EA PU corrections)
+Electron_miniPFRelIso_chg mini PF relative isolation, charged component
+Electron_mvaFall17V1Iso MVA Fall17 V1 Iso ID score
+Electron_mvaFall17V1Iso_WP80 MVA Fall17 V1 Iso ID WP80
+Electron_mvaFall17V1Iso_WP90 MVA Fall17 V1 Iso ID WP90
+Electron_mvaFall17V1Iso_WPL MVA Fall17 V1 Iso ID loose WP
+Electron_mvaFall17V1noIso MVA Fall17 V1 noIso ID score
+Electron_mvaFall17V1noIso_WP80 MVA Fall17 V1 noIso ID WP80
+Electron_mvaFall17V1noIso_WP90 MVA Fall17 V1 noIso ID WP90
+Electron_mvaFall17V1noIso_WPL MVA Fall17 V1 noIso ID loose WP
+Electron_mvaFall17V2Iso MVA Iso ID V2 score
+Electron_mvaFall17V2Iso_WP80 MVA Iso ID V2 WP80
+Electron_mvaFall17V2Iso_WP90 MVA Iso ID V2 WP90
+Electron_mvaFall17V2Iso_WPL MVA Iso ID V2 loose WP
+Electron_mvaFall17V2noIso MVA noIso ID V2 score
+Electron_mvaFall17V2noIso_WP80 MVA noIso ID V2 WP80
+Electron_mvaFall17V2noIso_WP90 MVA noIso ID V2 WP90
+Electron_mvaFall17V2noIso_WPL MVA noIso ID V2 loose WP
+Electron_mvaSpring16GP MVA Spring16 general-purpose ID score
+Electron_mvaSpring16GP_WP80 MVA Spring16 general-purpose ID WP80
+Electron_mvaSpring16GP_WP90 MVA Spring16 general-purpose ID WP90
+Electron_mvaSpring16HZZ MVA Spring16 HZZ ID score
+Electron_mvaSpring16HZZ_WPL MVA Spring16 HZZ ID loose WP
+Electron_mvaTTH TTH MVA lepton ID score
+Electron_pdgId PDG code assigned by the event reconstruction (not by MC truth)
+Electron_pfRelIso03_all PF relative isolation dR=0.3, total (with rho*EA PU corrections)
+Electron_pfRelIso03_chg PF relative isolation dR=0.3, charged component
+Electron_phi phi
+Electron_photonIdx index of the associated photon (-1 if none)
+Electron_pt p_{T}
+Electron_r9 R9 of the supercluster, calculated with full 5x5 region
+Electron_seedGain Gain of the seed crystal
+Electron_sieie sigma_IetaIeta of the supercluster, calculated with full 5x5 region
+Electron_sip3d 3D impact parameter significance wrt first PV, in cm
+Electron_tightCharge Tight charge criteria (0:none, 1:isGsfScPixChargeConsistent, 2:isGsfCtfScPixChargeConsistent)
+Electron_vidNestedWPBitmap VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaCut,GsfEleHadronicOverEMEnergyScaledCut,GsfEleEInverseMinusPInverseCut,GsfEleRelPFIsoScaledCut,GsfEleConversionVetoCut,GsfEleMissingHitsCut), 3 bits per cut
+Electron_vidNestedWPBitmapHEEP VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaWithSatCut,GsfEleFull5x5E2x5OverE5x5WithSatCut,GsfEleHadronicOverEMLinearCut,GsfEleValueMapIsoRhoCut,GsfEleEmHadD1IsoRhoCut,GsfEleDxyCut,GsfEleMissingHitsCut,GsfEleEcalDrivenCut), 1 bits per cut
+Electron_vidNestedWPBitmapSpring15 VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaCut,GsfEleHadronicOverEMCut,GsfEleDxyCut,GsfEleDzCut,GsfEleEInverseMinusPInverseCut,GsfEleEffAreaPFIsoCut,GsfEleConversionVetoCut,GsfEleMissingHitsCut), 2 bits per cut
+Electron_vidNestedWPBitmapSum16 VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaCut,GsfEleHadronicOverEMCut,GsfEleEInverseMinusPInverseCut,GsfEleEffAreaPFIsoCut,GsfEleConversionVetoCut,GsfEleMissingHitsCut), 3 bits per cut
+FatJet_area jet catchment area, for JECs
+FatJet_btagCMVA CMVA V2 btag discriminator
+FatJet_btagCSVV2  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
+FatJet_btagDDBvL DeepDoubleX (mass-decorrelated) discriminator for H(Z)->bb vs QCD
+FatJet_btagDDBvL_noMD DeepDoubleX discriminator (no mass-decorrelation) for H(Z)->bb vs QCD
+FatJet_btagDDCvB DeepDoubleX (mass-decorrelated) discriminator for H(Z)->cc vs H(Z)->bb
+FatJet_btagDDCvB_noMD DeepDoubleX discriminator (no mass-decorrelation) for H(Z)->cc vs H(Z)->bb
+FatJet_btagDDCvL DeepDoubleX (mass-decorrelated) discriminator for H(Z)->cc vs QCD
+FatJet_btagDDCvL_noMD DeepDoubleX discriminator (no mass-decorrelation) for H(Z)->cc vs QCD
+FatJet_btagDeepB DeepCSV b+bb tag discriminator
+FatJet_btagHbb Higgs to BB tagger discriminator
+FatJet_deepTagMD_H4qvsQCD Mass-decorrelated DeepBoostedJet tagger H->4q vs QCD discriminator
+FatJet_deepTagMD_HbbvsQCD Mass-decorrelated DeepBoostedJet tagger H->bb vs QCD discriminator
+FatJet_deepTagMD_TvsQCD Mass-decorrelated DeepBoostedJet tagger top vs QCD discriminator
+FatJet_deepTagMD_WvsQCD Mass-decorrelated DeepBoostedJet tagger W vs QCD discriminator
+FatJet_deepTagMD_ZHbbvsQCD Mass-decorrelated DeepBoostedJet tagger Z/H->bb vs QCD discriminator
+FatJet_deepTagMD_ZHccvsQCD Mass-decorrelated DeepBoostedJet tagger Z/H->cc vs QCD discriminator
+FatJet_deepTagMD_ZbbvsQCD Mass-decorrelated DeepBoostedJet tagger Z->bb vs QCD discriminator
+FatJet_deepTagMD_ZvsQCD Mass-decorrelated DeepBoostedJet tagger Z vs QCD discriminator
+FatJet_deepTagMD_bbvsLight Mass-decorrelated DeepBoostedJet tagger Z/H/gluon->bb vs light flavour discriminator
+FatJet_deepTagMD_ccvsLight Mass-decorrelated DeepBoostedJet tagger Z/H/gluon->cc vs light flavour discriminator
+FatJet_deepTag_H DeepBoostedJet tagger H(bb,cc,4q) sum
+FatJet_deepTag_QCD DeepBoostedJet tagger QCD(bb,cc,b,c,others) sum
+FatJet_deepTag_QCDothers DeepBoostedJet tagger QCDothers value
+FatJet_deepTag_TvsQCD DeepBoostedJet tagger top vs QCD discriminator
+FatJet_deepTag_WvsQCD DeepBoostedJet tagger W vs QCD discriminator
+FatJet_deepTag_ZvsQCD DeepBoostedJet tagger Z vs QCD discriminator
+FatJet_eta eta
+FatJet_jetId Jet ID flags bit1 is loose, bit2 is tight
+FatJet_mass mass
+FatJet_msoftdrop Corrected soft drop mass with PUPPI
+FatJet_n2b1 N2 with beta=1
+FatJet_n3b1 N3 with beta=1
+FatJet_phi phi
+FatJet_pt pt
+FatJet_rawFactor 1 - Factor to get back to raw pT
+FatJet_subJetIdx1 index of first subjet
+FatJet_subJetIdx2 index of second subjet
+FatJet_tau1 Nsubjettiness (1 axis)
+FatJet_tau2 Nsubjettiness (2 axis)
+FatJet_tau3 Nsubjettiness (3 axis)
+FatJet_tau4 Nsubjettiness (4 axis)
+Flag_BadChargedCandidateFilter Trigger/flag bit
+Flag_BadChargedCandidateSummer16Filter Trigger/flag bit
+Flag_BadPFMuonFilter Trigger/flag bit
+Flag_BadPFMuonSummer16Filter Trigger/flag bit
+Flag_CSCTightHalo2015Filter Trigger/flag bit
+Flag_CSCTightHaloFilter Trigger/flag bit
+Flag_CSCTightHaloTrkMuUnvetoFilter Trigger/flag bit
+Flag_EcalDeadCellBoundaryEnergyFilter Trigger/flag bit
+Flag_EcalDeadCellTriggerPrimitiveFilter Trigger/flag bit
+Flag_HBHENoiseFilter Trigger/flag bit
+Flag_HBHENoiseIsoFilter Trigger/flag bit
+Flag_HcalStripHaloFilter Trigger/flag bit
+Flag_METFilters Trigger/flag bit
+Flag_chargedHadronTrackResolutionFilter Trigger/flag bit
+Flag_ecalBadCalibFilter Trigger/flag bit
+Flag_ecalLaserCorrFilter Trigger/flag bit
+Flag_eeBadScFilter Trigger/flag bit
+Flag_globalSuperTightHalo2016Filter Trigger/flag bit
+Flag_globalTightHalo2016Filter Trigger/flag bit
+Flag_goodVertices Trigger/flag bit
+Flag_hcalLaserEventFilter Trigger/flag bit
+Flag_muonBadTrackFilter Trigger/flag bit
+Flag_trkPOGFilters Trigger/flag bit
+Flag_trkPOG_logErrorTooManyClusters Trigger/flag bit
+Flag_trkPOG_manystripclus53X Trigger/flag bit
+Flag_trkPOG_toomanystripclus53X Trigger/flag bit
+FsrPhoton_dROverEt2 deltaR to associated muon divided by photon et2
+FsrPhoton_eta eta
+FsrPhoton_muonIdx index of associated muon
+FsrPhoton_phi phi
+FsrPhoton_pt pt
+FsrPhoton_relIso03 relative isolation in a 0.3 cone without CHS
+GenDressedLepton_eta eta
+GenDressedLepton_hasTauAnc true if Dressed lepton has a tau as ancestor
+GenDressedLepton_mass mass
+GenDressedLepton_pdgId PDG id
+GenDressedLepton_phi phi
+GenDressedLepton_pt pt
+GenJetAK8_eta eta
+GenJetAK8_hadronFlavour flavour from hadron ghost clustering
+GenJetAK8_mass mass
+GenJetAK8_partonFlavour flavour from parton matching
+GenJetAK8_phi phi
+GenJetAK8_pt pt
+GenJet_eta eta
+GenJet_hadronFlavour flavour from hadron ghost clustering
+GenJet_mass mass
+GenJet_partonFlavour flavour from parton matching
+GenJet_phi phi
+GenJet_pt pt
+GenMET_phi phi
+GenMET_pt pt
+GenModel_YMass_100 EventString bit
+GenModel_YMass_125 EventString bit
+GenModel_YMass_150 EventString bit
+GenModel_YMass_200 EventString bit
+GenModel_YMass_250 EventString bit
+GenModel_YMass_300 EventString bit
+GenModel_YMass_400 EventString bit
+GenModel_YMass_500 EventString bit
+GenModel_YMass_60 EventString bit
+GenModel_YMass_70 EventString bit
+GenModel_YMass_80 EventString bit
+GenModel_YMass_90 EventString bit
+GenPart_eta eta
+GenPart_genPartIdxMother index of the mother particle
+GenPart_mass Mass stored for all particles with mass > 10 GeV and photons with mass > 1 GeV, plus W/Z and BSM particles. For other particles you can lookup from PDGID
+GenPart_pdgId PDG id
+GenPart_phi phi
+GenPart_pt pt
+GenPart_status Particle status. 1=stable
+GenPart_statusFlags gen status flags stored bitwise, bits are: 0 : isPrompt, 1 : isDecayedLeptonHadron, 2 : isTauDecayProduct, 3 : isPromptTauDecayProduct, 4 : isDirectTauDecayProduct, 5 : isDirectPromptTauDecayProduct, 6 : isDirectHadronDecayProduct, 7 : isHardProcess, 8 : fromHardProcess, 9 : isHardProcessTauDecayProduct, 10 : isDirectHardProcessTauDecayProduct, 11 : fromHardProcessBeforeFSR, 12 : isFirstCopy, 13 : isLastCopy, 14 : isLastCopyBeforeFSR, 
+GenVisTau_charge charge
+GenVisTau_eta eta
+GenVisTau_genPartIdxMother index of the mother particle
+GenVisTau_mass mass
+GenVisTau_phi phi
+GenVisTau_pt pt
+GenVisTau_status Hadronic tau decay mode. 0=OneProng0PiZero, 1=OneProng1PiZero, 2=OneProng2PiZero, 10=ThreeProng0PiZero, 11=ThreeProng1PiZero, 15=Other
+Generator_binvar MC generation binning value
+Generator_id1 id of first parton
+Generator_id2 id of second parton
+Generator_scalePDF Q2 scale for PDF
+Generator_weight MC generator weight
+Generator_x1 x1 fraction of proton momentum carried by the first parton
+Generator_x2 x2 fraction of proton momentum carried by the second parton
+Generator_xpdf1 x*pdf(x) for the first parton
+Generator_xpdf2 x*pdf(x) for the second parton
+HLT_Physics Trigger/flag bit
+HLT_ZeroBias Trigger/flag bit
+HLTriggerFinalPath Trigger/flag bit
+HLTriggerFirstPath Trigger/flag bit
+HTXS_Higgs_pt pt of the Higgs boson as identified in HTXS
+HTXS_Higgs_y rapidity of the Higgs boson as identified in HTXS
+HTXS_njets25 number of jets with pt>25 GeV as identified in HTXS
+HTXS_njets30 number of jets with pt>30 GeV as identified in HTXS
+HTXS_stage1_1_cat_pTjet25GeV HTXS stage-1.1 category(jet pt>25 GeV)
+HTXS_stage1_1_cat_pTjet30GeV HTXS stage-1.1 category(jet pt>30 GeV)
+HTXS_stage1_1_fine_cat_pTjet25GeV HTXS stage-1.1-fine category(jet pt>25 GeV)
+HTXS_stage1_1_fine_cat_pTjet30GeV HTXS stage-1.1-fine category(jet pt>30 GeV)
+HTXS_stage_0 HTXS stage-0 category
+HTXS_stage_1_pTjet25 HTXS stage-1 category (jet pt>25 GeV)
+HTXS_stage_1_pTjet30 HTXS stage-1 category (jet pt>30 GeV)
+IsoTrack_dxy dxy (with sign) wrt first PV, in cm
+IsoTrack_dz dz (with sign) wrt first PV, in cm
+IsoTrack_eta eta
+IsoTrack_fromPV isolated track comes from PV
+IsoTrack_isFromLostTrack if isolated track comes from a lost track
+IsoTrack_isHighPurityTrack track is high purity
+IsoTrack_isPFcand if isolated track is a PF candidate
+IsoTrack_miniPFRelIso_all mini PF relative isolation, total (with scaled rho*EA PU corrections)
+IsoTrack_miniPFRelIso_chg mini PF relative isolation, charged component
+IsoTrack_pdgId PDG id of PF cand
+IsoTrack_pfRelIso03_all PF relative isolation dR=0.3, total (deltaBeta corrections)
+IsoTrack_pfRelIso03_chg PF relative isolation dR=0.3, charged component
+IsoTrack_phi phi
+IsoTrack_pt pt
+Jet_area jet catchment area, for JECs
+Jet_bRegCorr pt correction for b-jet energy regression
+Jet_bRegRes res on pt corrected with b-jet regression
+Jet_btagCMVA CMVA V2 btag discriminator
+Jet_btagCSVV2  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
+Jet_btagDeepB DeepCSV b+bb tag discriminator
+Jet_btagDeepC DeepCSV charm btag discriminator
+Jet_btagDeepFlavB DeepFlavour b+bb+lepb tag discriminator
+Jet_btagDeepFlavC DeepFlavour charm tag discriminator
+Jet_chEmEF charged Electromagnetic Energy Fraction
+Jet_chHEF charged Hadron Energy Fraction
+Jet_cleanmask simple cleaning mask with priority to leptons
+Jet_electronIdx1 index of first matching electron
+Jet_electronIdx2 index of second matching electron
+Jet_eta eta
+Jet_genJetIdx index of matched gen jet
+Jet_hadronFlavour flavour from hadron ghost clustering
+Jet_jercCHF Charged Hadron Energy Fraction with the JERC group definition
+Jet_jercCHPUF Pileup Charged Hadron Energy Fraction with the JERC group definition
+Jet_jetId Jet ID flags bit1 is loose, bit2 is tight, bit3 is tightLepVeto
+Jet_mass mass
+Jet_muEF muon Energy Fraction
+Jet_muonIdx1 index of first matching muon
+Jet_muonIdx2 index of second matching muon
+Jet_muonSubtrFactor 1-(muon-subtracted raw pt)/(raw pt)
+Jet_nConstituents Number of particles in the jet
+Jet_nElectrons number of electrons in the jet
+Jet_nMuons number of muons in the jet
+Jet_neEmEF neutral Electromagnetic Energy Fraction
+Jet_neHEF neutral Hadron Energy Fraction
+Jet_partonFlavour flavour from parton matching
+Jet_phi phi
+Jet_pt pt
+Jet_puId Pilup ID flags
+Jet_qgl Quark vs Gluon likelihood discriminator
+Jet_rawFactor 1 - Factor to get back to raw pT
+L1Reco_step Trigger/flag bit
+L1simulation_step Trigger/flag bit
+MET_MetUnclustEnUpDeltaX Delta (METx_mod-METx) Unclustered Energy Up
+MET_MetUnclustEnUpDeltaY Delta (METy_mod-METy) Unclustered Energy Up
+MET_covXX xx element of met covariance matrix
+MET_covXY xy element of met covariance matrix
+MET_covYY yy element of met covariance matrix
+MET_fiducialGenPhi phi
+MET_fiducialGenPt pt
+MET_phi phi
+MET_pt pt
+MET_significance MET significance
+MET_sumEt scalar sum of Et
+Muon_charge electric charge
+Muon_cleanmask simple cleaning mask with priority to leptons
+Muon_dxy dxy (with sign) wrt first PV, in cm
+Muon_dxyErr dxy uncertainty, in cm
+Muon_dz dz (with sign) wrt first PV, in cm
+Muon_dzErr dz uncertainty, in cm
+Muon_eta eta
+Muon_fsrPhotonIdx Index of the associated FSR photon
+Muon_genPartFlav Flavour of genParticle for MC matching to status==1 muons: 1 = prompt muon (including gamma*->mu mu), 15 = muon from prompt tau, 5 = muon from b, 4 = muon from c, 3 = muon from light or unknown, 0 = unmatched
+Muon_genPartIdx Index into genParticle list for MC matching to status==1 muons
+Muon_highPtId high-pT cut-based ID (1 = tracker high pT, 2 = global high pT, which includes tracker high pT)
+Muon_inTimeMuon inTimeMuon ID
+Muon_ip3d 3D impact parameter wrt first PV, in cm
+Muon_isGlobal muon is global muon
+Muon_isPFcand muon is PF candidate
+Muon_isTracker muon is tracker muon
+Muon_jetIdx index of the associated jet (-1 if none)
+Muon_jetPtRelv2 Relative momentum of the lepton with respect to the closest jet after subtracting the lepton
+Muon_jetRelIso Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet)
+Muon_looseId muon is loose muon
+Muon_mass mass
+Muon_mediumId cut-based ID, medium WP
+Muon_mediumPromptId cut-based ID, medium prompt WP
+Muon_miniIsoId MiniIso ID from miniAOD selector (1=MiniIsoLoose, 2=MiniIsoMedium, 3=MiniIsoTight, 4=MiniIsoVeryTight)
+Muon_miniPFRelIso_all mini PF relative isolation, total (with scaled rho*EA PU corrections)
+Muon_miniPFRelIso_chg mini PF relative isolation, charged component
+Muon_multiIsoId MultiIsoId from miniAOD selector (1=MultiIsoLoose, 2=MultiIsoMedium)
+Muon_mvaId Mva ID from miniAOD selector (1=MvaLoose, 2=MvaMedium, 3=MvaTight)
+Muon_mvaLowPt Low pt muon ID score
+Muon_mvaTTH TTH MVA lepton ID score
+Muon_nStations number of matched stations with default arbitration (segment & track)
+Muon_nTrackerLayers number of layers in the tracker
+Muon_pdgId PDG code assigned by the event reconstruction (not by MC truth)
+Muon_pfIsoId PFIso ID from miniAOD selector (1=PFIsoVeryLoose, 2=PFIsoLoose, 3=PFIsoMedium, 4=PFIsoTight, 5=PFIsoVeryTight, 6=PFIsoVeryVeryTight)
+Muon_pfRelIso03_all PF relative isolation dR=0.3, total (deltaBeta corrections)
+Muon_pfRelIso03_chg PF relative isolation dR=0.3, charged component
+Muon_pfRelIso04_all PF relative isolation dR=0.4, total (deltaBeta corrections)
+Muon_phi phi
+Muon_pt pt
+Muon_ptErr ptError of the muon track
+Muon_segmentComp muon segment compatibility
+Muon_sip3d 3D impact parameter significance wrt first PV
+Muon_softId soft cut-based ID
+Muon_softMvaId soft MVA ID
+Muon_tightCharge Tight charge criterion using pterr/pt of muonBestTrack (0:fail, 2:pass)
+Muon_tightId cut-based ID, tight WP
+Muon_tkIsoId TkIso ID (1=TkIsoLoose, 2=TkIsoTight)
+Muon_tkRelIso Tracker-based relative isolation dR=0.3 for highPt, trkIso/tunePpt
+Muon_triggerIdLoose TriggerIdLoose ID
+Muon_tunepRelPt TuneP relative pt, tunePpt/pt
+OtherPV_z Z position of other primary vertices, excluding the main PV
+PSWeight dummy PS weight (1.0) 
+PV_chi2 main primary vertex reduced chi2
+PV_ndof main primary vertex number of degree of freedom
+PV_npvs total number of reconstructed primary vertices
+PV_npvsGood number of good reconstructed primary vertices. selection:!isFake && ndof > 4 && abs(z) <= 24 && position.Rho <= 2
+PV_score main primary vertex score, i.e. sum pt2 of clustered objects
+PV_x main primary vertex position x coordinate
+PV_y main primary vertex position y coordinate
+PV_z main primary vertex position z coordinate
+Photon_charge electric charge
+Photon_cleanmask simple cleaning mask with priority to leptons
+Photon_cutBased cut-based Spring16-V2p2 ID (0:fail, 1::loose, 2:medium, 3:tight)
+Photon_cutBased17Bitmap cut-based Fall17-94X-V1 ID bitmap, 2^(0:loose, 1:medium, 2:tight)
+Photon_eCorr ratio of the calibrated energy/miniaod energy
+Photon_electronIdx index of the associated electron (-1 if none)
+Photon_electronVeto pass electron veto
+Photon_energyErr energy error of the cluster from regression
+Photon_eta eta
+Photon_genPartFlav Flavour of genParticle for MC matching to status==1 photons or electrons: 1 = prompt photon, 13 = prompt electron, 0 = unknown or unmatched
+Photon_genPartIdx Index into genParticle list for MC matching to status==1 photons or electrons
+Photon_hoe H over E
+Photon_isScEtaEB is supercluster eta within barrel acceptance
+Photon_isScEtaEE is supercluster eta within endcap acceptance
+Photon_jetIdx index of the associated jet (-1 if none)
+Photon_mass mass
+Photon_mvaID MVA Spring16NonTrigV1 ID score
+Photon_mvaID17 MVA Fall17v1p1 ID score
+Photon_mvaID17_WP80 MVA Fall17v1p1 ID WP80
+Photon_mvaID17_WP90 MVA Fall17v1p1 ID WP90
+Photon_mvaID_WP80 MVA Spring16NonTrigV1 ID WP80
+Photon_mvaID_WP90 MVA Spring16NonTrigV1 ID WP90
+Photon_pdgId PDG code assigned by the event reconstruction (not by MC truth)
+Photon_pfRelIso03_all PF relative isolation dR=0.3, total (with rho*EA PU corrections)
+Photon_pfRelIso03_chg PF relative isolation dR=0.3, charged component (with rho*EA PU corrections)
+Photon_phi phi
+Photon_pixelSeed has pixel seed
+Photon_pt p_{T}
+Photon_r9 R9 of the supercluster, calculated with full 5x5 region
+Photon_seedGain Gain of the seed crystal
+Photon_sieie sigma_IetaIeta of the supercluster, calculated with full 5x5 region
+Photon_vidNestedWPBitmap VID compressed bitmap (MinPtCut,PhoSCEtaMultiRangeCut,PhoSingleTowerHadOverEmCut,PhoFull5x5SigmaIEtaIEtaCut,PhoAnyPFIsoWithEACut,PhoAnyPFIsoWithEAAndQuadScalingCut,PhoAnyPFIsoWithEACut), 2 bits per cut
+Pileup_gpudensity Generator-level PU vertices / mm
+Pileup_nPU the number of pileup interactions that have been added to the event in the current bunch crossing
+Pileup_nTrueInt the true mean number of the poisson distribution for this event from which the number of interactions each bunch crossing has been sampled
+Pileup_pudensity PU vertices / mm
+Pileup_sumEOOT number of early out of time pileup
+Pileup_sumLOOT number of late out of time pileup
+PuppiMET_phi phi
+PuppiMET_pt pt
+PuppiMET_sumEt scalar sum of Et
+RawMET_phi phi
+RawMET_pt pt
+RawMET_sumEt scalar sum of Et
+SV_chi2 reduced chi2, i.e. chi/ndof
+SV_dlen decay length in cm
+SV_dlenSig decay length significance
+SV_dxy 2D decay length in cm
+SV_dxySig 2D decay length significance
+SV_eta eta
+SV_mass mass
+SV_ndof number of degrees of freedom
+SV_pAngle pointing angle, i.e. acos(p_SV * (SV - PV)) 
+SV_phi phi
+SV_pt pt
+SV_x secondary vertex X position, in cm
+SV_y secondary vertex Y position, in cm
+SV_z secondary vertex Z position, in cm
+SoftActivityJetHT scalar sum of soft activity jet pt, pt>1
+SoftActivityJetHT10 scalar sum of soft activity jet pt , pt >10
+SoftActivityJetHT2 scalar sum of soft activity jet pt, pt >2
+SoftActivityJetHT5 scalar sum of soft activity jet pt, pt>5
+SoftActivityJetNjets10 number of soft activity jet pt, pt >2
+SoftActivityJetNjets2 number of soft activity jet pt, pt >10
+SoftActivityJetNjets5 number of soft activity jet pt, pt >5
+SoftActivityJet_eta eta
+SoftActivityJet_phi phi
+SoftActivityJet_pt pt
+SubGenJetAK8_eta eta
+SubGenJetAK8_mass mass
+SubGenJetAK8_phi phi
+SubGenJetAK8_pt pt
+SubJet_btagCMVA CMVA V2 btag discriminator
+SubJet_btagCSVV2  pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka CSVV2)
+SubJet_btagDeepB DeepCSV b+bb tag discriminator
+SubJet_eta eta
+SubJet_mass mass
+SubJet_n2b1 N2 with beta=1
+SubJet_n3b1 N3 with beta=1
+SubJet_phi phi
+SubJet_pt pt
+SubJet_rawFactor 1 - Factor to get back to raw pT
+SubJet_tau1 Nsubjettiness (1 axis)
+SubJet_tau2 Nsubjettiness (2 axis)
+SubJet_tau3 Nsubjettiness (3 axis)
+SubJet_tau4 Nsubjettiness (4 axis)
+Tau_charge electric charge
+Tau_chargedIso charged isolation
+Tau_cleanmask simple cleaning mask with priority to leptons
+Tau_decayMode decayMode()
+Tau_dxy d_{xy} of lead track with respect to PV, in cm (with sign)
+Tau_dz d_{z} of lead track with respect to PV, in cm (with sign)
+Tau_eta eta
+Tau_genPartFlav Flavour of genParticle for MC matching to status==2 taus: 1 = prompt electron, 2 = prompt muon, 3 = tau->e decay, 4 = tau->mu decay, 5 = hadronic tau decay, 0 = unknown or unmatched
+Tau_genPartIdx Index into genParticle list for MC matching to status==2 taus
+Tau_idAntiEle Anti-electron MVA discriminator V6: bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight
+Tau_idAntiEle2018 Anti-electron MVA discriminator V6 (2018): bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight
+Tau_idAntiMu Anti-muon discriminator V3: : bitmask 1 = Loose, 2 = Tight
+Tau_idDecayMode tauID('decayModeFinding')
+Tau_idDecayModeNewDMs tauID('decayModeFindingNewDMs')
+Tau_idDeepTau2017v2p1VSe byDeepTau2017v2p1VSe ID working points (deepTau2017v2p1): bitmask 1 = VVVLoose, 2 = VVLoose, 4 = VLoose, 8 = Loose, 16 = Medium, 32 = Tight, 64 = VTight, 128 = VVTight
+Tau_idDeepTau2017v2p1VSjet byDeepTau2017v2p1VSjet ID working points (deepTau2017v2p1): bitmask 1 = VVVLoose, 2 = VVLoose, 4 = VLoose, 8 = Loose, 16 = Medium, 32 = Tight, 64 = VTight, 128 = VVTight
+Tau_idDeepTau2017v2p1VSmu byDeepTau2017v2p1VSmu ID working points (deepTau2017v2p1): bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight
+Tau_idMVAnewDM2017v2 IsolationMVArun2v1DBnewDMwLT ID working point (2017v2): bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
+Tau_idMVAoldDM IsolationMVArun2v1DBoldDMwLT ID working point (2015): bitmask 1 = VLoose, 2 = Loose, 4 = Medium, 8 = Tight, 16 = VTight, 32 = VVTight
+Tau_idMVAoldDM2017v1 IsolationMVArun2v1DBoldDMwLT ID working point (2017v1): bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
+Tau_idMVAoldDM2017v2 IsolationMVArun2v1DBoldDMwLT ID working point (2017v2): bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
+Tau_idMVAoldDMdR032017v2 IsolationMVArun2v1DBoldDMdR0p3wLT ID working point (2017v2): bitmask 1 = VVLoose, 2 = VLoose, 4 = Loose, 8 = Medium, 16 = Tight, 32 = VTight, 64 = VVTight
+Tau_jetIdx index of the associated jet (-1 if none)
+Tau_leadTkDeltaEta eta of the leading track, minus tau eta
+Tau_leadTkDeltaPhi phi of the leading track, minus tau phi
+Tau_leadTkPtOverTauPt pt of the leading track divided by tau pt
+Tau_mass mass
+Tau_neutralIso neutral (photon) isolation
+Tau_phi phi
+Tau_photonsOutsideSignalCone sum of photons outside signal cone
+Tau_pt pt
+Tau_puCorr pileup correction
+Tau_rawAntiEle Anti-electron MVA discriminator V6 raw output discriminator
+Tau_rawAntiEle2018 Anti-electron MVA discriminator V6 raw output discriminator (2018)
+Tau_rawAntiEleCat Anti-electron MVA discriminator V6 category
+Tau_rawAntiEleCat2018 Anti-electron MVA discriminator V6 category (2018)
+Tau_rawDeepTau2017v2p1VSe byDeepTau2017v2p1VSe raw output discriminator (deepTau2017v2p1)
+Tau_rawDeepTau2017v2p1VSjet byDeepTau2017v2p1VSjet raw output discriminator (deepTau2017v2p1)
+Tau_rawDeepTau2017v2p1VSmu byDeepTau2017v2p1VSmu raw output discriminator (deepTau2017v2p1)
+Tau_rawIso combined isolation (deltaBeta corrections)
+Tau_rawIsodR03 combined isolation (deltaBeta corrections, dR=0.3)
+Tau_rawMVAnewDM2017v2 byIsolationMVArun2v1DBnewDMwLT raw output discriminator (2017v2)
+Tau_rawMVAoldDM byIsolationMVArun2v1DBoldDMwLT raw output discriminator (2015)
+Tau_rawMVAoldDM2017v1 byIsolationMVArun2v1DBoldDMwLT raw output discriminator (2017v1)
+Tau_rawMVAoldDM2017v2 byIsolationMVArun2v1DBoldDMwLT raw output discriminator (2017v2)
+Tau_rawMVAoldDMdR032017v2 byIsolationMVArun2v1DBdR03oldDMwLT raw output discriminator (2017v2)
+TkMET_phi raw track MET phi
+TkMET_pt raw track MET pt
+TkMET_sumEt raw track scalar sum of Et
+btagWeight_CMVA b-tag event weight for CMVA
+btagWeight_CSVV2 b-tag event weight for CSVV2
+event event/l
+fixedGridRhoFastjetAll rho from all PF Candidates, used e.g. for JECs
+fixedGridRhoFastjetCentral rho from all PF Candidates for central region, used e.g. for JECs
+fixedGridRhoFastjetCentralCalo rho from calo towers with |eta| < 2.5, used e.g. egamma PFCluster isolation
+fixedGridRhoFastjetCentralChargedPileUp rho from charged PF Candidates for central region, used e.g. for JECs
+fixedGridRhoFastjetCentralNeutral rho from neutral PF Candidates with |eta| < 2.5, used e.g. for rho corrections of some lepton isolations
+genTtbarId ttbar categorization
+genWeight generator weight
+luminosityBlock luminosityBlock/i
+nCorrT1METJet Additional low-pt jets for Type-1 MET re-correction
+nElectron slimmedElectrons after basic selection (pt > 5 )
+nFatJet slimmedJetsAK8, i.e. ak8 fat jets for boosted analysis
+nFsrPhoton Final state radiation photons emitted by muons
+nGenDressedLepton Dressed leptons from Rivet-based ParticleLevelProducer
+nGenJet slimmedGenJets, i.e. ak4 Jets made with visible genparticles
+nGenJetAK8 slimmedGenJetsAK8, i.e. ak8 Jets made with visible genparticles
+nGenPart interesting gen particles 
+nGenVisTau gen hadronic taus 
+nIsoTrack isolated tracks after basic selection (((pt>5 && (abs(pdgId) == 11 || abs(pdgId) == 13)) || pt > 10) && (abs(pdgId) < 15 || abs(eta) < 2.5) && abs(dxy) < 0.2 && abs(dz) < 0.1 && ((pfIsolationDR03().chargedHadronIso < 5 && pt < 25) || pfIsolationDR03().chargedHadronIso/pt < 0.2)) and lepton veto
+nJet slimmedJets, i.e. ak4 PFJets CHS with JECs applied, after basic selection (pt > 15)
+nMuon slimmedMuons after basic selection (pt > 3 && (passed('CutBasedIdLoose') || passed('SoftCutBasedId') || passed('SoftMvaId') || passed('CutBasedIdGlobalHighPt') || passed('CutBasedIdTrkHighPt')))
+nOtherPV 
+nPSWeight 
+nPhoton slimmedPhotons after basic selection (pt > 5 )
+nSV 
+nSoftActivityJet jets clustered from charged candidates compatible with primary vertex (charge()!=0 && pvAssociationQuality()>=5 && vertexRef().key()==0)
+nSubGenJetAK8 slimmedGenJetsAK8SoftDropSubJets, i.e. subjets of ak8 Jets made with visible genparticles
+nSubJet slimmedJetsAK8, i.e. ak8 fat jets for boosted analysis
+nTau slimmedTaus after basic selection (pt > 18 && tauID('decayModeFindingNewDMs') && (tauID('byLooseCombinedIsolationDeltaBetaCorr3Hits') || tauID('byVLooseIsolationMVArun2v1DBoldDMwLT2015') || tauID('byVLooseIsolationMVArun2v1DBnewDMwLT') || tauID('byVLooseIsolationMVArun2v1DBdR03oldDMwLT') || tauID('byVVLooseIsolationMVArun2v1DBoldDMwLT') || tauID('byVVLooseIsolationMVArun2v1DBoldDMwLT2017v2') || tauID('byVVLooseIsolationMVArun2v1DBnewDMwLT2017v2') || tauID('byVVLooseIsolationMVArun2v1DBdR03oldDMwLT2017v2') || tauID('byVVVLooseDeepTau2017v2p1VSjet')))
+run run/i
