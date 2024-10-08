@@ -32,5 +32,5 @@ SAMPLES="prepareModels/listOfSamples_10points.txt"
 # SAMPLES="prepareModels/listOfSamples_3in1600.txt"
 
 
-python prepareModels/SubmitWorkspaces.py --tag ${TAG} --year ${YEAR} --group auto --samplelist ${SAMPLES}
+python3 prepareModels/SubmitWorkspaces.py --tag ${TAG} --year ${YEAR} --group auto --samplelist ${SAMPLES}
 

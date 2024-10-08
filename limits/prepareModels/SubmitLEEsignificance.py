@@ -3,12 +3,15 @@ import os
 import sys
 import getpass
 import argparse
-from  ConfigParser import *
-from StringIO import StringIO
+# from  ConfigParser import *
+# from StringIO import StringIO
+from  configparser import *
+from io import StringIO
 import subprocess
 import copy
 
-t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit'
+# t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit'
+t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3el7submit'
 
 def writeln(f, line):
     f.write(line + '\n')
@@ -28,19 +31,19 @@ args = parser.parse_args()
 yearList = [args.year]
 
 if not args.tag:
-    print "... please provide a non-empty tag name (are you using --tag=$1 without cmd line argument?)"
+    print ("... please provide a non-empty tag name (are you using --tag=$1 without cmd line argument?)")
     sys.exit()
 
 username = getpass.getuser()
-print "... Welcome", username
+print ("... Welcome", username)
 
 outputDirNoEos = "/store/user/{0}/bbbb_limits/"
 eosLink = "root://cmseos.fnal.gov/"
 eosDir = eosLink + outputDirNoEos.format(username)
 cmsEnvTar = "cmssw10213.tar.gz" # need to remove the matching dir at end of script
-cmssw_base    = os.environ['CMSSW_BASE']
 cmssw_version = "CMSSW_10_2_13"# os.environ['CMSSW_VERSION']
-scram_arch    = os.environ['SCRAM_ARCH']
+# scram_arch    = os.environ['SCRAM_ARCH']
+scram_arch    = "slc7_amd64_gcc700"
 # listOfSystematics = ["CMS_bkgnorm_YEAR", "CMS_bkgShape_YEAR", "CMS_hourglassShape_YEAR", "lumi_13TeV_YEAR", "CMS_trg_eff_YEAR", "CMS_l1prefiring_YEAR", "CMS_eff_b_b_YEAR", "CMS_eff_b_c_YEAR", "CMS_eff_b_udsg_YEAR", "CMS_PU", "CMS_scale_j_Total_YEAR", "CMS_res_j_YEAR", "CMS_res_j_breg_YEAR",  "CMS_LHE_pdf", "CMS_PS_weights"]
 
 # LimitOptionsForImpacts = {}
@@ -51,7 +54,7 @@ scram_arch    = os.environ['SCRAM_ARCH']
 tag = args.tag
 tagid = int(args.tagid)
 
-jobsDir                  = 'CondorJobs/LEEsignificance/jobsLimits_{0}_{1}_{2}'.format(tag, args.year, args.tagid)
+jobsDir                  = 'CondorJobs/LEEsignificance2024Oct7/jobsLimits_{0}_{1}_{2}'.format(tag, args.year, args.tagid)
 outScriptNameBareProto   = 'job_{0}.sh'
 outScriptNameProto       = (jobsDir + '/' + outScriptNameBareProto)
 outFileNameTOYSProto         = 'GenToys_{0}_ntoys{1}_id{2}.root'
@@ -66,7 +69,8 @@ plotFileFolderProto      = baseFolder + '/HistogramFiles_{0}/'
 genToysFileFolderProto      = baseFolder + '/genToysFiles_{0}/'
 signFileFolderProto      = baseFolder + '/LEEsignFiles_{0}/'
 #  LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "", "freezeBKGnorm": "--freezeParameters var{.*CMS_bkgnorm.*}" }
-LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "" }
+# LimitOptions             = { "statOnly" : "--freezeParameters allConstrainedNuisances", "syst" : "" }
+LimitOptions             = { "syst" : "" }
 folderYearName           = "DatacardFolder_{0}"
 toysFolderYearName           = "ToysFolder_{0}"
 folderRunIIName          = "DatacardFolder_RunII"
@@ -88,22 +92,22 @@ command = 'tar -zcf {0} '.format(tarLFN)
 for ti in to_include:
     command += ti + ' '
 
-print '** INFO: Going to tar executable folder into', tarName
+print ('** INFO: Going to tar executable folder into', tarName)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print ("... Not able to execute command \"", command, "\", exit")
     sys.exit()
-    print '** INFO: tar finished and saved in:', tarLFN
+    print ('** INFO: tar finished and saved in:', tarLFN)
 else:
-    print '** INFO: Not going to tar executable folder, using', tarLFN
+    print ('** INFO: Not going to tar executable folder, using', tarLFN)
 
 
 if os.path.isdir(jobsDir):
-    print "... working folder", jobsDir, " already exists, exit"
+    print ("... working folder", jobsDir, " already exists, exit")
     # sys.exit()
 
 cmd='mkdir -p ' + jobsDir
 if os.system(cmd) != 0:
-    print "... Not able to execute command \"", cmd, "\", exit"
+    print ("... Not able to execute command \"", cmd, "\", exit")
     sys.exit()
 
 ##############################
@@ -111,23 +115,23 @@ if os.system(cmd) != 0:
 tarEOSdestLFN         = eosDir + '/' + tag + '/combine_tar/' + tarName
 # tarEOSdestLFN.replace('root://cmseos.fnal.gov/', '/eos/uscms')
 
-print "** INFO: copying executables tarball to:", tarEOSdestLFN
+print ("** INFO: copying executables tarball to:", tarEOSdestLFN)
 command = 'xrdcp -f -s %s %s' % (tarLFN, tarEOSdestLFN)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print ("... Not able to execute command \"", command, "\", exit")
     sys.exit()
 
 for year in yearList:
     command = 'eos ' + eosLink + ' mkdir %s' % (plotFileFolderProtoNoEos.format(year))
     if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
+        print ("... Not able to execute command \"", command, "\", exit")
         sys.exit()
 
 ##################################################
 ### Main Script for job
 ##################################################
 
-for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'rb').readlines():
+for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'r').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     massXstring =  signal[ signal.find("_MX_") + len("_MX_"): signal.find("_MY_" ) ]
@@ -180,14 +184,14 @@ for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'rb').readlines():
     if tagid == 0:# only run data signficance for first tagid. Toys will still be run for this tagid
         datacode=0 # for output significance tree, 0: data, 1: MC, 2: interpolated sig
         sign_options ='-n _RunII_data --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH'
-        writeln(outScript, 'combine -M Significance {0} --verbose 1 --mass 125.0 {1}'.format(workspaceName, sign_options))
+        writeln(outScript, 'combine -M Significance {0} --uncapped 1 --rMin=-20 --verbose 1 --mass 125.0 {1}'.format(workspaceName, sign_options))
         signFile = "higgsCombine_RunII_data.Significance.mH125.root"
         toyVal = -1
         writeln(outScript, './an-scripts/exe/LEE_addInfoToSignifTree {0} {1} {2} {3} {4}'.format(signFile, massX, massY, toyVal, datacode))
     for atoy in range(1,ntoys+1):
         simMCcode = 1 # for output significance tree, 0: data, 1: MC, 2: interpolated sig
         sign_options ='-n _RunII_{0} --X-rtd  MINIMIZER_analytic --X-rtd  FAST_VERTICAL_MORPH -D {1}:toys/toy_{0}'.format(atoy, gridGenToysFile)
-        writeln(outScript, 'combine -M Significance {0} --verbose 1 --mass 125.0 {1}'.format(workspaceName, sign_options))
+        writeln(outScript, 'combine -M Significance {0} --uncapped 1 --rMin=-20 --verbose 1 --mass 125.0 {1}'.format(workspaceName, sign_options))
         signFile = "higgsCombine_RunII_{0}.Significance.mH125.root".format(atoy)
         # ./an-scripts/LEE_addInfoToSignifTree higgsCombineTest.Significance.mH120.root 650 350 95
         writeln(outScript, './an-scripts/exe/LEE_addInfoToSignifTree {0} {1} {2} {3} {4}'.format(signFile, massX, massY, atoy+(tagid*ntoys), simMCcode))
@@ -215,11 +219,11 @@ for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'rb').readlines():
 
 ## set directory to job directory, so that logs will be saved there
 os.chdir(jobsDir)
-for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'rb').readlines():
+for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'r').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     command = "%s job_%s.sh" % (t3SubmitScript,signal)
     if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
+        print ("... Not able to execute command \"", command, "\", exit")
         sys.exit()
 

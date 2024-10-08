@@ -165,6 +165,34 @@ submit fit diagnostics for the two highest local significance values.
 (!) workspace were not already created previously
 used same tag as previous fit diagnostics performed (for each mass region).
 
+# 2024 Oct 3
+
+submit largest deficits
+
+
+copied from above:
+
+### !!!!In order to Run Workspaces on the grid:!!!!
+1. need to have limits config up to date.
+2. Need to have the prepareModels/listOfSamples.txt ready
+3. Need to used the correct tag in the SubmitAllWorkspaces.sh
+- make sure normalization values are correct in both Workspaces submit and GOF/FitDiagnostics submit scripts
+
+For workspaces all mass points are about at the limit of 512 (so some are held)
+ran all mass points at
+1024 MB
+
+Adjusted file to be submited from alma9 with python3 to el7image (see some listed changes in Limits.vim LEE study)
+
+used 2048 for both (few jobs)
+source prepareModels/SubmitAllWorkspaces.sh
+source ./prepareModels/SubmitAllFitDiagnostic.sh
+
+
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="SR"; ayear=2018; grep -ir "error" CondorJobs/WorkSpaces/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_SR/
+
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="SR"; ayear=2018; grep -ir "error" CondorJobs/FitDiagnostics/jobsLimits_${tag}_${region}_${ayear}_0_sig0/
+tag="2023Dec7_binMYx2_addMX650_10ev"; region="SR"; ayear=2018; grep -ilr "warning" CondorJobs/FitDiagnostics/jobsLimits_${tag}_${region}_${ayear}_0_sig0/
 
 
 

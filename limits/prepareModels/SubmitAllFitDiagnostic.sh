@@ -30,6 +30,6 @@ ALGO="saturated"
 TAGID=0
 # for YEAR in 2016; do
 for YEAR in 2016 2017 2018; do
-    python prepareModels/SubmitFitDiagnostics.py --tag ${TAG} --tagid ${TAGID} --year ${YEAR} --samplelist ${SAMPLES} --group auto --fixsig 0
+    python3 prepareModels/SubmitFitDiagnostics.py --tag ${TAG} --tagid ${TAGID} --year ${YEAR} --samplelist ${SAMPLES} --group auto --fixsig 0
 done
 

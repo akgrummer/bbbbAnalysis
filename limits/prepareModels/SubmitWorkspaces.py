@@ -3,12 +3,15 @@ import os
 import sys
 import getpass
 import argparse
-from  ConfigParser import *
-from StringIO import StringIO
+# from  ConfigParser import *
+# from StringIO import StringIO
+from  configparser import *
+from io import StringIO
 import subprocess
 import copy
 
-t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit'
+# t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3submit'
+t3SubmitScript = '/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3el7submit'
 
 def writeln(f, line):
     f.write(line + '\n')
@@ -58,19 +61,20 @@ else:
     yearList = [args.year]
 
 if not args.tag:
-    print "... please provide a non-empty tag name (are you using --tag=$1 without cmd line argument?)"
+    print ("... please provide a non-empty tag name (are you using --tag=$1 without cmd line argument?)")
     sys.exit()
 
 username = getpass.getuser()
-print "... Welcome", username
+print ("... Welcome", username)
 
 outputDirNoEos = "/store/user/{0}/bbbb_limits/"
 eosLink = "root://cmseos.fnal.gov/"
 outputDir = eosLink + outputDirNoEos.format(username)
 cmsEnvTar = "cmssw10213.tar.gz" # need to remove the matching dir at end of script
-cmssw_base    = os.environ['CMSSW_BASE']
+# cmssw_base    = os.environ['CMSSW_BASE']
 cmssw_version = "CMSSW_10_2_13"# os.environ['CMSSW_VERSION']
-scram_arch    = os.environ['SCRAM_ARCH']
+# scram_arch    = os.environ['SCRAM_ARCH']
+scram_arch    = "slc7_amd64_gcc700"
 listOfSystematics = ["CMS_bkgnorm_YEAR", "CMS_bkgShape_YEAR", "CMS_hourglassShape_YEAR", "lumi_13TeV_YEAR", "CMS_trg_eff_YEAR", "CMS_l1prefiring_YEAR", "CMS_eff_b_b_YEAR", "CMS_eff_b_c_YEAR", "CMS_eff_b_udsg_YEAR", "CMS_PU", "CMS_scale_j_Total_YEAR", "CMS_res_j_YEAR", "CMS_res_j_breg_YEAR",  "CMS_LHE_pdf", "CMS_PS_weights"]
 
 blindFlag = " --run blind "
@@ -87,7 +91,7 @@ groupString = ""
 if args.group != 'none' and args.group != 'auto' : groupString = ('_massGroup' + args.group)
 tag = tag + groupString
 
-jobsDir                  = 'CondorJobs/jobsLimits_' + tag
+jobsDir                  = 'CondorJobs/WorkSpaces/jobsLimits_' + tag
 outScriptNameBareProto   = 'job_{0}.sh'
 outScriptNameProto       = (jobsDir + '/' + outScriptNameBareProto)
 outFileNameProto         = 'Limit_{0}_{1}_{2}.root'
@@ -121,22 +125,22 @@ command = 'tar -zcf {0} '.format(tarLFN)
 for ti in to_include:
     command += ti + ' '
 
-print '** INFO: Going to tar executable folder into', tarName
+print ('** INFO: Going to tar executable folder into', tarName)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print ("... Not able to execute command \"", command, "\", exit")
     sys.exit()
-    print '** INFO: tar finished and saved in:', tarLFN
+    print ('** INFO: tar finished and saved in:', tarLFN)
 else:
-    print '** INFO: Not going to tar executable folder, using', tarLFN
+    print ('** INFO: Not going to tar executable folder, using', tarLFN)
 
 
 if os.path.isdir(jobsDir):
-    print "... working folder", jobsDir, " already exists, exit"
+    print ("... working folder", jobsDir, " already exists, exit")
     # sys.exit()
 
 cmd='mkdir -p ' + jobsDir
 if os.system(cmd) != 0:
-    print "... Not able to execute command \"", cmd, "\", exit"
+    print ("... Not able to execute command \"", cmd, "\", exit")
     sys.exit()
 
 ##############################
@@ -144,15 +148,15 @@ if os.system(cmd) != 0:
 tarEOSdestLFN         = outputDir + '/' + tag + '/combine_tar/' + tarName
 # tarEOSdestLFN.replace('root://cmseos.fnal.gov/', '/eos/uscms')
 
-print "** INFO: copying executables tarball to:", tarEOSdestLFN
+print ("** INFO: copying executables tarball to:", tarEOSdestLFN)
 command = 'xrdcp -f -s %s %s' % (tarLFN, tarEOSdestLFN)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print ("... Not able to execute command \"", command, "\", exit")
     sys.exit()
 
 command = 'eos ' + eosLink + ' mkdir %s' % (baseFolderNoEos)
 if os.system(command) != 0:
-    print "... Not able to execute command \"", command, "\", exit"
+    print ("... Not able to execute command \"", command, "\", exit")
     sys.exit()
 
 for year in yearList:
@@ -166,7 +170,7 @@ for year in yearList:
 
     command = 'eos ' + eosLink + ' mkdir %s' % (plotFileFolderProtoNoEos.format(year))
     if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
+        print ("... Not able to execute command \"", command, "\", exit")
         sys.exit()
 
     if args.group != "auto":
@@ -175,17 +179,17 @@ for year in yearList:
         # command = 'eos cp %s %s' % (inputHistogramFile, outputHistogramFile)
         command = 'eos cp %s %s' % (inputHistogramFile, plotFileFolderProto.format(year))
         if os.system(command) != 0:
-            print "... Not able to execute command \"", command, "\", exit"
+            print ("... Not able to execute command \"", command, "\", exit")
             sys.exit()
 
     else:
         inputHistogramFile  = directory + "/outPlotter_massGroup*.root"
         command = 'eos cp %s %s' % (inputHistogramFile, plotFileFolderProto.format(year))
         if os.system(command) != 0:
-            print "... Not able to execute command \"", command, "\", exit"
+            print ("... Not able to execute command \"", command, "\", exit")
             sys.exit()
 
-for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
+for signalRaw in open("prepareModels/listOfSamples.txt", 'r').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     outScriptName  = outScriptNameProto.format(signal)
@@ -238,7 +242,7 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
             groupNumber = mXandGroup[int(massXstring)]
             groupFlag = " --group " + str(groupNumber)
 
-        # print 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s'%(year,signal,plotFileFolderProto.format(year),folderName)
+        # print ('python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s'%(year,signal,plotFileFolderProto.format(year),folderName))
         writeln(outScript, 'python prepareModels/prepareHistos.py              --config prepareModels/config/LimitsConfig_%s.cfg --signal %s --directory %s --folder %s %s'%(year,signal,plotFileFolderProto.format(year),folderName, groupFlag))
         writeln(outScript, 'echo "... preparing datacard"')
         writeln(outScript, 'python prepareModels/makeDatacardsAndWorkspaces.py --config prepareModels/config/LimitsConfig_%s.cfg --card-only --no-comb --signal  %s --folder %s --bkgNorm %s'%(year,signal,folderName,bkgNormPerMassGroupDictionary[year][str(groupNumber)]))
@@ -321,12 +325,12 @@ for signalRaw in open("prepareModels/listOfSamples.txt", 'rb').readlines():
 ## set directory to job directory, so that logs will be saved there
 os.chdir(jobsDir)
 # for signalRaw in open("../../prepareModels/listOfSamples.txt", 'rb').readlines():
-for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'rb').readlines():
+for signalRaw in open(limitWorkDir+"/"+args.samplelist, 'r').readlines():
     if '#' in signalRaw: continue
     signal = signalRaw[:-1]
     command = "%s job_%s.sh" % (t3SubmitScript,signal)
     if os.system(command) != 0:
-        print "... Not able to execute command \"", command, "\", exit"
+        print ("... Not able to execute command \"", command, "\", exit")
         sys.exit()
 
 

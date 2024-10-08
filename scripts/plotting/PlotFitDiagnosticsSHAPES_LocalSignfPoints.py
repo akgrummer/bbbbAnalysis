@@ -304,6 +304,7 @@ def makePlot(labels,xMin, xMax, globalMaxVal,massMap):
     psig.cd()
 
     ySigMax = hSigShape.GetMaximum()
+    ySigMin = hSigShape.GetMinimum()
     hSigShape.GetXaxis().SetRange(xMin, xMax-1)
     hSigShape.SetLineColor(ROOT.kGreen+2)
     hSigShape.SetLineWidth(2)
@@ -321,7 +322,10 @@ def makePlot(labels,xMin, xMax, globalMaxVal,massMap):
     hSigShape.GetYaxis().SetTitleSize(.16)
     hSigShape.GetYaxis().SetTitleOffset(0.3)
 
-    hSigShape.GetYaxis().SetRangeUser(0, ySigMax*1.2)
+    # if (massGroup==0 and ): hSigShape.GetYaxis().SetRangeUser( ySigMax*1.2)
+    # else:
+    if(ySigMax<0.001): hSigShape.GetYaxis().SetRangeUser(ySigMin*1.2, 3)
+    else: hSigShape.GetYaxis().SetRangeUser(0, ySigMax*1.2)
     hSigShape.GetXaxis().SetLabelSize(0.)
     hSigShape.GetXaxis().SetNdivisions(ticks);
 
@@ -454,7 +458,8 @@ def makePlot(labels,xMin, xMax, globalMaxVal,massMap):
 # BinRanges = [0,100]
 BinRanges = [0,101,201,301,401,501]
 # sigs = ["sig_NMSSM_bbbb_MX_400_MY_125"]
-sigs = ["sig_NMSSM_bbbb_MX_650_MY_350", "sig_NMSSM_bbbb_MX_700_MY_400"]
+# sigs = ["sig_NMSSM_bbbb_MX_650_MY_350", "sig_NMSSM_bbbb_MX_700_MY_400"]
+sigs = ["sig_NMSSM_bbbb_MX_400_MY_250", "sig_NMSSM_bbbb_MX_600_MY_125", "sig_NMSSM_bbbb_MX_600_MY_150"]
 # tag = "2023Jul5_VR"
 # tag = "2023Jul5_SR"
 # tag = "2023Dec7_binMYx2_addMX650_10ev_VR"
@@ -471,7 +476,8 @@ years=["2016", "2017", "2018"]
 # allfittypes= ["prefit", "fit_b", "fit_s", "prefit"]
 allfittypes= ["prefit", "fit_b", "fit_s", "total"]
 massMap={}
-setGroup=1
+# setGroup=1
+setGroup=0
 for year in years:
     locDir=locDirTemplate.format(year, ogTag)
     for i, sig in enumerate(sigs):

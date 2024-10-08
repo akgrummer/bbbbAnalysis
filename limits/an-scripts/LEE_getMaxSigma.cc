@@ -1,24 +1,27 @@
-#include "ROOT/TDataFrame.hxx"
 #include "TFile.h"
 #include "TTree.h"
 #include "TPad.h"
+#include "TH1F.h"
 #include <stdio.h>
-using namespace ROOT::Experimental;
+#include <iostream>
 
 // g++  -std=c++17 -I `root-config --incdir`  -o an-scripts/exe/LEE_getMaxSigma an-scripts/LEE_getMaxSigma.cc `root-config --libs` -O3
 
 int main(int argc, char** argv) {
-    if(argc!=2)
+    if(argc!=4)
     {
-        std::cout<<"Usage: ./an-scripts/exe/LEE_getMaxSigma <ifile>"<<"\n";
+        std::cout<<"Usage: ./an-scripts/exe/LEE_getMaxSigma <ifile> <toymin> <toymax>"<<"\n";
         exit(EXIT_FAILURE);
     }
 
     TString iFileName = argv[1];
     std::unique_ptr<TFile> iFile( TFile::Open(iFileName, "read") );
 
+    int toymin=atoi(argv[2]);
+    int toymax=atoi(argv[3]);
+
     TTree *tree = (TTree*)iFile->Get("limit");
-    tree->Draw("limit>>htempData(10000,0,5)","toyNum==-1");
+    tree->Draw("limit>>htempData(10000,3.8,10)","toyNum==-1");
     auto htempData = (TH1F*)gPad->GetPrimitive("htempData"); // 1D
     float maxDataVal = htempData->GetXaxis()->GetBinCenter(htempData->FindLastBinAbove(0));
     float maxValBinContentData = htempData->GetBinContent(htempData->FindLastBinAbove(0));
@@ -31,17 +34,20 @@ int main(int argc, char** argv) {
     auto hmYData = (TH1F*)gPad->GetPrimitive("hmYData"); // 1D
     float maxmYData= hmYData->GetBinLowEdge(hmYData->FindLastBinAbove(0));
 
+    if (toymin==1){
     std::cout<< "Data largest local sign: "<<"\n";
     std::cout<< maxValBinContentData<< " ";
     std::cout<< maxDataVal <<" ";
     std::cout<< maxmXData <<" ";
     std::cout<< maxmYData <<"\n";
+    }
 
     std::cout<< "MC toys above max local "<<"\n";
     std::cout<< ""<<"\r";
 
-    for (int atoy=1; atoy<10001; atoy++){
-        tree->Draw("limit>>htemp(10000,0,5)",Form("toyNum==%d",atoy));
+    // for (int atoy=1; atoy<10001; atoy++){
+    for (int atoy=toymin; atoy<toymax; atoy++){
+        tree->Draw("limit>>htemp(10000,3.8,10)",Form("toyNum==%d",atoy));
         auto htemp = (TH1F*)gPad->GetPrimitive("htemp"); // 1D
         float maxVal = htemp->GetXaxis()->GetBinCenter(htemp->FindLastBinAbove(0));
         float maxValBinContent= htemp->GetBinContent(htemp->FindLastBinAbove(0));

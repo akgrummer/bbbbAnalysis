@@ -1,6 +1,7 @@
 #!/bin/bash
 
-TAG="2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR"
+# TAG="2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR"
+TAG="2023Dec7_binMYx2_addMX650_10ev_fullPlane_2024Oct7_SR"
 SAMPLES="prepareModels/listOfSamples_genToys.txt" # needs to be one signal
 
 
@@ -18,7 +19,7 @@ for YEAR in "RunII"; do
     for TAGID in $(seq 0 ${TAGIDS}); do
         # echo ${TAGID}
        # echo $((${TAGID}+${SEED}))
-        python prepareModels/SubmitGenerateToys.py --tag ${TAG} \
+        python3 prepareModels/SubmitGenerateToys.py --tag ${TAG} \
             --tagid ${TAGID} --ntoys ${NTOYS} --seed $((${TAGID}+${SEED})) \
             --year ${YEAR} --samplelist ${SAMPLES}
     done;

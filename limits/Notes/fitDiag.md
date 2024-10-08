@@ -145,3 +145,15 @@ for CMSweek slides, needed a zoom version of the plot:
 ./scripts/plotting/runAllFitDiag2Dpull_LocalSignfPoints.sh
 scripts/plotting/FitDiag2Dpull_LocalSignfPoints_pullZoom_2024Apr16.py
 
+# 2024 Oct 3
+
+look at largest deficit points
+Ran fit diagnostics - as described above 2024 Jan24
+
+added 3 mass points (largest deficits) to this file
+and changed to mass group0
+also adjusted y setrangeuser (should only impact the negative values)
+
+python3 scripts/plotting/PlotFitDiagnosticsSHAPES_LocalSignfPoints.py
+
+

@@ -217,5 +217,187 @@ grep -ir "error" CondorJobs/Limits_fullPlane | grep -v "Messages of type"
 
 
 
+#  2024 Sep 26 rerun LEE with negative significance allowed
+
+
+./prepareModels/SubmitAllLEEsignificance.sh
+with TAG="2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR"
+
+added '--uncapped 1 --rMin=-20'
+to combine commands for data and toys
+
+In order to run since alma9:
+
+Switch to t3el7submit script to use toys
+and scram_arch    = "slc7_amd64_gcc700"
+
+and switch io and configparser package import lines (although they may not be used)
+
+removed statOnly option (only want the systematics)
+
+to avoid rerunning genToys and making new workspaces:
+
+eosmkdir /store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR
+
+xrdcp -r root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR/genToysFiles_RunII root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR/
+
+xrdcp -r root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR/HistogramFiles_RunII root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR/
+eosrm -r /store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR/HistogramFiles_RunII/Limit_*
+
+
+eosls /store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR/HistogramFiles_RunII
+eosls /store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR/LEEsignFiles_RunII
+eosls /store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR/genToysFiles_RunII
+
+
+grep -ir "error" CondorJobs/LEEsignificanceNEG | grep -v "Messages of type"
+grep -ir "error" CondorJobs/LEEsignificanceNEG
+
+
+# 2024 Sep 27
+Tarbal didn't unpack properly for two of the jobs:
+
+grep -irl "No such file or directory" CondorJobs/LEEsignificanceNEG
+
+[cmslpc302 Sep27 11:39:34 limits]$ grep -ilr "No such file or directory" CondorJobs/LEEsignificanceNEG
+CondorJobs/LEEsignificanceNEG/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR_RunII_3/job_sig_NMSSM_bbbb_MX_900_MY_300.sh_70505140.stdout
+CondorJobs/LEEsignificanceNEG/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR_RunII_5/job_sig_NMSSM_bbbb_MX_650_MY_400.sh_70505242.stdout
+[cmslpc302 Sep27 11:39:47 limits]$ grep -ir "error" CondorJobs/LEEsignificanceNEG | grep -v "Messages of type"
+CondorJobs/LEEsignificanceNEG/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR_RunII_3/job_sig_NMSSM_bbbb_MX_900_MY_300.sh_70505140.stdout:tar: Error is not recoverable: exiting now
+CondorJobs/LEEsignificanceNEG/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR_RunII_5/job_sig_NMSSM_bbbb_MX_650_MY_400.sh_70505242.stdout:tar: Error is not recoverable: exiting now
+
+## submitted the jobs again - and they worked
+cd CondorJobs/LEEsignificanceNEG/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR_RunII_3/
+/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3el7submit job_sig_NMSSM_bbbb_MX_900_MY_300.sh
+
+cd CondorJobs/LEEsignificanceNEG/jobsLimits_2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR_RunII_5/
+/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3el7submit job_sig_NMSSM_bbbb_MX_650_MY_400.sh
+
+
+## hadd all together:
+hadd lee_sign_all_neg.root `xrdfsls -u /store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_neg_SR/LEEsignFiles_RunII | grep '\.root'`
+- this took forEVER for all toys (4hrs?)
+
+
+
+
+# 2024 Oct 2
+
+root -l lee_sign_all_neg.root
+
+Show the distribution of significance in data in run II:
+limit->Draw("limit>>hist(26,-8.,4.5)", "sim==0")
+
+./an-scripts/exe/LEE_getMaxSigma
+in screen:
+./an-scripts/exe/LEE_getMaxSigma lee_sign_all_neg.root >> lee_global_sign_max15_2024Oct2.txt &
+
+increase range of getMaxSigma Significane hists from 5 to 15. Suspect the technique doesn't count overflow bins
+
+
+this is a copy of LEE_getMaxSigma BUT inverted the significance histograms (limit becomes -limit) and cut is less than the -(abs(most neg limit))
+an-scripts/LEE_getMinSigma.cc
+./an-scripts/exe/LEE_getMinSigma lee_sign_all_neg.root >> lee_global_sign_min_2024Oct2.txt &
+
+got no values for min sigma (after 8000+toys)
+
+compile again, setting the the threshold to -1
+./an-scripts/exe/LEE_getMinSigma lee_sign_all_neg.root >> lee_global_sign_min1_2024Oct3.txt &
+./an-scripts/exe/LEE_getMinSigma lee_sign_all_neg.root
+./an-scripts/exe/LEE_getMinSigmaTemp lee_sign_all_neg.root
+
+now looking for significance of second largest deficit
+
+./an-scripts/exe/LEE_getMinSigma lee_sign_all_neg.root >> lee_global_sign_2ndMin_2024Oct3.txt &
+
+./an-scripts/exe/LEE_getMinSigma lee_sign_all_neg.root >> lee_global_sign_2ndMin_noDataDeficits_2024Oct3.txt &
+
+
+
+
+
+# 2024 Oct 7
+
+removed "--toyFrequentist" and "--expectSignal=0" option from toy generatation.
+
+updated this script to submit for el9 and send to el7 images
+prepareModels/SubmitGenerateToys.py
+
+
+./prepareModels/SubmitAllGenerateOnly.sh
+
+
+first must copy datacard files:
+
+xrdcp -r root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR/HistogramFiles_2016 root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_2024Oct7_SR/
+xrdcp -r root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR/HistogramFiles_2017 root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_2024Oct7_SR/
+xrdcp -r root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR/HistogramFiles_2018 root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_2024Oct7_SR/
+xrdcp -r root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_SR/HistogramFiles_RunII root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_2024Oct7_SR/
+
+
+grep -ir "error" CondorJobs/| grep -v "Messages of type"
+
+./prepareModels/SubmitAllLEEsignificance.sh
+with TAG="2023Dec7_binMYx2_addMX650_10ev_fullPlane_2024Oct7_SR"
+and changed output jobs dir to CondorJobs/LEEsignificance2024Oct7
+instead of CondorJobs/LEEsignificanceNEG
+
+
+grep -ir "error" CondorJobs/LEEsignificance2024Oct7 | grep -v "Messages of type"
+grep -irl "No such file or directory" CondorJobs/LEEsignificance2024Oct7
+grep -irl "complex" CondorJobs/LEEsignificance2024Oct7
+grep -irl "Error parsing payload code" CondorJobs/LEEsignificance2024Oct7
+
+grep -ir "error" CondorJobs/LEEsignificance2024Oct7 | grep -v "Messages of type" | grep -v "Error parsing payload code"
+
+grep -irl "error while loading shared libraries" CondorJobs/LEEsignificance2024Oct7
+
+grep -ir "error" CondorJobs/LEEsignificance2024Oct7 | grep -v "Messages of type" | grep -v "Error parsing payload code" | grep -v "error while loading shared libraries" | grep -v "complex"
+
+one job tar didn't unpack properly (as before) resubmit with:
+/uscms/home/agrummer/nobackup/DiHiggs_v2/CMSSW_10_2_5/src/bbbbAnalysis/scripts/t3el7submit job_sig_NMSSM_bbbb_MX_650_MY_250.sh
+
+22 files with other errors and resubmitted. See
+Notes/job_errors_2024Oct7.md
+and
+Notes/job_errors_2024Oct8.md
+
+## hadd all root files together:
+
+use multiple processors now:
+
+hadd -j 6 lee_sign_all_2024Oct7_noFreq.root `xrdfsls -u /store/user/agrummer/bbbb_limits/2023Dec7_binMYx2_addMX650_10ev_fullPlane_2024Oct7_SR/LEEsignFiles_RunII | grep '\.root'`
+
+- previously this took forEVER for all toys (4hrs?)
+
+## perform LEE scan over root file
+
+use multiple processes now:
+./an-scripts/runGlobalSignifScan.sh <outputFileNames> <min or max>
+
+./an-scripts/runGlobalSignifScan.sh 2024Oct7_noFreq max
+./an-scripts/runGlobalSignifScan.sh 2024Oct7_noFreq min
+ps aux |grep an-scripts/exe/LEE_get
+
+combine scan outputs:
+
+cat studies/LEE/2024Oct7_noFreq/*min.txt > studies/LEE/2024Oct7_noFreq/2024Oct7_noFreq_all_min.txt
+cat studies/LEE/2024Oct7_noFreq/*max.txt > studies/LEE/2024Oct7_noFreq/2024Oct7_noFreq_all_max.txt
+
+
+## get the final global sign values:
+
+number of excesses here:
+studies/LEE/2024Oct7_noFreq/2024Oct7_noFreq_all_max.txt
+studies/LEE/2024Oct7_noFreq/2024Oct7_noFreq_all_min.txt
+
+then divide by 10000 (toys)
+
+from scipy.stats import norm
+>>> -norm.ppf(0.0026)
+2.7943758687810414
+>>> -norm.ppf(0.0060)
+2.5121443279304616
+
 
 

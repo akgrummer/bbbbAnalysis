@@ -75,17 +75,27 @@ for theMass in massList:
         diff = yObs-yExp
         #  print ("diff {}".format(diff))
         if(args.use2sig):
-            if diff>=0: ySig = theGraph2sigma.GetErrorYhigh(i)/2
-            else: ySig= theGraph2sigma.GetErrorYlow(i)/2
+            if diff>=0:
+                ySig = theGraph2sigma.GetErrorYhigh(i)/2
+                ySig2 = theGraph2sigma.GetErrorYhigh(i)/2
+            else:
+                ySig= theGraph2sigma.GetErrorYlow(i)/2
+                ySig2= theGraph2sigma.GetErrorYlow(i)/2
         else:
-            if diff>=0: ySig = theGraph1sigma.GetErrorYhigh(i)
-            else: ySig= theGraph1sigma.GetErrorYlow(i)
+            if diff>=0:
+                ySig = theGraph1sigma.GetErrorYhigh(i)
+                ySig2 = theGraph2sigma.GetErrorYhigh(i)/2
+            else:
+                ySig= theGraph1sigma.GetErrorYlow(i)
+                ySig2= theGraph2sigma.GetErrorYlow(i)/2
         # print("sigma: {}".format(ySig))
         pull =  diff/ySig
+        pull2 =  diff/ySig2
         # if (pull>2.5): print( "m{0}=({1},{2}), m{3}={4}, yObs={5}, yExp={6}, pull={7}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
         # if (pull>3.4): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
-        if (pull>4. and not args.listX and not args.use2sig): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
-        if (pull<-2.0 and not args.listX and not args.use2sig): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
+        # if (pull>4. and not args.listX and not args.use2sig): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
+        # if (pull<-2.0 and not args.listX and not args.use2sig): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, pull={7:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, pull ))
+        if ((pull>4. or pull<-2.0) and not args.listX and not args.use2sig): print( "m{0}={1}, m{3}={4}, yObs={5:.4f}, yExp={6:.4f}, ySigma={7:.4f}, pull={8:.4f}, SigmaHigh={9:.4f}, SigmaLow={10:.4f}, pull2sigma={11:.4f}, ySig2sigma={12:.4f}, 2sigmaHigh={13:.4f}, 2sigmaLow={14:.4f}".format(massXY, xObs, xExp, othermassXY, theMass, yObs, yExp, ySig, pull,  theGraph1sigma.GetErrorYhigh(i), theGraph1sigma.GetErrorYlow(i), pull2, ySig2, theGraph2sigma.GetErrorYhigh(i)/2, theGraph2sigma.GetErrorYlow(i)/2))
         hMean.Fill(pull)
 
 theCanvas = TCanvas("limitsMean", "limitsMean", 800, 600)
