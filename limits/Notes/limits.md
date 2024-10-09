@@ -287,3 +287,13 @@ tag="2023Dec7_binMYx2_addMX650_10ev_unblind_deltaNLL_neg20"; region="SR"; python
 ../scripts/plotting/DeltaNLL.C
 
 
+# 2024 Oct 8
+
+local significance values for the largest deviations (excess and deficit)
+using mass groups
+
+tag="sign_largestDeviations"; region="SR"; python3 prepareModels/SubmitFullRunIIsignificance.py --tag ${tag}_${region} --year RunII --group auto --unblind
+tag="sign_largestDeviations"; region="SR"; python3 scripts/getTaskStatus.py --dir CondorJobs/Significance/jobsSignificance_${tag}_${region}/ --long
+
+root -l root://cmseos.fnal.gov//store/user/agrummer/bbbb_limits/sign_test_SR/HistogramFiles_RunII/Limit_RunII_sig_NMSSM_bbbb_MX_400_MY_250_syst.root
+
