@@ -400,4 +400,10 @@ from scipy.stats import norm
 2.5121443279304616
 
 
+## Show the distribution of significance in data in run II:
+root -l lee_sign_all_2024Oct7_noFreq.root
+limit->Draw("limit>>hist(20,-5,5)", "sim==0&&!(mX==400&&mY==250)")
+
+
+
 

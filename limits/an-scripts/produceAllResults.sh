@@ -30,14 +30,14 @@ TAG="2023Dec7_binMYx2_addMX650_10ev_unblind_SR"
 #
 # ./PlotLimitsFromCondor $TAG
 # outputs to "hists/Limits_" + tagName + ".root"
-# ./an-scripts/PlotLimitsFromCondor $TAG impacts
+./an-scripts/PlotLimitsFromCondor $TAG impacts
 # ./an-scripts/PlotLimitsFromCondor $TAG
 
 ##################################################
 ## no DiHiggs_v1 in Fabio's folder:
 # needs: spin0/CombineResults_syst.txt
-python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root --systematics
-python an-scripts/CompareHHAnalysisAll_fromRootFile_Observed.py --input hists/Limits_$TAG.root --systematics
+# python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root --systematics
+# python an-scripts/CompareHHAnalysisAll_fromRootFile_Observed.py --input hists/Limits_$TAG.root --systematics
 
 # needs: spin0/CombineResults_statOnly.txt
 # python an-scripts/CompareHHAnalysisAll_fromRootFile.py --input hists/Limits_$TAG.root
