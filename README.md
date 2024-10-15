@@ -1,6 +1,10 @@
 # bbbbAnalysis
 
 ## Install instructions
+
+Mileage may vary for these instructions. These were performed on LPC cluster using scientific linux 7 OS. (Prior to the introduction of el8 or el9).
+Using a slc7 image in singularity has been necessary for continued use of some scripts in the repo.
+
 ```
 cmsrel CMSSW_10_2_5
 cd CMSSW_10_2_5/src
@@ -31,7 +35,7 @@ skim_ntuple.exe --cfg config/Resonant_NMSSM_bbbb/skim_2016Resonant_NMSSM_XYH_bbb
 
 ## Fill histograms from skims
 ```
-fill_histograms.exe config/Resonant_NMSSM_bbbb/MXless1000_MYgreater140/plotter_2016Resonant_NMSSM_XYH_bbbb.cfg 
+fill_histograms.exe config/Resonant_NMSSM_bbbb/MXless1000_MYgreater140/plotter_2016Resonant_NMSSM_XYH_bbbb.cfg
 ````
 
 ## Make plots
@@ -54,7 +58,7 @@ pip install --user --upgrade hep-ml
 
 Edit in the mlskim_NMSSM_XYH_bbbb/config/<file> the cuts, variable, samples and weight name
 ```
-python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config=mlskim_NMSSM_XYH_bbbb/config/outputskim_2016.cfg 
+python mlskim_NMSSM_XYH_bbbb/BuildBackgroundModel.py --config=mlskim_NMSSM_XYH_bbbb/config/outputskim_2016.cfg
 ````
 this will crate a folder with the model within BackgroundModels
 Now you can run the next step that will create the a new branch in the origina tree containing the weigths for the BDT weights
@@ -87,4 +91,56 @@ After installing it, from the HiggsAnalysis/CombinedLimit directory do
 ln -s <path_to_bbbbAnalysis>/limits limits
 
 Scripts for running combine are under ``limits``.
+
+# 2024 Oct. Organization of the whole analysis chain
+
+Navigating this repo is possible through the use of vim sessions.
+These sessions may be found in the folders:
+
+`vim-sessions/` and `limits/vim-sessions/'
+
+The major steps of the analysis are in the sessions listed below. If you don't use vim-sessions these files may be opened with any text editor to extract the list of important files for that analysis step.
+
+In addition to these sessions there are files containing specific notes for each major analysis step. These are in the directories `Notes` and `limits/Notes`. Most vim-sessions open (or point someone to) to the relevant notes file.
+
+#### skimming
+- skimming_MoreSignals.vim
+- skimming_ZjetsSamples.vim
+
+#### BDT
+- BDT.vim
+- BDT-Uncertainties.vim
+- Sess_BDToffshell.vim
+
+
+#### fill hists
+- fillHists.vim
+- plotting.vim
+
+#### unroll hists
+- Unroll.vim
+- unrollPlots.vim
+- Unroll-FullPlane.vim
+
+#### misc.
+- NormUnc.vim
+- bkgComposition.vim
+- hourglassUnc.vim
+- createPseudoDatasets.vim
+- pairingEfficiency.vim
+- selfBias.vim
+
+
+#### limits:
+
+- running limits: `limits/vim-sessions/limits.vim`
+- running goodness of fit tests: `limits/vim-sessions/GoF.vim`
+- running fit diagnostics: `limits/vim-sessions/FitDiagnostics.vim`
+- compiling, plotting, studying results: `limits/vim-sessions/produceResults.vim`
+- global significance: `limits/vim-sessions/LEE.vim`
+
+
+
+
+
 
