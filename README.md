@@ -5,6 +5,11 @@
 Mileage may vary for these instructions. These were performed on LPC cluster using scientific linux 7 OS. (Prior to the introduction of el8 or el9).
 Using a slc7 image in singularity has been necessary for continued use of some scripts in the repo.
 
+
+in the commands below should actually use: `git clone -b el9_cmssw10_forgitlab --recurse-submodules git@github.com:akgrummer/bbbbAnalysis.git`
+
+if `--recurse-submodules` is dropped the plotterListFiles directory is not cloned (it contains 12000 files)
+
 ```
 cmsrel CMSSW_10_2_5
 cd CMSSW_10_2_5/src
@@ -138,6 +143,19 @@ In addition to these sessions there are files containing specific notes for each
 - running fit diagnostics: `limits/vim-sessions/FitDiagnostics.vim`
 - compiling, plotting, studying results: `limits/vim-sessions/produceResults.vim`
 - global significance: `limits/vim-sessions/LEE.vim`
+
+
+
+
+
+## Cleaned repo a little
+
+plotterListFiles are now in a git submodules (12000 files)
+
+
+removed (657 files): limits/results/SelfBiasTest2016 limits/results/SelfBiasTest2017 limits/results/SelfBiasTest2018
+removed (227 files): limits/CombineHarvester
+These files could still be found in the commit history if needed.
 
 
 
